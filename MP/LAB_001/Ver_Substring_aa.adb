@@ -2,7 +2,7 @@ WITH Ada.Text_Io; USE Ada.Text_Io;
 
 procedure Ver_Substring_aa is
    -- salida: 11 booleanos(SE)
-   -- post: corresponden a cada uno de los casos de pruebas diseñados.
+   -- post: corresponden a cada uno de los casos de pruebas diseï¿½ados.
 
    function Substring_aa(
          S : String)
@@ -11,7 +11,14 @@ procedure Ver_Substring_aa is
    --   Substring_aa que decide si el string S contiene el substring 'aa'.
    BEGIN
       -- Completar
-      NULL;
+      if S'Size < 16 then
+        return False;
+      end if;
+
+      if S(S'First .. S'First + 1) = "aa" then
+        return True;
+      end if;
+      return Substring_aa(S(S'First + 1 .. S'Last));
    end Substring_aa;
 
 
