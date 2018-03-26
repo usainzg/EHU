@@ -2,7 +2,7 @@ with Ada.Text_Io; use Ada.Text_Io;
 
 procedure Ver_Dar_La_Vuelta is
    -- salida: 6 strings(SE)
-   -- post: corresponden a cada uno de los casos de pruebas diseñados.
+   -- post: corresponden a cada uno de los casos de pruebas diseï¿½ados.
 
    function Dar_La_Vuelta (
          S : String)
@@ -11,7 +11,10 @@ procedure Ver_Dar_La_Vuelta is
    --   Dar_La_Vuelta que devuelve el string inverso de S.
    BEGIN
       -- Completar
-      NULL;
+      if S'Size <= 1 then
+        return S;
+      end if;
+      return Dar_La_Vuelta(S(S'First + 1 .. S'Last)) & S(S'First);
    end Dar_La_Vuelta ;
 
 
