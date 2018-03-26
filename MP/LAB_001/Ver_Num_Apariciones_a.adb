@@ -3,16 +3,23 @@ WITH Ada.Integer_Text_Io; USE Ada.Integer_Text_Io;
 
 procedure Ver_Num_Apariciones_a is
    -- salida: 11 enteros(SE)
-   -- post: corresponden a cada uno de los casos de pruebas diseñados.
+   -- post: corresponden a cada uno de los casos de pruebas diseï¿½ados.
 
    function Num_Apariciones_a (
          S : String)
      return Integer is
    -- EJERCICIO 4- ESPECIFICA E IMPLEMENTA recursivamente el subprograma
-   --   Num_Apariciones_a que devuelve el numero de apariciones del carácter 'a' en el string S
+   --   Num_Apariciones_a que devuelve el numero de apariciones del carï¿½cter 'a' en el string S
    BEGIN
       -- Completar
-      NULL;
+      if S'Size = 0 then
+        return 0;
+      end if;
+
+      if S(S'First) = 'a' then
+        return 1 + Num_Apariciones_a(S(S'First + 1 .. S'Last));
+      end if;
+      return Num_Apariciones_a(S(S'First + 1 .. S'Last));
    end Num_Apariciones_a ;
 
 
