@@ -2,16 +2,24 @@ WITH Ada.Text_Io; USE Ada.Text_Io;
 
 procedure Ver_Contiene_a is
    -- salida: 7 booleanos(SE)
-   -- post: corresponden a cada uno de los casos de pruebas diseñados.
+   -- post: corresponden a cada uno de los casos de pruebas diseï¿½ados.
 
    function Contiene_a (
          S : String)
      return Boolean is
    -- EJERCICIO 3- ESPECIFICA E IMPLEMENTA recursivamente el subprograma
-   --   Contiene_a que decide si el string S contiene el carácter 'a'.
+   --   Contiene_a que decide si el string S contiene el carï¿½cter 'a'.
    BEGIN
       -- Completar
-      NULL;
+      if S'Size = 0 then
+        return False;
+      end if;
+
+      if S(S'First) = 'a' then
+        return True;
+      end if;
+
+      return Contiene_a(S(S'First + 1 .. S'Last));
    end Contiene_a ;
 
 
