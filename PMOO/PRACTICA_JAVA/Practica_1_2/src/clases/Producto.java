@@ -5,7 +5,7 @@ package clases;
  *
  */
 
-public class Producto {
+public class Producto implements Comparable<Producto> {
 	
 	private final double IVA_PRODUCTO = 0.21;
 
@@ -146,6 +146,8 @@ public class Producto {
 				+ pesoProducto + " ";
 	}
 
-	
-
+	@Override
+	public int compareTo(Producto o) {
+		return (o.getCodigoProducto() < codigoProducto) ? 1 : -1;
+	}
 }
