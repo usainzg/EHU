@@ -3,18 +3,19 @@ Este codigo se ha implementado basandose en el ejemplo "Simple sprite demo" de
 dovoto y otro de Jaeden Amero
 ---------------------------------------------------*/
 
-#include <nds.h>
 #include <stdio.h>
 #include <stdlib.h>	    // srand, rand,...
 #include <unistd.h>
 #include <time.h>       // time 
 
+#include "nds.h"
 #include "fondos.h"
 #include "sprites.h"
 #include "defines.h"
 #include "rutservs.h"
 #include "teclado.h"
 #include "temporizadores.h"
+#include "juego.h"
 
 //---------------------------------------------------
 // Funciones
@@ -22,7 +23,7 @@ dovoto y otro de Jaeden Amero
 
 // Esta funcion consulta si se ha tocado la pantalla tactil
 int TactilTocada() {
-touchPosition pos_pantalla;
+	touchPosition pos_pantalla;
 	touchRead(&pos_pantalla);
   	return !(pos_pantalla.px==0 && pos_pantalla.py==0);
 } 
@@ -31,7 +32,7 @@ touchPosition pos_pantalla;
 // Variables globales
 //---------------------------------------------------
 
-int estado;
+int estado = 0;
 
 //---------------------------------------------------
 // main
@@ -76,15 +77,23 @@ int main() {
     /* Incluimos la siguiente cabecera para que cada grupo la modifique con
         su numero de grupo "xx" en "Gxx". */
     iprintf("\x1b[02;00H  +--------------------------+  ");
-    iprintf("\x1b[03;00H  : EC 17/18           Gxx   :  ");
+    iprintf("\x1b[03;00H  : EC 17/18           G13   :  ");
     iprintf("\x1b[04;00H  +--------------------------+  ");
+	iprintf("\x1b[07;00H     Para comenzar,   toque     ");
+	iprintf("\x1b[09;00H      la pantalla taactil.      ");
 
 //---------------------------------------------------
 
-    while( xxxxx ) {
-
-
+    while(!estado) {
+		estado = TactilTocada();
     } // while
+
+	iprintf("\x1b[07;00H     PANTALLA TOCADA            ");
+	iprintf("\x1b[09;00H                                ");
+
+	while(1) {
+
+	}
 
 } //main
 
