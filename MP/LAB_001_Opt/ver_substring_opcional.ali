@@ -1,0 +1,54 @@
+V "GNAT Lib v2017"
+M P W=b
+P ZX
+
+RN
+RV NO_IO
+RV NO_RECURSION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV SPARK_05
+
+U ver_substring_opcional%b  ver_substring_opcional.adb  7f1b3bea NE OO SU
+W ada%s			ada.ads			ada.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W system.img_bool%s	s-imgboo.adb		s-imgboo.ali
+
+D ada.ads		20170516105951 76789da1 ada%s
+D a-except.ads		20170516105953 291912d5 ada.exceptions%s
+D a-ioexce.ads		20170516105949 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20170516105952 119b8fb3 ada.streams%s
+D a-tags.ads		20170516105955 d3a89129 ada.tags%s
+D a-textio.ads		20170516105955 386df5d4 ada.text_io%s
+D a-unccon.ads		20170516105954 31484697 ada.unchecked_conversion%s
+D interfac.ads		20170516105950 5ab55268 interfaces%s
+D i-cstrea.ads		20170516105950 e53d8b8e interfaces.c_streams%s
+D system.ads		20170516105953 085b6ffb system%s
+D s-crtl.ads		20170516105948 0ebbdb71 system.crtl%s
+D s-exctab.ads		20170516105954 54135002 system.exception_table%s
+D s-ficobl.ads		20170516105956 078245e4 system.file_control_block%s
+D s-imgboo.ads		20170516105949 f5d971eb system.img_bool%s
+D s-parame.ads		20170516105955 7e2a0d7f system.parameters%s
+D s-soflin.ads		20170516105951 14e1eb6c system.soft_links%s
+D s-stache.ads		20170516105955 a37c21ec system.stack_checking%s
+D s-stalib.ads		20170516105955 09bd3940 system.standard_library%s
+D s-stoele.ads		20170516105956 2dc34a04 system.storage_elements%s
+D s-traent.ads		20170516105950 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20170516105953 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20170516105954 1b7d22d2 system.wch_con%s
+D ver_substring_opcional.adb  20180327092446 4776ce3e ver_substring_opcional%b
+X 1 ada.ads
+16K9*Ada 20e8 23|1r6 1r23
+X 6 a-textio.ads
+49K13*Text_IO 471e16 23|1w10 1r27
+166U14*New_Line 23|30s4 31s4 32s4 37s4 40s4 41s4 42s4 47s4 50s4 53s4 56s4
+. 59s4 62s4 65s4 68s4
+242U14*Put 23|28s4 29s4 35s4 36s4 38s4 39s4 45s4 46s4 48s4 49s4 51s4 52s4
+. 54s4 55s4 57s4 58s4 60s4 61s4 63s4 64s4 66s4 67s4
+263U14*Put_Line 23|27s4 33s4 34s4 43s4 44s4 69s4
+X 23 ver_substring_opcional.adb
+3U11*Ver_Substring_Opcional 3b11 70l5 70t27
+7V13 Substring_Sub{boolean} 7b13 8>10 9>10 22s14 23l8 23t21 29s22 36s22 39s22
+. 46s22 49s22 52s22 55s22 58s22 61s22 64s22 67s22
+8a10 S{string} 15r10 19r10 19r12 19r23 22r28 22r30 22r45
+9a10 Sub{string} 15r19 19r38 22r54
+
