@@ -1,0 +1,60 @@
+V "GNAT Lib v2017"
+M P W=b
+P ZX
+
+RN
+RV NO_IO
+RV NO_RECURSION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV SPARK_05
+
+U ver_num_apariciones_opcional%b  ver_numero_apariciones_opcional.adb  5690f31e NE OO SU
+W ada%s			ada.ads			ada.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+
+D ada.ads		20170516105951 76789da1 ada%s
+D a-except.ads		20170516105953 291912d5 ada.exceptions%s
+D a-inteio.ads		20170516105955 f64b89a4 ada.integer_text_io%s
+D a-ioexce.ads		20170516105949 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20170516105952 119b8fb3 ada.streams%s
+D a-tags.ads		20170516105955 d3a89129 ada.tags%s
+D a-textio.ads		20170516105955 386df5d4 ada.text_io%s
+D a-tiinio.ads		20170516105950 aa04e5d6 ada.text_io.integer_io%s
+D a-unccon.ads		20170516105954 31484697 ada.unchecked_conversion%s
+D interfac.ads		20170516105950 5ab55268 interfaces%s
+D i-cstrea.ads		20170516105950 e53d8b8e interfaces.c_streams%s
+D system.ads		20170516105953 085b6ffb system%s
+D s-crtl.ads		20170516105948 0ebbdb71 system.crtl%s
+D s-exctab.ads		20170516105954 54135002 system.exception_table%s
+D s-ficobl.ads		20170516105956 078245e4 system.file_control_block%s
+D s-parame.ads		20170516105955 7e2a0d7f system.parameters%s
+D s-soflin.ads		20170516105951 14e1eb6c system.soft_links%s
+D s-stache.ads		20170516105955 a37c21ec system.stack_checking%s
+D s-stalib.ads		20170516105955 09bd3940 system.standard_library%s
+D s-stoele.ads		20170516105956 2dc34a04 system.storage_elements%s
+D s-traent.ads		20170516105950 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20170516105953 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20170516105954 1b7d22d2 system.wch_con%s
+D ver_numero_apariciones_opcional.adb  20180327091800 98b68f6e ver_num_apariciones_opcional%b
+X 1 ada.ads
+16K9*Ada 20e8 24|1r6 1r23 2r6 2r31
+X 3 a-inteio.ads
+18K13*Integer_Text_IO[8|46] 24|2w10 2r35
+X 7 a-textio.ads
+49K13*Text_IO 471e16 24|1w10 1r27
+166U14*New_Line 24|31s4 32s4 33s4 38s4 41s4 42s4 43s4 48s4 51s4 54s4 57s4
+. 60s4 63s4 66s4 69s4 72s4 75s4
+242U14*Put 24|29s4 36s4 39s4 46s4 49s4 52s4 55s4 58s4 61s4 64s4 67s4 70s4
+. 73s4
+263U14*Put_Line 24|28s4 34s4 35s4 44s4 45s4 76s4
+X 8 a-tiinio.ads
+66U14*Put 24|30s4[3|18] 37s4[3|18] 40s4[3|18] 47s4[3|18] 50s4[3|18] 53s4[3|18]
+. 56s4[3|18] 59s4[3|18] 62s4[3|18] 65s4[3|18] 68s4[3|18] 71s4[3|18] 74s4[3|18]
+X 24 ver_numero_apariciones_opcional.adb
+4U11*Ver_Num_Apariciones_Opcional 4b11 77l5 77t33
+8V13 Num_Apariciones_Caracter{integer} 8b13 9>10 10>10 21s20 23s14 24l8 24t32
+. 30s8 37s8 40s8 47s8 50s8 53s8 56s8 59s8 62s8 65s8 68s8 71s8 74s8
+9a10 S{string} 16r10 20r10 20r12 21r45 21r47 21r62 23r39 23r41 23r56
+10e10 L{character} 20r23 21r71 23r65
+
