@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Plantilla1718"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/unaisainz/EHU/EC/Plantilla1718/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/unaisainz/EHU/EC/Plantilla1718/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/unaisainz/EHU/EC/Plantilla1718/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/unaisainz/EHU/EC/Plantilla1718/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/unaisainz/EHU/EC/Plantilla1718/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/unaisainz/EHU/EC/Plantilla1718/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/unaisainz/EHU/EC/Plantilla1718/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/unaisainz/EHU/EC/Plantilla1718/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/unaisainz/EHU/EC/Plantilla1718/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/unaisainz/EHU/EC/Plantilla1718/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/unaisainz/EHU/EC/Plantilla1718/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/unaisainz/EHU/EC/Plantilla1718/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/unaisainz/EHU/EC/Plantilla1718/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/unaisainz/EHU/EC/Plantilla1718/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/unaisainz/EHU/EC/Plantilla1718/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Plantilla1718">
+				<Option output="/Users/unaisainz/EHU/EC/Plantilla1718/cmake-build-debug/Plantilla1718" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/unaisainz/EHU/EC/Plantilla1718/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/unaisainz/EHU/EC/Plantilla1718/cmake-build-debug/Makefile&quot;  VERBOSE=1 Plantilla1718"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/unaisainz/EHU/EC/Plantilla1718/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/unaisainz/EHU/EC/Plantilla1718/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/unaisainz/EHU/EC/Plantilla1718/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Plantilla1718/fast">
+				<Option output="/Users/unaisainz/EHU/EC/Plantilla1718/cmake-build-debug/Plantilla1718" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/unaisainz/EHU/EC/Plantilla1718/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/unaisainz/EHU/EC/Plantilla1718/cmake-build-debug/Makefile&quot;  VERBOSE=1 Plantilla1718/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/unaisainz/EHU/EC/Plantilla1718/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/unaisainz/EHU/EC/Plantilla1718/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/unaisainz/EHU/EC/Plantilla1718/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/Makefile">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/build/Fondo.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/build/soundbank_bin.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/gfx/Fondo.grit">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/gfx/Fondo.png">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/include/defines.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/include/fondos.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/include/nds.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/include/rutservs.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/include/sprites.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/include/teclado.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/include/temporizadores.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/arm7/aes.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/arm7/audio.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/arm7/clock.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/arm7/codec.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/arm7/i2c.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/arm7/input.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/arm7/sdmmc.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/arm7/serial.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/arm7/touch.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/arm9/background.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/arm9/boxtest.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/arm9/cache.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/arm9/cache_asm.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/arm9/console.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/arm9/decompress.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/arm9/dldi.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/arm9/dldi_asm.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/arm9/dynamicArray.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/arm9/exceptions.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/arm9/guitarGrip.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/arm9/image.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/arm9/input.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/arm9/keyboard.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/arm9/linkedlist.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/arm9/math.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/arm9/nand.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/arm9/ndsmotion.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/arm9/paddle.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/arm9/pcx.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/arm9/piano.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/arm9/postest.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/arm9/rumble.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/arm9/sassert.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/arm9/sound.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/arm9/sprite.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/arm9/trig_lut.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/arm9/video.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/arm9/videoGL.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/arm9/window.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/asminc.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/bios.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/card.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/debug.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/disc_io.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/dma.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/fifocommon.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/fifomessages.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/input.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/interrupts.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/ipc.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/jtypes.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/memory.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/ndstypes.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/registers_alt.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/rsa.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/sha1.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/system.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/timers.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/nds/touch.h">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/source/fondos.c">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/source/graficos.c">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/source/main.c">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/source/rutserv.c">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/source/sprites.c">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/source/teclado.c">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/source/temporizadores.c">
+			<Option target="Plantilla1718"/>
+		</Unit>
+		<Unit filename="/Users/unaisainz/EHU/EC/Plantilla1718/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
