@@ -92,7 +92,6 @@ int main() {
 	iprintf("\x1b[09;00H                                ");
 
 	while(1) {
-
 	}
 
 } //main

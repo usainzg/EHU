@@ -51,6 +51,8 @@ extern int TactilTocada();
 
 // Asignar un nombre a cada estado
 #define INICIO	0
+#define INICIO_SIN_JUGAR 1
+#define JUGANDO 2
 
 
 // Variables globales
