@@ -22,9 +22,6 @@ void initSpriteMem() {
 
 	gfxBillete = oamAllocateGfx(&oamMain, SpriteSize_16x16, SpriteColorFormat_256Color);
 	gfxSobre   = oamAllocateGfx(&oamMain, SpriteSize_16x16, SpriteColorFormat_256Color);
-	gfxHeroe   = oamAllocateGfx(&oamMain, SpriteSize_16x16, SpriteColorFormat_256Color);
-
-
 }
 
 

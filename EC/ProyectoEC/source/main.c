@@ -91,7 +91,15 @@ int main() {
 	iprintf("\x1b[07;00H     PANTALLA TOCADA            ");
 	iprintf("\x1b[09;00H                                ");
 
+	
+
 	while(1) {
+		int tecla = TeclaPulsada();
+		if (tecla != -1) {
+			iprintf("\x1b[10;00H     TECLA PULSADA: %d", tecla);
+		} else {
+			iprintf("\x1b[10;00H                              ");
+		}
 	}
 
 } //main

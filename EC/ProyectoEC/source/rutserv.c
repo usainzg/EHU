@@ -2,11 +2,11 @@
  rutserv.c
 -------------------------------------*/
 // Anadir los includes que sean necesarios
-#include <nds.h>
 #include <stdio.h>
 #include "teclado.h"
 #include "defines.h"
 #include "temporizadores.h"
+#include "nds.h"
 
 // Este procedimiento inicializa la tabla de interrupciones para que el gestor de interrupciones sepa
 // que rutina de atencion tiene que ejecutar cuando le llega una peticion de interrupcion. 

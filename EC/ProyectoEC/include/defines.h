@@ -35,9 +35,7 @@ defines.h
 // Esta funcion consulta si se ha tocado la pantalla tactil
 extern int TactilTocada();
 
-
 // Para no liarse con los numeros a cada teclas se le ha asignado un nombre
-
 #define A		0 
 #define B		1
 #define SELECT	2 
@@ -48,6 +46,8 @@ extern int TactilTocada();
 #define ABAJO	7
 #define R		8 
 #define L		9
+#define X       10
+#define Y       11
 
 // Asignar un nombre a cada estado
 #define INICIO	0
