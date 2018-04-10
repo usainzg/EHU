@@ -4,6 +4,7 @@ procedure Ver_Contiene_a is
    -- salida: 7 booleanos(SE)
    -- post: corresponden a cada uno de los casos de pruebas dise�ados.
 
+  -- pre: { True }
    function Contiene_a (
          S : String)
      return Boolean is
@@ -21,6 +22,8 @@ procedure Ver_Contiene_a is
 
       return Contiene_a(S(S'First + 1 .. S'Last));
    end Contiene_a ;
+
+   -- post: { True <=> Contiene_a(S) }
 
 
 begin

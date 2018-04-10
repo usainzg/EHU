@@ -7,6 +7,7 @@ procedure Ver_Potencia is
    -- post: Los cuatro naturales corresponden a 4 de casos de prueba
    --    potencias de 2, y Pot es 2 elevado a Num, 2**Num (Potencia de 2).
 
+  -- pre: { N >= 0 }
    function Potencia (N:Natural) return Natural is
    -- EJERCICIO 1- ESPECIFICA E IMPLEMENTA recursivamente el subprograma
    --   Potencia que calcula la n-�sima potencia de 2.
@@ -20,11 +21,10 @@ procedure Ver_Potencia is
       if N > 0 then
         return 2 * Potencia(N-1);
       end if;
-
-      NULL;
    end Potencia;
 
   Num: Natural;
+  -- post: { 2^N == Potencia(N) }
 
 begin
       ---------- PRUEBAS EXPL�CITAS A PROBAR

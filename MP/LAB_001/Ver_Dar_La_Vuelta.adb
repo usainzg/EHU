@@ -4,6 +4,7 @@ procedure Ver_Dar_La_Vuelta is
    -- salida: 6 strings(SE)
    -- post: corresponden a cada uno de los casos de pruebas dise�ados.
 
+  -- pre: { True }
    function Dar_La_Vuelta (
          S : String)
      return String is
@@ -16,6 +17,8 @@ procedure Ver_Dar_La_Vuelta is
       end if;
       return Dar_La_Vuelta(S(S'First + 1 .. S'Last)) & S(S'First);
    end Dar_La_Vuelta ;
+
+   -- post: { }
 
 
 begin

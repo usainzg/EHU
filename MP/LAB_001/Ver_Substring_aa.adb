@@ -4,6 +4,7 @@ procedure Ver_Substring_aa is
    -- salida: 11 booleanos(SE)
    -- post: corresponden a cada uno de los casos de pruebas dise�ados.
 
+  -- pre: { True }
    function Substring_aa(
          S : String)
      return Boolean is
@@ -20,6 +21,8 @@ procedure Ver_Substring_aa is
       end if;
       return Substring_aa(S(S'First + 1 .. S'Last));
    end Substring_aa;
+
+   -- post: { True <=> Substring(S) }
 
 
 begin

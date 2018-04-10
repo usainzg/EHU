@@ -5,6 +5,7 @@ procedure Ver_Num_Apariciones_a is
    -- salida: 11 enteros(SE)
    -- post: corresponden a cada uno de los casos de pruebas dise�ados.
 
+  -- pre: { True }
    function Num_Apariciones_a (
          S : String)
      return Integer is
@@ -22,6 +23,7 @@ procedure Ver_Num_Apariciones_a is
       return Num_Apariciones_a(S(S'First + 1 .. S'Last));
    end Num_Apariciones_a ;
 
+  -- post: { True <=> (Num_Apariciones_a == Contador=(1<=n<=S'Length ^ S(n) == 'a'))}
 
 begin
    Put_Line("-------------------------------------");
