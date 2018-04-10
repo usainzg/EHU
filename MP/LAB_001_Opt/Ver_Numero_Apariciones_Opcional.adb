@@ -5,6 +5,7 @@ procedure Ver_Num_Apariciones_Opcional is
    -- salida: 11 enteros(SE)
    -- post: corresponden a cada uno de los casos de pruebas dise�ados.
 
+  -- pre: { True }
    function Num_Apariciones_Caracter (
          S : String;
          L : Character)
@@ -23,6 +24,7 @@ procedure Ver_Num_Apariciones_Opcional is
       return Num_Apariciones_Caracter(S(S'First + 1 .. S'Last), L);
    end Num_Apariciones_Caracter ;
 
+   -- post: { True <=> (Contiene_Caracter(S, L) == Contador=(1<=n<=S'Length ^ S(n) == L))}
 
 begin
    Put_Line("-------------------------------------");

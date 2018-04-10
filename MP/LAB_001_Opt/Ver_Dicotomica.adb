@@ -35,8 +35,7 @@ pos : Integer;
 begin
     Put_Line ("Dame un vector ordenado de menor a mayor de 10 enteros, un entero Por linea:");
     for J in 1 .. 10 loop
-        --Get(Vector(J));
-        Vector(J) := J;
+        Get(Vector(J));
     end loop;
     Put_Line ("Dame un entero a buscar:");
     Get (I);

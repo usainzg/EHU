@@ -4,6 +4,7 @@ procedure Ver_Contiene_Caracter is
    -- salida: 7 booleanos(SE)
    -- post: corresponden a cada uno de los casos de pruebas dise�ados.
 
+  -- pre: { True }
    function Contiene_Caracter (
          S : String;
          L : Character)
@@ -22,6 +23,8 @@ procedure Ver_Contiene_Caracter is
 
       return Contiene_Caracter(S(S'First + 1 .. S'Last), L);
    end Contiene_Caracter ;
+
+   -- post: { True <=> Contiene_a(S, L) }
 
 
 begin

@@ -4,6 +4,7 @@ procedure Ver_Substring_Opcional is
    -- salida: 11 booleanos(SE)
    -- post: corresponden a cada uno de los casos de pruebas dise�ados.
 
+-- pre: { True }
    function Substring_Sub(
          S : String;
          Sub : String)
@@ -21,6 +22,8 @@ procedure Ver_Substring_Opcional is
       end if;
       return Substring_Sub(S(S'First + 1 .. S'Last), Sub);
    end Substring_Sub;
+
+   -- post: { True <=> Substring(S, Sub) }
 
 
 begin

@@ -6,6 +6,7 @@ procedure Ver_Enesima_Potencia is
    -- salida: 4 naturales y 1 natural, Pot (SE)
    -- post: Los cuatro naturales corresponden a 4 de casos de prueba
 
+-- pre: { True }
    function Potencia (M: Natural; N: Natural) return Natural is
    -- EJERCICIO 1 (Opcional)- ESPECIFICA E IMPLEMENTA recursivamente el subprograma
    --   Potencia que calcula la n-�sima potencia de M.
@@ -22,6 +23,8 @@ procedure Ver_Enesima_Potencia is
 
       return 0;
    end Potencia;
+
+  -- post: { M^N == Potencia(M, N) }
 
 begin
       ---------- PRUEBAS EXPL�CITAS A PROBAR
