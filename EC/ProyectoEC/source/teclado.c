@@ -20,7 +20,7 @@ int  TeclaPulsada() {
    // Arriba=6; Abajo=7; R=8; L=9;
    // -1 en otros casos
    for (int i = 0; i <= 9; i++) {
-       if (ComprobarTecla(i) == 0) return i;
+       if (!ComprobarTecla(i)) return i;
    }
    return -1;
 }
