@@ -61,6 +61,24 @@ package Listas is
    -- Pre: L2 es lista ordenada
    -- Post: L1 es una lista ordenada copia de L2.
 
+   procedure Crear_Sublista_4Primos(
+            L : in     Lista;
+            Sl: out Lista
+            );
+   -- Pre: L es una lista ordenada crecientemente
+   -- Post: La sublista Sl esta formada por los 4
+   --      primeros elementos primos de la lista L.
+   --      Si no hay 4, la crear� con los elementos que primos que haya en L.
+
+   procedure Crear_Sublista_3Abundantes(
+            L : in     Lista;
+            Sl: out Lista
+            );
+   -- Pre: L es una lista ordenada crecientemente
+   -- Post: La sublista Sl esta formada por los 3
+   --      primeros elementos abudantes de la lista L.
+   --      Si no hay 4, la crear� con los elementos que abundantes que haya en L.
+
 
    private
    -- implementacion dinamica, ligadura simple
