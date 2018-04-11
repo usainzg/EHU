@@ -58,14 +58,15 @@ package body Listas is
 
    procedure Crear_Sublista(
          L  : in     Lista;
-         Sl :    out Lista) is
+         Sl :    out Lista;
+         Cuantos: Integer) is
       -- Algoritmo iterativo
       Cont: Natural:=0;
       AuxL: Lista:= L;
       AuxSl: Lista:= null;
    begin
       Sl:=null;
-      while AuxL/= null and Cont<4 loop
+      while AuxL/= null and Cont < Cuantos loop
          if AuxL.Info mod 2=0 then
             Cont:= Cont+1;
             if Sl=null then

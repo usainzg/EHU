@@ -63,7 +63,7 @@ begin
          Put(" ");
       end if;
    end loop;
-   Listas.Crear_Sublista(L1, L1p); -- Los pares de L1
+   Listas.Crear_Sublista(L1, L1p, 3); -- Los pares de L1
    New_Line; New_Line;
 
    -- Crear lista de enteros L2 con los enteros desde el 11 al 23
@@ -80,7 +80,7 @@ begin
          Put(" ");
       end if;
    end loop;
-   Listas.Crear_Sublista(L2, L2p); -- Los pares de L2
+   Listas.Crear_Sublista(L2, L2p, 3); -- Los pares de L2
    New_Line; New_Line;
 
 

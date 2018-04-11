@@ -12,14 +12,14 @@ package Listas is
             E : in     Integer);
    -- Pre: L es una lista ordenada crecientemente
    -- Post: Coloca en orden creciente el elemento E en L si hay espacio en la lista
-   --   Si la lista está llena dará un mensaje de Lista_Llena
+   --   Si la lista estï¿½ llena darï¿½ un mensaje de Lista_Llena
 
    procedure Obtener_Primero (
          L : in     Lista;
          P: out Integer);
    -- Pre: L es una lista ordenada crecientemente
-   -- Post: P es el primer elemento de la lista L, si L no está vacía.
-   --   Si la lista está vacía dará un mensaje de Lista_Vacia
+   -- Post: P es el primer elemento de la lista L, si L no estï¿½ vacï¿½a.
+   --   Si la lista estï¿½ vacï¿½a darï¿½ un mensaje de Lista_Vacia
 
    function Esta (
             L : in     Lista;
@@ -30,14 +30,17 @@ package Listas is
    procedure Borrar_Primero (
          L : in out Lista);
    -- Pre: L es una lista ordenada crecientemente
-   --   Si la lista está vacía dará un mensaje de Lista_Vacia
+   --   Si la lista estï¿½ vacï¿½a darï¿½ un mensaje de Lista_Vacia
 
    procedure Crear_Sublista(
             L : in     Lista;
-            Sl: out Lista);
+            Sl: out Lista;
+            Cuantos: Integer
+            );
    -- Pre: L es una lista ordenada crecientemente
-   -- Post: La sublista Sl esta formada por los 4 primeros elementos pares de la lista L.
-   --      Si no hay 4, la creará con los elementos que pares que haya en L.
+   -- Post: La sublista Sl esta formada por los n (donde n estÃ¡ condicionado por el parametro CUANTOS) 
+   --      primeros elementos pares de la lista L.
+   --      Si no hay 4, la crearï¿½ con los elementos que pares que haya en L.
 
    function Es_Vacia (
          L : in     Lista)

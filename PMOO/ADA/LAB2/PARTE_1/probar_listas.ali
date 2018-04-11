@@ -1,0 +1,98 @@
+V "GNAT Lib v2017"
+M P W=b
+P ZX
+
+RN
+RV NO_IO
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV SPARK_05
+
+U probar_listas%b	probar_listas.adb	e6a7defc NE OO SU
+W ada%s			ada.ads			ada.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W listas%s		listas.adb		listas.ali
+W system.concat_3%s	s-conca3.adb		s-conca3.ali
+W system.concat_5%s	s-conca5.adb		s-conca5.ali
+
+D ada.ads		20170516105951 76789da1 ada%s
+D a-except.ads		20170516105953 291912d5 ada.exceptions%s
+D a-inteio.ads		20170516105955 f64b89a4 ada.integer_text_io%s
+D a-ioexce.ads		20170516105949 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20170516105952 119b8fb3 ada.streams%s
+D a-tags.ads		20170516105955 d3a89129 ada.tags%s
+D a-textio.ads		20170516105955 386df5d4 ada.text_io%s
+D a-tiinio.ads		20170516105950 aa04e5d6 ada.text_io.integer_io%s
+D a-unccon.ads		20170516105954 31484697 ada.unchecked_conversion%s
+D interfac.ads		20170516105950 5ab55268 interfaces%s
+D i-cstrea.ads		20170516105950 e53d8b8e interfaces.c_streams%s
+D listas.ads		20180411142905 a67b19ef listas%s
+D probar_listas.adb	20180411142830 8efabb63 probar_listas%b
+D system.ads		20170516105953 085b6ffb system%s
+D s-conca3.ads		20170516105955 0b705ca5 system.concat_3%s
+D s-conca5.ads		20170516105951 875e432e system.concat_5%s
+D s-crtl.ads		20170516105948 0ebbdb71 system.crtl%s
+D s-exctab.ads		20170516105954 54135002 system.exception_table%s
+D s-ficobl.ads		20170516105956 078245e4 system.file_control_block%s
+D s-parame.ads		20170516105955 7e2a0d7f system.parameters%s
+D s-soflin.ads		20170516105951 14e1eb6c system.soft_links%s
+D s-stache.ads		20170516105955 a37c21ec system.stack_checking%s
+D s-stalib.ads		20170516105955 09bd3940 system.standard_library%s
+D s-stoele.ads		20170516105956 2dc34a04 system.storage_elements%s
+D s-traent.ads		20170516105950 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20170516105953 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20170516105954 1b7d22d2 system.wch_con%s
+X 1 ada.ads
+16K9*Ada 20e8 13|1r6 1r27 2r5 2r26
+X 3 a-inteio.ads
+18K13*Integer_Text_IO[8|46] 13|1w10 2r9
+X 7 a-textio.ads
+49K13*Text_IO 471e16 13|1w31 2r30
+166U14*New_Line 13|20s7 20s17 34s10 67s4 67s14 84s4 84s14 113s4 113s14
+242U14*Put 13|13s7 17s10 32s10 52s4 59s10 61s10 63s10 70s4 76s10 78s10 80s10
+. 88s4 92s4 110s7 124s7
+263U14*Put_Line 13|12s7 27s7 105s7 108s7 119s7 122s7
+X 8 a-tiinio.ads
+66U14*Put 13|16s10[3|18] 31s10[3|18] 33s10[3|18] 58s10[3|18] 62s10[3|18]
+. 75s10[3|18] 79s10[3|18]
+X 12 listas.ads
+2K9*Listas 75e11 13|4w6 5r5 8r43 14r17 15r10 18r10 23r45 23r83 28r17 29r10
+. 30r10 35r10 36r10 45r13 53r4 56r7 57r10 66r4 71r4 73r7 74r10 83r4 96r4
+. 99r7 104r7 117r4 118r7
+4P9*Lista 13|8r50 23r52 23r90 45r20
+6U14*Crear_Vacia 13|53s11 71s11 96s11
+10U17*Colocar 13|56s14 73s14 99s14
+17U14*Obtener_Primero 13|15s17 29s17 30s17
+24V13*Esta{boolean} 13|57s17 74s17
+30U14*Borrar_Primero 13|18s17 35s17 36s17
+35U14*Crear_Sublista 13|66s11 83s11
+44V13*Es_Vacia{boolean} 13|14s24 28s24
+50V13*Igual{boolean} 13|104s14 118s14
+57U14*Copiar 13|117s11
+X 13 probar_listas.adb
+7U11*Probar_Listas 7b11 127l5 127t18
+8U14 Escribir_Contenido 8b14 8=33 8>57 21l8 21t26 89s4 93s4 111s7 125s7
+8p33 L{12|4P9} 14r33 15r33 18m32
+8a57 Lista{string} 12r44
+9i7 N{integer} 15m36 16r14
+23U14 Escribir_Contenidos 23b14 23=34 23>59 23=72 23>97 38l8 38t27 106s7
+. 120s7
+23p34 L1{12|4P9} 28r33 29r33 35m32
+23a59 L1s{string} 27r51
+23p72 L2{12|4P9} 30r33 36m32
+23a97 L2s{string} 27r61
+24i7 N1{integer} 29m37 31r14
+24i11 N2{integer} 30m37 33r14
+40p4 L1{12|4P9} 53m23 53r23 56m22 56r22 57r22 66r26 89m23 89r23
+41p7 L1p{12|4P9} 66m30 66r30 104r25 106m27 106r27 111m26 111r26
+42p7 L2{12|4P9} 71m23 71r23 73m22 73r22 74r22 83r26 93m23 93r23
+43p7 L2p{12|4P9} 83m30 83r30 117r23 118r25 120m27 120r27 125m26 125r26
+44p7 Lp1{12|4P9} 96m23 96r23 99m22 99r22 104r20 106m39 106r39
+45p7 Lp2{12|4P9} 117m18 117r18 118r20 120m39 120r39
+46i4 N{integer} 97m4 98r10 99r27 100m7 100r11
+47i7 N1{integer}
+48i7 N2{integer}
+55i8 I{integer} 56r26 57r26 58r14 62r14
+72i8 I{integer} 73r26 74r26 75r14 79r14
+
