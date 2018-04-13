@@ -1,3 +1,6 @@
+generic
+      type Elemento is private;
+
 package Listas is
 
       type Lista is limited private; -- Tipo lista ordenada creciente
@@ -8,21 +11,21 @@ package Listas is
 
             procedure Colocar (
                   L : in out Lista;
-                  E : in     Integer);
+                  E : in     Elemento);
       -- Pre: L es una lista ordenada crecientemente
       -- Post: Coloca en orden creciente el elemento E en L si hay espacio en la lista
       --   Si la lista est� llena dar� un mensaje de Lista_Llena
 
       procedure Obtener_Primero (
             L : in     Lista;
-            P: out Integer);
+            P: out Elemento);
       -- Pre: L es una lista ordenada crecientemente
       -- Post: P es el primer elemento de la lista L, si L no est� vac�a.
       --   Si la lista est� vac�a dar� un mensaje de Lista_Vacia
 
       function Esta (
                   L : in     Lista;
-                  N : in     Integer)
+                  N : in     Elemento)
             return Boolean;
       -- Post: True sii C esta en la lista L
 
@@ -52,7 +55,7 @@ package Listas is
       -- Post: L1 es una lista ordenada copia de L2.
 
       generic 
-            with function Filtro(I: Integer) return Boolean;
+            with function Filtro(E: Elemento) return Boolean;
             Cuantos: in Integer;
             procedure Crear_Sublista(
                         L : in     Lista;

@@ -11,7 +11,7 @@ package body Listas is
 
       procedure Colocar (
             L : in out Lista;
-            E : in     Integer) is
+            E : in     Elemento) is
             -- Algoritmo recursivo
       begin
 
@@ -24,7 +24,7 @@ package body Listas is
 
       procedure Obtener_Primero (
             L : in     Lista;
-            P :    out Integer) is
+            P :    out Elemento) is
       begin
             if L = null then
             Put_Line("Lista_Vacia");
@@ -35,7 +35,7 @@ package body Listas is
 
       function Esta (
             L : in     Lista;
-            N : in     Integer)
+            N : in     Elemento)
             return Boolean is
             -- Algoritmo iterativo
             Auxi : Lista := L;

@@ -1,0 +1,15 @@
+V "GNAT Lib v5"
+P ZX
+
+RN
+RV SPARK_05
+
+U es_divisor%b		es_divisor.adb		7aa6f69e NE OO SU
+
+D es_divisor.adb	20180413152906 7aa6f69e es_divisor%b
+D system.ads		20141031112219 1d274481 system%s
+X 1 es_divisor.adb
+1V10*Es_Divisor{boolean} 1b10 1>21 1>24 7l5 7t15
+1i21 N{integer} 3r19
+1i24 M{integer} 3r13
+

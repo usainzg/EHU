@@ -1,0 +1,19 @@
+V "GNAT Lib v5"
+P ZX
+
+RN
+RV SPARK_05
+
+U es_abundante%b	es_abundante.adb	7d087c77 NE OO SU
+W suma_divisores_propios%b  suma_divisores_propios.adb  suma_divisores_propios.ali
+
+D es_abundante.adb	20180413152953 c2ffe03d es_abundante%b
+D es_divisor.adb	20180413152906 7aa6f69e es_divisor%b
+D suma_divisores_propios.adb  20180413152915 bff79c4a suma_divisores_propios%b
+D system.ads		20141031112219 1d274481 system%s
+X 1 es_abundante.adb
+2V10*Es_Abundante{boolean} 2b10 2>23 8l5 8t17
+2i23 N{integer} 4r35 4r40
+X 3 suma_divisores_propios.adb
+2V10*Suma_Divisores_Propios{integer} 1|1w6 4s12
+

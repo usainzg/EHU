@@ -1,4 +1,4 @@
-V "GNAT Lib v2017"
+V "GNAT Lib v5"
 P ZX
 
 RN
@@ -10,103 +10,85 @@ RV NO_RECURSION
 RV NO_STANDARD_STORAGE_POOLS
 RV SPARK_05
 
-U listas%b		listas.adb		b43392df NE OO PK
+U listas%b		listas.adb		c7af1909 NE OO PK
 W ada%s			ada.ads			ada.ali
 W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
 W ada.tags%s		a-tags.adb		a-tags.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
-W primos%s		primos.adb		primos.ali
 
-U listas%s		listas.ads		0976267c EE NE OO PK
+U listas%s		listas.ads		55550d17 BN EE NE OO PK
 
-D ada.ads		20170516105951 76789da1 ada%s
-D a-except.ads		20170516105953 291912d5 ada.exceptions%s
-D a-inteio.ads		20170516105955 f64b89a4 ada.integer_text_io%s
-D a-ioexce.ads		20170516105949 e4a01f64 ada.io_exceptions%s
-D a-stream.ads		20170516105952 119b8fb3 ada.streams%s
-D a-tags.ads		20170516105955 d3a89129 ada.tags%s
-D a-textio.ads		20170516105955 386df5d4 ada.text_io%s
-D a-tiinio.ads		20170516105950 aa04e5d6 ada.text_io.integer_io%s
-D a-unccon.ads		20170516105954 31484697 ada.unchecked_conversion%s
-D interfac.ads		20170516105950 5ab55268 interfaces%s
-D i-cstrea.ads		20170516105950 e53d8b8e interfaces.c_streams%s
-D listas.ads		20180411152433 0976267c listas%s
-D listas.adb		20180411152819 db67226d listas%b
-D primos.ads		20180411150655 a804eabe primos%s
-D system.ads		20170516105953 085b6ffb system%s
-D s-crtl.ads		20170516105948 0ebbdb71 system.crtl%s
-D s-exctab.ads		20170516105954 54135002 system.exception_table%s
-D s-ficobl.ads		20170516105956 078245e4 system.file_control_block%s
-D s-parame.ads		20170516105955 7e2a0d7f system.parameters%s
-D s-soflin.ads		20170516105951 14e1eb6c system.soft_links%s
-D s-stache.ads		20170516105955 a37c21ec system.stack_checking%s
-D s-stalib.ads		20170516105955 09bd3940 system.standard_library%s
-D s-stoele.ads		20170516105956 2dc34a04 system.storage_elements%s
-D s-traent.ads		20170516105950 005bf670 system.traceback_entries%s
-D s-unstyp.ads		20170516105953 34867c83 system.unsigned_types%s
-D s-wchcon.ads		20170516105954 1b7d22d2 system.wch_con%s
+D ada.ads		20070406091342 3ffc8e18 ada%s
+D a-except.ads		20140730140058 5250cb69 ada.exceptions%s
+D a-inteio.ads		20070406091342 f64b89a4 ada.integer_text_io%s
+D a-ioexce.ads		20140225151544 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20141120112812 119b8fb3 ada.streams%s
+D a-tags.ads		20140730140058 dc4d0634 ada.tags%s
+D a-textio.ads		20140717063745 386df5d4 ada.text_io%s
+D a-tiinio.ads		20140717063513 aa04e5d6 ada.text_io.integer_io%s
+D a-unccon.ads		20070406091342 f9eb8f06 ada.unchecked_conversion%s
+D interfac.ads		20141120112812 6033a23f interfaces%s
+D i-cstrea.ads		20140801100435 e53d8b8e interfaces.c_streams%s
+D listas.ads		20180413161421 55550d17 listas%s
+D listas.adb		20180413160402 5cdc686e listas%b
+D system.ads		20141031112219 1d274481 system%s
+D s-crtl.ads		20141120112812 0ebbdb71 system.crtl%s
+D s-exctab.ads		20140225151139 54135002 system.exception_table%s
+D s-ficobl.ads		20140718105747 078245e4 system.file_control_block%s
+D s-parame.ads		20140801093848 7e2a0d7f system.parameters%s
+D s-soflin.ads		20140801100131 aa763b52 system.soft_links%s
+D s-stache.ads		20140225151139 a37c21ec system.stack_checking%s
+D s-stalib.ads		20150220094550 fa0a3617 system.standard_library%s
+D s-stoele.ads		20140225151139 2dc34a04 system.storage_elements%s
+D s-traent.ads		20140730135025 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20140731130224 9d58a4c0 system.unsigned_types%s
+D s-wchcon.ads		20140718092328 1b7d22d2 system.wch_con%s
 X 1 ada.ads
-16K9*Ada 20e8 13|1r6 1r19 2r5 2r18
+16K9*Ada 19e8 13|1r6 1r19 2r5 2r18
 X 3 a-inteio.ads
 18K13*Integer_Text_IO[8|46] 13|1w23 2r22
 X 7 a-textio.ads
 49K13*Text_IO 471e16 13|1w10 2r9
-263U14*Put_Line 13|32s13 55s13
+263U14*Put_Line 13|30s13 53s13
 X 12 listas.ads
-2K9*Listas 86E9 94l5 94e11 13|6b14 169l5 169t11
-4P9*Lista 7r21 11r24 18r21 25r24 31r21 36r24 37r21 46r21 53r22 59r22 60r22
-. 65r24 66r21 74r24 75r21 87c9 91r16 13|9r24 15r24 28r24 39r24 43r20 52r24
-. 62r25 63r25 67r19 68r20 87r24 95r25 110r25 111r25 123r24 124r21 127r19
-. 128r20 147r24 148r21 151r19 152r20
-6U14*Crear_Vacia 7<10 13|8b17 12l11 12t22
-7p10 L{4P9} 13|9b13 11m13
-10U17*Colocar 11=13 12>13 13|14b17 23s13 25l11 25t18
-11p13 L{4P9} 13|15b13 20r16 20r37 21m13 21r31 23r22
-12i13 E{integer} 13|16b13 20r33 21r28 23r29
-17U14*Obtener_Primero 18>10 19<10 13|27b17 36l11 36t26
-18p10 L{4P9} 13|28b13 31r16 34r17
-19i10 P{integer} 13|29b13 34m13
-24V13*Esta{boolean} 25>13 26>13 13|38b16 49l11 49t15
-25p13 L{4P9} 13|39b13 43r29
-26i13 N{integer} 13|40b13 45r39 48r40
-30U14*Borrar_Primero 31=10 13|51b17 59l11 59t25
-31p10 L{4P9} 13|52b13 54r16 57m13 57r18
-35U14*Crear_Sublista 36>13 37<13 38>13 13|61b17 84l11 84t25
-36p13 L{4P9} 13|62b13 67r27
-37p13 Sl{4P9} 13|63b13 70m13 74r22 75m19 76r27
-38i13 Cuantos{integer} 13|64b13 71r42
-45V13*Es_Vacia{boolean} 46>10 13|86b16 91l11 91t19
-46p10 L{4P9} 13|87b13 90r20
-51V13*Igual{boolean} 52>10 53>10 13|93b16 105s19 107l11 107t16
-52p10 L1{4P9} 13|94b13 99r16 101r19 104r20 105r25
-53p10 L2{4P9} 13|95b13 99r30 101r32 104r28 105r33
-58U14*Copiar 59<10 60>10 13|109b17 117s13 120l11 120t17
-59p10 L1{4P9} 13|110b13 115m13 117m20 118m13 118r38
-60p10 L2{4P9} 13|111b13 114r16 117r24 118r29
-64U14*Crear_Sublista_4Primos 65>13 66<13 13|122b17 144l11 144t33
-65p13 L{4P9} 13|123b13 127r27
-66p13 Sl{4P9} 13|124b13 130m13 134r22 135m19 136r27
-73U14*Crear_Sublista_3Abundantes 74>13 75<13 13|146b17 168l11 168t37
-74p13 L{4P9} 13|147b13 151r27
-75p13 Sl{4P9} 13|148b13 154m13 158r22 159m19 160r27
-86R9 Nodo 87r25 88c9 92e17 13|21r22 75r28 78r35 118r23 135r28 138r35 159r28
-. 162r35
-90i10*Info{integer} 13|20r39 34r19 45r47 48r48 72r21 75r39 78r46 104r23 104r31
-. 118r32 132r37 135r39 138r46 156r37 159r39 162r46
-91p10*Sig{4P9} 13|23m24 46r25 57r20 78m25 79r33 82r25 105r28 105r36 117r27
-. 138m25 139r33 142r25 162m25 163r33 166r25
+1K9*Listas 70E12 78l5 78e11 13|4b14 118l5 118t11
+3P12*Lista 6r24 10r30 17r24 24r30 30r24 36r24 43r25 49r25 50r25 58r36 59r33
+. 71c12 75r19 13|7r24 13r24 26r24 37r24 41r20 50r24 60r25 61r25 64r19 65r20
+. 84r24 92r25 107r25 108r25
+5U17*Crear_Vacia 6<13 13|6b17 10l11 10t22
+6p13 L{3P12} 13|7b13 9m13
+9U23*Colocar 10=19 11>19 13|12b17 21s13 23l11 23t18
+10p19 L{3P12} 13|13b13 18r16 18r37 19m13 19r31 21r22
+11i19 E{integer} 13|14b13 18r33 19r28 21r29
+16U17*Obtener_Primero 17>13 18<13 13|25b17 34l11 34t26
+17p13 L{3P12} 13|26b13 29r16 32r17
+18i13 P{integer} 13|27b13 32m13
+23V16*Esta{boolean} 24>19 25>19 13|36b16 47l11 47t15
+24p19 L{3P12} 13|37b13 41r29
+25i19 N{integer} 13|38b13 43r39 46r40
+29U17*Borrar_Primero 30=13 13|49b17 57l11 57t25
+30p13 L{3P12} 13|50b13 52r16 55m13 55r18
+35V16*Es_Vacia{boolean} 36>13 13|83b16 88l11 88t19
+36p13 L{3P12} 13|84b13 87r20
+41V16*Igual{boolean} 42>13 43>13 13|90b16 102s19 104l11 104t16
+42p13 L1{3P12} 13|91b13 96r16 98r19 101r20 102r25
+43p13 L2{3P12} 13|92b13 96r30 98r32 101r28 102r33
+48U17*Copiar 49<13 50>13 13|106b17 114s13 117l11 117t17
+49p13 L1{3P12} 13|107b13 112m13 114m20 115m13 115r38
+50p13 L2{3P12} 13|108b13 111r16 114r24 115r29
+55V27 Filtro{boolean} 55>34 13|69s16
+55i34 I{integer}
+56i13 Cuantos{integer} 13|68r42
+57u23*Crear_Sublista 58>25 59<25 13|59b17 81l11 81t25
+58p25 L{3P12} 13|60b13 64r27
+59p25 Sl{3P12} 13|61b13 67m13 71r22 72m19 73r27
+70R12 Nodo 71r28 72c12 76e23 13|19r22 72r28 75r35 115r23
+74i13*Info{integer} 13|18r39 32r19 43r47 46r48 69r28 72r39 75r46 101r23 101r31
+. 115r32
+75p13*Sig{3P12} 13|21m24 44r25 55r20 75m25 76r33 79r25 102r28 102r36 114r27
 X 13 listas.adb
-43p13 Auxi{12|4P9} 45r19 45r42 46m13 46r20 48r20 48r43
-66i13 Cont{natural} 71r35 73m19 73r26
-67p13 AuxL{12|4P9} 71r19 72r16 75r34 78r41 82m13 82r20
-68p13 AuxSl{12|4P9} 76m19 78r19 79m19 79r27
-126i13 Cont{natural} 131r35 133m19 133r26
-127p13 AuxL{12|4P9} 131r19 132r32 135r34 138r41 142m13 142r20
-128p13 AuxSl{12|4P9} 136m19 138r19 139m19 139r27
-150i13 Cont{natural} 155r35 157m19 157r26
-151p13 AuxL{12|4P9} 155r19 156r32 159r34 162r41 166m13 166r20
-152p13 AuxSl{12|4P9} 160m19 162r19 163m19 163r27
-X 14 primos.ads
-1K9*Primos 13|4w6 4r18 132r16 156r16 14|9e11
-3V14*Es_Primo{boolean} 13|132s23 156s23
+41p13 Auxi{12|3P12} 43r19 43r42 44m13 44r20 46r20 46r43
+63i13 Cont{natural} 68r35 70m19 70r26
+64p13 AuxL{12|3P12} 68r19 69r23 72r34 75r41 79m13 79r20
+65p13 AuxSl{12|3P12} 73m19 75r19 76m19 76r27
 
