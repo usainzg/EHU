@@ -54,5 +54,8 @@ extern int TactilTocada();
 
 extern int estado;
 
+#define TIPO_ENCUESTA 0
+#define TIPO_INTERRUPT 1
+
 
 

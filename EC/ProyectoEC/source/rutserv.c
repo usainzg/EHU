@@ -14,18 +14,19 @@
 
 
 void HabilitarInterrupciones() { // En el Controlador de Interrupciones
-
   //Primero se inhiben todas las interrupciones
+  IME = 0;
   
   //Escribir un 1 en el bit correspondiente 
+  IE = IE | 0x8;
+  IE = IE | 0x1000;
   
   //Se vuelven a habilitar todas las interrupciones
-  
+  IME = 1;
 }
 
 
 void ProgramarRegistrosControl() { 
-  
   //Registro de Control del Teclado
   
   //Registro de Control de los Temporizadores
@@ -40,36 +41,34 @@ void ProgramarRegistrosControl() {
   //      11 frecuencia 33554432/1024 hz
   // TIMER0_DAT 
   //   Se utiliza para indicar a partir de que valor tiene que empezar a contar (latch)
-
+  TECLAS_CNT = 0x4026;
 }
 
 
 void DefinirVectorInterrupciones() { // Rutinas de atencion
-
   //Rutina de Atencion al Teclado
+  irqSet(IRQ_KEYS, IntTec);
 
   //Rutinas de Atencion a los Temporizadores
-
 }
 
 
 void InhibirInterrupciones() { // En el Controlador de Interrupciones
-
   //Primero se inhiben todas las interrupciones
+  IME = 0;
   
   //Escribir un 0 en el bit correspondiente 
+  IE &= 0xCFF7;
 
   //Se vuelven a habilitar todas las interrupciones
-  	
+  IME = 1;
 }
 
 
-void interrupciones(){
-
+void Interrupciones() {
   HabilitarInterrupciones();
   ProgramarRegistrosControl();
   DefinirVectorInterrupciones();
- 
 }
 
 

@@ -17,29 +17,8 @@ dovoto y otro de Jaeden Amero
 #include "temporizadores.h"
 #include "juego.h"
 
-//---------------------------------------------------
-// Funciones
-//---------------------------------------------------
-
-// Esta funcion consulta si se ha tocado la pantalla tactil
-int TactilTocada() {
-	touchPosition pos_pantalla;
-	touchRead(&pos_pantalla);
-  	return !(pos_pantalla.px==0 && pos_pantalla.py==0);
-} 
-
-//---------------------------------------------------
-// Variables globales
-//---------------------------------------------------
-
-int estado = 0;
-
-//---------------------------------------------------
-// main
-//---------------------------------------------------
-
-int main() {
-
+// Procedimiento habilita entorno grafico
+void HabilitarGraficos() {
 	/* Definir variables */	
 	touchPosition pos_pantalla;
 
@@ -73,16 +52,37 @@ int main() {
 	   no devuelve ningun valor. 
 	   La funcion para generar valores aleatorios en el resto del programa es rand() */
 	srand (time(NULL));	
-	
-    /* Incluimos la siguiente cabecera para que cada grupo la modifique con
-        su numero de grupo "xx" en "Gxx". */
+}
+
+// Procedimiento para imprimir bienvenida
+void ImprimirBienvenida() {
     iprintf("\x1b[02;00H  +--------------------------+  ");
     iprintf("\x1b[03;00H  : EC 17/18           G13   :  ");
     iprintf("\x1b[04;00H  +--------------------------+  ");
 	iprintf("\x1b[07;00H     Para comenzar,   toque     ");
 	iprintf("\x1b[09;00H      la pantalla taactil.      ");
+}
+
+// Esta funcion consulta si se ha tocado la pantalla tactil
+int TactilTocada() {
+	touchPosition pos_pantalla;
+	touchRead(&pos_pantalla);
+  	return !(pos_pantalla.px==0 && pos_pantalla.py==0);
+} 
 
 //---------------------------------------------------
+// Variables globales
+//---------------------------------------------------
+int estado = 0;
+
+//---------------------------------------------------
+// main
+//---------------------------------------------------
+int main() {
+
+	HabilitarGraficos();
+	Interrupciones();
+	ImprimirBienvenida();
 
     while(!estado) {
 		estado = TactilTocada();
@@ -91,14 +91,12 @@ int main() {
 	iprintf("\x1b[07;00H     PANTALLA TOCADA            ");
 	iprintf("\x1b[09;00H                                ");
 
-	
-
 	while(1) {
-		int tecla = TeclaPulsada();
-		if (tecla != -1) {
-			iprintf("\x1b[10;00H     TECLA PULSADA: %d", tecla);
-		} else {
+		int tecla = TeclaPulsada(TIPO_ENCUESTA);
+		if (tecla == -1) {
 			iprintf("\x1b[10;00H                              ");
+		} else {
+			ImprimirTeclaPulsada(tecla, TIPO_ENCUESTA);
 		}
 	}
 
