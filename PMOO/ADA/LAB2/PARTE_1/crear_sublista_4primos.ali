@@ -1,0 +1,58 @@
+V "GNAT Lib v5"
+P ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_LOCAL_ALLOCATORS
+RV SPARK_05
+
+U crear_sublista_4primos%b  crear_sublista_4primos.ads  8f0c8ac7 NE OO SU
+W ada.tags%s		a-tags.adb		a-tags.ali
+W es_primo%b		es_primo.adb		es_primo.ali
+W listas%s		listas.adb		listas.ali  ED
+
+U crear_sublista_4primos%s  crear_sublista_4primos.ads  f63ce422 NE OO SU
+W es_primo%b		es_primo.adb		es_primo.ali
+W listas%s		listas.adb		listas.ali  ED
+
+D ada.ads		20070406091342 3ffc8e18 ada%s
+D a-except.ads		20140730140058 5250cb69 ada.exceptions%s
+D a-inteio.ads		20070406091342 f64b89a4 ada.integer_text_io%s
+D a-ioexce.ads		20140225151544 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20141120112812 119b8fb3 ada.streams%s
+D a-tags.ads		20140730140058 dc4d0634 ada.tags%s
+D a-textio.ads		20140717063745 386df5d4 ada.text_io%s
+D a-tiinio.ads		20140717063513 aa04e5d6 ada.text_io.integer_io%s
+D a-unccon.ads		20070406091342 f9eb8f06 ada.unchecked_conversion%s
+D crear_sublista_4primos.ads  20180413160813 8f0c8ac7 crear_sublista_4primos%s
+D crear_sublista_4primos.ads  20180413160813 8f0c8ac7 crear_sublista_4primos%b
+D es_divisor.adb	20180413152906 7aa6f69e es_divisor%b
+D es_primo.adb		20180413152809 2c6563f2 es_primo%b
+D interfac.ads		20141120112812 6033a23f interfaces%s
+D i-cstrea.ads		20140801100435 e53d8b8e interfaces.c_streams%s
+D listas.ads		20180413161421 55550d17 listas%s
+D listas.adb		20180413160402 5cdc686e listas%b
+D suma_divisores_propios.adb  20180413152915 bff79c4a suma_divisores_propios%b
+D system.ads		20141031112219 1d274481 system%s
+D s-crtl.ads		20141120112812 0ebbdb71 system.crtl%s
+D s-exctab.ads		20140225151139 54135002 system.exception_table%s
+D s-ficobl.ads		20140718105747 078245e4 system.file_control_block%s
+D s-parame.ads		20140801093848 7e2a0d7f system.parameters%s
+D s-soflin.ads		20140801100131 aa763b52 system.soft_links%s
+D s-stache.ads		20140225151139 a37c21ec system.stack_checking%s
+D s-stalib.ads		20150220094550 fa0a3617 system.standard_library%s
+D s-stoele.ads		20140225151139 2dc34a04 system.storage_elements%s
+D s-traent.ads		20140730135025 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20140731130224 9d58a4c0 system.unsigned_types%s
+D s-wchcon.ads		20140718092328 1b7d22d2 system.wch_con%s
+X 11 crear_sublista_4primos.ads
+3K11*Crear_Sublista_4Primos 17|59b17
+X 13 es_primo.adb
+2V10*Es_Primo{boolean} 11|1w6 3r87
+X 16 listas.ads
+1K9*Listas 11|2w6 3r41 16|78e11
+55V27 Filtro{boolean} 11|3r77
+56i13 Cuantos{integer} 11|3r63
+57u23*Crear_Sublista 11|3r48
+

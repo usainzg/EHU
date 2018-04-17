@@ -1,109 +1,131 @@
-V "GNAT Lib v2017"
+V "GNAT Lib v5"
 M P W=b
 P ZX
 
 RN
+RV NO_ALLOCATORS
+RV NO_DIRECT_BOOLEAN_OPERATORS
 RV NO_IO
+RV NO_LOCAL_ALLOCATORS
+RV NO_STANDARD_ALLOCATORS_AFTER_ELABORATION
 RV NO_DEFAULT_INITIALIZATION
-RV NO_DYNAMIC_SIZED_OBJECTS
 RV SPARK_05
 
-U probar_listas%b	probar_listas.adb	f983a644 NE OO SU
+U probar_listas%b	probar_listas.adb	f364bd0c NE OO SU
 W ada%s			ada.ads			ada.ali
 W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
+W crear_sublista_4primos%s  crear_sublista_4primos.ads  crear_sublista_4primos.ali
+W crear_sublista_pares%s  crear_sublista_pares.ads  crear_sublista_pares.ali
+W es_abundante%b	es_abundante.adb	es_abundante.ali
 W listas%s		listas.adb		listas.ali
 W system.concat_3%s	s-conca3.adb		s-conca3.ali
 W system.concat_5%s	s-conca5.adb		s-conca5.ali
 
-D ada.ads		20170516105951 76789da1 ada%s
-D a-except.ads		20170516105953 291912d5 ada.exceptions%s
-D a-inteio.ads		20170516105955 f64b89a4 ada.integer_text_io%s
-D a-ioexce.ads		20170516105949 e4a01f64 ada.io_exceptions%s
-D a-stream.ads		20170516105952 119b8fb3 ada.streams%s
-D a-tags.ads		20170516105955 d3a89129 ada.tags%s
-D a-textio.ads		20170516105955 386df5d4 ada.text_io%s
-D a-tiinio.ads		20170516105950 aa04e5d6 ada.text_io.integer_io%s
-D a-unccon.ads		20170516105954 31484697 ada.unchecked_conversion%s
-D interfac.ads		20170516105950 5ab55268 interfaces%s
-D i-cstrea.ads		20170516105950 e53d8b8e interfaces.c_streams%s
-D listas.ads		20180411152433 0976267c listas%s
-D probar_listas.adb	20180411154145 3ed3fc48 probar_listas%b
-D system.ads		20170516105953 085b6ffb system%s
-D s-conca3.ads		20170516105955 0b705ca5 system.concat_3%s
-D s-conca5.ads		20170516105951 875e432e system.concat_5%s
-D s-crtl.ads		20170516105948 0ebbdb71 system.crtl%s
-D s-exctab.ads		20170516105954 54135002 system.exception_table%s
-D s-ficobl.ads		20170516105956 078245e4 system.file_control_block%s
-D s-parame.ads		20170516105955 7e2a0d7f system.parameters%s
-D s-soflin.ads		20170516105951 14e1eb6c system.soft_links%s
-D s-stache.ads		20170516105955 a37c21ec system.stack_checking%s
-D s-stalib.ads		20170516105955 09bd3940 system.standard_library%s
-D s-stoele.ads		20170516105956 2dc34a04 system.storage_elements%s
-D s-traent.ads		20170516105950 005bf670 system.traceback_entries%s
-D s-unstyp.ads		20170516105953 34867c83 system.unsigned_types%s
-D s-wchcon.ads		20170516105954 1b7d22d2 system.wch_con%s
+D ada.ads		20070406091342 3ffc8e18 ada%s
+D a-except.ads		20140730140058 5250cb69 ada.exceptions%s
+D a-inteio.ads		20070406091342 f64b89a4 ada.integer_text_io%s
+D a-ioexce.ads		20140225151544 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20141120112812 119b8fb3 ada.streams%s
+D a-tags.ads		20140730140058 dc4d0634 ada.tags%s
+D a-textio.ads		20140717063745 386df5d4 ada.text_io%s
+D a-tiinio.ads		20140717063513 aa04e5d6 ada.text_io.integer_io%s
+D a-unccon.ads		20070406091342 f9eb8f06 ada.unchecked_conversion%s
+D crear_sublista_4primos.ads  20180413160813 8f0c8ac7 crear_sublista_4primos%s
+D crear_sublista_pares.ads  20180413161002 bc757b74 crear_sublista_pares%s
+D es_abundante.adb	20180413152953 c2ffe03d es_abundante%b
+D es_divisor.adb	20180413152906 7aa6f69e es_divisor%b
+D es_par.adb		20180413161159 407b0a1d es_par%b
+D es_primo.adb		20180413152809 2c6563f2 es_primo%b
+D interfac.ads		20141120112812 6033a23f interfaces%s
+D i-cstrea.ads		20140801100435 e53d8b8e interfaces.c_streams%s
+D listas.ads		20180413161421 55550d17 listas%s
+D listas.adb		20180413160402 5cdc686e listas%b
+D probar_listas.adb	20180413161146 9991dde5 probar_listas%b
+D suma_divisores_propios.adb  20180413152915 bff79c4a suma_divisores_propios%b
+D system.ads		20141031112219 1d274481 system%s
+D s-conca3.ads		20140225151544 0b705ca5 system.concat_3%s
+D s-conca5.ads		20140225151544 875e432e system.concat_5%s
+D s-crtl.ads		20141120112812 0ebbdb71 system.crtl%s
+D s-exctab.ads		20140225151139 54135002 system.exception_table%s
+D s-ficobl.ads		20140718105747 078245e4 system.file_control_block%s
+D s-parame.ads		20140801093848 7e2a0d7f system.parameters%s
+D s-soflin.ads		20140801100131 aa763b52 system.soft_links%s
+D s-stache.ads		20140225151139 a37c21ec system.stack_checking%s
+D s-stalib.ads		20150220094550 fa0a3617 system.standard_library%s
+D s-stoele.ads		20140225151139 2dc34a04 system.storage_elements%s
+D s-traent.ads		20140730135025 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20140731130224 9d58a4c0 system.unsigned_types%s
+D s-wchcon.ads		20140718092328 1b7d22d2 system.wch_con%s
 X 1 ada.ads
-16K9*Ada 20e8 13|1r6 1r27 2r5 2r26
+16K9*Ada 19e8 20|1r6 1r27 2r5 2r26
 X 3 a-inteio.ads
-18K13*Integer_Text_IO[8|46] 13|1w10 2r9
+18K13*Integer_Text_IO[8|46] 20|1w10 2r9
 X 7 a-textio.ads
-49K13*Text_IO 471e16 13|1w31 2r30
-166U14*New_Line 13|20s13 20s23 34s13 71s7 71s17 88s7 88s17 104s7 104s17 120s7
-. 120s17 161s7 161s17
-242U14*Put 13|13s13 17s13 32s13 56s7 63s13 65s13 67s13 74s7 80s13 82s13 84s13
-. 90s7 96s13 98s13 100s13 106s7 112s13 114s13 116s13 124s7 128s7 131s7 134s7
-. 137s7 140s7 158s13 172s13
-263U14*Put_Line 13|12s13 27s13 153s13 156s13 167s13 170s13
+49K13*Text_IO 471e16 20|1w31 2r30
+166U14*New_Line 20|24s13 24s23 38s13 77s7 77s17 94s7 94s17 110s7 110s17 126s7
+. 126s17 167s7 167s17
+242U14*Put 20|17s13 21s13 36s13 62s7 69s13 71s13 73s13 80s7 86s13 88s13 90s13
+. 96s7 102s13 104s13 106s13 112s7 118s13 120s13 122s13 130s7 134s7 137s7
+. 140s7 143s7 146s7 164s13 178s13
+263U14*Put_Line 20|16s13 31s13 159s13 162s13 173s13 176s13
 X 8 a-tiinio.ads
-66U14*Put 13|16s13[3|18] 31s13[3|18] 33s13[3|18] 62s13[3|18] 66s13[3|18]
-. 79s13[3|18] 83s13[3|18] 95s13[3|18] 99s13[3|18] 111s13[3|18] 115s13[3|18]
-X 12 listas.ads
-2K9*Listas 94e11 13|4w6 5r5 8r46 14r23 15r13 18r13 23r48 23r86 28r23 29r13
-. 30r13 35r13 36r13 49r27 57r7 60r13 61r16 70r7 75r7 77r13 78r16 87r7 91r7
-. 93r13 94r16 103r7 107r7 109r13 110r16 119r7 144r7 147r13 152r10 165r7 166r10
-4P9*Lista 13|8r53 23r55 23r93 49r34
-6U14*Crear_Vacia 13|57s14 75s14 91s14 107s14 144s14
-10U17*Colocar 13|60s20 77s20 93s20 109s20 147s20
-17U14*Obtener_Primero 13|15s20 29s20 30s20
-24V13*Esta{boolean} 13|61s23 78s23 94s23 110s23
-30U14*Borrar_Primero 13|18s20 35s20 36s20
-35U14*Crear_Sublista 13|70s14 87s14
-45V13*Es_Vacia{boolean} 13|14s30 28s30
-51V13*Igual{boolean} 13|152s17 166s17
-58U14*Copiar 13|165s14
-64U14*Crear_Sublista_4Primos 13|103s14
-73U14*Crear_Sublista_3Abundantes 13|119s14
-X 13 probar_listas.adb
-7U11*Probar_Listas 7b11 175l5 175t18
-8U17 Escribir_Contenido 8b17 8=36 8>60 21l11 21t29 125s7 129s7 132s7 135s7
-. 138s7 141s7 159s13 173s13
-8p36 L{12|4P9} 14r39 15r36 18m35
-8a60 Lista{string} 12r50
-9i13 N{integer} 15m39 16r17
-23U17 Escribir_Contenidos 23b17 23=37 23>62 23=75 23>100 38l11 38t30 154s13
-. 168s13
-23p37 L1{12|4P9} 28r39 29r36 35m35
-23a62 L1s{string} 27r57
-23p75 L2{12|4P9} 30r36 36m35
-23a100 L2s{string} 27r67
-24i13 N1{integer} 29m40 31r17
-24i17 N2{integer} 30m40 33r17
-40p7 L1{12|4P9} 57m26 57r26 60m28 60r28 61r28 70r29 125m26 125r26
-41p13 L1p{12|4P9} 70m33 70r33 152r28 154m33 154r33 159m32 159r32
-42p13 L2{12|4P9} 75m26 75r26 77m28 77r28 78r28 87r29 129m26 129r26
-43p13 L3{12|4P9} 91m26 91r26 93m28 93r28 94r28 103r37 132m26 132r26
-44p13 L4{12|4P9} 107m26 107r26 109m28 109r28 110r28 119r41 138m26 138r26
-45p13 L2p{12|4P9} 87m33 87r33 165r26 166r28 168m33 168r33 173m32 173r32
-46p13 Lp1{12|4P9} 144m26 144r26 147m28 147r28 152r23 154m45 154r45
-47p13 Lp2{12|4P9} 165m21 165r21 166r23 168m45 168r45
-48p13 L3primos{12|4P9} 103m41 103r41 135m26 135r26
-49p13 L4abudantes{12|4P9} 119m45 119r45 141m26 141r26
-50i7 N{integer} 145m7 146r13 147r33 148m13 148r17
-51i13 N1{integer}
-52i13 N2{integer}
-59i11 I{integer} 60r32 61r32 62r17 66r17
-76i11 I{integer} 77r32 78r32 79r17 83r17
-92i11 I{integer} 93r32 94r32 95r17 99r17
-108i11 I{integer} 109r32 110r32 111r17 115r17
+66U14*Put 20|20s13[3|18] 35s13[3|18] 37s13[3|18] 68s13[3|18] 72s13[3|18]
+. 85s13[3|18] 89s13[3|18] 101s13[3|18] 105s13[3|18] 117s13[3|18] 121s13[3|18]
+X 10 crear_sublista_4primos.ads
+3U11*Crear_Sublista_4Primos[18|57] 20|6w6 109s7
+X 11 crear_sublista_pares.ads
+3U11*Crear_Sublista_Pares[18|57] 20|7w6 76s7 93s7
+X 12 es_abundante.adb
+2V10*Es_Abundante{boolean} 20|5w6 10r97
+X 18 listas.ads
+1K9*Listas 78e11 20|4w6 10r51 12r46 18r23 19r13 22r13 27r48 27r86 32r23 33r13
+. 34r13 39r13 40r13 55r27 63r7 66r13 67r16 81r7 83r13 84r16 97r7 99r13 100r16
+. 113r7 115r13 116r16 150r7 153r13 158r10 171r7 172r10
+3P12*Lista 20|12r53 27r55 27r93 55r34
+5U17*Crear_Vacia 20|63s14 81s14 97s14 113s14 150s14
+9U23*Colocar 20|66s20 83s20 99s20 115s20 153s20
+16U17*Obtener_Primero 20|19s20 33s20 34s20
+23V16*Esta{boolean} 20|67s23 84s23 100s23 116s23
+29U17*Borrar_Primero 20|22s20 39s20 40s20
+35V16*Es_Vacia{boolean} 20|18s30 32s30
+41V16*Igual{boolean} 20|158s17 172s17
+48U17*Copiar 20|171s14
+55V27 Filtro{boolean} 20|10r87
+56i13 Cuantos{integer} 20|10r73
+57u23*Crear_Sublista 20|10r58
+X 20 probar_listas.adb
+9U11*Probar_Listas 9b11 181l5 181t18
+10U17 Crear_Sublista_3Abundantes[18|57] 19|59b17 20|125s7
+12U17 Escribir_Contenido 12b17 12=36 12>60 25l11 25t29 131s7 135s7 138s7
+. 141s7 144s7 147s7 165s13 179s13
+12p36 L{18|3P12} 18r39 19r36 22m35
+12a60 Lista{string} 16r50
+13i13 N{integer} 19m39 20r17
+27U17 Escribir_Contenidos 27b17 27=37 27>62 27=75 27>100 42l11 42t30 160s13
+. 174s13
+27p37 L1{18|3P12} 32r39 33r36 39m35
+27a62 L1s{string} 31r57
+27p75 L2{18|3P12} 34r36 40m35
+27a100 L2s{string} 31r67
+28i13 N1{integer} 33m40 35r17
+28i17 N2{integer} 34m40 37r17
+46p7 L1{18|3P12} 63m26 63r26 66m28 66r28 67r28 76r28 131m26 131r26
+47p13 L1p{18|3P12} 76m32 76r32 158r28 160m33 160r33 165m32 165r32
+48p13 L2{18|3P12} 81m26 81r26 83m28 83r28 84r28 93r28 135m26 135r26
+49p13 L3{18|3P12} 97m26 97r26 99m28 99r28 100r28 109r30 138m26 138r26
+50p13 L4{18|3P12} 113m26 113r26 115m28 115r28 116r28 125r34 144m26 144r26
+51p13 L2p{18|3P12} 93m32 93r32 171r26 172r28 174m33 174r33 179m32 179r32
+52p13 Lp1{18|3P12} 150m26 150r26 153m28 153r28 158r23 160m45 160r45
+53p13 Lp2{18|3P12} 171m21 171r21 172r23 174m45 174r45
+54p13 L3primos{18|3P12} 109m34 109r34 141m26 141r26
+55p13 L4abudantes{18|3P12} 125m38 125r38 147m26 147r26
+56i7 N{integer} 151m7 152r13 153r33 154m13 154r17
+57i13 N1{integer}
+58i13 N2{integer}
+65i11 I{integer} 66r32 67r32 68r17 72r17
+82i11 I{integer} 83r32 84r32 85r17 89r17
+98i11 I{integer} 99r32 100r32 101r17 105r17
+114i11 I{integer} 115r32 116r32 117r17 121r17
 

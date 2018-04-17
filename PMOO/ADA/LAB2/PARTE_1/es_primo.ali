@@ -1,0 +1,19 @@
+V "GNAT Lib v5"
+P ZX
+
+RN
+RV SPARK_05
+
+U es_primo%b		es_primo.adb		9392ffb8 NE OO SU
+W suma_divisores_propios%b  suma_divisores_propios.adb  suma_divisores_propios.ali
+
+D es_divisor.adb	20180413152906 7aa6f69e es_divisor%b
+D es_primo.adb		20180413152809 2c6563f2 es_primo%b
+D suma_divisores_propios.adb  20180413152915 bff79c4a suma_divisores_propios%b
+D system.ads		20141031112219 1d274481 system%s
+X 2 es_primo.adb
+2V10*Es_Primo{boolean} 2b10 2>19 8l5 8t13
+2i19 N{integer} 4r35
+X 3 suma_divisores_propios.adb
+2V10*Suma_Divisores_Propios{integer} 2|1w6 4s12
+
