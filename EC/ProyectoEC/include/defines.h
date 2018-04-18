@@ -48,7 +48,10 @@ extern int TactilTocada();
 #define L		9
 
 // Asignar un nombre a cada estado
-#define INICIO	0
+#define ESTADO_INICIO	0
+#define ESTADO_JUGANDO 1
+#define ESTADO_BORRAR_MOSTRAR 2
+#define ESTADO_APAGADO 3
 
 // Variables globales
 

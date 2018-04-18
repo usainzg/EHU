@@ -55,7 +55,7 @@ void HabilitarGraficos() {
 }
 
 // Procedimiento para imprimir bienvenida
-void ImprimirBienvenida() {
+void MostrarMensajeBienvenida() {
     iprintf("\x1b[02;00H  +--------------------------+  ");
     iprintf("\x1b[03;00H  : EC 17/18           G13   :  ");
     iprintf("\x1b[04;00H  +--------------------------+  ");
@@ -68,29 +68,40 @@ int TactilTocada() {
 	touchPosition pos_pantalla;
 	touchRead(&pos_pantalla);
   	return !(pos_pantalla.px==0 && pos_pantalla.py==0);
-} 
+}
+
+void PasarAJugando() {
+	iprintf("\x1b[05;00H     PANTALLA TOCADA            ");
+	iprintf("\x1b[07;00H                                ");
+	estado = ESTADO_JUGANDO;
+}
+
+void Setup() {
+	HabilitarGraficos();
+	Interrupciones();
+	MostrarMensajeBienvenida();
+}
+
+
 
 //---------------------------------------------------
 // Variables globales
 //---------------------------------------------------
-int estado = 0;
+int estado = ESTADO_INICIO;
 
 //---------------------------------------------------
 // main
 //---------------------------------------------------
 int main() {
 
-	HabilitarGraficos();
-	Interrupciones();
-	ImprimirBienvenida();
+	Setup();
 
     while(!estado) {
 		estado = TactilTocada();
     } // while
 
-	iprintf("\x1b[05;00H     PANTALLA TOCADA            ");
-	iprintf("\x1b[07;00H                                ");
-
+	PasarAJugando();
+	
 	while(1) {
 		int tecla = TeclaPulsada(TIPO_ENCUESTA);
 		ImprimirTeclaPulsada(tecla, TIPO_ENCUESTA);
