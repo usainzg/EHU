@@ -59,8 +59,8 @@ void ImprimirBienvenida() {
     iprintf("\x1b[02;00H  +--------------------------+  ");
     iprintf("\x1b[03;00H  : EC 17/18           G13   :  ");
     iprintf("\x1b[04;00H  +--------------------------+  ");
-	iprintf("\x1b[07;00H     Para comenzar,   toque     ");
-	iprintf("\x1b[09;00H      la pantalla taactil.      ");
+	iprintf("\x1b[05;00H     Para comenzar,   toque     ");
+	iprintf("\x1b[07;00H      la pantalla taactil.      ");
 }
 
 // Esta funcion consulta si se ha tocado la pantalla tactil
@@ -88,16 +88,12 @@ int main() {
 		estado = TactilTocada();
     } // while
 
-	iprintf("\x1b[07;00H     PANTALLA TOCADA            ");
-	iprintf("\x1b[09;00H                                ");
+	iprintf("\x1b[05;00H     PANTALLA TOCADA            ");
+	iprintf("\x1b[07;00H                                ");
 
 	while(1) {
 		int tecla = TeclaPulsada(TIPO_ENCUESTA);
-		if (tecla == -1) {
-			iprintf("\x1b[10;00H                              ");
-		} else {
-			ImprimirTeclaPulsada(tecla, TIPO_ENCUESTA);
-		}
+		ImprimirTeclaPulsada(tecla, TIPO_ENCUESTA);
 	}
 
 } //main

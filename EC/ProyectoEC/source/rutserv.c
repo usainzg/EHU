@@ -18,8 +18,7 @@ void HabilitarInterrupciones() { // En el Controlador de Interrupciones
   IME = 0;
   
   //Escribir un 1 en el bit correspondiente 
-  IE = IE | 0x8;
-  IE = IE | 0x1000;
+  IE |= 0x1008;
   
   //Se vuelven a habilitar todas las interrupciones
   IME = 1;

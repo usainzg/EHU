@@ -38,12 +38,21 @@ int  TeclaPulsada(int tipoTecla) {
 }
 
 void ImprimirTeclaPulsada(int tecla, int tipoTecla) {
-    if(tipoTecla == TIPO_INTERRUPT) {
-        iprintf("\x1b[10;00H     TECLA INTERRUP: %s", TECLAS_STR[tecla - 1]);
-    } 
-    if(tipoTecla == TIPO_ENCUESTA) {
-        iprintf("\x1b[10;00H     TECLA ENCUESTA: %s", TECLAS_STR[tecla - 1]);
+    switch(tipoTecla) {
+        case TIPO_ENCUESTA:
+            if(tecla != -1) {
+                iprintf("\x1b[10;00H ENCUESTA:   %s", TECLAS_STR[tecla - 1]);
+            }
+            break;
+        case TIPO_INTERRUPT:
+            iprintf("\x1b[10;00H                            ");
+            iprintf("\x1b[12;00H                            ");
+            iprintf("\x1b[12;00H INTERRUPT:   %s", TECLAS_STR[tecla - 1]);
+            break;
+        default:       
+            break;
     }
+    
 }
 
 // Rutina de atencion a la interrupcion del teclado
