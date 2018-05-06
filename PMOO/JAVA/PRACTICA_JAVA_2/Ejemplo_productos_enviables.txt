@@ -1,0 +1,18 @@
+-----------------------------------------------------------------------------------------------
+----------------- Super Online: Lista de productos enviables del Inventario -------------------
+-----------------------------------------------------------------------------------------------
+ Codigo             Nombre               Peso      Precio con IVA    Tarifa-envio      Fragil   
+--------   -----------------------    --------- ----------------- --------------- -------------
+ 1021                Leche-Kaiku         1,00           1,38            2,15          Fragil!    
+ 1134                  Kas-lim—n         0,37           0,35            2,15          Fragil!    
+ 1232                     Pomelo         0,30           1,56            2,15
+ 1344                       Lima         0,30          14,52            3,71
+ 1346                       zumo         1,00           1,14            2,15          Fragil!    
+ 1455             queso-manchego         1,40          10,40            2,15          Fragil!    
+ 1657                 queso-azul         3,12           8,32            2,15          Fragil!    
+ 1988                   Patxaran         2,20          22,00            2,15          Fragil!    
+ 2036                   Aguacate         0,22           1,09            2,15
+ 2334              Lecha-Pascual         1,00           0,88            2,15          Fragil!    
+ 2341          Naranjas-Valencia         0,32           1,04            2,15
+ 2451              Taladro-Bosch         1,70          85,31            3,71
+ 3339                      Limon         0,15           3,43            2,15

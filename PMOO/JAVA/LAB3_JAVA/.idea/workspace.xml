@@ -16,7 +16,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -68,6 +68,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -75,13 +78,15 @@
               <item name="LAB3_JAVA" type="b2602c69:ProjectViewProjectNode" />
               <item name="LAB3_JAVA" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="LAB3_JAVA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LAB3_JAVA" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -103,7 +108,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JAR Application.LAB3_JAVA.jar">
+  <component name="RunManager" selected="Application.Principal (1)">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="WIDTH" value="400" />
       <option name="HEIGHT" value="300" />
@@ -224,8 +229,8 @@
     </list>
     <recent_temporary>
       <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="JAR Application.LAB3_JAVA.jar" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Principal (1)" />
+        <item index="0" class="java.lang.String" itemvalue="Application.Principal (1)" />
+        <item index="1" class="java.lang.String" itemvalue="JAR Application.LAB3_JAVA.jar" />
         <item index="2" class="java.lang.String" itemvalue="Application.Principal" />
       </list>
     </recent_temporary>
@@ -244,38 +249,40 @@
       <option name="presentableId" value="Default" />
       <updated>1525265304571</updated>
       <workItem from="1525265305911" duration="4393000" />
+      <workItem from="1525273286668" duration="503000" />
+      <workItem from="1525339072109" duration="98000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4393000" />
+    <option name="totallyTimeSpent" value="4994000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="778" extended-state="0" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286119" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286119" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286119" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -413,10 +420,158 @@
         </state>
       </provider>
     </entry>
+    <entry file="uml://JAVA/">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement />
+          <nodes>
+            <node x="967.3183823529412" y="0.0">Musico</node>
+            <node x="163.69338235294117" y="755.0">Saxo</node>
+            <node x="388.69338235294117" y="733.0">Trompetista</node>
+            <node x="1095.6933823529412" y="722.0">Soprano</node>
+            <node x="0.0" y="497.5">Pianista</node>
+            <node x="979.1661764705882" y="497.0">Cantante</node>
+            <node x="1332.9125" y="497.5">Director</node>
+            <node x="358.69338235294117" y="520.0">Instrumentista</node>
+            <node x="873.6933823529412" y="766.5">Tenor</node>
+            <node x="1567.9125" y="420.0">Orquesta</node>
+            <node x="648.6933823529412" y="733.0">Bajo</node>
+            <node x="726.6566176470587" y="996.0">Principal</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="Director" target="Musico">
+              <point x="53.75" y="-48.5" />
+              <point x="1494.1625" y="380.0" />
+              <point x="1158.5683823529412" y="380.0" />
+              <point x="63.75" y="170.0" />
+            </edge>
+            <edge source="Principal" target="Tenor">
+              <point x="24.799999999999955" y="-26.0" />
+              <point x="844.4566176470587" y="926.0" />
+              <point x="1025.1933823529412" y="926.0" />
+              <point x="50.5" y="37.5" />
+            </edge>
+            <edge source="Soprano" target="Cantante">
+              <point x="68.75" y="-82.0" />
+              <point x="1301.9433823529412" y="702.0" />
+              <point x="1212.7911764705882" y="702.0" />
+              <point x="100.125" y="49.0" />
+            </edge>
+            <edge source="Principal" target="Soprano">
+              <point x="37.200000000000045" y="-26.0" />
+              <point x="856.8566176470588" y="936.0" />
+              <point x="1164.4433823529412" y="936.0" />
+              <point x="-68.75" y="82.0" />
+            </edge>
+            <edge source="Tenor" target="Cantante">
+              <point x="-50.5" y="-37.5" />
+              <point x="924.1933823529412" y="702.0" />
+              <point x="1012.5411764705882" y="702.0" />
+              <point x="-100.125" y="49.0" />
+            </edge>
+            <edge source="Instrumentista" target="Musico">
+              <point x="75.0" y="-26.0" />
+              <point x="583.6933823529412" y="390.0" />
+              <point x="1056.5683823529412" y="390.0" />
+              <point x="-38.25" y="170.0" />
+            </edge>
+            <edge source="Saxo" target="Instrumentista">
+              <point x="-51.25" y="-49.0" />
+              <point x="214.94338235294117" y="692.0" />
+              <point x="383.69338235294117" y="692.0" />
+              <point x="-125.0" y="26.0" />
+            </edge>
+            <edge source="Principal" target="Orquesta">
+              <point x="86.79999999999995" y="-26.0" />
+              <point x="906.4566176470587" y="976.0" />
+              <point x="1706.9125" y="976.0" />
+              <point x="0.0" y="126.0" />
+            </edge>
+            <edge source="Orquesta" target="Musico">
+              <point x="69.5" y="-126.0" />
+              <point x="1776.4125" y="360.0" />
+              <point x="1209.5683823529412" y="360.0" />
+              <point x="114.75" y="170.0" />
+            </edge>
+            <edge source="Pianista" target="Musico">
+              <point x="-53.5" y="-48.5" />
+              <point x="53.5" y="360.0" />
+              <point x="980.0683823529412" y="360.0" />
+              <point x="-114.75" y="170.0" />
+            </edge>
+            <edge source="Principal" target="Bajo">
+              <point x="-12.400000000000091" y="-26.0" />
+              <point x="807.2566176470586" y="916.0" />
+              <point x="699.9433823529412" y="916.0" />
+              <point x="-51.25" y="71.0" />
+            </edge>
+            <edge source="Principal" target="Director">
+              <point x="74.40000000000009" y="-26.0" />
+              <point x="894.0566176470588" y="966.0" />
+              <point x="1445.9125" y="966.0" />
+              <point x="1445.9125" y="702.0" />
+              <point x="1494.1625" y="702.0" />
+              <point x="53.75" y="48.5" />
+            </edge>
+            <edge source="Principal" target="Trompetista">
+              <point x="-24.800000000000068" y="-26.0" />
+              <point x="794.8566176470588" y="926.0" />
+              <point x="568.6933823529412" y="926.0" />
+              <point x="60.0" y="71.0" />
+            </edge>
+            <edge source="Cantante" target="Musico">
+              <point x="-66.75" y="-49.0" />
+              <point x="1045.9161764705882" y="400.0" />
+              <point x="1082.0683823529412" y="400.0" />
+              <point x="-12.75" y="170.0" />
+            </edge>
+            <edge source="Bajo" target="Instrumentista">
+              <point x="-51.25" y="-71.0" />
+              <point x="699.9433823529412" y="702.0" />
+              <point x="583.6933823529412" y="702.0" />
+              <point x="75.0" y="26.0" />
+            </edge>
+            <edge source="Principal" target="Pianista">
+              <point x="-74.40000000000009" y="-26.0" />
+              <point x="745.2566176470586" y="966.0" />
+              <point x="112.5" y="966.0" />
+              <point x="112.5" y="702.0" />
+              <point x="160.5" y="702.0" />
+              <point x="53.5" y="48.5" />
+            </edge>
+            <edge source="Trompetista" target="Instrumentista">
+              <point x="-60.0" y="-71.0" />
+              <point x="448.69338235294117" y="702.0" />
+              <point x="483.69338235294117" y="702.0" />
+              <point x="-25.0" y="26.0" />
+            </edge>
+            <edge source="Principal" target="Saxo">
+              <point x="-49.60000000000002" y="-26.0" />
+              <point x="770.0566176470588" y="946.0" />
+              <point x="317.44338235294117" y="946.0" />
+              <point x="51.25" y="49.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="324.0" y="320.0" />
+          <SelectedNodes>
+            <node>Principal</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Principal.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-116">
-          <caret line="14" column="27" lean-forward="false" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+        <state relative-caret-position="224">
+          <caret line="14" column="56" lean-forward="false" selection-start-line="14" selection-start-column="56" selection-end-line="14" selection-end-column="56" />
           <folding />
         </state>
       </provider>
