@@ -23,10 +23,13 @@ public class Inventario {
 	private int ultimoCodigo = -1;
 	private Scanner es;
 
+	private boolean cargado;
+
 	/**
 	 * Contructor privado para el singleton
 	 */
 	private Inventario() {
+	    cargado = false;
 		listaProductos = new SortedArrayList<>();
 	}
 
