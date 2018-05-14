@@ -1,5 +1,8 @@
 package productos;
 
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+
 /**
  * @author PMOO 2018:
  *
@@ -74,14 +77,21 @@ public abstract class Producto implements Comparable<Producto> {
 	}
 
     /**
-     * Imprime el producto, formato "enviable"
+     * Devuelve los atributos en forma de lista
+     * @return lista
      */
-	public void imprimirEnviable() {
-		System.out.println("--Codigo--\t--Nombre--\t--Peso--\t--Precio--");
-		System.out.println(this.codigoProducto + "\t\t" + this.nombreProducto + "\t\t" + this.pesoProducto + "\t\t" +
-				+ this.precioProducto);
-	}
-	
+	public ArrayList<String> deProductoAListaString() {
+	    ArrayList<String> lista = new ArrayList<>();
+        DecimalFormat decimalFormat = new DecimalFormat("0.00");
+	    lista.add(Integer.toString(codigoProducto));
+	    lista.add(nombreProducto);
+	    lista.add(decimalFormat.format(precioProducto));
+	    lista.add(decimalFormat.format(precioConIva()));
+	    lista.add(Integer.toString(cantidadProducto));
+	    return lista;
+    }
+
+
 	public int getCodigoProducto() {
 		return codigoProducto;
 	}
@@ -132,6 +142,10 @@ public abstract class Producto implements Comparable<Producto> {
 	
 	public double getIVA() {
 		return this.IVA_PRODUCTO;
+	}
+
+	public void setIVA_PRODUCTO(double iva) {
+		this.IVA_PRODUCTO = iva;
 	}
 
     /**
