@@ -60,5 +60,13 @@ extern int estado;
 #define TIPO_ENCUESTA 0
 #define TIPO_INTERRUPT 1
 
+// DIFICULTADES
+#define DIF_ALTA 8
+#define DIF_MEDIA 12
+#define DIF_BAJA 16
+
+// VARIABLES JUEGO
+#define BILLETE_MAX 4
+
 
 

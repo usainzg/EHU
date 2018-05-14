@@ -82,12 +82,10 @@ void Setup() {
 	MostrarMensajeBienvenida();
 }
 
-
-
 //---------------------------------------------------
 // Variables globales
 //---------------------------------------------------
-int estado = ESTADO_INICIO;
+int estado = ESTADO_INICIO; 
 
 //---------------------------------------------------
 // main

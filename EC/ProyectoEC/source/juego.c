@@ -11,19 +11,21 @@
 #include "teclado.h"
 #include "temporizadores.h"
 
-void setTimeout(int milliseconds, int j, int i)
-{
-    if (milliseconds <= 0) {
-        fprintf(stderr, "Count milliseconds for timeout is less or equal to 0\n");
-        return;
-    }
+static int posX_billete_1 = 0;
+static int posX_billete_2 = 0;
+static int posX_billete_3 = 0;
 
-    int milliseconds_since = clock() * 1000 / CLOCKS_PER_SEC;
-    int end = milliseconds_since + milliseconds;
+void SetupVariables() {
+    posX_billete_1 = rand() % 250;
+    posX_billete_2 = rand() % 250;
+}
 
-    do {
-        MostrarBillete(5, j, i);
-        milliseconds_since = clock() * 1000 / CLOCKS_PER_SEC;
-    } while (milliseconds_since <= end);
+void SetupEntornoJuego() {
+    SetupVariables();
+}
+
+void MoverBillete(int posX, int posY) {
+    MostrarBillete(1, posX_billete_1, posY);
+    MostrarBillete(2, posX_billete_2, posY);
 }
 
