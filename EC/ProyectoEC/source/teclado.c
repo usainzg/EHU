@@ -47,7 +47,7 @@ void ImprimirTeclaPulsada(int tecla, int tipoTecla) {
         case TIPO_INTERRUPT:
             iprintf("\x1b[10;00H                            ");
             iprintf("\x1b[12;00H                            ");
-            iprintf("\x1b[12;00H INTERRUPT:   %s", TECLAS_STR[tecla - 1]);
+            iprintf("\x1b[16;00H INTERRUPT:   %s", TECLAS_STR[tecla - 1]);
             break;
         default:       
             break;
@@ -59,6 +59,7 @@ void ImprimirTeclaPulsada(int tecla, int tipoTecla) {
 void IntTec() {
     int t = TeclaPulsada(TIPO_INTERRUPT);
     ImprimirTeclaPulsada(t, TIPO_INTERRUPT);
+    if(t == 5) MoverSobreIzquierda();
 } 
 
 

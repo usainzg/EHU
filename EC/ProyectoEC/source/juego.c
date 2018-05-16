@@ -74,7 +74,7 @@ void MoverSobreDerecha() {
 }
 
 void MoverSobreIzquierda() {
-
+    posX_sobre -= 0.05;
 }
 
 void ControladorSobre() {
