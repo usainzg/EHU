@@ -23,6 +23,7 @@ void IntTemp() {
         t = 0;
         BucleJuego(n_segundos);
     }
+    ControladorSobre();
 }
 
 

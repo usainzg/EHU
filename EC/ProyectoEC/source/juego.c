@@ -15,9 +15,10 @@ static int posX_billete_1 = 0;
 static int posX_billete_2 = 0;
 static int posX_billete_3 = 0;
 
+double posX_sobre = POS_X_SOBRE_INICIAL;
+double posY_sobre = POS_Y_SOBRE_INICIAL;
+
 void SetupVariables() {
-    posX_billete_1 = rand() % 250;
-    posX_billete_2 = rand() % 250;
 }
 
 void SetupEntornoJuego() {
@@ -43,25 +44,54 @@ void MostrarFinalPartida() {
     printf("\x1b[12;00H     FINAL PARTIDA   ");
 }
 
+void MostrarPuntuacion() {
+    printf("\x1b[14;00H     PUNTUACION:    ");
+}
+
+void PasarAJugando() {
+	iprintf("\x1b[05;00H     PANTALLA TOCADA            ");
+	iprintf("\x1b[07;00H                                ");
+	estado = ESTADO_JUGANDO;
+}
+
+void PasarAMostrarBorrar() {
+    iprintf("\x1b[05;00H       PUNTUACION JUEGO         ");
+	iprintf("\x1b[07;00H -----------------------------  ");
+    estado = ESTADO_BORRAR_MOSTRAR;
+}
+
 void EncargadoTiempo(int segundos) {
     if(TIEMPO_PARTIDA <= segundos) {
-        estado = ESTADO_BORRAR_MOSTRAR;
         MostrarFinalPartida();
+        PasarAMostrarBorrar();
     } else {
         MostrarTiempoRestante(segundos);
     }
+}
+
+void MoverSobreDerecha() {
+    if(posX_sobre < 240) posX_sobre += 0.0005;
+}
+
+void MoverSobreIzquierda() {
+
+}
+
+void ControladorSobre() {
+    MostrarSobre(posX_sobre, posY_sobre);
 }
 
 void ComprobarEstadoActual(int segundos) {
 
     switch(estado) {
         case ESTADO_INICIO:
+            PasarAJugando();
             break;
         case ESTADO_JUGANDO:
             EncargadoTiempo(segundos);
             break;
         case ESTADO_BORRAR_MOSTRAR:
-
+            MostrarPuntuacion();
             break;
         case ESTADO_APAGADO:
 

@@ -67,13 +67,7 @@ void MostrarMensajeBienvenida() {
 int TactilTocada() {
 	touchPosition pos_pantalla;
 	touchRead(&pos_pantalla);
-  	return !(pos_pantalla.px==0 && pos_pantalla.py==0);
-}
-
-void PasarAJugando() {
-	iprintf("\x1b[05;00H     PANTALLA TOCADA            ");
-	iprintf("\x1b[07;00H                                ");
-	estado = ESTADO_JUGANDO;
+  	return !(pos_pantalla.px == 0 && pos_pantalla.py == 0);
 }
 
 void Setup() {
@@ -83,26 +77,22 @@ void Setup() {
 }
 
 //---------------------------------------------------
-// Variables globales
-//---------------------------------------------------
-int estado = ESTADO_INICIO; 
-
-//---------------------------------------------------
 // main
 //---------------------------------------------------
+int estado = ESTADO_INICIO;
 int main() {
 
 	Setup();
 
-    while(!estado) {
+    while(estado == ESTADO_INICIO) {
 		estado = TactilTocada();
     } // while
-
-	PasarAJugando();
 	
 	while(1) {
 		int tecla = TeclaPulsada(TIPO_ENCUESTA);
-		ImprimirTeclaPulsada(tecla, TIPO_ENCUESTA);
+		if(tecla == 4) {
+			MoverSobreDerecha();
+		}
 	}
 
 } //main
