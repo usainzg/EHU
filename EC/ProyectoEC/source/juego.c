@@ -29,3 +29,51 @@ void MoverBillete(int posX, int posY) {
     MostrarBillete(2, posX_billete_2, posY);
 }
 
+void MostrarTiempoRestante(int segundosTranscurridos) {
+    int tiempo = TIEMPO_PARTIDA - segundosTranscurridos;
+    if(tiempo < 10) {
+        printf("\x1b[12;00H     TIEMPO:    0%d", tiempo);
+    } else {
+        printf("\x1b[12;00H     TIEMPO:    %d", tiempo);
+    }
+    
+}
+
+void MostrarFinalPartida() {
+    printf("\x1b[12;00H     FINAL PARTIDA   ");
+}
+
+void EncargadoTiempo(int segundos) {
+    if(TIEMPO_PARTIDA <= segundos) {
+        estado = ESTADO_BORRAR_MOSTRAR;
+        MostrarFinalPartida();
+    } else {
+        MostrarTiempoRestante(segundos);
+    }
+}
+
+void ComprobarEstadoActual(int segundos) {
+
+    switch(estado) {
+        case ESTADO_INICIO:
+            break;
+        case ESTADO_JUGANDO:
+            EncargadoTiempo(segundos);
+            break;
+        case ESTADO_BORRAR_MOSTRAR:
+
+            break;
+        case ESTADO_APAGADO:
+
+            break;
+        default:
+            break;
+    }
+
+}
+
+void BucleJuego(int segundos) {
+    ComprobarEstadoActual(segundos);
+    EncargadoTiempo(segundos);
+}
+

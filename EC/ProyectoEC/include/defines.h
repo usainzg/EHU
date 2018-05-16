@@ -68,5 +68,7 @@ extern int estado;
 // VARIABLES JUEGO
 #define BILLETE_MAX 4
 
+#define TIEMPO_PARTIDA 20
+
 
 

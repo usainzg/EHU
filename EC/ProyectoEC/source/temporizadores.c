@@ -18,13 +18,10 @@ static int n_segundos = 0;
 void IntTemp() {
     t++;
     // TODO: cambiar dificultad
-    if (t >= DIF_ALTA) {
+    if (t >= 512 && estado == ESTADO_JUGANDO) {
         n_segundos++;
         t = 0;
-        if(n_segundos == 1) {
-            SetupEntornoJuego();
-        }
-        MoverBillete(10, n_segundos);
+        BucleJuego(n_segundos);
     }
 }
 
