@@ -4,6 +4,10 @@ import java.util.ArrayList;
 
 public class Otro extends NoPerecedero {
 
+    public Otro() {
+
+    }
+
     /**
      * Constructor que setea solo el nombre
      *
@@ -46,26 +50,6 @@ public class Otro extends NoPerecedero {
         return this.getCodigoProducto() + " " + this.getNombreProducto()
                 + " " + this.getPrecioProducto() + " " + this.getCantidadProducto() + " "
                 + this.getPesoProducto() + " " + this.getCategoria() + " " + this.getClass().getSimpleName() + " ";
-    }
-
-    @Override
-    public double peso() {
-        return this.getPesoProducto();
-    }
-
-    @Override
-    public boolean esFragil() {
-        return false;
-    }
-
-    @Override
-    public double tarifaEnvio() {
-        return 0;
-    }
-
-    @Override
-    public void imprimirEnviable() {
-
     }
 
     @Override

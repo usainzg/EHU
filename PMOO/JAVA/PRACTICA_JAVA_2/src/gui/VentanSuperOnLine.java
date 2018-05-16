@@ -13,6 +13,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
+import excepciones.ProductoInexistenteException;
 import productos.Otro;
 import productos.Producto;
 import productos.Bebida;
@@ -102,7 +103,7 @@ public class VentanSuperOnLine extends JFrame {
 		ActionListener actInbKargatu = new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				int erantzuna = JOptionPane.YES_OPTION;
-				Inventario inb = Inventario.getInventario();
+				Inventario inb = Inventario.getInstance();
 				if (inb.estaCargado()) { //kontuz, inbentarioa lehendik kargatuta dago-eta...
 					erantzuna = JOptionPane.showConfirmDialog (
 							null, 
@@ -112,18 +113,14 @@ public class VentanSuperOnLine extends JFrame {
 				}
 
 				if(erantzuna == JOptionPane.YES_OPTION) {
-					try {
-						inb.cargarProductosDelFichero();
-						//JOptionPane.showMessageDialog((Component)(arg0.getSource()), "Kargatu da inbentarioa fitxategitik.");
-						//JOptionPane.showMessageDialog(null, "Kargatu da inbentarioa fitxategitik.");
-						oharra = new JOptionPane(ExternalTextVS.UPLOAD,//"Kargatu da inbentarioa fitxategitik.",
-								JOptionPane.INFORMATION_MESSAGE);
-						oharLeihoa = oharra.createDialog(ExternalTextVS.INFO);//"Super Online - Info");
-						oharLeihoa.setAlwaysOnTop(true);
-						oharLeihoa.setVisible(true);
-					} catch (super4.ProductoInexistente e1) {
-						System.err.println(e1.getMessage());
-					}
+					inb.cargarProductosDelFichero();
+					//JOptionPane.showMessageDialog((Component)(arg0.getSource()), "Kargatu da inbentarioa fitxategitik.");
+					//JOptionPane.showMessageDialog(null, "Kargatu da inbentarioa fitxategitik.");
+					oharra = new JOptionPane(ExternalTextVS.UPLOAD,//"Kargatu da inbentarioa fitxategitik.",
+                            JOptionPane.INFORMATION_MESSAGE);
+					oharLeihoa = oharra.createDialog(ExternalTextVS.INFO);//"Super Online - Info");
+					oharLeihoa.setAlwaysOnTop(true);
+					oharLeihoa.setVisible(true);
 				}
 			}
 
@@ -132,7 +129,7 @@ public class VentanSuperOnLine extends JFrame {
 		//		mnuInbBistaratu.addActionListener(new ActionListener() {
 		ActionListener actInbBistaratu = new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Inventario inb = Inventario.getInventario();
+				Inventario inb = Inventario.getInstance();
 				if (!inb.estaCargado()) {
 					oharra = new JOptionPane(ExternalTextVS.MESSAGE_BEFORE_VISUALIZING,
 							JOptionPane.WARNING_MESSAGE);
@@ -141,7 +138,7 @@ public class VentanSuperOnLine extends JFrame {
 					oharLeihoa.setVisible(true);
 				} else {
 				try {
-					VentanaInventario inbLeihoa = new VentanaInventario(inb.inventarioAListaListaString());
+					VentanaInventario inbLeihoa = new VentanaInventario(inb.inventarioAListaString());
 					inbLeihoa.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 					inbLeihoa.setVisible(true);
 				} catch (Exception e) {
@@ -154,7 +151,7 @@ public class VentanSuperOnLine extends JFrame {
 		//		mnuInbGorde.addActionListener(new ActionListener() {
 		ActionListener actInbGorde = new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Inventario inb = Inventario.getInventario();
+				Inventario inb = Inventario.getInstance();
 				if (!inb.estaCargado()) {
 					oharra = new JOptionPane(ExternalTextVS.MESSAGE_LOAD_EARLIER,//"Inbentarioa gorde ahal izateko, lehenago kargatu egin behar da.",
 							JOptionPane.WARNING_MESSAGE);
@@ -191,7 +188,7 @@ public class VentanSuperOnLine extends JFrame {
 		//		mnuProdGehitu.addActionListener(new ActionListener() {
 		ActionListener actProdGehitu = new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Inventario inb = Inventario.getInventario();
+				Inventario inb = Inventario.getInstance();
 				if (!inb.estaCargado()) {
 					oharra = new JOptionPane(ExternalTextVS.MESSAGE_BEFORE_ADDING,//"Produktu bat gehitu aurretik inbentarioa kargatu behar da.",
 							JOptionPane.WARNING_MESSAGE);
@@ -207,13 +204,13 @@ public class VentanSuperOnLine extends JFrame {
 						if (dlgProduktua.pulsadoGuardar()) {
 							//produktua eraiki eta gehitu inbentarioan, motaren arabera:
 							//int kodea = inb.getUltimoCodigo();
-							Producto p=new Otro();
+							Producto p = new Otro();
 							switch (dlgProduktua.getTipoProducto()) {
 							case "Bebida":
 								p= new Bebida(
 										dlgProduktua.getTxtNombre(),
-										dlgProduktua.getTxtPrecio(),
 										dlgProduktua.getTxtCantidad(),
+										dlgProduktua.getTxtPrecio(),
 										dlgProduktua.getTxtPeso(),
 										dlgProduktua.getTxtFechaCaducidad(),
 										dlgProduktua.getTxtGraduacion());
@@ -222,8 +219,8 @@ public class VentanSuperOnLine extends JFrame {
 							case "Lacteo":
 								p= new Lacteo(
 										dlgProduktua.getTxtNombre(),
+                                        dlgProduktua.getTxtCantidad(),
 										dlgProduktua.getTxtPrecio(),
-										dlgProduktua.getTxtCantidad(),
 										dlgProduktua.getTxtPeso(),
 										dlgProduktua.getTxtFechaCaducidad(),
 										dlgProduktua.getTxtLote());
@@ -232,16 +229,17 @@ public class VentanSuperOnLine extends JFrame {
 							case "Herramienta":
 								p=new Herramienta(
 										dlgProduktua.getTxtNombre(),
+                                        dlgProduktua.getTxtCantidad(),
 										dlgProduktua.getTxtPrecio(),
-										dlgProduktua.getTxtCantidad(),
-										dlgProduktua.getTxtPeso());
+										dlgProduktua.getTxtPeso(),
+                                        dlgProduktua.getTxtCategoria());
 								inb.incluirNuevoProducto(p);
 								break;
 							case "FrutaYHortaliza":
 								p=new FrutaYHortaliza(
 										dlgProduktua.getTxtNombre(),
+                                        dlgProduktua.getTxtCantidad(),
 										dlgProduktua.getTxtPrecio(),
-										dlgProduktua.getTxtCantidad(),
 										dlgProduktua.getTxtPeso(),
 										dlgProduktua.getTxtFechaCaducidad(),
 										dlgProduktua.getTxtOrigen());
@@ -250,15 +248,15 @@ public class VentanSuperOnLine extends JFrame {
 							case "Otro":
 								p= new Otro(
 										dlgProduktua.getTxtNombre(),
+                                        dlgProduktua.getTxtCantidad(),
 										dlgProduktua.getTxtPrecio(),
-										dlgProduktua.getTxtCantidad(),
 										dlgProduktua.getTxtPeso(),
 										dlgProduktua.getTxtCategoria());
 								inb.incluirNuevoProducto(p);
 								break;
 							default: System.out.println("Tipo "+dlgProduktua.getTipoProducto()+" desconocido.");						
 							}
-							JOptionPane.showMessageDialog(dlgProduktua, ExternalTextVS.ADDED+ p.getCodigo()+".");//" kodeko produktua gehitu da."//ExternalTextLN.ADDED
+							JOptionPane.showMessageDialog(dlgProduktua, ExternalTextVS.ADDED+ p.getCodigoProducto()+".");//" kodeko produktua gehitu da."//ExternalTextLN.ADDED
 						}					
 						dlgProduktua.dispose(); //'Ados' zein 'Utzi' sakatu
 					} catch (Exception e) {
@@ -273,7 +271,7 @@ public class VentanSuperOnLine extends JFrame {
 		//		actProdBidalgTxostenaSortu.addActionListener(new ActionListener() {
 		ActionListener actProdBidalgTxostenaSortu = new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Inventario inb = Inventario.getInventario();
+				Inventario inb = Inventario.getInstance();
 				if (!inb.estaCargado()) {
 					oharra = new JOptionPane(ExternalTextVS.MESSAGE_BEFORE_REPORT,//"Produktu bidalgarrien txostena sortu ahal izateko, lehenago inbentarioa kargatu egin behar da.",
 							JOptionPane.WARNING_MESSAGE);

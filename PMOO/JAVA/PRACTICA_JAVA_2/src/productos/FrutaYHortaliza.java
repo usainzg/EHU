@@ -1,8 +1,9 @@
 package productos;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
-public class FrutaYHortaliza extends Perecedero {
+public class FrutaYHortaliza extends Perecedero implements IEnviable {
     private String origen;
     /**
      * Constructor que setea solo el nombre
@@ -73,8 +74,13 @@ public class FrutaYHortaliza extends Perecedero {
     }
 
     @Override
-    public void imprimirEnviable() {
-
+    public void imprimirEnviable(PrintWriter printWriter) {
+        printWriter.printf(
+                IEnviable.FORMATO_IMPRESION,
+                getCodigoProducto(), getNombreProducto(),
+                getPesoProducto(), getPrecioProducto(),
+                tarifaEnvio(), ((esFragil()) ? "Fragil!" : "")
+        );
     }
 
 

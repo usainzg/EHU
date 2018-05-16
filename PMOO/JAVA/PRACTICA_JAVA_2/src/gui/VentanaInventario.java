@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
 
+import excepciones.ProductoInexistenteException;
 import super4.Inventario;
 
 import java.util.ArrayList;
@@ -159,26 +160,27 @@ public class VentanaInventario extends JDialog {
 										JOptionPane.ERROR_MESSAGE);
 					}
 
-					Inventario inb = Inventario.getInventario();
+					Inventario inb = Inventario.getInstance();
 					
 					if (!(kopBerria == null)) { //Ez du Cancel sakatu
 						try {
-							inb.actualizarCantidad(kodea,
+							inb.actualizarCantidadProducto(kodea,
 									Integer.parseInt(kopBerria));
-							taula.setModel(new ProduktuTaulaModelo(inb.inventarioAListaListaString())); //bistaratutako taula freskatzeko
+							taula.setModel(new ProduktuTaulaModelo(inb.inventarioAListaString())); //bistaratutako taula freskatzeko
 							JOptionPane.showMessageDialog(
 									taula, ExternalTextVI.methodProductAmountUpdated(kodea, Integer.parseInt(kopBerria))
 									/*kodea
 									+ " kodeko produktuaren kopurua eguneratu egin da ("
 									+ kopBerria + ")."*/
 									);
-						} catch (super4.ProductoInexistente e1) {
+						} catch (ProductoInexistenteException e1) {
 							System.err.println(ExternalTextVI.methodProductCodeError(kodea)//"Ez da aurkitu inbentarioa "
 									//+ kodea + " kodeko produkturik."
 									); //***
 						} catch (Exception e1) {
 							System.err.println(ExternalTextVI.MESSAGE_UPDATING_ERROR);//"Erroreren bat gertatu da kopurua eguneratzerakoan.");
 						}
+
 					}
 				}
 			}
@@ -196,17 +198,17 @@ public class VentanaInventario extends JDialog {
 						ExternalTextVI.QUESTION,//"Super Online - Produktua ezabatu, baieztapena",
 						JOptionPane.YES_NO_OPTION);
 				
-				Inventario inb = Inventario.getInventario();
+				Inventario inb = Inventario.getInstance();
 				
 				if (erantzuna == JOptionPane.YES_OPTION) {
 					try {
 						// kode bidezko ezabaketa:
 						inb.eliminarProducto(kodea);
-						taula.setModel(new ProduktuTaulaModelo(inb.inventarioAListaListaString())); //bistaratutako taula freskatzeko
+						taula.setModel(new ProduktuTaulaModelo(inb.inventarioAListaString())); //bistaratutako taula freskatzeko
 						JOptionPane.showMessageDialog(taula, ExternalTextVI.methodProductDeleted(kodea)
 								//kodea	+ " kodeko produktua ezabatu da."
 								);
-					} catch (super4.ProductoInexistente p) {
+					} catch (ProductoInexistenteException e1) {
 						System.err.println(ExternalTextVI.methodProductCodeError(kodea));
 						//"Ez da aurkitu inbentarioa " + kodea
 							//	+ " kodeko produkturik."); //***

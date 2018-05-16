@@ -1,8 +1,9 @@
 package productos;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
-public class Bebida extends Perecedero {
+public class Bebida extends Perecedero implements IEnviable {
     private int graduacion;
 
     /**
@@ -75,8 +76,13 @@ public class Bebida extends Perecedero {
     }
 
     @Override
-    public void imprimirEnviable() {
-
+    public void imprimirEnviable(PrintWriter printWriter) {
+        printWriter.printf(
+                IEnviable.FORMATO_IMPRESION,
+                getCodigoProducto(), getNombreProducto(),
+                getPesoProducto(), getPrecioProducto(),
+                tarifaEnvio(), ((esFragil()) ? "Fragil!" : "")
+        );
     }
 
     @Override

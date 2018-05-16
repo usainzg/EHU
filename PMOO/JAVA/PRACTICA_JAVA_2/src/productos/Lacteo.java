@@ -1,8 +1,9 @@
 package productos;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
-public class Lacteo extends Perecedero {
+public class Lacteo extends Perecedero implements IEnviable {
     private String lote;
 
     /**
@@ -67,8 +68,13 @@ public class Lacteo extends Perecedero {
     }
 
     @Override
-    public void imprimirEnviable() {
-
+    public void imprimirEnviable(PrintWriter printWriter) {
+        printWriter.printf(
+                IEnviable.FORMATO_IMPRESION,
+                getCodigoProducto(), getNombreProducto(),
+                getPesoProducto(), getPrecioProducto(),
+                tarifaEnvio(), ((esFragil()) ? "Fragil!" : "")
+        );
     }
 
     @Override

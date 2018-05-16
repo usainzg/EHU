@@ -1,5 +1,6 @@
 package productos;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class Herramienta extends NoPerecedero implements IEnviable {
@@ -64,8 +65,13 @@ public class Herramienta extends NoPerecedero implements IEnviable {
     }
 
     @Override
-    public void imprimirEnviable() {
-
+    public void imprimirEnviable(PrintWriter printWriter) {
+        printWriter.printf(
+                IEnviable.FORMATO_IMPRESION,
+                getCodigoProducto(), getNombreProducto(),
+                getPesoProducto(), getPrecioProducto(),
+                tarifaEnvio(), ((esFragil()) ? "Fragil!" : "")
+        );
     }
 
     @Override

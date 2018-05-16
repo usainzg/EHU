@@ -5,6 +5,10 @@ import java.util.ArrayList;
 public abstract class NoPerecedero extends Producto {
     private String categoria;
 
+    public NoPerecedero() {
+
+    }
+
     /**
      * Constructor que setea solo el nombre
      * @param nombre string

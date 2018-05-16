@@ -5,12 +5,16 @@ import java.util.ArrayList;
 public abstract class Perecedero extends Producto implements IEnviable {
     private String fechaCaducidad;
 
+    public Perecedero() {
+
+    }
+
     /**
      * Constructor que setea solo el nombre
      * @param nombre string
      * @param fecha String
      */
-    public Perecedero(String nombre, String fecha) {
+    Perecedero(String nombre, String fecha) {
         super(nombre);
         this.fechaCaducidad = fecha;
     }
@@ -24,7 +28,7 @@ public abstract class Perecedero extends Producto implements IEnviable {
      * @param pesoProducto double
      * @param fecha String
      */
-    public Perecedero(int codigoProducto, String nombreProducto, int cantidadProducto, double precioProducto,
+    Perecedero(int codigoProducto, String nombreProducto, int cantidadProducto, double precioProducto,
                     double pesoProducto, String fecha) {
         super(codigoProducto, nombreProducto, cantidadProducto, precioProducto, pesoProducto);
         this.fechaCaducidad = fecha;
@@ -38,12 +42,12 @@ public abstract class Perecedero extends Producto implements IEnviable {
      * @param pesoProducto double
      * @param fecha String
      */
-    public Perecedero(String nombreProducto, int cantidadProducto, double precioProducto, double pesoProducto, String fecha) {
+    Perecedero(String nombreProducto, int cantidadProducto, double precioProducto, double pesoProducto, String fecha) {
         super(nombreProducto, cantidadProducto, precioProducto, pesoProducto);
         this.fechaCaducidad = fecha;
     }
 
-    public String getFechaCaducidad() {
+    String getFechaCaducidad() {
         return fechaCaducidad;
     }
 

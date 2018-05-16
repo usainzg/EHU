@@ -1,5 +1,6 @@
 package super4;
 
+import productos.Lacteo;
 import productos.Producto;
 import excepciones.ProductoInexistenteException;
 import utilidades.SortedArrayList;
@@ -8,6 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -42,6 +44,13 @@ public class Inventario {
 		return instance;
 	}
 
+    /**
+     * Devuelve si el fichero esta cargado o no
+     * @return cargado
+     */
+	public boolean estaCargado() {
+	    return cargado;
+    }
 	/**
 	 * cargarProductosDelFichero: Carga de productos desde el fichero Nota: (1) la
 	 * constante NOM_FICHERO_INVENTARIO contiene el nombre externo del fichero de
@@ -61,23 +70,21 @@ public class Inventario {
 
 				linea = es.nextLine();
 				System.out.println(linea);
+
 				String[] lineaPartes = linea.split(" ");
 
-				int codigoP = Integer.parseInt(lineaPartes[0]);
-				String nombreP = lineaPartes[1];
-				int cantidadP = Integer.parseInt(lineaPartes[2]);
-				double precioP = Double.parseDouble(lineaPartes[3]);
-				double pesoP = Double.parseDouble(lineaPartes[4]);
+                String tipo = lineaPartes[lineaPartes.length - 1];
 
-				Producto producto = crearProductoConDatos(codigoP, nombreP, precioP, cantidadP, pesoP);
+				Producto producto = crearProductoConDatos(tipo, lineaPartes);
 
 				listaProductos.insertarOrdenado(producto);
 
-				ultimoCodigo = (ultimoCodigo < codigoP) ? codigoP : ultimoCodigo;
+				ultimoCodigo = (ultimoCodigo < producto.getCodigoProducto()) ? producto.getCodigoProducto() : ultimoCodigo;
 
 			}
+			cargado = true;
 			System.out.println("... se han cargado los productos del fichero.");
-		} catch (FileNotFoundException e) {
+		} catch (FileNotFoundException | ProductoInexistenteException e) {
 			System.err.println("... no se han podido cargar los productos del inventario.");
 			System.out.println();
 			System.out.println("¿Quieres intentar situar el archivo? Si / No");
@@ -108,17 +115,37 @@ public class Inventario {
 
 	}
 
-	/**
-	 * Devuelve el producto seteado apartir de atributos
-	 * @param cod int
-	 * @param nb string
-	 * @param precio double
-	 * @param cantidad int
-	 * @param peso double
-	 * @return producto
-	 */
-	private Producto crearProductoConDatos(int cod, String nb, double precio, int cantidad, double peso) {
-		return new Producto(cod, nb, cantidad, precio, peso);
+	private Producto crearProductoConDatos(String tipo, String[] lineaPartes) throws ProductoInexistenteException {
+
+        int codigoP = Integer.parseInt(lineaPartes[0]);
+        String nombreP = lineaPartes[1];
+        int cantidadP = Integer.parseInt(lineaPartes[2]);
+        double precioP = Double.parseDouble(lineaPartes[3]);
+        double pesoP = Double.parseDouble(lineaPartes[4]);
+
+	    Producto producto = null;
+
+	    switch (tipo) {
+            case "Lacteo":
+                producto = new Lacteo(codigoP, nombreP, cantidadP, precioP, pesoP, lineaPartes[5], lineaPartes[6]);
+                break;
+            case "Bebida":
+                producto = new Lacteo(codigoP, nombreP, cantidadP, precioP, pesoP, lineaPartes[5], lineaPartes[6]);
+                break;
+            case "FrutaYHortaliza":
+                producto = new Lacteo(codigoP, nombreP, cantidadP, precioP, pesoP, lineaPartes[5], lineaPartes[6]);
+                break;
+            case "Herramienta":
+                producto = new Lacteo(codigoP, nombreP, cantidadP, precioP, pesoP, lineaPartes[5], lineaPartes[6]);
+                break;
+            case "Otro":
+                producto = new Lacteo(codigoP, nombreP, cantidadP, precioP, pesoP, lineaPartes[5], lineaPartes[6]);
+                break;
+            default:
+                break;
+	    }
+	    if (producto != null) return producto;
+	    throw new ProductoInexistenteException();
 	}
 
 	/**
@@ -201,13 +228,19 @@ public class Inventario {
 		return ultimoCodigo;
 	}
 
-	/**
-	 * Muestra los productos del inventario
-	 */
-	public void mostrarProductos() {
-		if (listaProductos.size() == 0) return;
-		for (int i = 0; i < listaProductos.size(); i++)
-			System.out.println(listaProductos.get(i));
+    /**
+     * Devuelve todos los productos del inventario en forma de arraylist
+     * @return inventarioEnArrayList
+     */
+	public ArrayList<ArrayList<String>> inventarioAListaString() {
+	    ArrayList<ArrayList<String>> arrayList = new ArrayList<>();
+		if (listaProductos.size() == 0) return arrayList;
+		for (int i = 0; i < listaProductos.size(); i++) {
+            ArrayList<String> productoEnLista = listaProductos.get(i).deProductoAListaString();
+            arrayList.add(productoEnLista);
+        }
+
+        return arrayList;
 	}
 
 	/**
@@ -244,5 +277,13 @@ public class Inventario {
 			System.out.println("ERROR: La cantidad no es positiva.");
 		}
 	}
+
+	public void crearInformeProductosEnviables() {
+
+    }
+
+    public void eliminarProducto(int codigo) throws ProductoInexistenteException {
+
+    }
 
 }
