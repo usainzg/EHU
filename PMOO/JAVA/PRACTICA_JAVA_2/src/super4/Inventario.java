@@ -34,7 +34,7 @@ public class Inventario {
     /**
      * Singleton
      *
-     * @return Inventario
+     * @return instancia del singleton
      */
     public static Inventario getInstance() {
         if (instance == null) instance = new Inventario();
@@ -115,6 +115,13 @@ public class Inventario {
 
     }
 
+    /**
+     * Metodo auxiliar para la creacion de los objetos dependiendo del tipo
+     * @param tipo tipo del objeto
+     * @param lineaPartes atributos en forma de array
+     * @return producto correcto
+     * @throws ProductoInexistenteException si el tipo no existe
+     */
     private Producto crearProductoConDatos(String tipo, String[] lineaPartes) throws ProductoInexistenteException {
 
         int codigoP = Integer.parseInt(lineaPartes[0]);
@@ -178,10 +185,10 @@ public class Inventario {
      * Actualiza la cantidad de un producto si existe
      *
      * @param codigo        de producto a actualizar
-     * @param nuevaCantidad int
+     * @param nuevaCantidad la nueva cantidad
      * @return true: si ha ido bien, false: en caso contrario
      */
-    public boolean actualizarCantidadProductoPorCodigo(int codigo, int nuevaCantidad) throws ProductoInexistenteException, CantidadNoPositivaException {
+    public boolean actualizarCantidadProducto(int codigo, int nuevaCantidad) throws ProductoInexistenteException, CantidadNoPositivaException {
         if (nuevaCantidad < 1) {
             throw new CantidadNoPositivaException();
         }
@@ -194,21 +201,10 @@ public class Inventario {
     }
 
     /**
-     * Metodo auxiliar para saber si un producto existe
-     *
-     * @param producto producto con nombre seteado
-     * @return -1: no existe, indice: si existe
+     * Metodo para comprobar si existe el producto mediante su codigo
+     * @param codigo codigo a buscar
+     * @return -1 si no existe, el indice el caso de existir
      */
-    private int existeProductoDevuelvePos(Producto producto) {
-        String nombreNormalizado = producto.getNombreProducto().replace(" ", "-");
-        for (int i = 0; i < listaProductos.size(); i++) {
-            if (listaProductos.get(i).getNombreProducto().equals(nombreNormalizado)) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
     private int existeProductoDevuelvePosPorCodigo(int codigo) {
         for (int i = 0; i < listaProductos.size(); i++) {
             if (listaProductos.get(i).getCodigoProducto() == codigo) {
@@ -267,6 +263,10 @@ public class Inventario {
     }
 
 
+    /**
+     * Metodo para crear un fichero (informe) con los datos de los
+     * productos enviables (los que implementen la interfaz IEnviable)
+     */
     public void crearInformeProductosEnviables() {
         String cabecera = "-----------------------------------------------------------------------------------------------\n" +
                 "----------------- Super Online: Lista de productos enviables del Inventario -------------------\n" +
@@ -314,9 +314,12 @@ public class Inventario {
                 printWriter.close();
             }
         }
-
     }
 
+    /**
+     * Metodo auxiliar que crea la lista para el informe
+     * @return lista ordenada de los producto enviables
+     */
     private SortedArrayList<Producto> crearListaInforme() {
         SortedArrayList<Producto> listaInforme = new SortedArrayList<>();
 
@@ -324,11 +327,15 @@ public class Inventario {
             if (producto instanceof IEnviable) {
                 listaInforme.insertarOrdenado(producto);
             }
-
         }
         return listaInforme;
     }
 
+    /**
+     * Metodo que elimina un producto de la lista por su codigo
+     * @param codigo codigo del producto a eliminar
+     * @throws ProductoInexistenteException si el codigo no existe en la lista
+     */
     public void eliminarProducto(int codigo) throws ProductoInexistenteException {
 
         if (existeProductoDevuelvePosPorCodigo(codigo) == -1) throw new ProductoInexistenteException();
@@ -343,6 +350,7 @@ public class Inventario {
 
         listaProductos = nuevaLista;
     }
+
 
     public class CantidadNoPositivaException extends Exception {
         private CantidadNoPositivaException() {

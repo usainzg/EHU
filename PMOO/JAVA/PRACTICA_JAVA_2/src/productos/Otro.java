@@ -9,10 +9,10 @@ public class Otro extends NoPerecedero {
     }
 
     /**
-     * Constructor que setea solo el nombre
+     * Constructor que setea nombre y categoria
      *
-     * @param nombre    string
-     * @param categoria String
+     * @param nombre    nombre de la herramienta
+     * @param categoria categoria de la herramienta
      */
     public Otro(String nombre, String categoria) {
         super(nombre, categoria);
@@ -21,12 +21,12 @@ public class Otro extends NoPerecedero {
     /**
      * Constructor que setea todos los atributos
      *
-     * @param codigoProducto   int
-     * @param nombreProducto   string
-     * @param cantidadProducto int
-     * @param precioProducto   double
-     * @param pesoProducto     double
-     * @param categoria        String
+     * @param codigoProducto   codigo producto
+     * @param nombreProducto   nombre producto
+     * @param cantidadProducto cantidad producto
+     * @param precioProducto   precio procucto
+     * @param pesoProducto     peso producto
+     * @param categoria        categoria producto
      */
     public Otro(int codigoProducto, String nombreProducto, int cantidadProducto, double precioProducto, double pesoProducto, String categoria) {
         super(codigoProducto, nombreProducto, cantidadProducto, precioProducto, pesoProducto, categoria);
@@ -35,11 +35,11 @@ public class Otro extends NoPerecedero {
     /**
      * Constructor que setea todos los atributos menos el codigo
      *
-     * @param nombreProducto   string
-     * @param cantidadProducto int
-     * @param precioProducto   double
-     * @param pesoProducto     double
-     * @param categoria        String
+     * @param nombreProducto   nombre producto
+     * @param cantidadProducto cantidad producto
+     * @param precioProducto   precio procucto
+     * @param pesoProducto     peso producto
+     * @param categoria        categoria producto
      */
     public Otro(String nombreProducto, int cantidadProducto, double precioProducto, double pesoProducto, String categoria) {
         super(nombreProducto, cantidadProducto, precioProducto, pesoProducto, categoria);

@@ -78,7 +78,7 @@ public class VentanaInventario extends JDialog {
 
                     if (!(kopBerria == null)) { //Ez du Cancel sakatu
                         try {
-                            inb.actualizarCantidadProductoPorCodigo(kodea,
+                            inb.actualizarCantidadProducto(kodea,
                                     Integer.parseInt(kopBerria));
                             taula.setModel(new ProduktuTaulaModelo(inb.inventarioAListaString())); //bistaratutako taula freskatzeko
                             JOptionPane.showMessageDialog(

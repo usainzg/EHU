@@ -20,13 +20,13 @@ public abstract class Producto implements Comparable<Producto> {
     /**
      * Constructor por defecto, no inicializa
      */
-    Producto() {
+    public Producto() {
     }
 
     /**
-     * Constructor que setea solo el nombre
+     * Constructor que setea solo el nombre y el IVA a 0.21
      *
-     * @param nombre string
+     * @param nombre nombre del producto
      */
     public Producto(String nombre) {
         this.nombreProducto = nombre;
@@ -36,11 +36,11 @@ public abstract class Producto implements Comparable<Producto> {
     /**
      * Constructor que setea todos los atributos
      *
-     * @param codigoProducto   int
-     * @param nombreProducto   string
-     * @param cantidadProducto int
-     * @param precioProducto   double
-     * @param pesoProducto     double
+     * @param codigoProducto   codigo producto
+     * @param nombreProducto   nombre del producto
+     * @param cantidadProducto cantidad del producto
+     * @param precioProducto   precio producto
+     * @param pesoProducto     peso producto
      */
     public Producto(int codigoProducto, String nombreProducto, int cantidadProducto, double precioProducto,
                     double pesoProducto) {
@@ -55,10 +55,10 @@ public abstract class Producto implements Comparable<Producto> {
     /**
      * Constructor que setea todos los atributos menos el codigo
      *
-     * @param nombreProducto   string
-     * @param cantidadProducto int
-     * @param precioProducto   double
-     * @param pesoProducto     double
+     * @param nombreProducto   nombre del producto
+     * @param cantidadProducto cantidad del producto
+     * @param precioProducto   precio del producto
+     * @param pesoProducto     peso del producto
      */
     public Producto(String nombreProducto, int cantidadProducto, double precioProducto, double pesoProducto) {
         this.nombreProducto = nombreProducto;
@@ -66,16 +66,6 @@ public abstract class Producto implements Comparable<Producto> {
         this.precioProducto = precioProducto;
         this.pesoProducto = pesoProducto;
         IVA_PRODUCTO = 0.21;
-    }
-
-    /**
-     * Imprime el producto formato "normal"
-     */
-    public void imprimirProducto() {
-        System.out.println("--Codigo--\t--Nombre--\t--Cantidad--\t--Precio--\t--PrecioIVA--");
-        System.out.println(this.codigoProducto + "\t\t" + this.nombreProducto + "\t\t" + this.cantidadProducto + "\t\t\t" +
-                +this.precioProducto + "\t\t" +
-                +this.precioConIva());
     }
 
     /**

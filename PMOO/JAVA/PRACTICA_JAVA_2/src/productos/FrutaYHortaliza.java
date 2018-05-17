@@ -7,10 +7,11 @@ public class FrutaYHortaliza extends Perecedero implements IEnviable {
     private String origen;
 
     /**
-     * Constructor que setea solo el nombre
+     * Constructor que setea nombre, fecha caducidad y origen
      *
-     * @param nombre string
-     * @param fecha  String
+     * @param nombre nombre de la fruta hortaliza
+     * @param fecha  fecha de caducidad
+     * @param origen origen de la fruta hortaliza
      */
     public FrutaYHortaliza(String nombre, String fecha, String origen) {
         super(nombre, fecha);
@@ -21,12 +22,13 @@ public class FrutaYHortaliza extends Perecedero implements IEnviable {
     /**
      * Constructor que setea todos los atributos
      *
-     * @param codigoProducto   int
-     * @param nombreProducto   string
-     * @param cantidadProducto int
-     * @param precioProducto   double
-     * @param pesoProducto     double
-     * @param fecha            String
+     * @param codigoProducto   codigo de la fruta hortaliza
+     * @param nombreProducto   nombre de la fruta hortaliza
+     * @param cantidadProducto cantidad de la fruta hortaliza
+     * @param precioProducto   precio de la fruta hortaliza
+     * @param pesoProducto     peso de la fruta hortaliza
+     * @param fecha            fecha caducidad de la fruta hortaliza
+     * @param origen           origen de la fruta hortaliza
      */
     public FrutaYHortaliza(int codigoProducto, String nombreProducto, int cantidadProducto, double precioProducto,
                            double pesoProducto, String fecha, String origen) {
@@ -38,11 +40,12 @@ public class FrutaYHortaliza extends Perecedero implements IEnviable {
     /**
      * Constructor que setea todos los atributos menos el codigo
      *
-     * @param nombreProducto   string
-     * @param cantidadProducto int
-     * @param precioProducto   double
-     * @param pesoProducto     double
-     * @param fecha            String
+     * @param nombreProducto   nombre de la fruta hortaliza
+     * @param cantidadProducto cantidad de la fruta hortaliza
+     * @param precioProducto   precio de la fruta hortaliza
+     * @param pesoProducto     peso de la fruta hortaliza
+     * @param fecha            fecha caducidad de la fruta hortaliza
+     * @param origen           origen de la fruta hortaliza
      */
     public FrutaYHortaliza(String nombreProducto, int cantidadProducto, double precioProducto,
                            double pesoProducto, String fecha, String origen) {
@@ -85,7 +88,6 @@ public class FrutaYHortaliza extends Perecedero implements IEnviable {
         String fragil = (this.esFragil()) ? "Fragil!" : "";
         printWriter.printf("%16s", fragil);
     }
-
 
     @Override
     public ArrayList<String> deProductoAListaString() {
