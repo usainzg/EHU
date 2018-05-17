@@ -1,22 +1,18 @@
 package super4;
 
-import productos.Lacteo;
-import productos.Producto;
+import productos.*;
 import excepciones.ProductoInexistenteException;
 import utilidades.SortedArrayList;
 
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 
 public class Inventario {
 	
-	private static final String NOM_FICHERO_INVENTARIO = "productosP.txt";
-	private static final String NOM_FICHERO_INVENTARIO_D = "productosPD.txt";
+	private static final String NOM_FICHERO_INFORME = "informe.txt";
+	private static final String NOM_FICHERO_INVENTARIO_D = "productos.txt";
 	private static final int MAX_PRODUCTOS = 100;
 	
 	private static Inventario instance;
@@ -119,8 +115,8 @@ public class Inventario {
 
         int codigoP = Integer.parseInt(lineaPartes[0]);
         String nombreP = lineaPartes[1];
-        int cantidadP = Integer.parseInt(lineaPartes[2]);
-        double precioP = Double.parseDouble(lineaPartes[3]);
+        double precioP = Double.parseDouble(lineaPartes[2]);
+        int cantidadP = Integer.parseInt(lineaPartes[3]);
         double pesoP = Double.parseDouble(lineaPartes[4]);
 
 	    Producto producto = null;
@@ -130,16 +126,16 @@ public class Inventario {
                 producto = new Lacteo(codigoP, nombreP, cantidadP, precioP, pesoP, lineaPartes[5], lineaPartes[6]);
                 break;
             case "Bebida":
-                producto = new Lacteo(codigoP, nombreP, cantidadP, precioP, pesoP, lineaPartes[5], lineaPartes[6]);
+                producto = new Bebida(codigoP, nombreP, cantidadP, precioP, pesoP, lineaPartes[5], Integer.parseInt(lineaPartes[6]));
                 break;
             case "FrutaYHortaliza":
-                producto = new Lacteo(codigoP, nombreP, cantidadP, precioP, pesoP, lineaPartes[5], lineaPartes[6]);
+                producto = new FrutaYHortaliza(codigoP, nombreP, cantidadP, precioP, pesoP, lineaPartes[5], lineaPartes[6]);
                 break;
             case "Herramienta":
-                producto = new Lacteo(codigoP, nombreP, cantidadP, precioP, pesoP, lineaPartes[5], lineaPartes[6]);
+                producto = new Herramienta(codigoP, nombreP, cantidadP, precioP, pesoP, lineaPartes[5]);
                 break;
             case "Otro":
-                producto = new Lacteo(codigoP, nombreP, cantidadP, precioP, pesoP, lineaPartes[5], lineaPartes[6]);
+                producto = new Otro(codigoP, nombreP, cantidadP, precioP, pesoP, lineaPartes[5]);
                 break;
             default:
                 break;
@@ -157,7 +153,7 @@ public class Inventario {
 		FileWriter fw;
 
 		try {
-			fw = new FileWriter(NOM_FICHERO_INVENTARIO);
+			fw = new FileWriter(NOM_FICHERO_INVENTARIO_D);
 
 			for (int i = 0; i < cuantosProductos(); i++) {
 				System.out.println(i);
@@ -192,6 +188,18 @@ public class Inventario {
 		throw new ProductoInexistenteException();
 	}
 
+	public boolean actualizarCantidadProductoPorCodigo(int codigo, int nuevaCantidad) throws ProductoInexistenteException, CantidadNoPositivaException {
+		if (nuevaCantidad < 1) {
+			throw new CantidadNoPositivaException();
+		}
+		int existeProductoEnInventario = existeProductoDevuelvePosPorCodigo(codigo);
+		if (existeProductoEnInventario != -1) {
+			listaProductos.get(existeProductoEnInventario).setCantidadProducto(nuevaCantidad);
+			return true;
+		}
+		throw new ProductoInexistenteException();
+	}
+
 	/**
 	 * Metodo auxiliar para saber si un producto existe
 	 * @param producto producto con nombre seteado
@@ -201,6 +209,15 @@ public class Inventario {
 		String nombreNormalizado = producto.getNombreProducto().replace(" ", "-");
 		for (int i = 0; i < listaProductos.size(); i++) {
 			if (listaProductos.get(i).getNombreProducto().equals(nombreNormalizado)) {
+				return i;
+			}
+		}
+		return -1;
+	}
+
+	private int existeProductoDevuelvePosPorCodigo(int codigo) {
+		for (int i = 0; i < listaProductos.size(); i++) {
+			if (listaProductos.get(i).getCodigoProducto() == codigo) {
 				return i;
 			}
 		}
@@ -279,7 +296,65 @@ public class Inventario {
 	}
 
 	public void crearInformeProductosEnviables() {
+	    String cabecera = "-----------------------------------------------------------------------------------------------\n" +
+                "----------------- Super Online: Lista de productos enviables del Inventario -------------------\n" +
+                "-----------------------------------------------------------------------------------------------\n" +
+                " Codigo             Nombre               Peso      Precio con IVA    Tarifa-envio      Fragil   \n" +
+                "--------   -----------------------    --------- ----------------- --------------- -------------";
+	    SortedArrayList<Producto> listaInforme = crearListaInforme();
+        File file = new File(NOM_FICHERO_INFORME);
+        FileWriter fileWriter;
+        PrintWriter printWriter = null;
+        try {
+            fileWriter = new FileWriter(file, false);
+            printWriter = new PrintWriter(fileWriter);
 
+            printWriter.println(cabecera);
+
+            for (Producto producto: listaInforme) {
+                switch (producto.getClass().getSimpleName()) {
+                    case "Bebida":
+                        Bebida bebida = (Bebida) producto;
+                        bebida.imprimirEnviable(printWriter);
+                        break;
+                    case "Lacteo":
+                        Lacteo lacteo = (Lacteo) producto;
+                        lacteo.imprimirEnviable(printWriter);
+                        break;
+                    case "FrutaYHortaliza":
+                        FrutaYHortaliza frutaYHortaliza = (FrutaYHortaliza) producto;
+                        frutaYHortaliza.imprimirEnviable(printWriter);
+                        break;
+                    case "Herramienta":
+                        Herramienta herramienta = (Herramienta) producto;
+                        herramienta.imprimirEnviable(printWriter);
+                        break;
+                    default:
+                        break;
+
+                }
+                printWriter.println();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (printWriter != null) {
+                printWriter.close();
+            }
+        }
+
+    }
+
+    private SortedArrayList<Producto> crearListaInforme() {
+        SortedArrayList<Producto> listaInforme = new SortedArrayList<>();
+
+        for (Producto producto: listaProductos) {
+            if (producto instanceof IEnviable) {
+                listaInforme.insertarOrdenado(producto);
+            }
+
+        }
+        return listaInforme;
     }
 
     public void eliminarProducto(int codigo) throws ProductoInexistenteException {

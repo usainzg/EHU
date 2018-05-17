@@ -81,8 +81,10 @@ public class Bebida extends Perecedero implements IEnviable {
                 IEnviable.FORMATO_IMPRESION,
                 getCodigoProducto(), getNombreProducto(),
                 getPesoProducto(), getPrecioProducto(),
-                tarifaEnvio(), ((esFragil()) ? "Fragil!" : "")
+                tarifaEnvio()
         );
+        String fragil = (this.esFragil()) ? "Fragil!" : "";
+        printWriter.printf("%16s", fragil);
     }
 
     @Override
