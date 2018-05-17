@@ -11,8 +11,9 @@ public abstract class Perecedero extends Producto implements IEnviable {
 
     /**
      * Constructor que setea solo el nombre
+     *
      * @param nombre string
-     * @param fecha String
+     * @param fecha  String
      */
     Perecedero(String nombre, String fecha) {
         super(nombre);
@@ -21,26 +22,28 @@ public abstract class Perecedero extends Producto implements IEnviable {
 
     /**
      * Constructor que setea todos los atributos
-     * @param codigoProducto int
-     * @param nombreProducto string
+     *
+     * @param codigoProducto   int
+     * @param nombreProducto   string
      * @param cantidadProducto int
-     * @param precioProducto double
-     * @param pesoProducto double
-     * @param fecha String
+     * @param precioProducto   double
+     * @param pesoProducto     double
+     * @param fecha            String
      */
     Perecedero(int codigoProducto, String nombreProducto, int cantidadProducto, double precioProducto,
-                    double pesoProducto, String fecha) {
+               double pesoProducto, String fecha) {
         super(codigoProducto, nombreProducto, cantidadProducto, precioProducto, pesoProducto);
         this.fechaCaducidad = fecha;
     }
 
     /**
      * Constructor que setea todos los atributos menos el codigo
-     * @param nombreProducto string
+     *
+     * @param nombreProducto   string
      * @param cantidadProducto int
-     * @param precioProducto double
-     * @param pesoProducto double
-     * @param fecha String
+     * @param precioProducto   double
+     * @param pesoProducto     double
+     * @param fecha            String
      */
     Perecedero(String nombreProducto, int cantidadProducto, double precioProducto, double pesoProducto, String fecha) {
         super(nombreProducto, cantidadProducto, precioProducto, pesoProducto);
