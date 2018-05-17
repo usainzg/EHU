@@ -218,13 +218,11 @@ public class Inventario {
      * Incluye un nuevo producto en el inventario
      *
      * @param producto producto a anadir
-     * @return true: correcto, false: caso contrario
      */
-    public boolean incluirNuevoProducto(Producto producto) throws CantidadNoPositivaException {
-        if (listaProductos.size() >= MAX_PRODUCTOS) return false;
+    public void incluirNuevoProducto(Producto producto) throws CantidadNoPositivaException {
+        if (listaProductos.size() >= MAX_PRODUCTOS) return;
         if (producto.getCantidadProducto() < 1) throw new CantidadNoPositivaException();
         listaProductos.add(producto);
-        return true;
     }
 
     /**

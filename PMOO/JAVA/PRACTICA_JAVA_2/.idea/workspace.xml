@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="PracticaSuperOnline:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="19e06613-afdb-49f1-a0f4-02dcc45f7e9c" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -12,34 +20,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Inventario.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Inventario.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/super4/Inventario.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3008">
-              <caret line="353" selection-start-line="353" selection-end-line="353" />
+            <state relative-caret-position="142">
+              <caret line="219" column="40" selection-start-line="219" selection-start-column="40" selection-end-line="219" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#12300#12301#0" expanded="true" />
-                <element signature="e#12380#12381#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SuperOnLine4.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/super4/SuperOnLine4.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VentanaInventario.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/gui/VentanaInventario.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="80" column="59" selection-start-line="80" selection-start-column="59" selection-end-line="80" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -72,8 +60,8 @@
         <option value="$PROJECT_DIR$/src/productos/Otro.java" />
         <option value="$PROJECT_DIR$/src/productos/Perecedero.java" />
         <option value="$PROJECT_DIR$/src/productos/Producto.java" />
-        <option value="$PROJECT_DIR$/src/super4/Inventario.java" />
         <option value="$PROJECT_DIR$/src/gui/VentanaInventario.java" />
+        <option value="$PROJECT_DIR$/src/super4/Inventario.java" />
       </list>
     </option>
   </component>
@@ -113,12 +101,6 @@
               <item name="PRACTICA_JAVA_2" type="b2602c69:ProjectViewProjectNode" />
               <item name="PRACTICA_JAVA_2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="excepciones" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PRACTICA_JAVA_2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PRACTICA_JAVA_2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="super4" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -137,7 +119,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/libraries/jgoodies-forms-1.4.1.jar!/" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -234,12 +216,12 @@
       <workItem from="1526483542657" duration="599000" />
       <workItem from="1526496089742" duration="995000" />
       <workItem from="1526545290441" duration="5840000" />
-      <workItem from="1526572129700" duration="2835000" />
+      <workItem from="1526572129700" duration="3366000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21940000" />
+    <option name="totallyTimeSpent" value="22471000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -247,7 +229,7 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="bottom" id="Messages" order="7" visible="true" weight="0.32837406" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32837406" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
@@ -255,12 +237,13 @@
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32943678" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32943678" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1640625" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1640625" />
       <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
@@ -272,7 +255,6 @@
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -293,8 +275,6 @@
           <caret line="205" column="9" selection-start-line="205" selection-start-column="9" selection-end-line="205" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#12300#12301#0" expanded="true" />
-            <element signature="e#12380#12381#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -318,7 +298,7 @@
         <state relative-caret-position="512">
           <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
           <folding>
-            <marker date="1526574385987" expanded="true" signature="2668:2674" ph="{}" />
+            <marker date="1526575109891" expanded="true" signature="2668:2674" ph="{}" />
           </folding>
         </state>
       </provider>
@@ -328,7 +308,7 @@
         <state relative-caret-position="176">
           <caret line="11" selection-start-line="11" selection-end-line="11" />
           <folding>
-            <marker date="1526574437869" expanded="true" signature="1869:1875" ph="{}" />
+            <marker date="1526575109902" expanded="true" signature="1869:1875" ph="{}" />
           </folding>
         </state>
       </provider>
@@ -338,7 +318,7 @@
         <state relative-caret-position="192">
           <caret line="12" selection-start-line="12" selection-end-line="12" />
           <folding>
-            <marker date="1526574385987" expanded="true" signature="179:369" ph="/**...*/" />
+            <marker date="1526575109899" expanded="true" signature="179:369" ph="/**...*/" />
           </folding>
         </state>
       </provider>
@@ -349,8 +329,6 @@
           <caret line="205" column="9" selection-start-line="205" selection-start-column="9" selection-end-line="205" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#12300#12301#0" expanded="true" />
-            <element signature="e#12380#12381#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -374,7 +352,7 @@
         <state relative-caret-position="512">
           <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
           <folding>
-            <marker date="1526574385987" expanded="true" signature="2668:2674" ph="{}" />
+            <marker date="1526575109891" expanded="true" signature="2668:2674" ph="{}" />
           </folding>
         </state>
       </provider>
@@ -384,7 +362,7 @@
         <state relative-caret-position="176">
           <caret line="11" selection-start-line="11" selection-end-line="11" />
           <folding>
-            <marker date="1526574437869" expanded="true" signature="1869:1875" ph="{}" />
+            <marker date="1526575109902" expanded="true" signature="1869:1875" ph="{}" />
           </folding>
         </state>
       </provider>
@@ -394,7 +372,7 @@
         <state relative-caret-position="192">
           <caret line="12" selection-start-line="12" selection-end-line="12" />
           <folding>
-            <marker date="1526574385987" expanded="true" signature="179:369" ph="/**...*/" />
+            <marker date="1526575109899" expanded="true" signature="179:369" ph="/**...*/" />
           </folding>
         </state>
       </provider>
@@ -404,8 +382,6 @@
         <state>
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#12300#12301#0" expanded="true" />
-            <element signature="e#12380#12381#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -429,7 +405,7 @@
         <state relative-caret-position="512">
           <caret line="34" column="22" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
           <folding>
-            <marker date="1526574385987" expanded="true" signature="2668:2674" ph="{}" />
+            <marker date="1526575109891" expanded="true" signature="2668:2674" ph="{}" />
           </folding>
         </state>
       </provider>
@@ -439,7 +415,7 @@
         <state relative-caret-position="112">
           <caret line="7" selection-start-line="7" selection-end-line="7" />
           <folding>
-            <marker date="1526574437869" expanded="true" signature="1869:1875" ph="{}" />
+            <marker date="1526575109902" expanded="true" signature="1869:1875" ph="{}" />
           </folding>
         </state>
       </provider>
@@ -449,7 +425,7 @@
         <state relative-caret-position="128">
           <caret line="8" selection-start-line="8" selection-end-line="8" />
           <folding>
-            <marker date="1526574385987" expanded="true" signature="179:369" ph="/**...*/" />
+            <marker date="1526575109899" expanded="true" signature="179:369" ph="/**...*/" />
           </folding>
         </state>
       </provider>
@@ -459,8 +435,6 @@
         <state>
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#12300#12301#0" expanded="true" />
-            <element signature="e#12380#12381#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -490,20 +464,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="350">
           <caret line="207" column="28" selection-start-line="207" selection-start-column="28" selection-end-line="207" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/productos.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utilidades/SortedArrayList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -551,7 +511,7 @@
         <state relative-caret-position="63">
           <caret line="7" column="4" lean-forward="true" selection-start-line="7" selection-start-column="4" selection-end-line="12" selection-end-column="7" />
           <folding>
-            <marker date="1526574385987" expanded="true" signature="2668:2674" ph="{}" />
+            <marker date="1526575109891" expanded="true" signature="2668:2674" ph="{}" />
           </folding>
         </state>
       </provider>
@@ -561,7 +521,7 @@
         <state relative-caret-position="516">
           <caret line="42" column="7" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="7" />
           <folding>
-            <marker date="1526574437869" expanded="true" signature="1869:1875" ph="{}" />
+            <marker date="1526575109902" expanded="true" signature="1869:1875" ph="{}" />
           </folding>
         </state>
       </provider>
@@ -585,7 +545,7 @@
         <state relative-caret-position="317">
           <caret line="40" column="4" selection-start-line="40" selection-start-column="4" selection-end-line="48" selection-end-column="7" />
           <folding>
-            <marker date="1526574385987" expanded="true" signature="179:369" ph="/**...*/" />
+            <marker date="1526575109899" expanded="true" signature="179:369" ph="/**...*/" />
           </folding>
         </state>
       </provider>
@@ -597,15 +557,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/super4/Inventario.java">
+    <entry file="file://$PROJECT_DIR$/productos.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3008">
-          <caret line="353" selection-start-line="353" selection-end-line="353" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#12300#12301#0" expanded="true" />
-            <element signature="e#12380#12381#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="304">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utilidades/SortedArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -623,16 +585,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/super4/Inventario.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="219" column="40" selection-start-line="219" selection-start-column="40" selection-end-line="219" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
   </component>
   <component name="masterDetails">
     <states>
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>PracticaSuperOnline:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -675,7 +649,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>PRACTICA_JAVA_2</last-edited>
+          <last-edited>PracticaSuperOnline</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
