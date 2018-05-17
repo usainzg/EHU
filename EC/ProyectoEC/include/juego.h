@@ -1,4 +1,4 @@
 extern void MoverBillete();
-extern void SetupEntornoJuego();
+extern void MostrarPuntuacion();
 extern void ControladorSobre();
 extern void BucleJuego();

@@ -32,12 +32,29 @@ void RestarPunto() {
 bool MaxPuntosAlcanzado() {
     return (puntos >= MAX_PUNTOS);
 }
+
+void MostrarPuntuacion() {
+    if (puntos < 10) {
+        printf("\x1b[14;00H     PUNTUACION:    0%d", puntos);
+    } else {
+        printf("\x1b[14;00H     PUNTUACION:    %d", puntos);
+    }
+    
+}
 // final PUNTOS
 
 /* FUNCIONES SOBRE CAMBIO DE ESTADO */
+void BorrarMensajeBienvenida() {
+    iprintf("\x1b[02;00H  +--------------------------+  ");
+    iprintf("\x1b[03;00H  : EC 17/18           G13   :  ");
+    iprintf("\x1b[04;00H  +--------------------------+  ");
+	iprintf("\x1b[05;00H                                 ");
+	iprintf("\x1b[07;00H                                 ");   
+}
+
 void PasarAJugando() {
-	iprintf("\x1b[05;00H     PANTALLA TOCADA            ");
-	iprintf("\x1b[07;00H                                ");
+	BorrarMensajeBienvenida();
+    puntos = 0;
 	estado = ESTADO_JUGANDO;
 }
 
@@ -45,6 +62,10 @@ void PasarAMostrarBorrar() {
     iprintf("\x1b[05;00H       PUNTUACION JUEGO         ");
 	iprintf("\x1b[07;00H -----------------------------  ");
     estado = ESTADO_BORRAR_MOSTRAR;
+}
+
+void MostrarFinalPartida() {
+    printf("\x1b[12;00H     FINAL PARTIDA                ");
 }
 
 void ComprobarEstadoActual(int segundos) {
@@ -56,7 +77,6 @@ void ComprobarEstadoActual(int segundos) {
             EncargadoTiempo(segundos);
             break;
         case ESTADO_BORRAR_MOSTRAR:
-            MostrarPuntuacion();
             break;
         case ESTADO_APAGADO:
 
@@ -106,20 +126,11 @@ void EncargadoTiempo(int segundos) {
 }
 // final TIEMPOS
 
-/* FUNCIONES AUXILIARES PARA INFO JUGADOR */
-void MostrarFinalPartida() {
-    printf("\x1b[12;00H     FINAL PARTIDA   ");
-}
-
-void MostrarPuntuacion() {
-    printf("\x1b[14;00H     PUNTUACION:    ");
-}
-// final INFO JUGADOR
-
 /* FUNCION CONTROLADORA DEL JUEGO */
 void BucleJuego(int segundos) {
     ComprobarEstadoActual(segundos);
     EncargadoTiempo(segundos);
+    MostrarPuntuacion();
 }
 // final BUCLE PRINCIPAL
 
