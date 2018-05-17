@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class FrutaYHortaliza extends Perecedero implements IEnviable {
     private String origen;
+
     /**
      * Constructor que setea solo el nombre
      *

@@ -8,6 +8,7 @@ public class Lacteo extends Perecedero implements IEnviable {
 
     /**
      * Constructor que setea solo el nombre
+     *
      * @param nombre string
      */
     public Lacteo(String nombre, String fecha, String lote) {
@@ -18,14 +19,15 @@ public class Lacteo extends Perecedero implements IEnviable {
 
     /**
      * Constructor que setea todos los atributos
-     * @param codigoProducto int
-     * @param nombreProducto string
+     *
+     * @param codigoProducto   int
+     * @param nombreProducto   string
      * @param cantidadProducto int
-     * @param precioProducto double
-     * @param pesoProducto double
+     * @param precioProducto   double
+     * @param pesoProducto     double
      */
     public Lacteo(int codigoProducto, String nombreProducto, int cantidadProducto, double precioProducto,
-                    double pesoProducto, String fecha, String lote) {
+                  double pesoProducto, String fecha, String lote) {
         super(codigoProducto, nombreProducto, cantidadProducto, precioProducto, pesoProducto, fecha);
         this.setIVA_PRODUCTO(0.04);
         this.lote = lote;
@@ -33,10 +35,11 @@ public class Lacteo extends Perecedero implements IEnviable {
 
     /**
      * Constructor que setea todos los atributos menos el codigo
-     * @param nombreProducto string
+     *
+     * @param nombreProducto   string
      * @param cantidadProducto int
-     * @param precioProducto double
-     * @param pesoProducto double
+     * @param precioProducto   double
+     * @param pesoProducto     double
      */
     public Lacteo(String nombreProducto, int cantidadProducto, double precioProducto, double pesoProducto, String fecha, String lote) {
         super(nombreProducto, cantidadProducto, precioProducto, pesoProducto, fecha);

@@ -83,7 +83,7 @@ public class Bebida extends Perecedero implements IEnviable {
                 getPesoProducto(), getPrecioProducto(),
                 tarifaEnvio()
         );
-        String fragil = (this.esFragil()) ? "Fragil!" : "";
+        String fragil = this.esFragil() ? "Fragil!" : "";
         printWriter.printf("%16s", fragil);
     }
 
