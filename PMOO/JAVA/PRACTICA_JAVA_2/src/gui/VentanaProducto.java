@@ -241,7 +241,7 @@ public class VentanaProducto extends JDialog {
                         ((txtKopurua.isVisible()) && !esTipoEntero(txtKopurua.getText())) ||
                         ((txtGraduazioa.isVisible()) && !esTipoEntero(txtGraduazioa.getText()))) {
                     mezua = mezua + ExternalTextVP.MESSAGE_NUMERICS_INT_OR_FLOAT;
-                    ;//" Zenbakizko eremuetan zenbakizko balio egokiak (osoak edo errealak) sartu behar dira.";
+                    //" Zenbakizko eremuetan zenbakizko balio egokiak (osoak edo errealak) sartu behar dira.";
                 }
 
                 if (mezua.equals("")) {

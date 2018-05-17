@@ -201,11 +201,8 @@ public class VentanaInventario extends JDialog {
         public boolean isCellEditable(int row, int col) {
             //Note that the data/cell address is constant,
             //no matter where the cell appears onscreen.
-            if (col == 4) { //kopurua soilik da editagarria (hala ere, ez da editatzen)
-                return true;
-            } else {
-                return false;
-            }
+            //kopurua soilik da editagarria (hala ere, ez da editatzen)
+            return col == 4;
         }
 
         public void removeRow(int row) {
