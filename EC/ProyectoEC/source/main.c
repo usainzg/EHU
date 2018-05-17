@@ -91,7 +91,10 @@ int main() {
 	while(1) {
 		int tecla = TeclaPulsada(TIPO_ENCUESTA);
 		if(tecla == 4) {
-			MoverSobreDerecha();
+			if (TimerMovimientoDerecha()) {
+				SetTimerDerecha();
+				MoverSobreDerecha();
+			}
 		}
 	}
 

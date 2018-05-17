@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include "defines.h"
 #include "sprites.h"
+#include "temporizadores.h"
 
 int TECLAS_ENCUESTA_ARR[] = {3, 4};
 int TECLAS_INTERRUPT_ARR[] = {1, 2, 5};
@@ -58,8 +59,10 @@ void ImprimirTeclaPulsada(int tecla, int tipoTecla) {
 // Rutina de atencion a la interrupcion del teclado
 void IntTec() {
     int t = TeclaPulsada(TIPO_INTERRUPT);
-    ImprimirTeclaPulsada(t, TIPO_INTERRUPT);
-    if(t == 5) MoverSobreIzquierda();
+    // ImprimirTeclaPulsada(t, TIPO_INTERRUPT);
+    if(t == 5) {
+        MoverSobreIzquierda();
+    }
 } 
 
 

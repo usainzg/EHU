@@ -18,36 +18,23 @@ static int posX_billete_3 = 0;
 double posX_sobre = POS_X_SOBRE_INICIAL;
 double posY_sobre = POS_Y_SOBRE_INICIAL;
 
-void SetupVariables() {
+int puntos = 0;
+
+/* FUNCIONES SOBRE PUNTOS PARTIDA */
+void SumarPunto() {
+    puntos += 1;
 }
 
-void SetupEntornoJuego() {
-    SetupVariables();
+void RestarPunto() {
+    puntos -= 1;
 }
 
-void MoverBillete(int posX, int posY) {
-    MostrarBillete(1, posX_billete_1, posY);
-    MostrarBillete(2, posX_billete_2, posY);
+bool MaxPuntosAlcanzado() {
+    return (puntos >= MAX_PUNTOS);
 }
+// final PUNTOS
 
-void MostrarTiempoRestante(int segundosTranscurridos) {
-    int tiempo = TIEMPO_PARTIDA - segundosTranscurridos;
-    if(tiempo < 10) {
-        printf("\x1b[12;00H     TIEMPO:    0%d", tiempo);
-    } else {
-        printf("\x1b[12;00H     TIEMPO:    %d", tiempo);
-    }
-    
-}
-
-void MostrarFinalPartida() {
-    printf("\x1b[12;00H     FINAL PARTIDA   ");
-}
-
-void MostrarPuntuacion() {
-    printf("\x1b[14;00H     PUNTUACION:    ");
-}
-
+/* FUNCIONES SOBRE CAMBIO DE ESTADO */
 void PasarAJugando() {
 	iprintf("\x1b[05;00H     PANTALLA TOCADA            ");
 	iprintf("\x1b[07;00H                                ");
@@ -60,29 +47,7 @@ void PasarAMostrarBorrar() {
     estado = ESTADO_BORRAR_MOSTRAR;
 }
 
-void EncargadoTiempo(int segundos) {
-    if(TIEMPO_PARTIDA <= segundos) {
-        MostrarFinalPartida();
-        PasarAMostrarBorrar();
-    } else {
-        MostrarTiempoRestante(segundos);
-    }
-}
-
-void MoverSobreDerecha() {
-    if(posX_sobre < 240) posX_sobre += 0.0005;
-}
-
-void MoverSobreIzquierda() {
-    posX_sobre -= 0.05;
-}
-
-void ControladorSobre() {
-    MostrarSobre(posX_sobre, posY_sobre);
-}
-
 void ComprobarEstadoActual(int segundos) {
-
     switch(estado) {
         case ESTADO_INICIO:
             PasarAJugando();
@@ -99,11 +64,62 @@ void ComprobarEstadoActual(int segundos) {
         default:
             break;
     }
+}
+// final ESTADOS
 
+/* FUNCIONES QUE MANEJAN EL SOBRE */
+void MoverSobreDerecha() {
+    if(posX_sobre < 240 && estado == ESTADO_JUGANDO) posX_sobre += 0.5;
 }
 
+void MoverSobreIzquierda() {
+    if(posX_sobre >= 15 && estado == ESTADO_JUGANDO) posX_sobre -= 8;
+}
+
+void ControladorSobre() {
+    MostrarSobre(posX_sobre, posY_sobre);
+}
+// final SOBRES
+
+void MoverBillete(int posX, int posY) {
+    MostrarBillete(1, posX_billete_1, posY);
+    MostrarBillete(2, posX_billete_2, posY);
+}
+
+/* FUNCIONES CONTROLADORES DE LOS TIEMPOS */
+void MostrarTiempoRestante(int segundosTranscurridos) {
+    int tiempo = TIEMPO_PARTIDA - segundosTranscurridos;
+    if(tiempo < 10) {
+        printf("\x1b[12;00H     TIEMPO:    0%d", tiempo);
+    } else {
+        printf("\x1b[12;00H     TIEMPO:    %d", tiempo);
+    }
+}
+
+void EncargadoTiempo(int segundos) {
+    if(TIEMPO_PARTIDA <= segundos) {
+        MostrarFinalPartida();
+        PasarAMostrarBorrar();
+    } else {
+        MostrarTiempoRestante(segundos);
+    }
+}
+// final TIEMPOS
+
+/* FUNCIONES AUXILIARES PARA INFO JUGADOR */
+void MostrarFinalPartida() {
+    printf("\x1b[12;00H     FINAL PARTIDA   ");
+}
+
+void MostrarPuntuacion() {
+    printf("\x1b[14;00H     PUNTUACION:    ");
+}
+// final INFO JUGADOR
+
+/* FUNCION CONTROLADORA DEL JUEGO */
 void BucleJuego(int segundos) {
     ComprobarEstadoActual(segundos);
     EncargadoTiempo(segundos);
 }
+// final BUCLE PRINCIPAL
 

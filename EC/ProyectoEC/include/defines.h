@@ -70,9 +70,9 @@ extern int estado;
 
 #define TIEMPO_PARTIDA 20
 
-
 #define POS_X_SOBRE_INICIAL 127;
 #define POS_Y_SOBRE_INICIAL 172;
 
+#define MAX_PUNTOS 15 
 
 
