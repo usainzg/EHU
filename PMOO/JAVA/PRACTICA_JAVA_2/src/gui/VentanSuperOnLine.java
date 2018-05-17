@@ -203,11 +203,15 @@ public class VentanSuperOnLine extends JFrame {
 
 						if (dlgProduktua.pulsadoGuardar()) {
 							//produktua eraiki eta gehitu inbentarioan, motaren arabera:
-							//int kodea = inb.getUltimoCodigo();
+							int kodea = inb.getCodigoParaNuevoProducto();
 							Producto p = new Otro();
-							switch (dlgProduktua.getTipoProducto()) {
+
+							String tipo = dlgProduktua.getTipoProducto().replace(" ", "");
+							
+							switch (tipo) {
 							case "Bebida":
 								p= new Bebida(
+										kodea,
 										dlgProduktua.getTxtNombre(),
 										dlgProduktua.getTxtCantidad(),
 										dlgProduktua.getTxtPrecio(),
@@ -218,6 +222,7 @@ public class VentanSuperOnLine extends JFrame {
 								break;
 							case "Lacteo":
 								p= new Lacteo(
+										kodea,
 										dlgProduktua.getTxtNombre(),
                                         dlgProduktua.getTxtCantidad(),
 										dlgProduktua.getTxtPrecio(),
@@ -228,6 +233,7 @@ public class VentanSuperOnLine extends JFrame {
 								break;
 							case "Herramienta":
 								p=new Herramienta(
+										kodea,
 										dlgProduktua.getTxtNombre(),
                                         dlgProduktua.getTxtCantidad(),
 										dlgProduktua.getTxtPrecio(),
@@ -235,8 +241,9 @@ public class VentanSuperOnLine extends JFrame {
                                         dlgProduktua.getTxtCategoria());
 								inb.incluirNuevoProducto(p);
 								break;
-							case "FrutaYHortaliza":
+							case "FrutayHortaliza":
 								p=new FrutaYHortaliza(
+								        kodea,
 										dlgProduktua.getTxtNombre(),
                                         dlgProduktua.getTxtCantidad(),
 										dlgProduktua.getTxtPrecio(),
@@ -247,6 +254,7 @@ public class VentanSuperOnLine extends JFrame {
 								break;
 							case "Otro":
 								p= new Otro(
+								        kodea,
 										dlgProduktua.getTxtNombre(),
                                         dlgProduktua.getTxtCantidad(),
 										dlgProduktua.getTxtPrecio(),
@@ -254,7 +262,9 @@ public class VentanSuperOnLine extends JFrame {
 										dlgProduktua.getTxtCategoria());
 								inb.incluirNuevoProducto(p);
 								break;
-							default: System.out.println("Tipo "+dlgProduktua.getTipoProducto()+" desconocido.");						
+							default:
+							    System.out.println("Tipo "+dlgProduktua.getTipoProducto()+" desconocido.");
+							    break;
 							}
 							JOptionPane.showMessageDialog(dlgProduktua, ExternalTextVS.ADDED+ p.getCodigoProducto()+".");//" kodeko produktua gehitu da."//ExternalTextLN.ADDED
 						}					

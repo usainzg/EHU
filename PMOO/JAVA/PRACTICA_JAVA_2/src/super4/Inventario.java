@@ -359,6 +359,17 @@ public class Inventario {
 
     public void eliminarProducto(int codigo) throws ProductoInexistenteException {
 
+	    if (existeProductoDevuelvePosPorCodigo(codigo) == -1) throw new ProductoInexistenteException();
+
+	    SortedArrayList<Producto> nuevaLista = new SortedArrayList<>();
+
+	    for (Producto producto: listaProductos) {
+	        if (producto.getCodigoProducto() != codigo) {
+	            nuevaLista.add(producto);
+            }
+        }
+
+        listaProductos = nuevaLista;
     }
 
 }
