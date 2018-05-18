@@ -10,6 +10,7 @@
 #include "rutservs.h"
 #include "teclado.h"
 #include "temporizadores.h"
+#include "auxiliares.h"
 
 /* FUNCIONES SOBRE PUNTOS PARTIDA */
 void SumarPunto(int puntos) {
@@ -38,7 +39,6 @@ void ComprobarEstadoActual(int estado) {
     switch(estado) {
         case ESTADO_INICIO:
             if(TactilTocada()) {
-                SetupEntornoJuego();
             }
             break;
         case ESTADO_JUGANDO:
@@ -70,7 +70,16 @@ void ControladorSobre() {
 // final SOBRES
 
 void MostrarPuntuacion(int recogidos, int no_recogidos) {
-    printf("\x1b[10:00   Puntos obtenidos:  %d", recogidos);
-    printf("\x1b[10:00   Puntos perdidos:  %d", recogidos);
+    if (recogidos < 10 ){
+        iprintf("\x1b[10;00H    Ganados: 0%d", recogidos);
+    } else {
+        iprintf("\x1b[10;00H    Ganados:  %d", recogidos);
+    }
+
+    if (no_recogidos < 10 ){
+        iprintf("\x1b[12;00H    Perdidos: 0%d", recogidos);
+    } else {
+        iprintf("\x1b[12;00H    Perdidos:  %d", recogidos);
+    }    
 }
 

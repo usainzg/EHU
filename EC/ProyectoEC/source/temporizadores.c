@@ -49,9 +49,9 @@ void TimerJuego() {
 void MostrarTiempoRestante(int segundosTranscurridos) {
     int tiempo = TIEMPO_PARTIDA - segundosTranscurridos;
     if(tiempo < 10) {
-        printf("\x1b[12;00H     TIEMPO:    0%d", tiempo);
+        printf("\x1b[14;00H    TIEMPO: 0%d", tiempo);
     } else {
-        printf("\x1b[12;00H     TIEMPO:    %d", tiempo);
+        printf("\x1b[14;00H    TIEMPO:  %d", tiempo);
     }
 }
 

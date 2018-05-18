@@ -81,5 +81,3 @@ extern int v_billete;
 extern int puntos;
 extern int posicionX_sobre;
 extern int flag_principal;
-
-

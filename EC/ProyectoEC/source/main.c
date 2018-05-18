@@ -31,6 +31,23 @@ int billetes_no_recogidos = 0;
 int timer = 0;
 
 int dificultad_partida = 0; 
+int flag_principal = 0;
+
+/*
+	Estructura del billete (se podia haber hecho una struct)
+	[][0] -> indice (numero billete)
+	[][1] -> x (posicion x)
+	[][2] -> y (posicion y)
+	[][3] -> si es bueno o malo (0 para bueno, 1 para malo)
+*/
+int billetes[6][4] = {
+	{ -1, -1, -1, -1 },
+	{ -1, -1, -1, -1 },
+	{ -1, -1, -1, -1 },
+	{ -1, -1, -1, -1 },
+	{ -1, -1, -1, -1 },
+	{ -1, -1, -1, -1 }
+};
 // final
 
 //---------------------------------------------------
@@ -40,9 +57,10 @@ int estado = ESTADO_INICIO;
 int main() {
 
 	Setup();
+	MostrarPantallaInit();
 
-    while(estado == ESTADO_INICIO) {
-		estado = TactilTocada();
+    while(estado != ESTADO_APAGADO) {
+		BuclePrincipal();
     } // while
 	
 	while(1) {
@@ -52,9 +70,6 @@ int main() {
 } //final
 
 // ---- FUNCIONES ----
-void SetupEntornoJuego() {
-    
-}
 
 // Procedimiento que pone a punto el entorno
 void Setup() {
@@ -108,15 +123,15 @@ void MostrarMensajeBienvenida() {
 }
 
 void MostrarTocarTactil() {
-	printf("\x1b[07;03   Para comenzar toque");
-	printf("\x1b[08;04   la pantalla tactil.");
+	iprintf("\x1b[07;03H Para comenzar toque");
+	iprintf("\x1b[08;04H la pantalla tactil.");
 }
 
 void MostrarMenu() {
-	printf("\x1b[09;03   DIFICULTLAD:        ");
-	printf("\x1b[10;04   Baja");
-	printf("\x1b[11;04   Media");
-	printf("\x1b[12;04   Alta");
+	iprintf("\x1b[09;03H DIFICULTLAD:");
+	iprintf("\x1b[10;04H Baja");
+	iprintf("\x1b[11;04H Media");
+	iprintf("\x1b[12;04H Alta");
 }
 
 void MostrarPantallaInit() {
@@ -124,7 +139,26 @@ void MostrarPantallaInit() {
 	BorrarPantalla();
 	MostrarTocarTactil();
 	MostrarMenu();
-} // final
+} 
+
+void BuclePrincipal() {
+	switch(estado) {
+        case ESTADO_INICIO:
+            if(TactilTocada()) {
+				InitPartida();
+            }
+            break;
+        case ESTADO_JUGANDO:
+            break;
+        case ESTADO_BORRAR_MOSTRAR:
+            break;
+        case ESTADO_APAGADO:
+            break;
+        default:
+            break;
+    }
+}
+// final
 
 
 void InitPartida() {
@@ -136,8 +170,7 @@ void InitPartida() {
 	posicionX_sobre = 128;
 	ControladorSobre();
 	estado = ESTADO_JUGANDO;
-
-
+	EscogerDificultad();
 }
 
 void EscogerDificultad() {
@@ -155,8 +188,34 @@ void EscogerDificultad() {
 			break;
 	}
 }
-void AcabarPartida() {
 
+void AcabarPartida() {
+	ResetBilletes();
+	ResetSobre();
+	MostrarBorrarMostrar();
+	estado = ESTADO_BORRAR_MOSTRAR;
+}
+
+void ResetBilletes() {
+	for(int i = 0; i < 10; i++) {
+		BorrarBillete(billetes[i][0], billetes[i][1], billetes[i][2]);
+		BilletePorDefecto(billetes[i]);
+	}
+}
+
+void BilletePorDefecto(int billete[]) {
+	billete[0] = -1;
+	billete[1] = -1;
+	billete[2] = -1;
+}
+
+void ResetSobre() {
+	BorrarSobre(posicionX_sobre, 172);
+}
+
+void MostrarBorrarMostrar() {
+	iprintf("\x1b[12;00H Pulse <Start> para reiniciar juego");
+	iprintf("\x1b[13;00H Pulse <Select> para apagar");
 }
 
 // Esta funcion consulta si se ha tocado la pantalla tactil
