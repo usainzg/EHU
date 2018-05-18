@@ -8,41 +8,68 @@
 #include <stdio.h>
 #include "juego.h"
 
-static int t = 0;
+int t = 0;
+int n_segundos = 0;
 
-int tDerecha = 0;
+int t_billete = 0; 
 
-static int n_segundos = 0;
+// Rutina de atencion a la interrupcion del temporizador
+void IntTemp() {
+    ControladorTimer();
+}
+
+void ControladorTimer() {
+    switch(estado) {
+        case ESTADO_INICIO:
+            break;
+        case ESTADO_JUGANDO:
+            t++;
+            TimerJuego();
+            MostrarTiempoRestante(n_segundos);
+            if (EsFinPartida()) {
+                AcabarPartida();
+            }
+            ControladorBillete();
+            break;
+        case ESTADO_BORRAR_MOSTRAR:
+        case ESTADO_APAGADO:
+        default:
+            break;
+    }
+}
 
 void TimerJuego() {
     if (t >= 512 && estado == ESTADO_JUGANDO) {
         n_segundos++;
+        t_billete++;
         t = 0;
-        BucleJuego(n_segundos);
     }
 }
 
-bool TimerMovimientoDerecha() {
-    if (tDerecha != 0) return true;
-    return false;
-}
-
-void SetTimerDerecha() {
-    tDerecha = 0;
-}
-
-void ControladorTimerDerecha() {
-    if (t >= 256) {
-        tDerecha = 1;
+void MostrarTiempoRestante(int segundosTranscurridos) {
+    int tiempo = TIEMPO_PARTIDA - segundosTranscurridos;
+    if(tiempo < 10) {
+        printf("\x1b[14;00H    TIEMPO: 0%d", tiempo);
+    } else {
+        printf("\x1b[14;00H    TIEMPO:  %d", tiempo);
     }
 }
 
-// Rutina de atencion a la interrupcion del temporizador
-void IntTemp() {
-    t++;
-    ControladorTimerDerecha();
-    TimerJuego();
-    ControladorSobre();
+int EsFinPartida() {
+    int tiempo = TIEMPO_PARTIDA - n_segundos;
+    if (tiempo <= 0) return 1;
+    return 0;
+}
+
+void ControladorBillete() {
+    if (t_billete >= 1) {
+        flag_principal |= 0x4;
+        t_billete = 0;
+    }
+
+    if (t % v_billete == 0) {
+        flag_principal |= 0x8;
+    }
 }
 
 

@@ -14,10 +14,37 @@ int TECLAS_ENCUESTA_ARR[] = {3, 4};
 int TECLAS_INTERRUPT_ARR[] = {1, 2, 5};
 const char *TECLAS_STR[] = { "<B>", "<SELECT>", "<START>", "<DCHA>", "<IZDA>" };
 
+// Rutina de atencion a la interrupcion del teclado
+void IntTec() {
+    int t = TeclaPulsada(TIPO_INTERRUPT);
+    switch(estado) {
+        case ESTADO_INICIO:
+            break;
+        case ESTADO_JUGANDO:
+            if(t == 5) {
+                MoverSobreIzquierda();
+                flag_principal |= FLAG_ACTUALIZACION_SOBRE;
+            }
 
+            if (t == 1) {
+                AcabarPartida();
+            }
+            break;
+        case ESTADO_BORRAR_MOSTRAR:
+            if (t == 2) {
+                MostrarPantallaInit();
+            }
+            break;
+        case ESTADO_APAGADO:
+        default:
+            break;
+    }
+} 
+
+// Funcion auxiliar para comprobar tecla pulsada
 int ComprobarTecla(int idTecla) {
     return TECLAS_DAT & (1 << idTecla);
-}
+} // final
 
 // Esta funcion tiene que devolver el valor de la tecla pulsada
 int  TeclaPulsada(int tipoTecla) {
@@ -36,8 +63,11 @@ int  TeclaPulsada(int tipoTecla) {
             break;
     }
     return teclaRet;
-}
+} // final
 
+
+
+/*
 void ImprimirTeclaPulsada(int tecla, int tipoTecla) {
     switch(tipoTecla) {
         case TIPO_ENCUESTA:
@@ -53,17 +83,8 @@ void ImprimirTeclaPulsada(int tecla, int tipoTecla) {
         default:       
             break;
     }
-    
 }
-
-// Rutina de atencion a la interrupcion del teclado
-void IntTec() {
-    int t = TeclaPulsada(TIPO_INTERRUPT);
-    // ImprimirTeclaPulsada(t, TIPO_INTERRUPT);
-    if(t == 5) {
-        MoverSobreIzquierda();
-    }
-} 
+*/
 
 
 

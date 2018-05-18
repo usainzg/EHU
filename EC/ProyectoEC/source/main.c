@@ -16,6 +16,67 @@ dovoto y otro de Jaeden Amero
 #include "teclado.h"
 #include "temporizadores.h"
 #include "juego.h"
+#include "auxiliares.h"
+
+// Variables
+int tecla = -1;
+int v_billete = 4; // depende la dificultad, esta valor puede variar 3, 4 o 5
+
+int posicionX_sobre = 128;
+int posicionY_sobre = 172;
+
+int billetes_recogidos = 0;
+int billetes_no_recogidos = 0;
+
+int timer = 0;
+
+int dificultad_partida = 0; 
+int flag_principal = 0;
+
+/*
+	Estructura del billete (se podia haber hecho una struct)
+	[][0] -> indice (numero billete)
+	[][1] -> x (posicion x)
+	[][2] -> y (posicion y)
+	[][3] -> si es bueno o malo (0 para bueno, 1 para malo)
+*/
+int billetes[6][4] = {
+	{ -1, -1, -1, -1 },
+	{ -1, -1, -1, -1 },
+	{ -1, -1, -1, -1 },
+	{ -1, -1, -1, -1 },
+	{ -1, -1, -1, -1 },
+	{ -1, -1, -1, -1 }
+};
+// final
+
+//---------------------------------------------------
+// main
+//---------------------------------------------------
+int estado = ESTADO_INICIO;
+int main() {
+
+	Setup();
+	MostrarPantallaInit();
+
+    while(estado != ESTADO_APAGADO) {
+		BuclePrincipal();
+    } // while
+	
+	while(1) {
+		int tecla = TeclaPulsada(TIPO_ENCUESTA);
+	}
+
+} //final
+
+// ---- FUNCIONES ----
+
+// Procedimiento que pone a punto el entorno
+void Setup() {
+	HabilitarGraficos();
+	Interrupciones();
+	MostrarMensajeBienvenida();
+} // final
 
 // Procedimiento habilita entorno grafico
 void HabilitarGraficos() {
@@ -52,15 +113,109 @@ void HabilitarGraficos() {
 	   no devuelve ningun valor. 
 	   La funcion para generar valores aleatorios en el resto del programa es rand() */
 	srand (time(NULL));	
-}
+} // final
 
-// Procedimiento para imprimir bienvenida
+// Procedimientos para mensajes y menus
 void MostrarMensajeBienvenida() {
     iprintf("\x1b[02;00H  +--------------------------+  ");
     iprintf("\x1b[03;00H  : EC 17/18           G13   :  ");
     iprintf("\x1b[04;00H  +--------------------------+  ");
-	iprintf("\x1b[05;00H     Para comenzar,   toque     ");
-	iprintf("\x1b[07;00H      la pantalla taactil.      ");
+}
+
+void MostrarTocarTactil() {
+	iprintf("\x1b[07;03H Para comenzar toque");
+	iprintf("\x1b[08;04H la pantalla tactil.");
+}
+
+void MostrarMenu() {
+	iprintf("\x1b[09;03H DIFICULTLAD:");
+	iprintf("\x1b[10;04H Baja");
+	iprintf("\x1b[11;04H Media");
+	iprintf("\x1b[12;04H Alta");
+}
+
+void MostrarPantallaInit() {
+	estado = ESTADO_INICIO;
+	BorrarPantalla();
+	MostrarTocarTactil();
+	MostrarMenu();
+} 
+
+void BuclePrincipal() {
+	switch(estado) {
+        case ESTADO_INICIO:
+            if(TactilTocada()) {
+				InitPartida();
+            }
+            break;
+        case ESTADO_JUGANDO:
+            break;
+        case ESTADO_BORRAR_MOSTRAR:
+            break;
+        case ESTADO_APAGADO:
+            break;
+        default:
+            break;
+    }
+}
+// final
+
+
+void InitPartida() {
+	billetes_recogidos = 0;
+	billetes_no_recogidos = 0;
+	flag_principal = 0;
+	BorrarPantalla();
+	MostrarPuntuacion(billetes_recogidos, billetes_no_recogidos);
+	posicionX_sobre = 128;
+	ControladorSobre();
+	estado = ESTADO_JUGANDO;
+	EscogerDificultad();
+}
+
+void EscogerDificultad() {
+	switch(dificultad_partida) {
+		case DIF_BAJA:
+			v_billete = 3;
+			break;
+		case DIF_MEDIA:
+			v_billete = 4;
+			break;
+		case DIF_ALTA:
+			v_billete = 5;
+			break;
+		default:
+			break;
+	}
+}
+
+void AcabarPartida() {
+	ResetBilletes();
+	ResetSobre();
+	MostrarBorrarMostrar();
+	estado = ESTADO_BORRAR_MOSTRAR;
+}
+
+void ResetBilletes() {
+	for(int i = 0; i < 10; i++) {
+		BorrarBillete(billetes[i][0], billetes[i][1], billetes[i][2]);
+		BilletePorDefecto(billetes[i]);
+	}
+}
+
+void BilletePorDefecto(int billete[]) {
+	billete[0] = -1;
+	billete[1] = -1;
+	billete[2] = -1;
+}
+
+void ResetSobre() {
+	BorrarSobre(posicionX_sobre, 172);
+}
+
+void MostrarBorrarMostrar() {
+	iprintf("\x1b[12;00H Pulse <Start> para reiniciar juego");
+	iprintf("\x1b[13;00H Pulse <Select> para apagar");
 }
 
 // Esta funcion consulta si se ha tocado la pantalla tactil
@@ -68,36 +223,8 @@ int TactilTocada() {
 	touchPosition pos_pantalla;
 	touchRead(&pos_pantalla);
   	return !(pos_pantalla.px == 0 && pos_pantalla.py == 0);
-}
+} // final
 
-void Setup() {
-	HabilitarGraficos();
-	Interrupciones();
-	MostrarMensajeBienvenida();
-}
 
-//---------------------------------------------------
-// main
-//---------------------------------------------------
-int estado = ESTADO_INICIO;
-int main() {
-
-	Setup();
-
-    while(estado == ESTADO_INICIO) {
-		estado = TactilTocada();
-    } // while
-	
-	while(1) {
-		int tecla = TeclaPulsada(TIPO_ENCUESTA);
-		if(tecla == 4) {
-			if (TimerMovimientoDerecha()) {
-				SetTimerDerecha();
-				MoverSobreDerecha();
-			}
-		}
-	}
-
-} //main
 
 
