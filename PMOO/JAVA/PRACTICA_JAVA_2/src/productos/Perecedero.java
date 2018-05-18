@@ -5,15 +5,18 @@ import java.util.ArrayList;
 public abstract class Perecedero extends Producto implements IEnviable {
     private String fechaCaducidad;
 
+    /**
+     * Constructor vacio
+     */
     public Perecedero() {
 
     }
 
     /**
-     * Constructor que setea solo el nombre
+     * Constructor que setea el nombre y la fecha
      *
-     * @param nombre string
-     * @param fecha  String
+     * @param nombre    nombre producto
+     * @param fecha     fecha producto
      */
     Perecedero(String nombre, String fecha) {
         super(nombre);
@@ -23,12 +26,12 @@ public abstract class Perecedero extends Producto implements IEnviable {
     /**
      * Constructor que setea todos los atributos
      *
-     * @param codigoProducto   int
-     * @param nombreProducto   string
-     * @param cantidadProducto int
-     * @param precioProducto   double
-     * @param pesoProducto     double
-     * @param fecha            String
+     * @param codigoProducto   codigo producto
+     * @param nombreProducto   nombre producto
+     * @param cantidadProducto cantidad producto
+     * @param precioProducto   precio procucto
+     * @param pesoProducto     peso producto
+     * @param fecha            fecha producto
      */
     Perecedero(int codigoProducto, String nombreProducto, int cantidadProducto, double precioProducto,
                double pesoProducto, String fecha) {
@@ -39,11 +42,11 @@ public abstract class Perecedero extends Producto implements IEnviable {
     /**
      * Constructor que setea todos los atributos menos el codigo
      *
-     * @param nombreProducto   string
-     * @param cantidadProducto int
-     * @param precioProducto   double
-     * @param pesoProducto     double
-     * @param fecha            String
+     * @param nombreProducto   nombre producto
+     * @param cantidadProducto cantidad producto
+     * @param precioProducto   precio procucto
+     * @param pesoProducto     peso producto
+     * @param fecha            fecha producto
      */
     Perecedero(String nombreProducto, int cantidadProducto, double precioProducto, double pesoProducto, String fecha) {
         super(nombreProducto, cantidadProducto, precioProducto, pesoProducto);

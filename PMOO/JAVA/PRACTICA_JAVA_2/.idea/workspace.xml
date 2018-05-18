@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="PracticaSuperOnline:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="19e06613-afdb-49f1-a0f4-02dcc45f7e9c" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -25,21 +33,22 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/clases/Producto.java" />
-        <option value="$PROJECT_DIR$/src/productos/Producto.java" />
         <option value="$PROJECT_DIR$/src/test/Test.java" />
-        <option value="$PROJECT_DIR$/src/productos/NoPerecedero.java" />
-        <option value="$PROJECT_DIR$/src/productos/Perecedero.java" />
-        <option value="$PROJECT_DIR$/src/productos/Otro.java" />
-        <option value="$PROJECT_DIR$/src/gui/VentanaInventario.java" />
-        <option value="$PROJECT_DIR$/src/productos/IEnviable.java" />
-        <option value="$PROJECT_DIR$/src/productos/Herramienta.java" />
-        <option value="$PROJECT_DIR$/src/productos/FrutaYHortaliza.java" />
-        <option value="$PROJECT_DIR$/src/productos/Lacteo.java" />
         <option value="$PROJECT_DIR$/informe.txt" />
         <option value="$PROJECT_DIR$/src/gui/VentanSuperOnLine.java" />
         <option value="$PROJECT_DIR$/src/super4/SuperOnLine4.java" />
-        <option value="$PROJECT_DIR$/src/super4/Inventario.java" />
+        <option value="$PROJECT_DIR$/src/excepciones/ProductoInexistenteException.java" />
         <option value="$PROJECT_DIR$/src/productos/Bebida.java" />
+        <option value="$PROJECT_DIR$/src/productos/IEnviable.java" />
+        <option value="$PROJECT_DIR$/src/productos/NoPerecedero.java" />
+        <option value="$PROJECT_DIR$/src/productos/Herramienta.java" />
+        <option value="$PROJECT_DIR$/src/productos/FrutaYHortaliza.java" />
+        <option value="$PROJECT_DIR$/src/productos/Lacteo.java" />
+        <option value="$PROJECT_DIR$/src/productos/Otro.java" />
+        <option value="$PROJECT_DIR$/src/productos/Perecedero.java" />
+        <option value="$PROJECT_DIR$/src/productos/Producto.java" />
+        <option value="$PROJECT_DIR$/src/gui/VentanaInventario.java" />
+        <option value="$PROJECT_DIR$/src/super4/Inventario.java" />
       </list>
     </option>
   </component>
@@ -62,6 +71,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -77,18 +87,18 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/libraries/jgoodies-forms-1.4.1.jar!/" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RunDashboard">
@@ -109,7 +119,7 @@
     </configuration>
     <configuration name="SuperOnLine4" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="super4.SuperOnLine4" />
-      <module name="PRACTICA_JAVA_2" />
+      <module name="PracticaSuperOnline" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -182,11 +192,12 @@
       <workItem from="1526483542657" duration="599000" />
       <workItem from="1526496089742" duration="995000" />
       <workItem from="1526545290441" duration="5840000" />
+      <workItem from="1526572129700" duration="3772000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19105000" />
+    <option name="totallyTimeSpent" value="22877000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -201,7 +212,7 @@
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32943678" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.23060574" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
@@ -262,7 +273,7 @@
         <state relative-caret-position="512">
           <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
           <folding>
-            <marker date="1526547815421" expanded="true" signature="2412:2418" ph="{}" />
+            <marker date="1526575109891" expanded="true" signature="2668:2674" ph="{}" />
           </folding>
         </state>
       </provider>
@@ -272,7 +283,7 @@
         <state relative-caret-position="176">
           <caret line="11" selection-start-line="11" selection-end-line="11" />
           <folding>
-            <marker date="1526483015294" expanded="true" signature="1712:1718" ph="{}" />
+            <marker date="1526575109902" expanded="true" signature="1869:1875" ph="{}" />
           </folding>
         </state>
       </provider>
@@ -282,7 +293,7 @@
         <state relative-caret-position="192">
           <caret line="12" selection-start-line="12" selection-end-line="12" />
           <folding>
-            <marker date="1526550922720" expanded="true" signature="138:298" ph="/**...*/" />
+            <marker date="1526575109899" expanded="true" signature="179:369" ph="/**...*/" />
           </folding>
         </state>
       </provider>
@@ -316,7 +327,7 @@
         <state relative-caret-position="512">
           <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
           <folding>
-            <marker date="1526547815421" expanded="true" signature="2412:2418" ph="{}" />
+            <marker date="1526575109891" expanded="true" signature="2668:2674" ph="{}" />
           </folding>
         </state>
       </provider>
@@ -326,7 +337,7 @@
         <state relative-caret-position="176">
           <caret line="11" selection-start-line="11" selection-end-line="11" />
           <folding>
-            <marker date="1526483015294" expanded="true" signature="1712:1718" ph="{}" />
+            <marker date="1526575109902" expanded="true" signature="1869:1875" ph="{}" />
           </folding>
         </state>
       </provider>
@@ -336,7 +347,7 @@
         <state relative-caret-position="192">
           <caret line="12" selection-start-line="12" selection-end-line="12" />
           <folding>
-            <marker date="1526550922720" expanded="true" signature="138:298" ph="/**...*/" />
+            <marker date="1526575109899" expanded="true" signature="179:369" ph="/**...*/" />
           </folding>
         </state>
       </provider>
@@ -369,7 +380,7 @@
         <state relative-caret-position="512">
           <caret line="34" column="22" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
           <folding>
-            <marker date="1526547815421" expanded="true" signature="2412:2418" ph="{}" />
+            <marker date="1526575109891" expanded="true" signature="2668:2674" ph="{}" />
           </folding>
         </state>
       </provider>
@@ -379,7 +390,7 @@
         <state relative-caret-position="112">
           <caret line="7" selection-start-line="7" selection-end-line="7" />
           <folding>
-            <marker date="1526483015294" expanded="true" signature="1712:1718" ph="{}" />
+            <marker date="1526575109902" expanded="true" signature="1869:1875" ph="{}" />
           </folding>
         </state>
       </provider>
@@ -389,7 +400,7 @@
         <state relative-caret-position="128">
           <caret line="8" selection-start-line="8" selection-end-line="8" />
           <folding>
-            <marker date="1526550922720" expanded="true" signature="138:298" ph="/**...*/" />
+            <marker date="1526575109899" expanded="true" signature="179:369" ph="/**...*/" />
           </folding>
         </state>
       </provider>
@@ -404,24 +415,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/Test.java" />
-    <entry file="file://$PROJECT_DIR$/src/gui/VentanaInventario.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1730">
-          <caret line="136" column="55" selection-start-line="136" selection-start-column="41" selection-end-line="136" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Ejemplo_productos_enviables.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
           <caret line="4" column="95" lean-forward="true" selection-end-line="4" selection-end-column="95" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/productos/IEnviable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="5" column="61" selection-start-line="5" selection-start-column="61" selection-end-line="5" selection-end-column="61" />
         </state>
       </provider>
     </entry>
@@ -445,27 +442,100 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/ExternalTextVI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/excepciones/ProductoInexistenteException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="8" column="41" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
+          <folding>
+            <element signature="e#189#190#0" expanded="true" />
+            <element signature="e#255#256#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/productos/IEnviable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/productos/Lacteo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="9" column="59" selection-start-line="9" selection-start-column="59" selection-end-line="9" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/productos/FrutaYHortaliza.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="9" column="61" selection-start-line="9" selection-start-column="61" selection-end-line="9" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/productos/Herramienta.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="7" column="4" lean-forward="true" selection-start-line="7" selection-start-column="4" selection-end-line="12" selection-end-column="7" />
+          <folding>
+            <marker date="1526575109891" expanded="true" signature="2668:2674" ph="{}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/productos/Otro.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="516">
+          <caret line="42" column="7" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="7" />
+          <folding>
+            <marker date="1526575109902" expanded="true" signature="1869:1875" ph="{}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/productos/Bebida.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="39" column="4" lean-forward="true" selection-start-line="39" selection-start-column="4" selection-end-line="48" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/productos/Producto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1072">
+          <caret line="68" column="5" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/productos/NoPerecedero.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="40" column="4" selection-start-line="40" selection-start-column="4" selection-end-line="48" selection-end-column="7" />
+          <folding>
+            <marker date="1526575109899" expanded="true" signature="179:369" ph="/**...*/" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/productos/Perecedero.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-147">
+          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/productos.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/super4/SuperOnLine4.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/super4/Inventario.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="344" selection-start-line="344" selection-end-line="344" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="304">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
@@ -476,75 +546,221 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/productos/Bebida.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="85" column="30" selection-start-line="85" selection-start-column="30" selection-end-line="85" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/productos/FrutaYHortaliza.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="81" column="29" selection-start-line="81" selection-start-column="29" selection-end-line="81" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/productos/Herramienta.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="74" column="33" lean-forward="true" selection-start-line="74" selection-start-column="33" selection-end-line="74" selection-end-column="33" />
-          <folding>
-            <marker date="1526547815421" expanded="true" signature="2412:2418" ph="{}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/productos/Lacteo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="75" column="29" selection-start-line="75" selection-start-column="29" selection-end-line="75" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/productos/NoPerecedero.java">
+    <entry file="file://$PROJECT_DIR$/src/super4/SuperOnLine4.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
+          <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/VentanaInventario.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="80" column="59" selection-start-line="80" selection-start-column="59" selection-end-line="80" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/super4/Inventario.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-226">
+          <caret line="190" column="18" selection-start-line="190" selection-start-column="11" selection-end-line="190" selection-end-column="18" />
           <folding>
-            <marker date="1526550922720" expanded="true" signature="138:298" ph="/**...*/" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/productos/Otro.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <marker date="1526483015294" expanded="true" signature="1712:1718" ph="{}" />
-          </folding>
+    <entry file="uml://JavaScript-modules-diagram/C:/Users/unaih/Documents/GITHUB/EHU/PMOO/JAVA/PRACTICA_JAVA_2/src">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JavaScript-modules-diagram</ID>
+          <OriginalElement>$PROJECT_DIR$/src</OriginalElement>
+          <nodes />
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="802.5" y="289.5" />
+          <SelectedNodes />
+          <Categories>
+            <Category>All</Category>
+          </Categories>
+          <VISIBILITY>Details</VISIBILITY>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/productos/Perecedero.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+    <entry file="uml://MODULES/mdl-PracticaSuperOnline">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>MODULES</ID>
+          <OriginalElement>mdl-PracticaSuperOnline</OriginalElement>
+          <nodes>
+            <node x="" y="">mdl-PracticaSuperOnline</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.8" x="94.5" y="14.5" />
+          <SelectedNodes />
+          <Categories />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/productos/Producto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="149" column="4" selection-start-line="149" selection-start-column="4" selection-end-line="149" selection-end-column="4" />
+    <entry file="uml://JAVA/">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement />
+          <nodes>
+            <node x="" y="">com</node>
+            <node x="" y="">netscape</node>
+            <node x="" y="">oracle</node>
+            <node x="" y="">utilidades</node>
+            <node x="" y="">org</node>
+            <node x="" y="">sun</node>
+            <node x="" y="">META-INF</node>
+            <node x="" y="">jdk</node>
+            <node x="" y="">groovyjarjarasm</node>
+            <node x="" y="">java</node>
+            <node x="" y="">groovy</node>
+            <node x="" y="">excepciones</node>
+            <node x="" y="">javax</node>
+            <node x="" y="">gui</node>
+            <node x="" y="">groovyjarjarcommonscli</node>
+            <node x="" y="">super4</node>
+            <node x="" y="">javafx</node>
+            <node x="" y="">productos</node>
+            <node x="" y="">groovyjarjarantlr</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="265.5" y="236.5" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/excepciones/ProductoInexistenteException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+    <entry file="uml://JAVA/super4.SuperOnLine4">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>super4.SuperOnLine4</OriginalElement>
+          <nodes>
+            <node x="0.0" y="863.0">java.lang.Throwable</node>
+            <node x="74.5" y="443.5">productos.NoPerecedero</node>
+            <node x="261.0" y="1383.0">java.lang.Exception</node>
+            <node x="257.5" y="784.0">java.io.Serializable</node>
+            <node x="0.0" y="622.0">productos.Otro</node>
+            <node x="972.75" y="178.5">productos.IEnviable</node>
+            <node x="1062.0" y="784.0">super4.SuperOnLine4</node>
+            <node x="1272.0" y="578.0">productos.Bebida</node>
+            <node x="165.4821428571429" y="101.0">productos.Producto</node>
+            <node x="318.0" y="578.0">productos.Herramienta</node>
+            <node x="233.4821428571429" y="0.0">java.lang.Comparable</node>
+            <node x="954.0" y="578.0">productos.Lacteo</node>
+            <node x="666.0" y="784.0">super4.Inventario</node>
+            <node x="208.5" y="1462.0">excepciones.ProductoInexistenteException</node>
+            <node x="874.25" y="433.0">productos.Perecedero</node>
+            <node x="636.0" y="578.0">productos.FrutaYHortaliza</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="productos.Herramienta" target="productos.NoPerecedero">
+              <point x="-74.5" y="-80.5" />
+              <point x="392.5" y="558.0" />
+              <point x="298.0" y="558.0" />
+              <point x="74.5" y="37.0" />
+            </edge>
+            <edge source="productos.FrutaYHortaliza" target="productos.Perecedero">
+              <point x="74.5" y="-80.5" />
+              <point x="859.5" y="558.0" />
+              <point x="923.9166666666666" y="558.0" />
+              <point x="-99.33333333333337" y="47.5" />
+            </edge>
+            <edge source="productos.FrutaYHortaliza" target="productos.IEnviable">
+              <point x="-74.5" y="-80.5" />
+              <point x="710.5" y="413.0" />
+              <point x="1047.75" y="413.0" />
+              <point x="-50.0" y="58.5" />
+            </edge>
+            <edge source="java.lang.Throwable" target="java.io.Serializable">
+              <point x="0.0" y="-235.0" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="productos.Producto" target="java.lang.Comparable">
+              <point x="0.0" y="-136.0" />
+              <point x="0.0" y="25.5" />
+            </edge>
+            <edge source="productos.Lacteo" target="productos.Perecedero">
+              <point x="-74.5" y="-80.5" />
+              <point x="1028.5" y="558.0" />
+              <point x="1023.25" y="558.0" />
+              <point x="0.0" y="47.5" />
+            </edge>
+            <edge source="productos.Perecedero" target="productos.IEnviable">
+              <point x="74.5" y="-47.5" />
+              <point x="0.0" y="58.5" />
+            </edge>
+            <edge source="productos.Otro" target="productos.NoPerecedero">
+              <point x="0.0" y="-36.5" />
+              <point x="-74.5" y="37.0" />
+            </edge>
+            <edge source="productos.Bebida" target="productos.IEnviable">
+              <point x="74.5" y="-80.5" />
+              <point x="1495.5" y="413.0" />
+              <point x="1197.75" y="413.0" />
+              <point x="100.0" y="58.5" />
+            </edge>
+            <edge source="java.lang.Exception" target="java.lang.Throwable">
+              <point x="0.0" y="-14.5" />
+              <point x="0.0" y="235.0" />
+            </edge>
+            <edge source="productos.Bebida" target="productos.Perecedero">
+              <point x="-74.5" y="-80.5" />
+              <point x="1346.5" y="548.0" />
+              <point x="1122.5833333333333" y="548.0" />
+              <point x="99.33333333333326" y="47.5" />
+            </edge>
+            <edge source="productos.Herramienta" target="productos.IEnviable">
+              <point x="74.5" y="-80.5" />
+              <point x="541.5" y="403.0" />
+              <point x="997.75" y="403.0" />
+              <point x="-100.0" y="58.5" />
+            </edge>
+            <edge source="productos.Lacteo" target="productos.IEnviable">
+              <point x="74.5" y="-80.5" />
+              <point x="1177.5" y="558.0" />
+              <point x="1182.75" y="558.0" />
+              <point x="1182.75" y="413.0" />
+              <point x="1147.75" y="413.0" />
+              <point x="50.0" y="58.5" />
+            </edge>
+            <edge source="productos.NoPerecedero" target="productos.Producto">
+              <point x="0.0" y="-37.0" />
+              <point x="223.5" y="413.0" />
+              <point x="239.9821428571429" y="413.0" />
+              <point x="-74.5" y="136.0" />
+            </edge>
+            <edge source="productos.Perecedero" target="productos.Producto">
+              <point x="-74.5" y="-47.5" />
+              <point x="948.75" y="393.0" />
+              <point x="388.9821428571429" y="393.0" />
+              <point x="74.5" y="136.0" />
+            </edge>
+            <edge source="excepciones.ProductoInexistenteException" target="java.lang.Exception">
+              <point x="0.0" y="-25.5" />
+              <point x="0.0" y="14.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.5000000000000001" x="280.9999999999998" y="862.9999999999999" />
+          <SelectedNodes>
+            <node>productos.Herramienta</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Methods</Category>
+            <Category>Properties</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
         </state>
       </provider>
     </entry>
@@ -554,10 +770,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>PracticaSuperOnline:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -600,7 +818,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>PRACTICA_JAVA_2</last-edited>
+          <last-edited>PracticaSuperOnline</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

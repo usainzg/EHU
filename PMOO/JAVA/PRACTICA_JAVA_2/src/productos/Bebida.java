@@ -7,10 +7,11 @@ public class Bebida extends Perecedero implements IEnviable {
     private int graduacion;
 
     /**
-     * Constructor que setea solo el nombre
+     * Constructor que setea nombre, fecha caducidad y graduacion
      *
-     * @param nombre string
-     * @param fecha  String
+     * @param nombre nombre de la bebida
+     * @param fecha  fecha de caducidad
+     * @param graduacion graduacion de la bebida
      */
     public Bebida(String nombre, String fecha, int graduacion) {
         super(nombre, fecha);
@@ -21,12 +22,13 @@ public class Bebida extends Perecedero implements IEnviable {
     /**
      * Constructor que setea todos los atributos
      *
-     * @param codigoProducto   int
-     * @param nombreProducto   string
-     * @param cantidadProducto int
-     * @param precioProducto   double
-     * @param pesoProducto     double
-     * @param fecha            String
+     * @param codigoProducto   codigo de la bebida
+     * @param nombreProducto   nombre de la bebida
+     * @param cantidadProducto cantidad de la bebida
+     * @param precioProducto   precio de la bebida
+     * @param pesoProducto     peso de la bebida
+     * @param fecha            fecha caducidad de la bebida
+     * @param graduacion graduacion de la bebida
      */
     public Bebida(int codigoProducto, String nombreProducto, int cantidadProducto, double precioProducto,
                   double pesoProducto, String fecha, int graduacion) {
@@ -38,11 +40,12 @@ public class Bebida extends Perecedero implements IEnviable {
     /**
      * Constructor que setea todos los atributos menos el codigo
      *
-     * @param nombreProducto   string
-     * @param cantidadProducto int
-     * @param precioProducto   double
-     * @param pesoProducto     double
-     * @param fecha            String
+     * @param nombreProducto   nombre de la bebida
+     * @param cantidadProducto cantidad de la bebida
+     * @param precioProducto   precio de la bebida
+     * @param pesoProducto     peso de la bebida
+     * @param fecha            fecha caducidad de la bebida
+     * @param graduacion graduacion de la bebida
      */
     public Bebida(String nombreProducto, int cantidadProducto, double precioProducto,
                   double pesoProducto, String fecha, int graduacion) {

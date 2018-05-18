@@ -5,15 +5,17 @@ import java.util.ArrayList;
 public abstract class NoPerecedero extends Producto {
     private String categoria;
 
+    /**
+     * Constructor vacio
+     */
     public NoPerecedero() {
-
     }
 
     /**
-     * Constructor que setea solo el nombre
+     * Constructor que setea el nombre y la categoria
      *
-     * @param nombre    string
-     * @param categoria String
+     * @param nombre    nombre producto
+     * @param categoria categoria producto
      */
     public NoPerecedero(String nombre, String categoria) {
         super(nombre);
@@ -23,12 +25,12 @@ public abstract class NoPerecedero extends Producto {
     /**
      * Constructor que setea todos los atributos
      *
-     * @param codigoProducto   int
-     * @param nombreProducto   string
-     * @param cantidadProducto int
-     * @param precioProducto   double
-     * @param pesoProducto     double
-     * @param categoria        String
+     * @param codigoProducto   codigo producto
+     * @param nombreProducto   nombre producto
+     * @param cantidadProducto cantidad producto
+     * @param precioProducto   precio procucto
+     * @param pesoProducto     peso producto
+     * @param categoria        categoria producto
      */
     public NoPerecedero(int codigoProducto, String nombreProducto, int cantidadProducto, double precioProducto,
                         double pesoProducto, String categoria) {
@@ -39,17 +41,21 @@ public abstract class NoPerecedero extends Producto {
     /**
      * Constructor que setea todos los atributos menos el codigo
      *
-     * @param nombreProducto   string
-     * @param cantidadProducto int
-     * @param precioProducto   double
-     * @param pesoProducto     double
-     * @param categoria        String
+     * @param nombreProducto   nombre producto
+     * @param cantidadProducto cantidad producto
+     * @param precioProducto   precio procucto
+     * @param pesoProducto     peso producto
+     * @param categoria        categoria producto
      */
     public NoPerecedero(String nombreProducto, int cantidadProducto, double precioProducto, double pesoProducto, String categoria) {
         super(nombreProducto, cantidadProducto, precioProducto, pesoProducto);
         this.categoria = categoria;
     }
 
+    /**
+     * Metodo que devuele la categoria del producto no-perecedero
+     * @return categoria
+     */
     public String getCategoria() {
         return categoria;
     }

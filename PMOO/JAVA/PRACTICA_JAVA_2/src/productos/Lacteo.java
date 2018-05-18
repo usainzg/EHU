@@ -7,9 +7,11 @@ public class Lacteo extends Perecedero implements IEnviable {
     private String lote;
 
     /**
-     * Constructor que setea solo el nombre
+     * Constructor que setea nombre, fecha caducidad y lote
      *
-     * @param nombre string
+     * @param nombre nombre del lacteo
+     * @param fecha  fecha del lacteo
+     * @param lote   lote del lacteo
      */
     public Lacteo(String nombre, String fecha, String lote) {
         super(nombre, fecha);
@@ -20,11 +22,13 @@ public class Lacteo extends Perecedero implements IEnviable {
     /**
      * Constructor que setea todos los atributos
      *
-     * @param codigoProducto   int
-     * @param nombreProducto   string
-     * @param cantidadProducto int
-     * @param precioProducto   double
-     * @param pesoProducto     double
+     * @param codigoProducto   codigo del lacteo
+     * @param nombreProducto   nombre del lacteo
+     * @param cantidadProducto cantidad del lacteo
+     * @param precioProducto   precio del lacteo
+     * @param pesoProducto     peso del lacteo
+     * @param fecha            fecha caducidad del lacteo
+     * @param lote             lote del lacteo
      */
     public Lacteo(int codigoProducto, String nombreProducto, int cantidadProducto, double precioProducto,
                   double pesoProducto, String fecha, String lote) {
@@ -36,10 +40,12 @@ public class Lacteo extends Perecedero implements IEnviable {
     /**
      * Constructor que setea todos los atributos menos el codigo
      *
-     * @param nombreProducto   string
-     * @param cantidadProducto int
-     * @param precioProducto   double
-     * @param pesoProducto     double
+     * @param nombreProducto   nombre del lacteo
+     * @param cantidadProducto cantidad del lacteo
+     * @param precioProducto   precio del lacteo
+     * @param pesoProducto     peso del lacteo
+     * @param fecha            fecha caducidad del lacteo
+     * @param lote             lote del lacteo
      */
     public Lacteo(String nombreProducto, int cantidadProducto, double precioProducto, double pesoProducto, String fecha, String lote) {
         super(nombreProducto, cantidadProducto, precioProducto, pesoProducto, fecha);

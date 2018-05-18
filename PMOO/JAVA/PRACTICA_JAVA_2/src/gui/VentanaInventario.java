@@ -78,7 +78,7 @@ public class VentanaInventario extends JDialog {
 
                     if (!(kopBerria == null)) { //Ez du Cancel sakatu
                         try {
-                            inb.actualizarCantidadProductoPorCodigo(kodea,
+                            inb.actualizarCantidadProducto(kodea,
                                     Integer.parseInt(kopBerria));
                             taula.setModel(new ProduktuTaulaModelo(inb.inventarioAListaString())); //bistaratutako taula freskatzeko
                             JOptionPane.showMessageDialog(
@@ -201,11 +201,8 @@ public class VentanaInventario extends JDialog {
         public boolean isCellEditable(int row, int col) {
             //Note that the data/cell address is constant,
             //no matter where the cell appears onscreen.
-            if (col == 4) { //kopurua soilik da editagarria (hala ere, ez da editatzen)
-                return true;
-            } else {
-                return false;
-            }
+            //kopurua soilik da editagarria (hala ere, ez da editatzen)
+            return col == 4;
         }
 
         public void removeRow(int row) {
