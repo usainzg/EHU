@@ -12,6 +12,7 @@ dovoto y otro de Jaeden Amero
 
 u16* gfxBillete;
 u16* gfxSobre;
+u16* gfxBilleteMalo;
 
 /* Inicializar la memoria de Sprites. */
 void initSpriteMem() {
@@ -22,6 +23,7 @@ void initSpriteMem() {
 
 	gfxBillete = oamAllocateGfx(&oamMain, SpriteSize_16x16, SpriteColorFormat_256Color);
 	gfxSobre   = oamAllocateGfx(&oamMain, SpriteSize_16x16, SpriteColorFormat_256Color);
+	gfxBilleteMalo = oamAllocateGfx(&oamMain, SpriteSize_16x16, SpriteColorFormat_256Color);
 }
 
 
@@ -123,9 +125,32 @@ u8 Billete[256] =
 	23,23,21,21,0,0,0,0,21,21,21,21,0,0,0,0, // 000021212121212121210000
 };
 
+u8 BilleteMalo[256] =
+{
+    0,0,0,0,13,13,13,13,0,0,0,0,13,13,1,1, // 000013131313131313130000
+    0,0,0,0,13,1,1,1,0,0,0,0,13,1,1,13, // 00001313111113130000
+    0,0,0,0,13,1,1,1,0,0,0,0,13,1,1,1, // 000013111111130000
+    0,0,0,0,13,1,1,13,0,0,0,0,13,1,13,1, // 00001311131311130000
+
+    13,13,13,13,0,0,0,0,1,1,13,13,0,0,0,0, // 000013111111130000
+    1,1,1,13,0,0,0,0,13,1,1,13,0,0,0,0, // 000013111111130000
+    1,1,1,13,0,0,0,0,1,1,1,13,0,0,0,0, // 00001311131311130000
+    13,1,1,13,0,0,0,0,1,13,1,13,0,0,0,0, // 00001311311131130000
+
+    0,0,0,0,13,1,13,1,0,0,0,0,13,1,1,13, // 00001311311131130000
+    0,0,0,0,13,1,1,1,0,0,0,0,13,1,1,1, // 00001311131311130000
+    0,0,0,0,13,1,1,13,0,0,0,0,13,1,1,1, // 000013111111130000
+    0,0,0,0,13,13,1,1,0,0,0,0,13,13,13,13, // 000013111111130000
+
+    1,13,1,13,0,0,0,0,13,1,1,13,0,0,0,0, // 00001311131311130000
+    1,1,1,13,0,0,0,0,1,1,1,13,0,0,0,0, // 000013111111130000
+    13,1,1,13,0,0,0,0,1,1,1,13,0,0,0,0, // 00001313111113130000
+    1,1,13,13,0,0,0,0,13,13,13,13,0,0,0,0, // 000013131313131313130000
+};
+
 /* Para cada Sprite que se quiera llevar a pantalla hay que hacer una de estas funciones. */
 
-void BorrarBillete(int indice, int x, int y) {
+void BorrarBillete(int indice, int x, int y, int tipo) {
 	oamSet(&oamMain, //main graphics engine context
 		indice,  //oam index (0 to 127)  
 		x, y,    //x and y pixle location of the sprite
@@ -133,7 +158,7 @@ void BorrarBillete(int indice, int x, int y) {
 		0,       //this is the palette index if multiple palettes or the alpha value if bmp sprite	
 		SpriteSize_16x16,     
 		SpriteColorFormat_256Color, 
-		gfxBillete,//+16*16/2, 	//pointer to the loaded graphics
+		(tipo == 0) ? gfxBillete : gfxBilleteMalo,//+16*16/2, 	//pointer to the loaded graphics
 		-1,                  	//sprite rotation data  
 		false,               	//double the size when rotating?
 		true,			//hide the sprite?
@@ -143,7 +168,7 @@ void BorrarBillete(int indice, int x, int y) {
 	oamUpdate(&oamMain); 
 }
 
-void MostrarBillete (int indice, int x, int y){ 
+void MostrarBillete (int indice, int x, int y, int tipo){ 
 	oamSet(&oamMain, //main graphics engine context
 		indice,  //oam index (0 to 127)  
 		x, y,    //x and y pixle location of the sprite
@@ -151,7 +176,7 @@ void MostrarBillete (int indice, int x, int y){
 		0,       //this is the palette index if multiple palettes or the alpha value if bmp sprite	
 		SpriteSize_16x16,     
 		SpriteColorFormat_256Color, 
-		gfxBillete,//+16*16/2, 	//pointer to the loaded graphics
+		(tipo == 0) ? gfxBillete : gfxBilleteMalo,//+16*16/2, 	//pointer to the loaded graphics
 		-1,                  	//sprite rotation data  
 		false,               	//double the size when rotating?
 		false,			//hide the sprite?
@@ -204,6 +229,7 @@ void guardarSpritesEnMemoria(){
   for(i = 0; i < 16 * 16 / 2; i++){ //muestra un cuadrado en la memoria de la pantalla principal		
     gfxBillete[i] = Billete[i*2] | (Billete[(i*2)+1]<<8);
 	gfxSobre[i]   = Sobre[i*2]   | (Sobre[(i*2)+1]<<8);	
+	gfxBilleteMalo[i] = BilleteMalo[i*2] | (BilleteMalo[(i*2)+1]<<8);
   }
 }
 

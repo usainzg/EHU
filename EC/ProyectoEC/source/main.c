@@ -229,7 +229,7 @@ void CrearBillete() {
 	for(int i = 0; i<10;i++){
 		if (billetes[i][0] == -1){
 			SetBillete(billetes[i], i);
-			MostrarBillete(billetes[0], billetes[1], billetes[2]);
+			MostrarBillete(billetes[0], billetes[1], billetes[2], billetes[3]);
 			break;
 		}
 	}
@@ -249,7 +249,7 @@ void MovimientoBilletes() {
 			if (EstaBilleteCerca(billetes[i][2])){
 				if (HayColisionConSobre(billetes[i][1])){
 					if(EsBilleteNormal(billetes[i][3])){
-						BorrarBillete(billetes[0], billetes[1], billetes[2]);
+						BorrarBillete(billetes[0], billetes[1], billetes[2], billetes[3]);
 						billetes[i][0] = -1;
 						billetes[i][1] = -1;
 						billetes[i][2] = -1;
@@ -264,7 +264,7 @@ void MovimientoBilletes() {
 						AcabarPartida();
 					}
 				} else if (EsNoRecogidoBillete(billetes[i][2])) {
-					BorrarBillete(billetes[0], billetes[1], billetes[2]);
+					BorrarBillete(billetes[0], billetes[1], billetes[2], billetes[3]);
 					billetes[i][0] = -1;
 					billetes[i][1] = -1;
 					billetes[i][2] = -1;
@@ -273,7 +273,7 @@ void MovimientoBilletes() {
 				}
 
 			}
-			MostrarBillete(billetes[i][0], billetes[i][1], billetes[i][2]);
+			MostrarBillete(billetes[i][0], billetes[i][1], billetes[i][2], billetes[i][3]);
 		}
 	}
 }
@@ -347,7 +347,7 @@ void AcabarPartida() {
 
 void ResetBilletes() {
 	for(int i = 0; i < 10; i++) {
-		BorrarBillete(billetes[i][0], billetes[i][1], billetes[i][2]);
+		BorrarBillete(billetes[i][0], billetes[i][1], billetes[i][2], billetes[i][3]);
 		BilletePorDefecto(billetes[i]);
 	}
 }
