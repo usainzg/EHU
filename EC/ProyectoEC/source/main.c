@@ -232,7 +232,7 @@ void CrearBillete() {
 void SetBillete(int billete[], int i) {
 	billete[0] = i;
 	billete[1] = rand() % 235;
-	billete[2] = 12;
+	billete[2] = 16;
 	billete[3] = ((rand() % 5) == 1);
 }
 

@@ -50,7 +50,11 @@ void TimerJuego() {
 }
 
 void MostrarTiempoRestante(int segundos_restantes) {
-    iprintf("\x1b[12;10H %d", segundos_restantes);
+    if (segundos_restantes < 10) {
+        iprintf("\x1b[12;10H 0%d", segundos_restantes);
+    } else {
+        iprintf("\x1b[12;10H %d", segundos_restantes);
+    }    
 }
 
 int EsFinPartida() {
