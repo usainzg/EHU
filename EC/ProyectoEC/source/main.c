@@ -178,22 +178,16 @@ void ActualizarFlagPrincipal() {
             // dificultades
             break;
         case ESTADO_JUGANDO:
-			// actualizacion sobre
-			//if (flag_principal & FLAG_ACTUALIZACION_SOBRE) ControladorActualizacionSobre();
-
-			// creacion billetes
-			//if (flag_principal & FLAG_CREACION_BILLETE) ControladorCreacionBilletes();
-
-			// movimiento billetes
-			//if (flag_principal & FLAG_MOVIMIENTO_BILLETE) ControladorMovimientoBilletes();
-
-			if(flag_principal & FLAG_ACTUALIZACION_SOBRE){//Actualizar sobre
+			/* ACTUALIZACION DEL SOBRE */
+			if(flag_principal & FLAG_ACTUALIZACION_SOBRE){
                 ControladorActualizacionSobre();
             }
-            if (flag_principal & FLAG_CREACION_BILLETE){//crear billete
+			/* CREACION DEL BILLETE */
+            if (flag_principal & FLAG_CREACION_BILLETE){
                 ControladorCreacionBilletes();
             }
-            if (flag_principal & FLAG_MOVIMIENTO_BILLETE){// caer billete
+			/* MOVIMIENTO DEL BILLETE */
+            if (flag_principal & FLAG_MOVIMIENTO_BILLETE){
                 ControladorMovimientoBilletes();
             }
             break;
@@ -272,12 +266,12 @@ void MovimientoBilletes() {
 }
 
 int EstaBilleteCerca(int posBillete) {
-	if (posBillete + 6 > POSICION_Y_SOBRE) return 1;
+	if (posBillete + 8 > POSICION_Y_SOBRE) return 1;
 	return 0;
 }
 
 int HayColisionConSobre(int posBillete) {
-	if(posBillete + 16 > posicionX_sobre && posBillete < posicionX_sobre + 16) return 1;
+	if(posBillete + 16 > posicionX_sobre && posBillete < posicionX_sobre + 16) return 1; // por ser sprite 16x16
 	return 0;
 }
 
@@ -287,7 +281,7 @@ int EsBilleteNormal(int tipoBillete) {
 }
 
 int EsNoRecogidoBillete(int posBillete) {
-	if(posBillete >= 191) return 1;
+	if(posBillete >= 180) return 1;
 	return 0;
 }
 
