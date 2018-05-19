@@ -179,13 +179,23 @@ void ActualizarFlagPrincipal() {
             break;
         case ESTADO_JUGANDO:
 			// actualizacion sobre
-			if (flag_principal & FLAG_ACTUALIZACION_SOBRE) ControladorActualizacionSobre();
+			//if (flag_principal & FLAG_ACTUALIZACION_SOBRE) ControladorActualizacionSobre();
 
 			// creacion billetes
-			if (flag_principal & FLAG_CREACION_BILLETE) ControladorCreacionBilletes();
+			//if (flag_principal & FLAG_CREACION_BILLETE) ControladorCreacionBilletes();
 
 			// movimiento billetes
-			if (flag_principal & FLAG_MOVIMIENTO_BILLETE) ControladorMovimientoBilletes();
+			//if (flag_principal & FLAG_MOVIMIENTO_BILLETE) ControladorMovimientoBilletes();
+
+			if(flag_principal & FLAG_ACTUALIZACION_SOBRE){//Actualizar sobre
+                ControladorActualizacionSobre();
+            }
+            if (flag_principal & FLAG_CREACION_BILLETE){//crear billete
+                ControladorCreacionBilletes();
+            }
+            if (flag_principal & FLAG_MOVIMIENTO_BILLETE){// caer billete
+                ControladorMovimientoBilletes();
+            }
             break;
         case ESTADO_BORRAR_MOSTRAR:
             break;
@@ -199,7 +209,6 @@ void ActualizarFlagPrincipal() {
 void ControladorActualizacionSobre() {
 	ControladorSobre();
 	DesactivarFlagActualizacionSobre();
-
 }
 
 void ControladorCreacionBilletes() {
@@ -217,10 +226,10 @@ void DesactivarFlagActualizacionSobre() {
 }
 
 void CrearBillete() {
-	for(int i = 0; i < 6; i++) {
-		if (billetes[i][0] == -1) {
+	for(int i = 0; i<10;i++){
+		if (billetes[i][0] == -1){
 			SetBillete(billetes[i], i);
-			MostrarBillete(i, billetes[1], billetes[2]);
+			MostrarBillete(billetes[0], billetes[1], billetes[2]);
 			break;
 		}
 	}
@@ -230,57 +239,63 @@ void SetBillete(int billete[], int i) {
 	billete[0] = i;
 	billete[1] = rand() % 235;
 	billete[2] = 12;
-	billete[3] = ((rand() % 2) == 0);
+	billete[3] = ((rand() % 5) == 1);
 }
 
 void MovimientoBilletes() {
-	for(int i = 0; i < 6; i++) {
-		if (billetes[i][0] != -1) {
-			MoverBillete(billetes[i]);
-			ControladorColisiones(billetes[i]);
-		}
-	}
-}
+	for(int i = 0; i < 6; i++){
+		if (billetes[i][0]!=-1){
+			billetes[i][2] += 1;
+			if (EstaBilleteCerca(billetes[i][2])){
+				if (HayColisionConSobre(billetes[i][1])){
+					if(EsBilleteNormal(billetes[i][3])){
+						BorrarBillete(billetes[0], billetes[1], billetes[2]);
+						billetes[i][0] = -1;
+						billetes[i][1] = -1;
+						billetes[i][2] = -1;
 
-void MoverBillete(int billete[]) {
-	billete[2] += 1;
-}
+						billetes_recogidos++;
+						MostrarPuntuacion(billetes_recogidos, billetes_no_recogidos);
+						if(billetes_recogidos == 20){
+							flag_principal |= FLAG_SOBRE; //sobre o maletin
+							flag_principal |= FLAG_ACTUALIZACION_SOBRE; //actualizar sobre
+						}
+					} else {
+						AcabarPartida();
+					}
+				} else if (EsNoRecogidoBillete(billetes[i][2])) {
+					BorrarBillete(billetes[0], billetes[1], billetes[2]);
+					billetes[i][0] = -1;
+					billetes[i][1] = -1;
+					billetes[i][2] = -1;
+					billetes_no_recogidos++;
+					MostrarPuntuacion(billetes_recogidos, billetes_no_recogidos);
+				}
 
-void ControladorColisiones(int billete[]) {
-	if (EstaBilleteCerca(billete[2])) {
-		if(HayColisionConSobre(billete[1])) {
-			if (EsBilleteNormal(billete[3])) {
-				BorrarBillete(billete[0], billete[1], billete[2]);
-				BilletePorDefecto(billete);
-				billetes_recogidos += 1;
-				MostrarPuntuacion(billetes_recogidos, billetes_no_recogidos);
-			} else {
-				AcabarPartida();
 			}
-		} else if (EstaPerdidoBillete(billete[2])) {
-			BorrarBillete(billete[0], billete[1], billete[2]);
-			BilletePorDefecto(billete);
-			billetes_no_recogidos += 1;
-			MostrarPuntuacion(billetes_recogidos, billetes_no_recogidos);
+			MostrarBillete(billetes[i][0], billetes[i][1], billetes[i][2]);
 		}
-		MostrarBillete(billete[0], billete[1], billete[2]);
 	}
 }
 
 int EstaBilleteCerca(int posBillete) {
-	return posBillete + 8 >= POSICION_Y_SOBRE;
+	if (posBillete + 6 > POSICION_Y_SOBRE) return 1;
+	return 0;
 }
 
 int HayColisionConSobre(int posBillete) {
-	return ((posBillete + 16 >= posicionX_sobre) && (posBillete < posicionX_sobre + 16));
+	if(posBillete + 16 > posicionX_sobre && posBillete < posicionX_sobre + 16) return 1;
+	return 0;
 }
 
 int EsBilleteNormal(int tipoBillete) {
-	return tipoBillete == 0;
+	if(tipoBillete == 0) return 1;
+	return 0;
 }
 
-int EstaPerdidoBillete(int posBillete) {
-	return posBillete >= 191;
+int EsNoRecogidoBillete(int posBillete) {
+	if(posBillete >= 191) return 1;
+	return 0;
 }
 
 void DesactivarFlagCreacionBillete() {
