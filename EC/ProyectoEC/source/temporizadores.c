@@ -10,6 +10,7 @@
 
 int t = 0;
 int n_segundos = 0;
+int segundos_restantes = 0;
 
 int t_billete = 0; 
 
@@ -25,11 +26,12 @@ void ControladorTimer() {
         case ESTADO_JUGANDO:
             t++;
             TimerJuego();
-            MostrarTiempoRestante(n_segundos);
+            MostrarTiempoRestante(segundos_restantes);
             if (EsFinPartida()) {
-                AcabarPartida();
+                AcabarPartida(n_segundos);
             }
             ControladorBillete();
+            ControladorTiempo();
             break;
         case ESTADO_BORRAR_MOSTRAR:
         case ESTADO_APAGADO:
@@ -40,24 +42,19 @@ void ControladorTimer() {
 
 void TimerJuego() {
     if (t >= 512 && estado == ESTADO_JUGANDO) {
-        n_segundos++;
-        t_billete++;
+        segundos_restantes -= 1;
+        MostrarTiempoRestante(segundos_restantes);
+        t_billete += 1;
         t = 0;
     }
 }
 
-void MostrarTiempoRestante(int segundosTranscurridos) {
-    int tiempo = TIEMPO_PARTIDA - segundosTranscurridos;
-    if(tiempo < 10) {
-        printf("\x1b[14;00H    TIEMPO: 0%d", tiempo);
-    } else {
-        printf("\x1b[14;00H    TIEMPO:  %d", tiempo);
-    }
+void MostrarTiempoRestante(int segundos_restantes) {
+    iprintf("\x1b[12;10H %d", segundos_restantes);
 }
 
 int EsFinPartida() {
-    int tiempo = TIEMPO_PARTIDA - n_segundos;
-    if (tiempo <= 0) return 1;
+    if (segundos_restantes <= 0) return 1;
     return 0;
 }
 
@@ -70,6 +67,11 @@ void ControladorBillete() {
     if (t % v_billete == 0) {
         flag_principal |= 0x8;
     }
+}
+
+void ControladorTiempo() {
+    n_segundos_partida -= 1;
+    if (n_segundos_partida == 0) AcabarPartida();
 }
 
 

@@ -65,7 +65,7 @@ extern int TactilTocada();
 // VARIABLES JUEGO
 #define BILLETE_MAX 4
 #define TIEMPO_PARTIDA 20
-#define POSICION_Y_SOBRE 172;
+#define POSICION_Y_SOBRE 172
 #define MAX_PUNTOS 15 
 
 // FLAGS ACTIVACION
@@ -79,5 +79,7 @@ extern int TactilTocada();
 extern int estado;
 extern int v_billete;
 extern int puntos;
+extern int segundos_restantes;
+extern int n_segundos_partida;
 extern int posicionX_sobre;
 extern int flag_principal;
