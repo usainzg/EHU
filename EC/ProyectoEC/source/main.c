@@ -250,28 +250,21 @@ void MovimientoBilletes() {
 				if (HayColisionConSobre(billetes[i][1])){
 					if(EsBilleteNormal(billetes[i][3])){
 						BorrarBillete(billetes[0], billetes[1], billetes[2], billetes[3]);
-						billetes[i][0] = -1;
-						billetes[i][1] = -1;
-						billetes[i][2] = -1;
-
+						BilletePorDefecto(billetes[i]);
 						billetes_recogidos++;
 						MostrarPuntuacion(billetes_recogidos, billetes_no_recogidos);
 						if(billetes_recogidos == 20){
-							flag_principal |= FLAG_SOBRE; //sobre o maletin
-							flag_principal |= FLAG_ACTUALIZACION_SOBRE; //actualizar sobre
+							flag_principal |= FLAG_ACTUALIZACION_SOBRE;
 						}
 					} else {
 						AcabarPartida();
 					}
 				} else if (EsNoRecogidoBillete(billetes[i][2])) {
 					BorrarBillete(billetes[0], billetes[1], billetes[2], billetes[3]);
-					billetes[i][0] = -1;
-					billetes[i][1] = -1;
-					billetes[i][2] = -1;
+					BilletePorDefecto(billetes[i]);
 					billetes_no_recogidos++;
 					MostrarPuntuacion(billetes_recogidos, billetes_no_recogidos);
 				}
-
 			}
 			MostrarBillete(billetes[i][0], billetes[i][1], billetes[i][2], billetes[i][3]);
 		}
