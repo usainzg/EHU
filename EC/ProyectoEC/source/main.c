@@ -244,8 +244,8 @@ void SetBillete(int billete[], int i) {
 
 void MovimientoBilletes() {
 	for(int i = 0; i < 6; i++){
-		if (billetes[i][0]!=-1){
-			billetes[i][2] += 1;
+		if (billetes[i][0] != -1) { // billetes ya seteado
+			billetes[i][2] += 1; // mover billete
 			if (EstaBilleteCerca(billetes[i][2])){
 				if (HayColisionConSobre(billetes[i][1])){
 					if(EsBilleteNormal(billetes[i][3])){
@@ -312,6 +312,7 @@ void InitPartida() {
 	posicionX_sobre = 128;
 	ControladorSobre();
 	estado = ESTADO_JUGANDO;
+	dificultad_partida = DIF_BAJA;
 	EscogerDificultad();
 }
 

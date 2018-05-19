@@ -42,10 +42,10 @@ void ControladorTimer() {
 
 void TimerJuego() {
     if (t >= 512 && estado == ESTADO_JUGANDO) {
+        t = 0;
         segundos_restantes -= 1;
         MostrarTiempoRestante(segundos_restantes);
         t_billete += 1;
-        t = 0;
     }
 }
 
