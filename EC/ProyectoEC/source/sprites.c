@@ -13,6 +13,7 @@ dovoto y otro de Jaeden Amero
 u16* gfxBillete;
 u16* gfxSobre;
 u16* gfxBilleteMalo;
+u16* gfxSuper;
 
 /* Inicializar la memoria de Sprites. */
 void initSpriteMem() {
@@ -24,6 +25,7 @@ void initSpriteMem() {
 	gfxBillete = oamAllocateGfx(&oamMain, SpriteSize_16x16, SpriteColorFormat_256Color);
 	gfxSobre   = oamAllocateGfx(&oamMain, SpriteSize_16x16, SpriteColorFormat_256Color);
 	gfxBilleteMalo = oamAllocateGfx(&oamMain, SpriteSize_16x16, SpriteColorFormat_256Color);
+	gfxSuper = oamAllocateGfx(&oamMain, SpriteSize_16x16, SpriteColorFormat_256Color);
 }
 
 
@@ -148,6 +150,26 @@ u8 BilleteMalo[256] =
     1,1,13,13,0,0,0,0,13,13,13,13,0,0,0,0, // 000013131313131313130000
 };
 
+unsigned char Super[] =
+{
+  0x0F,0x0F,0x30,0x30,0x40,0x40,0x40,0x40,
+  0x84,0x84,0x84,0x84,0x84,0x84,0x84,0x84,
+  0x84,0x84,0x84,0x84,0x80,0x80,0x80,0x80,
+  0x44,0x44,0x43,0x43,0x30,0x30,0x0F,0x0F,
+  0xF0,0xF0,0x0C,0x0C,0x02,0x02,0x02,0x02,
+  0x21,0x21,0x21,0x21,0x21,0x21,0x21,0x21,
+  0x21,0x21,0x21,0x21,0x01,0x01,0x01,0x01,
+  0x22,0x22,0xC2,0xC2,0x0C,0x0C,0xF0,0xF0,
+  0x0F,0x0F,0x30,0x30,0x40,0x40,0x40,0x40,
+  0x84,0x84,0x84,0x84,0x84,0x84,0x84,0x84,
+  0x84,0x84,0x84,0x84,0x80,0x80,0x80,0x80,
+  0x44,0x44,0x43,0x43,0x30,0x30,0x0F,0x0F,
+  0xF0,0xF0,0x0C,0x0C,0x02,0x02,0x02,0x02,
+  0x01,0x01,0x01,0x01,0x01,0x01,0xF9,0xF9,
+  0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,
+  0x22,0x22,0xC2,0xC2,0x0C,0x0C,0xF0,0xF0
+};
+
 /* Para cada Sprite que se quiera llevar a pantalla hay que hacer una de estas funciones. */
 
 void BorrarBillete(int indice, int x, int y, int tipo) {
@@ -194,7 +216,7 @@ void BorrarSobre(int x, int y){
 		0,       //this is the palette index if multiple palettes or the alpha value if bmp sprite	
 		SpriteSize_16x16,     
 		SpriteColorFormat_256Color, 
-		gfxSobre,//+16*16/2,	//pointer to the loaded graphics
+		(sprite_principal == 0) ? gfxSobre : gfxSuper,//+16*16/2,	//pointer to the loaded graphics
 		-1,                  	//sprite rotation data  
 		false,               	//double the size when rotating?
 		true,			//hide the sprite?
@@ -212,7 +234,7 @@ void MostrarSobre (int x, int y){
 		0,       //this is the palette index if multiple palettes or the alpha value if bmp sprite	
 		SpriteSize_16x16,     
 		SpriteColorFormat_256Color, 
-		gfxSobre,//+16*16/2,	//pointer to the loaded graphics
+		(sprite_principal == 0) ? gfxSobre : gfxSuper, //+16*16/2,	//pointer to the loaded graphics
 		-1,                  	//sprite rotation data  
 		false,               	//double the size when rotating?
 		false,			//hide the sprite?
@@ -230,6 +252,7 @@ void guardarSpritesEnMemoria(){
     gfxBillete[i] = Billete[i*2] | (Billete[(i*2)+1]<<8);
 	gfxSobre[i]   = Sobre[i*2]   | (Sobre[(i*2)+1]<<8);	
 	gfxBilleteMalo[i] = BilleteMalo[i*2] | (BilleteMalo[(i*2)+1]<<8);
+	gfxSuper[i] = Super[i*2] | (Super[(i*2)+1]<<8);
   }
 }
 

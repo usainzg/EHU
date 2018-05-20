@@ -23,7 +23,6 @@ void IntTec() {
         case ESTADO_JUGANDO:
             if(t == 5) {
                 MoverSobreIzquierda();
-                flag_principal |= FLAG_ACTUALIZACION_SOBRE;
             }
 
             if (t == 1) {

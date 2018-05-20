@@ -35,6 +35,8 @@ int flag_principal = 0;
 
 int timerDerecha = 0;
 
+int sprite_principal = 0;
+
 /*
 	Estructura del billete (se podia haber hecho una struct)
 	[][0] -> indice (numero billete)
@@ -138,15 +140,13 @@ void BuclePrincipal() {
             if(TactilTocada()) {
 				InitPartida();
             }
-			// TODO: AÑADIR DIFICULTADES
             break;
         case ESTADO_JUGANDO:
 			if (tecla == DCHA) {
-				if (timerDerecha >= 1000) {
+				if (timerDerecha >= 256) {
 					timerDerecha = 0;
 					posicionX_sobre += 1;
 					if(posicionX_sobre >= 256) posicionX_sobre = 0;
-					flag_principal |= FLAG_ACTUALIZACION_SOBRE;
 				} else {
 					timerDerecha += 1;
 				}
@@ -167,13 +167,11 @@ void BuclePrincipal() {
 void ActualizarFlagPrincipal() {
 	switch(estado) {
 		case ESTADO_INICIO:
-            // dificultades
             break;
         case ESTADO_JUGANDO:
 			/* ACTUALIZACION DEL SOBRE */
-			if(flag_principal & FLAG_ACTUALIZACION_SOBRE){
-                ControladorActualizacionSobre();
-            }
+            ControladorActualizacionSobre();
+
 			/* CREACION DEL BILLETE */
             if (flag_principal & FLAG_CREACION_BILLETE){
                 ControladorCreacionBilletes();
@@ -194,7 +192,6 @@ void ActualizarFlagPrincipal() {
 
 void ControladorActualizacionSobre() {
 	ControladorSobre();
-	DesactivarFlagActualizacionSobre();
 }
 
 void ControladorCreacionBilletes() {
@@ -205,10 +202,6 @@ void ControladorCreacionBilletes() {
 void ControladorMovimientoBilletes() {
 	MovimientoBilletes();
 	DesactivarFlagMovimientoBillete();
-}
-
-void DesactivarFlagActualizacionSobre() {
-	flag_principal &= ~FLAG_ACTUALIZACION_SOBRE;
 }
 
 void CrearBillete() {
@@ -239,8 +232,8 @@ void MovimientoBilletes() {
 						BilletePorDefecto(billetes[i]);
 						billetes_recogidos++;
 						MostrarPuntuacion(billetes_recogidos, billetes_no_recogidos);
-						if(billetes_recogidos == 20){
-							flag_principal |= FLAG_ACTUALIZACION_SOBRE;
+						if(billetes_recogidos == 1){
+							CambiarSprite();
 						}
 					} else {
 						AcabarPartida();
@@ -255,6 +248,10 @@ void MovimientoBilletes() {
 			MostrarBillete(billetes[i][0], billetes[i][1], billetes[i][2], billetes[i][3]);
 		}
 	}
+}
+
+void CambiarSprite() {
+	if (sprite_principal == 0) sprite_principal = 1;
 }
 
 int EstaBilleteCerca(int posBillete) {
@@ -300,6 +297,7 @@ void InitPartida() {
 	estado = ESTADO_JUGANDO;
 	dificultad_partida = DIF_JUEGO;
 	v_billete = 3;
+	sprite_principal = 0;
 }
 
 void AcabarPartida() {
