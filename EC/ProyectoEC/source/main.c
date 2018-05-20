@@ -232,7 +232,7 @@ void MovimientoBilletes() {
 						BilletePorDefecto(billetes[i]);
 						billetes_recogidos++;
 						MostrarPuntuacion(billetes_recogidos, billetes_no_recogidos);
-						if(billetes_recogidos == 1){
+						if(billetes_recogidos == 5){
 							CambiarSprite();
 						}
 					} else {
