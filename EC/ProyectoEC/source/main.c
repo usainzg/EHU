@@ -20,17 +20,17 @@ dovoto y otro de Jaeden Amero
 
 // Variables
 int tecla = -1;
-int v_billete = 4; // depende la dificultad, esta valor puede variar 3, 4 o 5
+int v_billete = 3;
 
 int posicionX_sobre = 128;
-int posicionY_sobre = 172;
+int posicionY_sobre = POSICION_Y_SOBRE;
 
 int billetes_recogidos = 0;
 int billetes_no_recogidos = 0;
 
 int n_segundos_partida = 0;
 
-int dificultad_partida = DIF_BAJA; 
+int dificultad_partida = DIF_JUEGO; 
 int flag_principal = 0;
 
 int timerDerecha = 0;
@@ -121,22 +121,14 @@ void MostrarMensajeBienvenida() {
     iprintf("\x1b[04;00H  +--------------------------+  ");
 }
 
-void MostrarTocarTactil() {
-	iprintf("\x1b[07;03H Para comenzar toque");
-	iprintf("\x1b[08;04H la pantalla tactil.");
-}
-
 void MostrarMenu() {
-	iprintf("\x1b[09;03H DIFICULTLAD:");
-	iprintf("\x1b[10;04H Baja");
-	iprintf("\x1b[11;04H Media");
-	iprintf("\x1b[12;04H Alta");
+	iprintf("\x1b[09;03H Para comenzar a jugar,");
+	iprintf("\x1b[11;03H pulse la pantalla tactil");
 }
 
 void MostrarPantallaInit() {
 	estado = ESTADO_INICIO;
 	BorrarPantalla();
-	MostrarTocarTactil();
 	MostrarMenu();
 } 
 
@@ -306,24 +298,8 @@ void InitPartida() {
 	posicionX_sobre = 128;
 	ControladorSobre();
 	estado = ESTADO_JUGANDO;
-	dificultad_partida = DIF_BAJA;
-	EscogerDificultad();
-}
-
-void EscogerDificultad() {
-	switch(dificultad_partida) {
-		case DIF_BAJA:
-			v_billete = 3;
-			break;
-		case DIF_MEDIA:
-			v_billete = 4;
-			break;
-		case DIF_ALTA:
-			v_billete = 5;
-			break;
-		default:
-			break;
-	}
+	dificultad_partida = DIF_JUEGO;
+	v_billete = 3;
 }
 
 void AcabarPartida() {

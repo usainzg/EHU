@@ -57,10 +57,7 @@ extern int TactilTocada();
 #define TIPO_ENCUESTA 0
 #define TIPO_INTERRUPT 1
 
-// DIFICULTADES
-#define DIF_ALTA 3
-#define DIF_MEDIA 2
-#define DIF_BAJA 1
+#define DIF_JUEGO 1
 
 // VARIABLES JUEGO
 #define BILLETE_MAX 4
