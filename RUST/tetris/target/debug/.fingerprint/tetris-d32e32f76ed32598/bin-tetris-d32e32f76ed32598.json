@@ -1,0 +1,1 @@
+{"rustc":13120984837661113835,"features":"[]","target":9967287408044253412,"profile":414323129201052027,"path":1036222786711178230,"deps":[["sdl2 v0.31.0 (https://github.com/Rust-SDL2/rust-sdl2#8a3fd3b1)",3216996732850428825]],"local":[{"MtimeBased":[[1528295408,48158274],".fingerprint/tetris-d32e32f76ed32598/dep-bin-tetris-d32e32f76ed32598"]}],"rustflags":[],"epoch":"Epoch2015"}
