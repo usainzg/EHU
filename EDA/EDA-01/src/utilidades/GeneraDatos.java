@@ -7,9 +7,9 @@ import java.io.PrintWriter;
 public class GeneraDatos {
 
 	public static void main(String[] args) {
-		final int TOPE = 500000;
+		final int TOPE = 900000;
 		try {
-			PrintWriter output = new PrintWriter(new File("src/buscaPares/datosOrd5.txt"));
+			PrintWriter output = new PrintWriter(new File("src/sorting/datosOrd9.txt"));
 			output.println(TOPE);
 			for (int i = 1; i <= TOPE; i++) {
 				output.println(i);
