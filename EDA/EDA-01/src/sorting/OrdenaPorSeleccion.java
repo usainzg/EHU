@@ -32,11 +32,15 @@ public class OrdenaPorSeleccion {
 
 	    for (int i = 0; i < A.length - 1; i++) {
             int indiceMenor = indiceMin(A, i, A.length);
-            int temp =  A[i];
-            A[i] = A[indiceMenor];
-            A[indiceMenor] = temp;
+            swap(A, i, indiceMenor);
         }
 	}
+
+	private static void swap(int[] A, int index, int indiceMenor) {
+	    int temp = A[index];
+	    A[index] = A[indiceMenor];
+	    A[indiceMenor] = temp;
+    }
 
 	private static void shuffleArray(int[] array) {
 		int index, temp;
@@ -51,7 +55,7 @@ public class OrdenaPorSeleccion {
 
 	public static void main(String[] args) {
 		try {
-			Scanner input = new Scanner(new File("src/sorting/datosOrd9.txt"));
+			Scanner input = new Scanner(new File("src/sorting/datos4.txt"));
 			int n = input.nextInt(); // número de elementos del array V int[]
 			int[] V = new int[n];
 			for (int i = 0; i < V.length; i++) {
