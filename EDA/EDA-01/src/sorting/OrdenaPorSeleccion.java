@@ -15,9 +15,9 @@ public class OrdenaPorSeleccion {
 	 * A[m] es el valor mínimo del segmento de array A[desde...hasta]
 	 */
 	private static int indiceMin(int[] A, int desde, int hasta) {
-		int indice = desde;
+		int indice = hasta - 1;
 
-		for (int i = desde + 1; i < hasta; i++) {
+		for (int i = desde; i < hasta; i++) {
 			if (A[i] < A[indice]) indice = i;
 		}
 
@@ -54,7 +54,7 @@ public class OrdenaPorSeleccion {
 	}
 
 	public static void main(String[] args) {
-		try {
+	    try {
 			Scanner input = new Scanner(new File("src/sorting/datos4.txt"));
 			int n = input.nextInt(); // número de elementos del array V int[]
 			int[] V = new int[n];
