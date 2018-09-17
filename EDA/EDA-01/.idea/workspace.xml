@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c295dd62-f1b8-4b5a-b718-7eda13ddd077" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/.classpath" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/sorting/datos4ordenado.txt" beforeDir="false" afterPath="$PROJECT_DIR$/bin/sorting/datos4ordenado.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sorting/OrdenaPorSeleccion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sorting/OrdenaPorSeleccion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" afterPath="$PROJECT_DIR$/.project" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sorting/datosOrd9.txt" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,12 +18,13 @@
     <session id="582265589">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="7" />
+          <entry key="project.closed" value="11" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.6" value="2" />
-          <entry key="project.open.time.7" value="1" />
-          <entry key="project.open.time.8" value="3" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.open.time.7" value="2" />
+          <entry key="project.open.time.8" value="4" />
+          <entry key="project.open.time.9" value="2" />
+          <entry key="project.opened" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -52,7 +54,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sorting/OrdenaPorSeleccion.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="784">
+            <state relative-caret-position="278">
               <caret line="55" column="44" selection-start-line="55" selection-start-column="44" selection-end-line="55" selection-end-column="44" />
             </state>
           </provider>
@@ -95,9 +97,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -105,38 +104,18 @@
               <item name="EDA-01" type="b2602c69:ProjectViewProjectNode" />
               <item name="EDA-01" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="EDA-01" type="b2602c69:ProjectViewProjectNode" />
-              <item name="EDA-01" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="EDA-01" type="b2602c69:ProjectViewProjectNode" />
-              <item name="EDA-01" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="buscaPares" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="EDA-01" type="b2602c69:ProjectViewProjectNode" />
-              <item name="EDA-01" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="sorting" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="EDA-01" type="b2602c69:ProjectViewProjectNode" />
-              <item name="EDA-01" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="utilidades" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537098271221" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537115076312" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
@@ -304,9 +283,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="777" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22132471" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23424879" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -383,7 +361,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sorting/OrdenaPorSeleccion.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="784">
+        <state relative-caret-position="278">
           <caret line="55" column="44" selection-start-line="55" selection-start-column="44" selection-end-line="55" selection-end-column="44" />
         </state>
       </provider>
