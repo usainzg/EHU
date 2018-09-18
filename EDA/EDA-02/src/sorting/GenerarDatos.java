@@ -9,10 +9,10 @@ public class GenerarDatos {
 	public static void main(String[] args) {
 		final int NumElementos = 400;
 		try {
-			PrintWriter output = new PrintWriter(new File("src/sorting/datos4.txt"));
+			PrintWriter output = new PrintWriter(new File("src/sorting/datos4_01.txt"));
 			output.println(NumElementos);
 			// El primer número es el número de datos a considerar
-			for (int i = NumElementos; i >= 1; i--) {
+			for (int i = 1; i < NumElementos; i++) {
 				output.println(i);
 			}
 			output.close();

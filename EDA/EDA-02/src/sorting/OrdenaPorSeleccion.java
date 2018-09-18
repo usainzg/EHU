@@ -1,41 +1,46 @@
 package sorting;
 
+import utilidades.Temporizador;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Random;
 import java.util.Scanner;
 
-import utilidades.Temporizador;
-
-public class OrdenaPorInsercion {
+public class OrdenaPorSeleccion {
 
 	/*
-	 * PRECONDICIÓN: El segmento de array A[0...k-1] está ordenado.
-	 * 1<=k<=A.length-1 POSTCONDICIÓN: El segmento de array A[0...k] está
-	 * ordenado, incluyendo los elementos que al inicio estaban en A[0...k].
+	 * Devuelve un índice m del array A, 0<=desde<= m <= hasta<A.length, tal que
+	 * A[m] es el valor mínimo del segmento de array A[desde...hasta]
 	 */
-	private static void insertaEnOrden(int[] A, int k) {
-		// HACER
-		int last = A[k];
-		int index = k - 1;
-		while((index >= 0) && A[index] > last) {
-			A[index + 1] = A[index];
-			index--;
+	private static int indiceMin(int[] A, int desde, int hasta) {
+		int indice = hasta - 1;
+
+		for (int i = desde; i < hasta; i++) {
+			if (A[i] < A[indice]) indice = i;
 		}
-		A[index + 1] = last;
+
+		return indice;
 	}
 
 	/*
-	 * Ordena el array A[0...A.length-1] de menor a mayor valor, usando el
-	 * método insertaEnOrden.
+	 * Ordena el array A[0...A.length-1] de menor a mayor valor, usando el método
+	 * indiceMin.
 	 */
-	public static void OrdenPorInsercion(int[] A) {
-		// HACER
-		for(int j = 1; j < A.length; j++) {
-			insertaEnOrden(A, j);
-		}
+	private static void OrdenPorSeleccion(int[] A) {
+
+	    for (int i = 0; i < A.length - 1; i++) {
+            int indiceMenor = indiceMin(A, i, A.length);
+            swap(A, i, indiceMenor);
+        }
 	}
+
+	private static void swap(int[] A, int index, int indiceMenor) {
+	    int temp = A[index];
+	    A[index] = A[indiceMenor];
+	    A[indiceMenor] = temp;
+    }
 
 	private static void shuffleArray(int[] array) {
 		int index, temp;
@@ -49,7 +54,7 @@ public class OrdenaPorInsercion {
 	}
 
 	public static void main(String[] args) {
-		try {
+	    try {
 			Scanner input = new Scanner(new File("src/sorting/datos4.txt"));
 			int n = input.nextInt(); // número de elementos del array V int[]
 			int[] V = new int[n];
@@ -59,17 +64,20 @@ public class OrdenaPorInsercion {
 			input.close();
 
 			// shuffleArray(V);
-			
-			Temporizador temporizador = new Temporizador();
+
+			int index = indiceMin(V, 0, V.length);
+
+			System.out.println("Indice: " + index);
+
+            Temporizador temporizador = new Temporizador();
             temporizador.startTimer();
 
-			OrdenPorInsercion(V);
+			OrdenPorSeleccion(V);
 
 			temporizador.stopTimer();
 			temporizador.showTime();
 
-			PrintWriter output = new PrintWriter(new File(
-					"src/sorting/datos4ordenado.txt"));
+			PrintWriter output = new PrintWriter(new File("src/sorting/datos4ordenado.txt"));
 			output.println(V.length);
 			// El primer número es el número de datos a considerar
 			for (int i = 0; i < V.length; i++) {
