@@ -14,6 +14,11 @@ public class PilaDeCajas {
 		return this.pila;
 	}
 
+	/**
+	 * Esta operacion tiene O(n), dado que como mucho va a 
+	 * tener que recorrer la pila entera para añadir
+	 * la caja que pasamos por parametro.
+	 */
 	public void addCaja(int id, int talla) {
 		boolean added = false;
 		Caja c = new Caja(id, talla);
@@ -40,11 +45,18 @@ public class PilaDeCajas {
 		}
 	}
 
+	/**
+	 * O(1), orden constante.
+	 */
 	public int rmv() {
 		Caja c = pila.pop();
 		return c.id;
 	}
 
+	/**
+	 * O(n), va a recorrer la pila entera y por lo tanto hacer 
+	 * tantas comparaciones como grande sea la pila.
+	 */
 	public int rmv(int talla) {
 		StackOfT<Caja> newPila = new StackOfT<>();
 		int n = 0;
@@ -65,6 +77,9 @@ public class PilaDeCajas {
 		return n;
 	}
 
+	/**
+	 * O(n), va a recorrer la pila entera.
+	 */
 	public void imprimePilaDeCajas() {
 		System.out.println("----------------");
 		StackOfT<Caja> newPila = new StackOfT<>();

@@ -1,4 +1,4 @@
-package aplicacionesDeColas;
+package aplicacionesDeColasDif;
 
 import ehu.eda.list.linkedImp.QueueOfT;
 

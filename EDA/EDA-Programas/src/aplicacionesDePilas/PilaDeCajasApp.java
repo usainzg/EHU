@@ -20,6 +20,10 @@ public class PilaDeCajasApp {
 		System.out.println("Cajas eliminadas: " + pilaDeCajas.rmv(1));
 		
 		pilaDeCajas.imprimePilaDeCajas();
+		
+		System.out.println("Id de la caja eliminada: " + pilaDeCajas.rmv());
+		
+		pilaDeCajas.imprimePilaDeCajas();
 	}
 
 }

@@ -1,5 +1,12 @@
 package aplicacionesDeColas;
 
+/**
+ * Todas las operaciones que se realizan en esta clase son
+ * de orden constante -> O(1). Por lo tanto por mucho que
+ * aumente la entrada, el coste no crecerá.
+ * 
+ * @author Unai Sainz de la Maza Gamboa
+ */
 public class DoubleEndedQueue<E> {
 	
 	private Node<E> first;
@@ -7,6 +14,8 @@ public class DoubleEndedQueue<E> {
 	private int n;
 	
 	public void addFirst(E e) {
+		assert e != null;
+		
 		Node<E> newNode = new Node<>();
 		newNode.item = e;
 		if (first == null) {
@@ -16,17 +25,22 @@ public class DoubleEndedQueue<E> {
 			Node<E> nAux = first;
 			first = newNode;
 			first.next = nAux;
+			last = nAux;
+			last.previous = first;
 		}
 		n++;
 	}
 	
 	public void addLast(E e) {
+		assert e != null;
+		
 		Node<E> newNode = new Node<>();
 		newNode.item = e;
 		if (first == null) {
 			first = newNode;
 		} else {
 			last.next = newNode;
+			newNode.previous = last;
 		}
 		last = newNode;
 		n++;
@@ -34,11 +48,13 @@ public class DoubleEndedQueue<E> {
 	
 	public E getFirst() {
 		assert first != null;
+		
 		return first.item;
 	}
 	
 	public E getLast() {
 		assert last != null;
+		
 		return last.item;
 	}
 
@@ -48,18 +64,18 @@ public class DoubleEndedQueue<E> {
 		
 		E item = first.item;
 		first = first.next;
+		first.previous = null;
 		n--;
 		return item;
 	}
 	
 	public E removeLast() {
 		assert last != null;
-		Node<E> lastNode = last;
-		Node<E> currentNode = null;
-		while(true) {
-			currentNode = removeFirst();
-			
-		}
+		
+		E lastItem = last.item;
+		last = last.previous;
+		last.next = null;
+		return lastItem;
 	}
 
 	public boolean isEmpty() {
@@ -73,9 +89,6 @@ public class DoubleEndedQueue<E> {
 	private static class Node<E> {
 		E item;
 		Node<E> next;
-		
-		boolean hasNext() {
-			return next != null;
-		}
+		Node<E> previous;
 	}
 }
