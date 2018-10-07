@@ -2,18 +2,27 @@ package classes;
 
 import java.util.ArrayList;
 
-public class Set {
+class Set {
     private ArrayList<Line> lines;
 
-    public Set() {
+    Set() {
         this.lines = new ArrayList<>();
     }
 
-    public ArrayList<Line> getLines() {
+    ArrayList<Line> getLines() {
         return lines;
     }
 
-    public void visualize() {
-        for (Line line : lines) line.visualize();
+    void visualize() {
+        Util.printSeparator();
+        for (Line line: lines) line.visualize();
+        Util.printSeparator();
+    }
+
+    boolean hasMMBlock(int mmBlock) {
+        for (Line line: lines) {
+            if (line.getMmBlock() == mmBlock) return true;
+        }
+        return false;
     }
 }

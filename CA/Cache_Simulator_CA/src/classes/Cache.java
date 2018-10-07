@@ -17,13 +17,6 @@ public class Cache {
         this.wordSize = wordSize;
         this.blockSize = blockSize;
         initLines();
-
-
-        for(int i = 0; i < nSets; i++) {
-            System.out.println("Set: " + i);
-            sets[i].visualize();
-            Util.printSeparator();
-        }
     }
 
     private void initLines() {
@@ -35,13 +28,12 @@ public class Cache {
         for (int i = 0; i < lines.length; i++) {
             lines[i] = new Line();
 
-            if (aux < linesPerSet) {
-                sets[iSet].getLines().add(lines[i]);
-                aux += 1;
-            } else {
+            if (aux >= linesPerSet) {
                 aux = 0;
                 iSet += 1;
             }
+            sets[iSet].getLines().add(lines[i]);
+            aux += 1;
         }
     }
 
@@ -99,15 +91,23 @@ public class Cache {
         int line = returnLine(mmBlock);
 
         Util.printSeparator();
+        boolean isHit = isHit(mmBlock, set, line);
         System.out.println(
                 "- Word: " + word +
                 "\n- MM Block: " + mmBlock +
                 "\n- Tag: " + tag +
                 "\n- Set: " + set +
-                "\n- Line: " + line
+                "\n- Line: " + line +
+                "\n- Cache: " + (isHit ? "Hit" : "Miss")
         );
 
-        boolean isHit = returnIsHit(mmBlock, set, line);
+        if (op == 0) {
+            readCM(tag, mmBlock, line, set);
+        } else {
+
+        }
+
+
         Util.printSeparator();
     }
 
@@ -121,7 +121,7 @@ public class Cache {
 
     private int returnSet(int mmBlock) {
         if(linesPerSet == 1) {
-            return -1;
+            return 0;
         }
 
         return mmBlock % (lines.length / linesPerSet);
@@ -129,18 +129,18 @@ public class Cache {
 
     private int returnLine(int mmBlock) {
         if(linesPerSet == 1) {
-            return mmBlock / lines.length;
+            return mmBlock % lines.length;
         }
         return mmBlock / (lines.length / linesPerSet);
     }
 
-    private boolean returnIsHit(int mmBlock, int set, int line) {
+    private boolean isHit(int mmBlock, int set, int line) {
         if (line != -1) {
             return lines[line].getMmBlock() == mmBlock;
         }
 
         if (linesPerSet != 8) {
-
+            return sets[set].hasMMBlock(mmBlock);
         }
 
         for (Line line1: lines) {
@@ -153,7 +153,14 @@ public class Cache {
     public void visualizeCache() {
         Util.printSeparator();
         System.out.println("Busy\tDirty\tTag\tRepl.\t ||\t   Data");
-        for (Line line: lines) line.visualize();
+        for (Set set: sets) {
+            set.visualize();
+        }
         Util.printSeparator();
+    }
+
+    private void readCM(int tag, int mmBlock, int line, int set) {
+        sets[line].getLines().get(0).changeMmBlock(mmBlock);
+        sets[line].getLines().get(0).changeBusy(1);
     }
 }

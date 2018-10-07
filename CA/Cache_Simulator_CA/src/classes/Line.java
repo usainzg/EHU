@@ -60,4 +60,20 @@ public class Line {
     public boolean isWrite() {
         return isWrite;
     }
+
+    public void changeMmBlock(int mmBlock) {
+        this.mmBlock = mmBlock;
+    }
+
+    public void changeLRU() {
+
+    }
+
+    public void changeDirty(int bit) {
+        this.isDirty = bit;
+    }
+
+    public void changeBusy(int bit) {
+        this.isBusy = bit;
+    }
 }
