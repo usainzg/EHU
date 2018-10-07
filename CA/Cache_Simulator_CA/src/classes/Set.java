@@ -19,9 +19,9 @@ class Set {
         Util.printSeparator();
     }
 
-    boolean hasMMBlock(int mmBlock) {
+    boolean hasTag(int tag) {
         for (Line line: lines) {
-            if (line.getMmBlock() == mmBlock) return true;
+            if (line.getTag() == tag) return true;
         }
         return false;
     }

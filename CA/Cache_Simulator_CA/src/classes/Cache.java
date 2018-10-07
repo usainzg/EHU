@@ -5,15 +5,13 @@ public class Cache {
     private Set[] sets;
     private int linesPerSet;
     private int numberOfWords;
-    private int replacement;
     private int wordSize;
     private int blockSize;
     private int nSets;
 
-    public Cache(int linesPerSet, int wordSize, int blockSize, int replacement) {
+    public Cache(int linesPerSet, int wordSize, int blockSize) {
         this.linesPerSet = linesPerSet;
         numberOfWords = blockSize / wordSize;
-        this.replacement = replacement;
         this.wordSize = wordSize;
         this.blockSize = blockSize;
         initLines();
@@ -49,7 +47,7 @@ public class Cache {
         System.out.println("- Word size (bytes): " + wordSize);
         System.out.println("- Block size (bytes): " + blockSize);
         System.out.println("- Number of sets: " + nSets);
-        System.out.println("- Replacement policy: " + (replacement == 0 ? "FIFO" : "LRU"));
+        System.out.println("- Replacement policy: LRU");
     }
 
     public void printAddressStructure() {
@@ -91,7 +89,7 @@ public class Cache {
         int line = returnLine(mmBlock);
 
         Util.printSeparator();
-        boolean isHit = isHit(mmBlock, set, line);
+        boolean isHit = isHit(tag, set, line);
         System.out.println(
                 "- Word: " + word +
                 "\n- MM Block: " + mmBlock +
@@ -102,9 +100,9 @@ public class Cache {
         );
 
         if (op == 0) {
-            readCM(tag, mmBlock, line, set);
+            readCM(tag, mmBlock, line, set, isHit);
         } else {
-
+            writeCM(tag, mmBlock, line, set, isHit);
         }
 
 
@@ -134,20 +132,12 @@ public class Cache {
         return mmBlock / (lines.length / linesPerSet);
     }
 
-    private boolean isHit(int mmBlock, int set, int line) {
-        if (line != -1) {
-            return lines[line].getMmBlock() == mmBlock;
+    private boolean isHit(int tag, int set, int line) {
+        if (set == -1) {
+            return sets[line].getLines().get(0).getTag() == tag;
         }
 
-        if (linesPerSet != 8) {
-            return sets[set].hasMMBlock(mmBlock);
-        }
-
-        for (Line line1: lines) {
-            if (line1.getMmBlock() == mmBlock) return true;
-        }
-
-        return false;
+        return sets[set].hasTag(tag);
     }
 
     public void visualizeCache() {
@@ -159,8 +149,90 @@ public class Cache {
         Util.printSeparator();
     }
 
-    private void readCM(int tag, int mmBlock, int line, int set) {
-        sets[line].getLines().get(0).changeMmBlock(mmBlock);
-        sets[line].getLines().get(0).changeBusy(1);
+    private void readCM(int tag, int mmBlock, int line, int set, boolean isHit) {
+        switch (linesPerSet) {
+            case 1:
+                if (!isHit && sets[line].getLines().get(0).getIsDirty() == 1) {
+                    sets[line].getLines().get(0).changeDirty(0);
+                }
+
+                sets[line].getLines().get(0).changeMmBlock(mmBlock);
+                sets[line].getLines().get(0).changeBusy(1);
+                sets[line].getLines().get(0).changeTag(tag);
+
+                break;
+            case 2:
+            case 4:
+            case 8:
+                if (!isHit) {
+                    Line line1 = sets[set].getLines().get(0);
+                    for (int i = 1; i < sets[set].getLines().size(); i++) {
+                        if (line1.getRecentUsed() > sets[set].getLines().get(i).getRecentUsed()) {
+                            line1 = sets[set].getLines().get(i);
+                        }
+                    }
+
+                    line1.changeMmBlock(mmBlock);
+                    line1.changeBusy(1);
+                    line1.addLRU();
+                    line1.changeTag(tag);
+
+                    if (line1.getIsDirty() == 1) {
+                        line1.changeDirty(0);
+                    }
+                }
+
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void writeCM(int tag, int mmBlock, int line, int set, boolean isHit) {
+
+        switch (linesPerSet) {
+            case 1:
+                if (!isHit && sets[line].getLines().get(0).getIsDirty() == 1) {
+                    sets[line].getLines().get(0).changeDirty(1);
+                }
+
+                sets[line].getLines().get(0).changeMmBlock(mmBlock);
+                sets[line].getLines().get(0).changeBusy(1);
+                sets[line].getLines().get(0).changeTag(tag);
+                sets[line].getLines().get(0).changeWrite(true);
+                sets[line].getLines().get(0).changeDirty(1);
+
+                break;
+            case 2:
+            case 4:
+            case 8:
+                if (!isHit) {
+
+                    Line lineAux = sets[set].getLines().get(0);
+                    for (int i = 1; i < sets[set].getLines().size(); i++) {
+                        if (lineAux.getRecentUsed() > sets[set].getLines().get(i).getRecentUsed()) {
+                            lineAux = sets[set].getLines().get(i);
+                        }
+                    }
+
+                    lineAux.changeMmBlock(mmBlock);
+                    lineAux.changeBusy(1);
+                    lineAux.addLRU();
+                    lineAux.changeTag(tag);
+                    lineAux.changeMmBlock(mmBlock);
+                    lineAux.changeWrite(true);
+                    lineAux.changeDirty(1);
+                } else {
+                    for (Line line2: sets[set].getLines()) {
+                        if (line2.getTag() == tag) {
+                            line2.changeWrite(true);
+                        }
+                    }
+                }
+
+                break;
+            default:
+                break;
+        }
     }
 }

@@ -65,8 +65,8 @@ public class Line {
         this.mmBlock = mmBlock;
     }
 
-    public void changeLRU() {
-
+    public void changeLRU(int bit) {
+        this.recentUsed = bit;
     }
 
     public void changeDirty(int bit) {
@@ -75,5 +75,17 @@ public class Line {
 
     public void changeBusy(int bit) {
         this.isBusy = bit;
+    }
+
+    public void changeTag(int tag) {
+        this.tag = tag;
+    }
+
+    public void addLRU() {
+        this.recentUsed += 1;
+    }
+
+    public void changeWrite(boolean bol) {
+        this.isWrite = bol;
     }
 }

@@ -31,16 +31,13 @@ public class Simulator {
             System.out.println("Size of the sets 1 (direct), 2, 4 or 8 (fully): ");
             setSize = scanner.nextInt();
 
-            System.out.println("Replacement policy (0) FIFO or (1) LRU: ");
-            repl = scanner.nextInt();
-
             isDataOk = Util.validateData(wordSize, blockSize, setSize, repl);
             if(!isDataOk) {
                 System.out.println("Ouups, you introduce an incorrect data, try again...");
             }
         }
 
-        Cache c = new Cache(setSize, wordSize, blockSize, repl);
+        Cache c = new Cache(setSize, wordSize, blockSize);
 
         Util.printSeparator();
 
