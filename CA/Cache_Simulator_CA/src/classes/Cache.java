@@ -2,6 +2,7 @@ package classes;
 
 public class Cache {
     private Line[] lines;
+    private Set[] sets;
     private int linesPerSet;
     private int numberOfWords;
     private int replacement;
@@ -10,20 +11,43 @@ public class Cache {
     private int nSets;
 
     public Cache(int linesPerSet, int wordSize, int blockSize, int replacement) {
-        this.lines = new Line[8];
-        initLines();
         this.linesPerSet = linesPerSet;
         numberOfWords = blockSize / wordSize;
         this.replacement = replacement;
         this.wordSize = wordSize;
         this.blockSize = blockSize;
-        this.nSets = (lines.length / linesPerSet);
+        initLines();
+
+
+        for(int i = 0; i < nSets; i++) {
+            System.out.println("Set: " + i);
+            sets[i].visualize();
+            Util.printSeparator();
+        }
     }
 
     private void initLines() {
+        this.lines = new Line[8];
+        this.nSets = (lines.length / linesPerSet);
+        initSets();
+        int aux = 0;
+        int iSet = 0;
         for (int i = 0; i < lines.length; i++) {
             lines[i] = new Line();
+
+            if (aux < linesPerSet) {
+                sets[iSet].getLines().add(lines[i]);
+                aux += 1;
+            } else {
+                aux = 0;
+                iSet += 1;
+            }
         }
+    }
+
+    private void initSets() {
+        this.sets = new Set[nSets];
+        for(int i = 0; i < sets.length; i++) sets[i] = new Set();
     }
 
     public void printCache() {
@@ -58,6 +82,7 @@ public class Cache {
                 int setB = Util.log(nSets, 2);
                 int tagb = totalSizeB - (byteB + wordB + setB);
                 System.out.println("-> --- Tag: " + tagb + "bit --- Set: " + setB + "bit --- Word: " + wordB + "bit --- Byte: " + byteB + "bit ---");
+                break;
             case 8:
                 System.out.println("-> --- Tag: " + mmB + "bit  --- Word: " + wordB + "bit --- Byte: " + byteB + "bit ---");
             default:
@@ -81,6 +106,8 @@ public class Cache {
                 "\n- Set: " + set +
                 "\n- Line: " + line
         );
+
+        boolean isHit = returnIsHit(mmBlock, set, line);
         Util.printSeparator();
     }
 
@@ -89,7 +116,7 @@ public class Cache {
             return mmBlock / lines.length;
         }
 
-        return mmBlock / (linesPerSet / lines.length);
+        return mmBlock / (lines.length / linesPerSet);
     }
 
     private int returnSet(int mmBlock) {
@@ -97,14 +124,30 @@ public class Cache {
             return -1;
         }
 
-        return mmBlock % (linesPerSet / lines.length);
+        return mmBlock % (lines.length / linesPerSet);
     }
 
     private int returnLine(int mmBlock) {
         if(linesPerSet == 1) {
             return mmBlock / lines.length;
         }
-        return mmBlock / (linesPerSet / lines.length);
+        return mmBlock / (lines.length / linesPerSet);
+    }
+
+    private boolean returnIsHit(int mmBlock, int set, int line) {
+        if (line != -1) {
+            return lines[line].getMmBlock() == mmBlock;
+        }
+
+        if (linesPerSet != 8) {
+
+        }
+
+        for (Line line1: lines) {
+            if (line1.getMmBlock() == mmBlock) return true;
+        }
+
+        return false;
     }
 
     public void visualizeCache() {

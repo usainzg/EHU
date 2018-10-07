@@ -49,9 +49,6 @@ public class Simulator {
 
         c.printAddressStructure();
 
-        final int CM_READ = 0;
-        final int CM_WRITE = 1;
-
         while(true) {
             System.out.println("-------- MENU --------");
             System.out.println("1. Simulate operation.");

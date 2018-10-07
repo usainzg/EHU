@@ -25,14 +25,6 @@ public class Line {
         this.mmBlock = mmBlock;
     }
 
-    public void writeLine() {
-
-    }
-
-    public void readLine() {
-
-    }
-
     public void visualize() {
         System.out.println(isBusy + "\t\t" + isDirty + "\t\t" + tag + "\t" + recentUsed + "\t\t || \t" + buildBlockStr());
     }
@@ -43,5 +35,29 @@ public class Line {
         }
 
         return isWrite ? "B" + mmBlock + "w" : "B" + mmBlock;
+    }
+
+    public int getMmBlock() {
+        return mmBlock;
+    }
+
+    public int getIsBusy() {
+        return isBusy;
+    }
+
+    public int getIsDirty() {
+        return isDirty;
+    }
+
+    public int getTag() {
+        return tag;
+    }
+
+    public int getRecentUsed() {
+        return recentUsed;
+    }
+
+    public boolean isWrite() {
+        return isWrite;
     }
 }
