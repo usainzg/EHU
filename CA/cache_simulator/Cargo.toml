@@ -1,6 +1,0 @@
-[package]
-name = "cache_simulator"
-version = "0.1.0"
-authors = ["Unai Sainz de la Maza <unaihtc70@gmail.com>"]
-
-[dependencies]
