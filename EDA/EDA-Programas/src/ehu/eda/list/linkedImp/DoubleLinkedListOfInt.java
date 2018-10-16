@@ -20,9 +20,9 @@ import java.util.NoSuchElementException;
  */
 public class DoubleLinkedListOfInt {
 
-	private Node first; // el primer nodo de la cola
-	private Node last; // el último nodo de la cola
-	int size = 0; // número de elementos en la cola
+	private Node first; // el primer nodo de la lista
+	private Node last; // el último nodo de la lista
+	int size = 0; // número de elementos en la lista
 
 	public void addFirst(int e) {
 		linkFirst(e);
@@ -37,6 +37,13 @@ public class DoubleLinkedListOfInt {
 			throw new NoSuchElementException();
 		}
 		return first.item;
+	}
+
+	public int getLast() {
+		if (last == null) {
+			throw new NoSuchElementException();
+		}
+		return last.item;
 	}
 
 	public boolean isEmpty() {
@@ -90,7 +97,8 @@ public class DoubleLinkedListOfInt {
 	}
 
 	private int unlinkFirst(Node f) {
-		// assert f == first && f != null;
+		assert f == first && f != null;
+
 		final int element = f.item;
 		final Node oldSecond = f.next;
 		// f.item = null;
@@ -109,7 +117,8 @@ public class DoubleLinkedListOfInt {
 	 * Unlinks non-null last node l.
 	 */
 	private int unlinkLast(Node l) {
-		// assert l == last && l != null;
+		assert l == last && l != null;
+
 		final int element = l.item;
 		final Node oldLast = l.prev;
 		// l.item = null;

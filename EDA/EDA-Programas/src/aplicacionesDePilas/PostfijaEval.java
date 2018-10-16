@@ -33,8 +33,6 @@ public class PostfijaEval {
 			}
 		}
 		this.valor = laPila.pop();
-		
-		laEntrada.close();
 
 		return this.valor.intValue();
 	}

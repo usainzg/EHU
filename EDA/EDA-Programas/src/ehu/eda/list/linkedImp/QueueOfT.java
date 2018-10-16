@@ -1,5 +1,8 @@
 package ehu.eda.list.linkedImp;
 
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
 /**
  * Una implementación simple de COLAs (colas FIFO), usando una lista ligada
  * (linked-list).
@@ -56,6 +59,39 @@ public class QueueOfT<T> {
 
 	public int size() {
 		return n;
+	}
+
+	public Iterator<T> queueIterator() {
+		return new QueueIt();
+	}
+
+	private class QueueIt implements Iterator<T> {
+		private Node<T> it;
+
+		public QueueIt() {
+			it = first;
+		}
+
+		@Override
+		public boolean hasNext() {
+			return it != null;
+		}
+
+		@Override
+		public T next() {
+			if (!hasNext()) {
+				throw new NoSuchElementException();
+			}
+			T item = it.item;
+			it = it.next;
+			return item;
+		}
+
+		// La operación de eliminación no está soportada
+		@Override
+		public void remove() throws UnsupportedOperationException {
+			throw new UnsupportedOperationException();
+		}
 	}
 
 	/*

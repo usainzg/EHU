@@ -13,7 +13,5 @@ public class PostfijaEvalApp {
 		PostfijaEval evaluador = new PostfijaEval(expresion);
 		int valor = evaluador.evaluar();
 		System.out.println("El valor de ( " + expresion + " ) es: " + valor);
-		
-		entrada.close();
 	}
 }
