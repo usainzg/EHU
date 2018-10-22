@@ -4,8 +4,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import ehu.eda.list.arrayImp.StackOfT;
-import ehu.eda.list.arrayImp.StackOfTResizable;
 import ehu.eda.list.linkedImp.QueueOfT;
 import ehu.eda.list.linkedImp.StackOfInt;
 
@@ -20,7 +18,6 @@ public class JuegoTramposo {
 	public JuegoTramposo(int nJugadores) {
 		init(nJugadores);
 	}
-	
 	
 	public void init(int nJugadores) {
 		jugadores = new Jugador[nJugadores];
@@ -60,19 +57,21 @@ public class JuegoTramposo {
 				}
 			}
 			
+			// rellenar billete buenos primero
 			while(!stackAux.isEmpty()) {
 				jugadores[pagador].billetes.push(stackAux.pop());
 			}
 			
-			while(stackOfTramposo.size() < cantidad) {
-				stackOfTramposo.push(jugadores[pagador].billetes.pop());
+			// rellenar los malos para darlos
+			while(!stackOfTramposo.isEmpty()) {
+				jugadores[pagador].billetes.push(stackOfTramposo.pop());
 			}
 			
+			// repartir billetes malos primero
 			for(int i = 0; i < cantidad; i++) {
-				jugadores[cobrador].billetes.push(stackOfTramposo.pop());
+				jugadores[cobrador].billetes.push(jugadores[pagador].billetes.pop());
 			}
 			
-			System.out.println(stackOfTramposo.isEmpty());
 		} else {
 			for(int i = 0; i < cantidad; i++) {
 				jugadores[cobrador].billetes.push(jugadores[pagador].billetes.pop());
@@ -84,6 +83,7 @@ public class JuegoTramposo {
 		int tFalsos = 0;
 		int tVerdaderos = 0;
 		StackOfInt stackAux = new StackOfInt();
+		
 		for(int i = 0; i < jugadores.length; i++) {
 			System.out.println("---------------------------------------");
 			System.out.println("Jugador: " + i);
@@ -144,14 +144,15 @@ public class JuegoTramposo {
 	}
 
 	public static void main(String[] args) {
-		JuegoTramposo juego;
+		JuegoTramposo juego = null;
+		QueueOfT<Payment> payments = new QueueOfT<>();
+		Scanner input = null;
+		
 		try {
-			Scanner input = new Scanner(new File("src/exam/datosPartida1.txt"));
+			input = new Scanner(new File("src/exam/datosPartidaU.txt"));
 			
 			int nJugadores = input.nextInt();
 			juego = new JuegoTramposo(nJugadores);
-			
-			QueueOfT<Payment> payments = new QueueOfT<>();
 			
 			Payment pay;
 			while(input.hasNext()) {
@@ -163,32 +164,33 @@ public class JuegoTramposo {
 				pay = new Payment(dataT[0], dataT[1], dataT[2]);
 				payments.enqueue(pay);
 			}
-			
-			/******************************************************************************************************/
-			// Apartado A
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			if(input != null) input.close();
+		}
+		
+		/******************************************************************************************************/
+		Scanner scIn = new Scanner(System.in);
+		System.out.println("Options: ");
+		System.out.println("0: Rutina Comun");
+		System.out.println("1: Rutina Tramposo");
+
+		int op = scIn.nextInt();
+		if(op == 0) {
 			while(!payments.isEmpty()) {
 				juego.rutinaComun(payments.dequeue());
 			}
-			
-			juego.sacarDatosFinales(); 
-		
-			/******************************************************************************************************/
-			
-			// Apartado B
-			/* while(!payments.isEmpty()) {
+		} else {
+			while(!payments.isEmpty()) {
 				juego.rutinaDelTramposo(payments.dequeue());
 			}
-			
-			juego.sacarDatosFinales(); */
-			/******************************************************************************************************/
-			
-			input.close();
-
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
 		}
+		
+		juego.sacarDatosFinales(); 
+		/******************************************************************************************************/
+		
+		scIn.close();
 	}
-	
-	
 	
 }
