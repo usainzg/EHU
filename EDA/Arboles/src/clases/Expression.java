@@ -60,11 +60,10 @@ public class Expression {
     private int calcAltura(BinaryNode node) {
         if (node == null) return 0;
 
-        int l = calcAltura(node.left);
-        int r = calcAltura(node.right);
+        int l = ((node.left == null) ? 0 : 1 + calcAltura(node.left));
+        int r = ((node.right == null) ? 0 : 1 + calcAltura(node.right));
 
-        if (l > r) return 1 + calcAltura(node.left);
-        return 1 + calcAltura(node.right);
+        return ((l > r) ? l : r);
     }
 
     public int contarHojas() {
@@ -73,15 +72,19 @@ public class Expression {
 
     private int calcHojas(BinaryNode node) {
         if (node == null) return 0;
-        int l = 1 + calcHojas(node.left);
-        int r = 1 + calcHojas(node.right);
-        return l + r;
+        if (node.left == null && node.right == null) return 1;
+        return calcHojas(node.left) + calcHojas(node.right);
     }
 
     public int contarInternos() {
-        return 0;
+        return calcInternos(this.root);
     }
 
+    private int calcInternos(BinaryNode node) {
+        if(node == null) return 0;
+        if(node.left != null && node.right != null) return 1;
+        return calcInternos(node.left) + calcInternos(node.right);
+    }
     /* TIPO 1 */
 
 

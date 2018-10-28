@@ -9,15 +9,15 @@ public class Pruebas {
         Expression exp1 = Expression.mkSimple(5);
         Expression expE = Expression.mkBinary('+', exp, exp1);
 
-        System.out.println("-------------------------------------------------------");
+        System.out.println("---PreOrden-------------------------------------------");
 
         expE.printPreorder();
 
-        System.out.println("-------------------------------------------------------");
+        System.out.println("---InOrden-------------------------------------------");
 
         expE.printInorder();
 
-        System.out.println("-------------------------------------------------------");
+        System.out.println("---PostOrden-------------------------------------------");
 
         expE.printPostorder();
 
@@ -30,6 +30,10 @@ public class Pruebas {
         int hojas = expE.contarHojas();
 
         System.out.println("Hojas: " + hojas);
+
+        int internos = expE.contarInternos();
+
+        System.out.println("Internos: " + internos);
 
     }
 }
