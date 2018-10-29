@@ -7,13 +7,17 @@ public class Expression {
         this.root = root;
     }
 
+    public BinaryNode getRoot() {
+        return root;
+    }
+
     public static Expression mkBinary(char operador, Expression a, Expression b) {
         return new Expression(
                 new BinaryNode(a.root, operador, b.root)
         );
     }
 
-    public static Expression mkSimple(int v) {
+    public static Expression mkSimple(double v) {
         return new Expression(new BinaryNode(v));
     }
 
@@ -86,6 +90,49 @@ public class Expression {
         return calcInternos(node.left) + calcInternos(node.right);
     }
     /* TIPO 1 */
+    public static double eval(Expression expression) {
+        return evalExpression(expression.getRoot());
+    }
+
+    private static double evalExpression(BinaryNode node) {
+        if (node == null) return 0;
+        if (node.left == null && node.right == null) return (Double) node.elem;
+
+        double leftPart = evalExpression(node.left);
+        double rightPart = evalExpression(node.right);
+
+        char op = (char) node.elem;
+        double val = 0;
+        switch (op) {
+            case '+':
+                val =  leftPart + rightPart;
+                break;
+            case '-':
+                val =  leftPart - rightPart;
+                break;
+            case '*':
+                val = leftPart * rightPart;
+                break;
+            case '/':
+                val = leftPart / rightPart;
+            break;
+            default:
+                break;
+        }
+        return val;
+    }
+
+    public void printPreordenPretty() {
+        imprimePretty(this.root, "");
+    }
+
+    private void imprimePretty(BinaryNode node, String tab) {
+        if (node == null) return;
+        System.out.println(tab + node.elem);
+        tab += "\t";
+        imprimePretty(node.left, tab);
+        imprimePretty(node.right, tab);
+    }
 
 
     private static class BinaryNode {

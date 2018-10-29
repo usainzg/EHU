@@ -7,7 +7,10 @@ public class Pruebas {
     public static void main(String[] args) {
         Expression exp = Expression.mkSimple(5);
         Expression exp1 = Expression.mkSimple(5);
-        Expression expE = Expression.mkBinary('+', exp, exp1);
+        Expression exp3 = Expression.mkSimple(10);
+        Expression expE0 = Expression.mkBinary('*', exp, exp3);
+        Expression expE = Expression.mkBinary('+', expE0, exp1);
+
 
         System.out.println("---PreOrden-------------------------------------------");
 
@@ -35,5 +38,10 @@ public class Pruebas {
 
         System.out.println("Internos: " + internos);
 
+        double evaluated = Expression.eval(expE);
+
+        System.out.println("Eval: " + evaluated);
+
+        expE.printPreordenPretty();
     }
 }
