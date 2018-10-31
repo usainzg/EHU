@@ -1,5 +1,7 @@
 package clases;
 
+import java.util.Stack;
+
 public class Expression {
     private BinaryNode root;
 
@@ -132,6 +134,30 @@ public class Expression {
         tab += "\t";
         imprimePretty(node.left, tab);
         imprimePretty(node.right, tab);
+    }
+
+    /* TIPO 2 */
+    public static boolean isPartOf(Expression other) {
+
+    }
+
+    public static Expression valueOf(String str) {
+        Stack<BinaryNode> stack = new Stack<>();
+        for (char c: str.toCharArray()) {
+            add(c, stack);
+        }
+        return new Expression(stack.pop());
+    }
+
+    private static void add(char c, Stack<BinaryNode> stack) {
+        if (Character.isDigit(c)) {
+            stack.push(new BinaryNode(c));
+        } else {
+            BinaryNode node = new BinaryNode(c);
+            node.left = stack.pop();
+            node.right = stack.pop();
+            stack.push(node);
+        }
     }
 
 

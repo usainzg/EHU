@@ -42,6 +42,11 @@ public class Pruebas {
 
         System.out.println("Eval: " + evaluated);
 
+        System.out.println("PrettyPrint: ");
         expE.printPreordenPretty();
+
+        System.out.println("ValueOf: ");
+        Expression expRet = Expression.valueOf("35-");
+        expRet.printPreordenPretty();
     }
 }
