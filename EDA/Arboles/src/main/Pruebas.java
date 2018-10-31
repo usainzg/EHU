@@ -48,5 +48,16 @@ public class Pruebas {
         System.out.println("ValueOf: ");
         Expression expRet = Expression.valueOf("35-");
         expRet.printPreordenPretty();
+
+
+        Expression expAux = Expression.mkSimple(5);
+        Expression exp1Aux = Expression.mkSimple(5);
+        Expression exp3Aux = Expression.mkSimple(10);
+        Expression expE0Aux = Expression.mkBinary('*', expAux, exp3Aux);
+        Expression expEAux = Expression.mkBinary('+', expE0Aux, exp1Aux);
+
+        if (Expression.isPartOf(expE, expEAux)) {
+            System.out.println("Es parte de.");
+        }
     }
 }

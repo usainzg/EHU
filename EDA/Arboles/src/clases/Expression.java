@@ -137,8 +137,22 @@ public class Expression {
     }
 
     /* TIPO 2 */
-    public static boolean isPartOf(Expression other) {
+    public static boolean isPartOf(Expression exp, Expression other) {
+        if (other == null) return false;
+        if (exp == null) return false;
+        return isPartR(exp.root, other.root);
+    }
 
+    private static boolean isPartR(BinaryNode node1, BinaryNode node2) {
+        if (node1 == null) return false;
+        if (node2 == null) return false;
+        return isEqualTree(node1, node2) || isPartR(node1.left, node2) || isPartR(node1.right, node2);
+    }
+
+    private static boolean isEqualTree(BinaryNode node1, BinaryNode node2) {
+        if ((node1 == null) || (node2 == null)) return false;
+        if (node1.elem == node2.elem) return true;
+        return (isEqualTree(node1.left, node2.left) && isEqualTree(node1.right, node2.right));
     }
 
     public static Expression valueOf(String str) {
