@@ -148,21 +148,20 @@ public class ToyTreeMap<Key, Value> {
 
     public Value remove(Key key) {
         if (key == null) throw new NullPointerException();
-        Value prev = null;
-        this.root = removeR(this.root, key, prev);
+        Value prev = get(key);
+        this.root = removeR(this.root, key);
         return prev;
     }
 
-    private BinaryNode<Key, Value> removeR(BinaryNode<Key, Value> node, Key key, Value prev) {
+    private BinaryNode<Key, Value> removeR(BinaryNode<Key, Value> node, Key key) {
         if (node == null) return null;
 
         int cmp = keyComparator.compare(key, node.key);
         if (cmp < 0) {
-            node.left = removeR(node.left, key, prev);
+            node.left = removeR(node.left, key);
         } else if (cmp > 0) {
-            node.right = removeR(node.right, key, prev);
+            node.right = removeR(node.right, key);
         } else {
-            prev = node.value;
             if (node.left == null) {
                 return node.right;
             }
@@ -172,7 +171,7 @@ public class ToyTreeMap<Key, Value> {
 
             BinaryNode<Key, Value> min = getMinimum(node.right);
             node.key = min.key;
-            node.right = removeR(node.right, node.key, prev);
+            node.right = removeR(node.right, node.key);
         }
         return node;
     }

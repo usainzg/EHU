@@ -57,6 +57,8 @@ public class Pruebas {
 		String strV = toyTreeMap.remove(2);
 		System.out.println("PREV VALUE: " + strV);
 
+		toyTreeMap.printLexicographically();
+
 	}
 
 }
