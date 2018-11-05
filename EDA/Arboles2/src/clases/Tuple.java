@@ -1,27 +1,27 @@
 package clases;
 
 public class Tuple<Key> {
-    private Key keyKey;
-    private Key valueKey;
+    private Key minKey;
+    private Key maxKey;
 
-    public Tuple(Key keyKey, Key valueKey) {
-        this.keyKey = keyKey;
-        this.valueKey = valueKey;
+    public Tuple(Key minKey, Key maxKey) {
+        this.minKey = minKey;
+        this.maxKey = maxKey;
     }
 
-    public Key getKeyKey() {
-        return keyKey;
+    public Key getMinKey() {
+        return minKey;
     }
 
-    public void setKeyKey(Key keyKey) {
-        this.keyKey = keyKey;
+    public void setMinKey(Key minKey) {
+        this.minKey = minKey;
     }
 
-    public Key getValueKey() {
-        return valueKey;
+    public Key getMaxKey() {
+        return maxKey;
     }
 
-    public void setValueKey(Key valueKey) {
-        this.valueKey = valueKey;
+    public void setMaxKey(Key maxKey) {
+        this.maxKey = maxKey;
     }
 }

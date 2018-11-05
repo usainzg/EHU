@@ -8,7 +8,7 @@ public class ToyTreeMap<Key, Value> {
 	private int size;
 	
 	private final Comparator<? super Key> keyComparator;
-	
+
 	public ToyTreeMap(Comparator<? super Key> keyComparator) {
 		this.root = null;
 		this.keyComparator = keyComparator;
@@ -17,27 +17,37 @@ public class ToyTreeMap<Key, Value> {
 	
 	/* TIPO 0 */
 	public Value put(Key key, Value value) {
+	    if (this.root == null) {
+            BinaryNode<Key, Value> bNode = new BinaryNode<Key, Value>(key, value);
+            this.root = bNode;
+            size++;
+            return null;
+        }
 		return put(key, value, this.root);
 	}
 	
 	private Value put(Key key, Value value, BinaryNode<Key, Value> node) {
 		if (key == null) throw new NullPointerException();
 		if (value == null) throw new IllegalArgumentException();
-		
-		// VACIA
-		if (node == null) {
-			BinaryNode<Key, Value> bNode = new BinaryNode<Key, Value>(key, value);
-			this.root = bNode;
-			size++;
-			return null;
-		}
-		
-		int cmp = keyComparator.compare(key, node.key);
-		if (cmp < 0) return put(key, value, node.left);
-		if (cmp > 0) return put(key, value, node.right);
-		
-		node.value = value;
-		return value;
+
+        int cmp = keyComparator.compare(key, node.key);
+        if (node.left == null && cmp < 0) {
+            node.left = new BinaryNode<>(key, value);
+            size++;
+            return null;
+        }
+        if (node.right == null && cmp > 0) {
+            node.right = new BinaryNode<>(key, value);
+            size++;
+            return null;
+        }
+
+
+        if (node.left != null && cmp < 0) return put(key, value, node.left);
+        if (node.right != null && cmp > 0) return put(key, value, node.right);
+
+        node.value = value;
+        return value;
 	}
 	
 	public Value get(Key key) {
@@ -65,8 +75,16 @@ public class ToyTreeMap<Key, Value> {
 	}
 	
 	public void printLexicographically() {
-		
+		printLexicographically(this.root);
 	}
+
+	private void printLexicographically(BinaryNode<Key, Value> node) {
+	    if (node == null) return;
+
+        System.out.println("Key: " + node.key + ", Value: " + node.value);
+	    printLexicographically(node.left);
+	    printLexicographically(node.right);
+    }
 	
 	private BinaryNode<Key, Value> getNode(Key key) {
 		if(key == null) throw new NullPointerException();
@@ -80,33 +98,32 @@ public class ToyTreeMap<Key, Value> {
 		if (cmp > 0) return getNode(key, node.right);
 		return node;
 	}
-	
-	private boolean contains(Key key) {
-		return contains(key, this.root);
-	}
-	
-	private boolean contains(Key key, BinaryNode<Key, Value> node) {
-		if (key == null) return false;
-		int cmp = keyComparator.compare(key, node.key);
-		if (cmp < 0) return contains(key, node.left);
-		if (cmp > 0) return contains(key, node.right);
-		return true;
-	}
 
 	/* TIPO 1 */
     public Tuple<Key> findMinMax() {
         Tuple<Key> tuple = new Tuple<>(null, null);
         if (this.root == null) return tuple;
-        return findMinMax(this.root, tuple);
+
+        tuple.setMinKey(this.root.key);
+        tuple.setMaxKey(this.root.key);
+
+        findMinMax(tuple);
+        return tuple;
     }
 
-    private Tuple<Key> findMinMax(BinaryNode<Key, Value> node, Tuple<Key> tuple) {
-        if (node != null) {
-            Tuple<Key> tuL = findMinMax(node.left, tuple);
-            int cmpKey = keyComparator.compare(tuple.getKeyKey(), tuL.getKeyKey());
-            if (cmpKey > 0) tuple.setKeyKey(tuL.getKeyKey());
+    private void findMinMax(Tuple<Key> tuple) {
+        if (this.root == null) return;
+        BinaryNode<Key, Value> left = this.root;
 
-            Tuple<Key> tuR = findMinMax(node.right, tuple);
+        while (left != null) {
+            tuple.setMinKey(left.key);
+            left = left.left;
+        }
+
+        BinaryNode<Key, Value> right = this.root;
+        while (right != null) {
+           tuple.setMaxKey(right.key);
+           right = right.right;
         }
     }
 
@@ -128,9 +145,47 @@ public class ToyTreeMap<Key, Value> {
         }
         return true;
     }
-	
-	
-	private static class BinaryNode<Key, Value> {
+
+    public Value remove(Key key) {
+        if (key == null) throw new NullPointerException();
+        Value prev = null;
+        this.root = removeR(this.root, key, prev);
+        return prev;
+    }
+
+    private BinaryNode<Key, Value> removeR(BinaryNode<Key, Value> node, Key key, Value prev) {
+        if (node == null) return null;
+
+        int cmp = keyComparator.compare(key, node.key);
+        if (cmp < 0) {
+            node.left = removeR(node.left, key, prev);
+        } else if (cmp > 0) {
+            node.right = removeR(node.right, key, prev);
+        } else {
+            prev = node.value;
+            if (node.left == null) {
+                return node.right;
+            }
+            if (node.right == null) {
+                return node.left;
+            }
+
+            BinaryNode<Key, Value> min = getMinimum(node.right);
+            node.key = min.key;
+            node.right = removeR(node.right, node.key, prev);
+        }
+        return node;
+    }
+
+    private BinaryNode<Key, Value> getMinimum(BinaryNode<Key, Value> node) {
+        while (node.left != null) {
+            node = node.left;
+        }
+        return node;
+    }
+
+
+    private static class BinaryNode<Key, Value> {
 		Key key;
 		Value value;
         BinaryNode<Key, Value> left;
