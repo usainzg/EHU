@@ -92,6 +92,26 @@ public class ToyTreeMap<Key, Value> {
 		if (cmp > 0) return contains(key, node.right);
 		return true;
 	}
+
+	/* TIPO 1 */
+    public boolean isBST() {
+        BinaryNode<Key, Value> previous = null;
+        return isBST(this.root, previous);
+    }
+
+    private boolean isBST(BinaryNode<Key, Value> node, BinaryNode<Key, Value> prev) {
+        if (node != null) {
+            if (!isBST(node.left, prev)) return false;
+
+            if (prev != null) {
+                int cmp = keyComparator.compare(node.key, prev.key);
+                if (cmp <= 0) return false;
+            }
+            prev = node;
+            return isBST(node.right, prev);
+        }
+        return true;
+    }
 	
 	
 	private static class BinaryNode<Key, Value> {
@@ -99,13 +119,6 @@ public class ToyTreeMap<Key, Value> {
 		Value value;
         BinaryNode<Key, Value> left;
         BinaryNode<Key, Value> right;
-
-//        BinaryNode(Key key, Value value, BinaryNode<Key, Value> left, BinaryNode<Key, Value> right) {
-//            this.key = key;
-//            this.value = value;
-//            this.left = left;
-//            this.right = right;
-//        }
 
         BinaryNode(Key key, Value value) {
             this.key = key;

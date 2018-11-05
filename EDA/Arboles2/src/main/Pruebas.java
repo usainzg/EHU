@@ -28,6 +28,12 @@ public class Pruebas {
 		System.out.println("Tamaño antes: " + size);
 		
 		if(toyTreeMap.get(1) == null) System.out.println("VACIO");
+
+		if (toyTreeMap.isBST()) {
+		    System.out.println("Is BST");
+        } else {
+		    System.out.println("Is not BST");
+        }
 		
 	}
 
