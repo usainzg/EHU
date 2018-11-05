@@ -94,6 +94,22 @@ public class ToyTreeMap<Key, Value> {
 	}
 
 	/* TIPO 1 */
+    public Tuple<Key> findMinMax() {
+        Tuple<Key> tuple = new Tuple<>(null, null);
+        if (this.root == null) return tuple;
+        return findMinMax(this.root, tuple);
+    }
+
+    private Tuple<Key> findMinMax(BinaryNode<Key, Value> node, Tuple<Key> tuple) {
+        if (node != null) {
+            Tuple<Key> tuL = findMinMax(node.left, tuple);
+            int cmpKey = keyComparator.compare(tuple.getKeyKey(), tuL.getKeyKey());
+            if (cmpKey > 0) tuple.setKeyKey(tuL.getKeyKey());
+
+            Tuple<Key> tuR = findMinMax(node.right, tuple);
+        }
+    }
+
     public boolean isBST() {
         BinaryNode<Key, Value> previous = null;
         return isBST(this.root, previous);
