@@ -250,25 +250,63 @@ public class TreeMap<Key, Value> {
     /* TIPO 1 */
     public Key getFloor(Key k) {
         if (this.root == null) return null;
-        Key key = null;
-        getFloorR(this.root, key, k);
-        return key;
+        return getFloorR(this.root, k);
     }
 
-    private void getFloorR(BinaryNode<Key, Value> node, Key key, Key k) {
+    private Key getFloorR(BinaryNode<Key, Value> node, Key k) {
+        if (node == null) return null;
+
+        int cmp = keyComparator.compare(node.key, k);
+        if (cmp == 0) return node.key;
+        if (cmp < 0) return getFloorR(node.right, k);
+
+        Key key = getFloorR(node.left, k);
+        int c = keyComparator.compare(key, k);
+        return (c >= 0) ? key : node.key;
+    }
+
+    public List<TupleV<Key, Value>> selecRec(Key from, Key to) {
+        if (root == null) return null;
+        List<TupleV<Key, Value>> lista = new ArrayList<>();
+        selectRecR(this.root, lista, from, to);
+        return lista;
+    }
+
+    private void selectRecR(BinaryNode<Key, Value> node, List<TupleV<Key, Value>> list, Key from, Key to) {
         if (node == null) return;
 
-        getFloorR(node.left, key, k);
-        int cmp = keyComparator.compare(node.key, k);
-        if (cmp < 0 || cmp == 0) {
-            int cmpK = keyComparator.compare(key, node.key);
-            if (cmpK < 0) {
-                System.out.println("CAMBIANDO");
-                key = node.key;
-            }
-        }
-        getFloorR(node.right, key, k);
+        selectRecR(node.left, list, from, to);
+        int cmp = keyComparator.compare(node.key, from);
+        int cmp2 = keyComparator.compare(node.key, to);
+        if (cmp >= 0 && cmp2 <= 0) list.add(new TupleV<>(node.key, node.value));
+        selectRecR(node.right, list, from, to);
+    }
 
+    public List<TupleV<Key, Value>> selectJDK(Key from, Key to) {
+        if (root == null) return null;
+        List<TupleV<Key, Value>> lista = new ArrayList<>();
+        selectJDKI(this.root, lista, from, to);
+        return lista;
+    }
+
+    private void selectJDKI(BinaryNode<Key, Value> node, List<TupleV<Key, Value>> list, Key from, Key to) {
+        if(node == null) return;
+
+        Queue<BinaryNode<Key, Value>> q = new LinkedList<>();
+        q.add(node);
+
+        while (!q.isEmpty()) {
+            BinaryNode<Key, Value> n = q.remove();
+            int cmp = keyComparator.compare(n.key, from);
+            int cmp2 = keyComparator.compare(n.key, to);
+
+            if (cmp >= 0 && cmp2 <= 0) list.add(new TupleV<>(n.key, n.value));
+
+            if (n.left != null)
+                q.add(n.left);
+            if (n.right != null)
+                q.add(n.right);
+        }
     }
 
     private static class BinaryNode<Key, Value> {

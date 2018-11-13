@@ -87,6 +87,20 @@ public class Pruebas {
         }
 
         System.out.println("C: " + toyTreeMap.getFloor(4));
+
+        System.out.println("SELECT REC: ");
+        List<TupleV<Integer, String>> select = toyTreeMap.selecRec(2, 4);
+
+        for (TupleV<Integer, String> t: select) {
+            System.out.println(t);
+        }
+
+        System.out.println("SELECT ITER: ");
+        List<TupleV<Integer, String>> selectIter = toyTreeMap.selectJDK(2, 4);
+
+        for (TupleV<Integer, String> t: selectIter) {
+            System.out.println(t);
+        }
 	}
 
 }
