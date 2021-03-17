@@ -124,7 +124,7 @@ Given a matrix ${\bf A}$ and a vector ${\bf b}$ (${\bf b}\geq {\bf 0}$), compute
 ```{r, eval=FALSE}
 all.basic_solutions_for <- function(A, b){
   # Generate all combinations of the elements of c(1...ncol(A)) taking nrow(A) at a time,
-  # this generates a matrix with colums for each combination.
+  # this generates a matrix with columns for each combination.
   comb <- combn(c(1:ncol(A)), nrow(A))
   
   # List for the result return
@@ -283,16 +283,16 @@ b <- c(1, 3, 5)
 
 ```{r, eval=FALSE}
 # Implement here (10 lines)
-print(basic.solution(A, b, c(1, 2, 3)))
-print(basic.solution(A, b, c(1, 2, 4)))
-print(basic.solution(A, b, c(1, 2, 5)))
-print(basic.solution(A, b, c(1, 3, 4)))
-print(basic.solution(A, b, c(1, 3, 5)))
-print(basic.solution(A, b, c(1, 4, 5)))
-print(basic.solution(A, b, c(2, 3, 4)))
-print(basic.solution(A, b, c(2, 3, 5)))
-print(basic.solution(A, b, c(2, 4, 5)))
-print(basic.solution(A, b, c(3, 4, 5)))
+basic.solution(A, b, c(1, 2, 3))
+basic.solution(A, b, c(1, 2, 4))
+basic.solution(A, b, c(1, 2, 5))
+basic.solution(A, b, c(1, 3, 4))
+basic.solution(A, b, c(1, 3, 5))
+basic.solution(A, b, c(1, 4, 5))
+basic.solution(A, b, c(2, 3, 4))
+basic.solution(A, b, c(2, 3, 5))
+basic.solution(A, b, c(2, 4, 5))
+basic.solution(A, b, c(3, 4, 5))
 ```
 
 **2.** Calculate all the basic solutions using the function `all.basic_solutions`.
@@ -301,14 +301,14 @@ print(basic.solution(A, b, c(3, 4, 5)))
 
 ```{r, eval=FALSE}
 # Implement here (1 line)
-print(all.basic_solutions_for(A, b))
+all.basic_solutions_for(A, b)
 ```
 
 **2.2.** Use the `apply` version calling to the function `all.basic_solutions_apply`:
 
 ```{r, eval=FALSE}
 # Implement here (1 line)
-print(all.basic_solutions_apply(A, b))
+all.basic_solutions_apply(A, b)
 ```
 
 **3.** Return exclusively the basic solutions that are feasible. To that end, use the function `basic.feasible.solutions`.  
@@ -317,7 +317,7 @@ print(all.basic_solutions_apply(A, b))
 
 ```{r, eval=FALSE}
 # Implement here (1 line)
-print(basic.feasible.solutions_for(A, b))
+basic.feasible.solutions_for(A, b)
 ```
 
 
@@ -350,16 +350,16 @@ b <- c(4, 20, 2)
 
 ```{r, eval=FALSE}
 # Implement here (10 lines)
-print(basic.solution(A, b, c(1, 2, 3)))
-print(basic.solution(A, b, c(1, 2, 4)))
-print(basic.solution(A, b, c(1, 2, 5)))
-print(basic.solution(A, b, c(1, 3, 4)))
-print(basic.solution(A, b, c(1, 3, 5)))
-print(basic.solution(A, b, c(1, 4, 5)))
-print(basic.solution(A, b, c(2, 3, 4)))
-print(basic.solution(A, b, c(2, 3, 5)))
-print(basic.solution(A, b, c(2, 4, 5)))
-print(basic.solution(A, b, c(3, 4, 5)))
+basic.solution(A, b, c(1, 2, 3))
+basic.solution(A, b, c(1, 2, 4))
+basic.solution(A, b, c(1, 2, 5))
+basic.solution(A, b, c(1, 3, 4))
+basic.solution(A, b, c(1, 3, 5))
+basic.solution(A, b, c(1, 4, 5))
+basic.solution(A, b, c(2, 3, 4))
+basic.solution(A, b, c(2, 3, 5))
+basic.solution(A, b, c(2, 4, 5))
+basic.solution(A, b, c(3, 4, 5))
 ```
 
 **2.** Calculate all the basic solutions using the function `all.basic_solutions`.
