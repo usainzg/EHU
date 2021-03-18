@@ -111,7 +111,7 @@ basic.solution <- function(A, b, column.ind.vector){
   return(x)
 }
 
-basic.solution(A, b, c(3,4))
+basic.solution(A, b, c(1, 2))
 # x1=0.0000000, x2=0.0000000, x3=1.7333333, x4=0.5333333
 ```
 

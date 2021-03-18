@@ -1,0 +1,421 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+  
+# Operations Research
+# Laboratory Session 4: Solving linear models with R (part II)
+**by Josu Ceberio and Ana Zelaia**
+
+In the previous lab session, the aim was to implement the functions to calculate all the feasible basic solutions of any given linear model. To that end, the definition of the system of linear equations was sufficient, and we did not care about the objective function to accomplish our tasks.
+
+Conversely, in this lab-session, it is our aim to implement the needed functions to solve any given linear model optimally (when it is possible). When the model is feasible, the optimal solution among the basic feasible solutions will be returned. If the model has multiple optimal solutions, then, the function will return all of them. As in the previous lab session, the unbounded problems are out of the scope of the practice.
+
+\begin{eqnarray*}
+\max\ \ z= \ \ {\bf c}^{T}{\bf x} \\
+\mbox{subject to}\hspace{0,5cm}\\
+{\bf A}{\bf x} = {\bf b} \\
+{\bf x} \geq {\bf 0}
+\end{eqnarray*}
+
+## The `solveProblem` functions
+
+Firstly, given a linear model written in the maximization standar form, the function will verify that the problem is feasible (at least one solution exists for the model). If it is so, then, it will implement the routines that calculate the set of all basic solutions, and using the objective function $z$, return the optimal solution. Specifically, the function must return a list that containts: (1) a vector (if the problem has only one solution) or a matrix (if it has multiple solutions), and (2) the objective value $z^*$ of the optimal solution.
+
+The function will print a message in the standard output providing information related to the set of feasible solutions (their number). If the problem is not feasible, it should print a zero. The `message` function can be very helpful to do this task.
+
+Provide two implementations of the functions: using `for` loops,  and `apply` functions.
+
+
+To check the correctness of the functions implemented, let us consider the following linear model:
+$$
+\begin{array}{r}
+\max\ z=3x_{1}+4x_{2}+5x_3+6x_4 \\
+     \mbox{subject to}\hspace{3cm}\\
+      2x_{1}+x_{2}+x_3+8x_4 = 6    \\
+      x_{1}+x_{2}+2x_3+x_{4}=4 \\
+      x_{1},x_{2},x_{3},x_{4}\geq 0  \\
+      \end{array}
+$$
+
+```{r, eval=FALSE}
+A <- matrix(c(2, 1, 1, 8, 1, 1, 2, 1), nrow=2, byrow=TRUE)
+b <- c(6, 4)
+c <- c(3, 4, 5, 6)
+```
+
+The optimal solution:  $x^*=(0.0000000, 3.7142857, 0.0000000, 0.2857143)$, $z^*=16.57143$
+
+```{r, echo=FALSE, eval=FALSE}
+basic.solution <- function(A, b, column.ind.vector){
+  x <- double(ncol(A))
+  if(det(A[,column.ind.vector]) != 0){
+    x[column.ind.vector] <- solve(A[,column.ind.vector], b)
+  } else {
+    x <- rep(-1, times = ncol(A))
+  }
+  return(x)
+}
+
+all.basic_solutions_for <- function(A, b){
+  comb <- combn(c(1:ncol(A)), nrow(A))
+  lst <- list()
+  for (c in 1:ncol(comb)) {
+    lst[[c]] <- basic.solution(A, b, comb[, c])
+  }
+  return(lst)
+}
+
+basic.feasible.solutions_for <- function(A, b){
+  lst <- list()
+  x <- all.basic_solutions_for(A, b)
+  i <- 1
+  for (t in x) {
+    if (all(t >= 0)) {
+      lst[[i]] <- t
+      i <- i + 1
+    }
+  }
+  return(lst)
+}
+
+all.basic_solutions_apply <- function(A,b){
+  comb <- combn(c(1:ncol(A)), nrow(A))
+  return(apply(comb, 2, basic.solution, A=A, b=b))
+}
+
+basic.feasible.solutions_apply <- function(A,b){
+  x <- all.basic_solutions_apply(A, b)
+  return(x[, !apply(x, 2, function(x) sum( x < 0 ) >= 1)])
+} 
+```
+```{r, eval=FALSE}
+# Auxiliary function for evaluating the objective function with the
+# solution provided (x).
+calculateObjectiveFun <- function(x, funCoeff) {
+  val <- 0
+  for (i in 1:length(funCoeff)) {
+    val <- val + (x[i] * funCoeff[i])
+  }
+  return(val)
+}
+```
+**Exercise 1.** Implementation of `solveProblem` using `for` loops. To ease your task, employ the function `basic.feasible.solutions_for` implemented in the previous laboratory session. Return the result in a list.
+
+```{r, eval=FALSE}
+solveProblem_for <- function(A, b, c){
+  # Implement here (15 lines >)
+  lst <- basic.feasible.solutions_for(A, b)
+  
+  message("Number of feasible solutions: ")
+  message(length(lst))
+  
+  zValues <- list()
+  optimalLst <- list()
+  maxVal <- -Inf
+  
+  i <- 1
+  for (l in lst) {
+    v <- calculateObjectiveFun(l, c)
+    zValues[i] <- v
+    i <- i + 1
+    if (v > maxVal) {
+      maxVal <- v
+    }
+  }
+  
+  i <- 1
+  for (l in 1:length(lst)) {
+    if (zValues[l] == maxVal) {
+      optimalLst[i] <- lst[l]
+      i <- i + 1
+    }
+  }
+  
+  optimalLst[i] <- maxVal
+  
+  return(optimalLst)
+}
+solveProblem_for(A,b,c)
+# The problem has only one optimal solution.
+# $solutions
+# $solutions[[1]]
+# [1] 0.0000000 3.7142857 0.0000000 0.2857143
+# 
+# 
+# $optimal.val
+# [1] 16.57143
+```
+
+**Exercise 2.**  Implementation of `solveProblem` using `apply` fuction.  To ease your task, employ the function `basic.feasible.solutions_apply` implemented in the previous laboratory session. Return the result in a matrix.
+
+```{r, eval=FALSE}
+solveProblem_apply <- function(A, b, c){
+  # Implement here (15 lines >)
+  
+  
+}
+
+solveProblem_apply(A,b,c)
+# The problem has only one optimal solution.
+# $solutions
+# [1] 0.0000000 3.7142857 0.0000000 0.2857143
+# 
+# $optimal.val
+# [1] 16.57143
+```
+
+
+#  Linear Models
+
+Use the implemented functions to solve the following problems, and check the correctness of the solutions.
+
+**Problem 1.**  
+
+\vspace{-0.5cm}
+
+\begin{eqnarray*}
+\max\ z=-2x_{1}-4x_{2}-3x_3 \\
+     \mbox{subject to}\hspace{2.5cm}\\
+      2x_{1}+x_{2}+2x_3\geq 8\\
+      4x_{1}+2x_{2}+2x_3\geq 10\\
+      6x_{1}+x_{2}+4x_3\geq 12\\
+      x_{1},x_{2},x_3\geq 0\\
+\end{eqnarray*}
+
+\vspace{-0.5cm}
+
+```{r, eval=FALSE}
+# Implement here. 
+A <- matrix(c(2, 1, 2, -1, 0, 0, 4, 2, 2, 0, -1, 0, 6, 1, 4, 0, 0, -1), nrow=3, byrow=TRUE)
+b <- c(8, 10, 12)
+c <- c(-2, -4, -3, 0, 0, 0)
+
+solveProblem_for(A, b, c)
+```
+
+There is a unique optimal basic feasible solution for the problem. 
+
+$(x^*_1, x^*_2, x^*_3, x^*_4, x^*_5, x^*_6)=(4, 0, 0, 0, 6, 12)$, $z^*=-8$ 
+
+
+**Problem 2.**  
+  
+  \vspace{-0.5cm}
+
+\begin{eqnarray*}
+\min\ z=2x_{1}+x_{2}+3x_3+2x_4\\
+\mbox{subject to}\hspace{3cm}\\
+2x_{1}+2x_{2}+2x_3+2x_4\geq 22\\
+4x_{1}+4x_{2}+x_3+4x_4\leq 20\\
+2x_{1}+8x_{2}+2x_3+x_4\geq 15 \\
+x_{1},x_{2},x_{3},x_4\geq 0\\
+\end{eqnarray*}
+
+\vspace{-0.5cm}
+
+```{r, eval=FALSE}
+# Implement here.
+
+```
+
+There is a unique optimal basic feasible solution for the problem
+
+$(x^*_1, x^*_2, x^*_3, x^*_4, x^*_5, x^*_6)=(0, 3, 8, 0, 0, 0, 25)$, $z^*=27$ 
+  
+**Problem 3.**  
+  
+\vspace{-0.5cm}
+
+\begin{eqnarray*}
+\max\ z=x_{1}+2x_{2}\\
+\mbox{subject to}\hspace{1.5cm}\\
+x_{1}+2x_{2}\leq 5\\
+x_{1}+x_{2}\geq 2\\
+x_{1}-x_{2}\leq 4 \\
+x_{1},x_{2}\geq 0\\
+\end{eqnarray*}
+
+There are 2 optimal basic feasible solutions for the problem.
+
+$(x^*_1, x^*_2, x^*_3, x^*_4, x^*_5)=(4.3,\ 0.33,\ 0,\ 2.66,\ 0)$, $z^*= 5$
+  
+$(x^*_1, x^*_2, x^*_3, x^*_4, x^*_5)=(0.0,\  2.5,\  0.0,\  0.5,\  6.5)$, $z^*= 5$
+  
+```{r, eval=FALSE}
+# Implement here.
+
+```
+
+
+**Problem 4.**  
+  
+\vspace{-0.5cm}
+
+\begin{eqnarray*}
+\max\ z=3x_{1}+4x_{2}\\
+\mbox{subject to}\hspace{1.5cm}\\
+x_{1}-2x_{2}\leq 4\\
+x_{1}+x_{2}\geq 6\\
+2x_{1}+3x_{2}\leq 2  \\
+x_{1},x_{2}\geq 0\\
+\end{eqnarray*}
+
+There is no feasible solution for the problem
+
+```{r, eval=FALSE}
+# Implement here.
+
+```
+
+\pagebreak
+
+# Solving the linear models in the list of Simplex exercises
+
+Solve the problems in the Simplex list of exercises using the functions `solveProblem_for` and `solveProblem_apply`, and verify the correctness of the obtained solutions.
+
+**6.1** There is a unique optimal basic feasible solution for the problem.
+
+$x^*= (3.6 \ 0.8\  0.0\  0.0)$, $z^*= 2.8$
+
+```{r, eval=FALSE}
+# Implement here.
+
+
+```
+
+
+**6.2** There are three basic feasible solutions that correspond to the same extreme point ($x^*_1=6, x^*_2=0$).  
+
+$x^*= (6\  0\  0\ 18\  0)$
+$x^*= (6\  0\  0\ 18\  0)$
+$x^*= (6\  0\  0\ 18\  0)$, $z^*= 6$
+
+```{r, eval=FALSE}
+# Implement here.
+
+
+```
+
+**6.3** There is a unique optimal basic feasible solution for the problem
+
+$x^*= (3.33\  0.33\ 10.00\  0.00\  0.00)$, $z^*= 12$
+
+```{r, eval=FALSE}
+# Implement here.
+
+
+```
+
+**6.4** There are 2 optimal basic feasible solutions for the problem.
+
+$x^*= (4.3\ 0.33\ 0\ 2.66\ 0)$, $z^*= 5$
+  
+$x^*= (0.0\  2.5\  0.0\  0.5\  6.5)$, $z^*= 5$
+  
+```{r, eval=FALSE}
+# Implement here.
+
+
+```
+
+**6.5** There are 2 optimal basic feasible solutions for the problem.
+
+$x^*= (1\ 2\ 3\ 0\ 0)$, $z^*= 6$
+  
+$x^*= (2.5\ 0.5\ 0.0\ 0.0\ 1.5)$, $z^*= 6$
+  
+```{r, eval=FALSE}
+# Implement here.
+
+
+```
+
+**6.6** The problem is unbounded. Do not do.
+
+**6.7** The problem is unbounded. Do not do.
+
+**6.8** There is no feasible solution for the problem
+
+```{r, eval=FALSE}
+# Implement here.
+
+
+```
+
+**7.1** There is a unique optimal basic feasible solution for the problem
+
+$x^*= (0\  8\  0\ 12\  0)$, $z^*= 16$
+  
+```{r, eval=FALSE}
+# Implement here.
+
+```
+
+**7.2** There is a unique optimal basic feasible solution for the problem
+
+$x^*= (1\ 7\ 0\ 9\ 0)$, $z^*= 12$. Sign change...
+
+$x^*= (-1\ 7\ 0\ 9\ 0)$, $z^*= -12$.
+
+```{r, eval=FALSE}
+# Implement here.
+
+
+```
+
+
+**7.3** There is a unique optimal basic feasible solution for the problem
+
+$x^*= (5\ 6\ 0\ 0\ 0\ 6)$, $z^*= 13$. Sign change... $z^*= -13$
+  
+```{r, eval=FALSE}
+# Implement here.
+
+
+```
+
+**7.4** There are 2 optimal basic feasible solutions for the problem
+
+$x^*= (0\ 2\ 0\ 2\ 0\ 0)$, $x^*= (0\ 3\ 0\ 0\ 2\ 0)$, $z^*= -24$. 
+
+Sign change... $z^*= 24$
+  
+```{r, eval=FALSE}
+# Implement here.
+
+
+```
+
+**7.5** There are 2 optimal basic feasible solutions for the problem
+
+$x^*= (4.5\ 0.0\ 0.0\ 0.5\ 0.0\ 0.0\ 0.0)$, 
+
+$x^*= (0\  0\  0\ 23\  9\  0\  0)$, $z^*= 73$. 
+
+Sign change... $z^*= -73$
+  
+```{r, eval=FALSE}
+# Implement here.
+
+
+```
+
+**7.6** There is no feasible solution for the problem.
+
+```{r, eval=FALSE}
+# Implement here.
+
+
+```
+
+**7.7** Unbounded problem. Do not do this exercise.
+
+**7.8** There is no feasible solution for the problem.
+
+```{r, eval=FALSE}
+# Implement here.
+
+
+```
