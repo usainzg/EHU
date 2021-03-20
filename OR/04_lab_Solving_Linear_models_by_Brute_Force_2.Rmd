@@ -126,14 +126,16 @@ solveProblem_for <- function(A, b, c){
   }
   
   i <- 1
+  lt <- list()
   for (l in 1:length(lst)) {
     if (zValues[l] == maxVal) {
-      optimalLst[i] <- lst[l]
+      lt[i] <- lst[l]
       i <- i + 1
     }
   }
   
-  optimalLst[i] <- maxVal
+  optimalLst[1] <- lt
+  optimalLst[2] <- maxVal 
   
   return(optimalLst)
 }
@@ -153,8 +155,18 @@ solveProblem_for(A,b,c)
 ```{r, eval=FALSE}
 solveProblem_apply <- function(A, b, c){
   # Implement here (15 lines >)
+  x <- basic.feasible.solutions_apply(A, b)
+  message("Number of feasible solutions: ")
+  message(ncol(x))
   
+  vals <- apply(x, 2, calculateObjectiveFun, funCoeff=c)
+  maxVal <- max(vals)
   
+  optimalM <- x[, vals == maxVal]
+  resLst <- list()
+  resLst[[1]] <- optimalM
+  resLst[[2]] <- maxVal
+  return(resLst)
 }
 
 solveProblem_apply(A,b,c)
@@ -193,6 +205,7 @@ b <- c(8, 10, 12)
 c <- c(-2, -4, -3, 0, 0, 0)
 
 solveProblem_for(A, b, c)
+solveProblem_apply(A, b, c)
 ```
 
 There is a unique optimal basic feasible solution for the problem. 
