@@ -1,0 +1,694 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+
+\hypertarget{operations-research}{%
+\section{Operations Research}\label{operations-research}}
+
+\hypertarget{laboratory-session-4-solving-linear-models-with-r-part-ii}{%
+\section{Laboratory Session 4: Solving linear models with R (part
+II)}\label{laboratory-session-4-solving-linear-models-with-r-part-ii}}
+
+\textbf{by Josu Ceberio and Ana Zelaia}
+
+In the previous lab session, the aim was to implement the functions to
+calculate all the feasible basic solutions of any given linear model. To
+that end, the definition of the system of linear equations was
+sufficient, and we did not care about the objective function to
+accomplish our tasks.
+
+Conversely, in this lab-session, it is our aim to implement the needed
+functions to solve any given linear model optimally (when it is
+possible). When the model is feasible, the optimal solution among the
+basic feasible solutions will be returned. If the model has multiple
+optimal solutions, then, the function will return all of them. As in the
+previous lab session, the unbounded problems are out of the scope of the
+practice.
+
+\begin{eqnarray*}
+\max\ \ z= \ \ {\bf c}^{T}{\bf x} \\
+\mbox{subject to}\hspace{0,5cm}\\
+{\bf A}{\bf x} = {\bf b} \\
+{\bf x} \geq {\bf 0}
+\end{eqnarray*}
+
+\hypertarget{the-solveproblem-functions}{%
+\subsection{\texorpdfstring{The \texttt{solveProblem}
+functions}{The solveProblem functions}}\label{the-solveproblem-functions}}
+
+Firstly, given a linear model written in the maximization standar form,
+the function will verify that the problem is feasible (at least one
+solution exists for the model). If it is so, then, it will implement the
+routines that calculate the set of all basic solutions, and using the
+objective function \(z\), return the optimal solution. Specifically, the
+function must return a list that containts: (1) a vector (if the problem
+has only one solution) or a matrix (if it has multiple solutions), and
+(2) the objective value \(z^*\) of the optimal solution.
+
+The function will print a message in the standard output providing
+information related to the set of feasible solutions (their number). If
+the problem is not feasible, it should print a zero. The
+\texttt{message} function can be very helpful to do this task.
+
+Provide two implementations of the functions: using \texttt{for} loops,
+and \texttt{apply} functions.
+
+To check the correctness of the functions implemented, let us consider
+the following linear model: \[
+\begin{array}{r}
+\max\ z=3x_{1}+4x_{2}+5x_3+6x_4 \\
+     \mbox{subject to}\hspace{3cm}\\
+      2x_{1}+x_{2}+x_3+8x_4 = 6    \\
+      x_{1}+x_{2}+2x_3+x_{4}=4 \\
+      x_{1},x_{2},x_{3},x_{4}\geq 0  \\
+      \end{array}
+\]
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{A }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{), }\AttributeTok{nrow=}\DecValTok{2}\NormalTok{, }\AttributeTok{byrow=}\ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{b }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{6}\NormalTok{, }\DecValTok{4}\NormalTok{)}
+\NormalTok{c }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{6}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+The optimal solution:
+\(x^*=(0.0000000, 3.7142857, 0.0000000, 0.2857143)\), \(z^*=16.57143\)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Auxiliary function for evaluating the objective function with the}
+\CommentTok{\# solution provided (x) and the coefficients of the objective function (funCoeff).}
+\NormalTok{calculateObjectiveFun }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x, funCoeff) \{}
+\NormalTok{  val }\OtherTok{\textless{}{-}} \DecValTok{0}
+  \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(funCoeff)) \{}
+\NormalTok{    val }\OtherTok{\textless{}{-}}\NormalTok{ val }\SpecialCharTok{+}\NormalTok{ (x[i] }\SpecialCharTok{*}\NormalTok{ funCoeff[i])}
+\NormalTok{  \}}
+  \FunctionTok{return}\NormalTok{(val)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Exercise 1.} Implementation of \texttt{solveProblem} using
+\texttt{for} loops. To ease your task, employ the function
+\texttt{basic.feasible.solutions\_for} implemented in the previous
+laboratory session. Return the result in a list.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{solveProblem\_for }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(A, b, c)\{}
+  \CommentTok{\# Get the feasible solutions with the solitions\_for() method}
+\NormalTok{  lst }\OtherTok{\textless{}{-}} \FunctionTok{basic.feasible.solutions\_for}\NormalTok{(A, b)}
+  
+  \CommentTok{\# Print a message with the number of feasible solutions}
+  \FunctionTok{message}\NormalTok{(}\StringTok{"Number of feasible solutions: "}\NormalTok{)}
+  \FunctionTok{message}\NormalTok{(}\FunctionTok{length}\NormalTok{(lst))}
+  
+  \CommentTok{\# If the length of lst is 0, no feasible solutions, print alert message}
+  \CommentTok{\# and return NULL.}
+  \ControlFlowTok{if}\NormalTok{ (}\FunctionTok{length}\NormalTok{(lst) }\SpecialCharTok{==} \DecValTok{0}\NormalTok{) \{}
+    \FunctionTok{message}\NormalTok{(}\StringTok{"There is no feasible solution!"}\NormalTok{)}
+    \FunctionTok{return}\NormalTok{(}\ConstantTok{NULL}\NormalTok{)}
+\NormalTok{  \}}
+  
+  \CommentTok{\# Init the variables:}
+  \CommentTok{\# {-} zValues for saving z values of each solution.}
+  \CommentTok{\# {-} optimalLst for returning the optimal solutions.}
+  \CommentTok{\# maxVal for saving the optimal z value.}
+\NormalTok{  zValues }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{()}
+\NormalTok{  optimalLst }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{()}
+\NormalTok{  maxVal }\OtherTok{\textless{}{-}} \SpecialCharTok{{-}}\ConstantTok{Inf}
+  
+  \CommentTok{\# For each solution:}
+  \CommentTok{\# {-} Calculate the Z value evaluating the objective function.}
+  \CommentTok{\# {-} Save the zValue in zValues list.}
+  \CommentTok{\# {-} If the Z value is greater than the previous optimal value, change maxVal.}
+\NormalTok{  i }\OtherTok{\textless{}{-}} \DecValTok{1}
+  \ControlFlowTok{for}\NormalTok{ (l }\ControlFlowTok{in}\NormalTok{ lst) \{}
+\NormalTok{    v }\OtherTok{\textless{}{-}} \FunctionTok{calculateObjectiveFun}\NormalTok{(l, c)}
+\NormalTok{    zValues[i] }\OtherTok{\textless{}{-}}\NormalTok{ v}
+\NormalTok{    i }\OtherTok{\textless{}{-}}\NormalTok{ i }\SpecialCharTok{+} \DecValTok{1}
+    \ControlFlowTok{if}\NormalTok{ (v }\SpecialCharTok{\textgreater{}}\NormalTok{ maxVal) \{}
+\NormalTok{      maxVal }\OtherTok{\textless{}{-}}\NormalTok{ v}
+\NormalTok{    \}}
+\NormalTok{  \}}
+  
+  \CommentTok{\# Append to the optimalLst list the solutions with the Z value equal to the }
+  \CommentTok{\# optimal value saved in maxVal.}
+\NormalTok{  i }\OtherTok{\textless{}{-}} \DecValTok{1}
+\NormalTok{  lt }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{()}
+  \ControlFlowTok{for}\NormalTok{ (l }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(lst)) \{}
+    \ControlFlowTok{if}\NormalTok{ (zValues[l] }\SpecialCharTok{==}\NormalTok{ maxVal) \{}
+\NormalTok{      optimalLst[i] }\OtherTok{\textless{}{-}}\NormalTok{ lst[l]}
+\NormalTok{      i }\OtherTok{\textless{}{-}}\NormalTok{ i }\SpecialCharTok{+} \DecValTok{1}
+\NormalTok{    \}}
+\NormalTok{  \}}
+  
+  \CommentTok{\# Insert the optimal value as another element of the list.}
+\NormalTok{  optimalLst[[i]] }\OtherTok{\textless{}{-}}\NormalTok{ maxVal }
+  
+  \CommentTok{\# Return the list with the optimal solutions and the optimal value.}
+  \FunctionTok{return}\NormalTok{(optimalLst)}
+\NormalTok{\}}
+\FunctionTok{solveProblem\_for}\NormalTok{(A,b,c)}
+\CommentTok{\# The problem has only one optimal solution.}
+\CommentTok{\# $solutions}
+\CommentTok{\# $solutions[[1]]}
+\CommentTok{\# [1] 0.0000000 3.7142857 0.0000000 0.2857143}
+\CommentTok{\# }
+\CommentTok{\# }
+\CommentTok{\# $optimal.val}
+\CommentTok{\# [1] 16.57143}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Exercise 2.} Implementation of \texttt{solveProblem} using
+\texttt{apply} fuction. To ease your task, employ the function
+\texttt{basic.feasible.solutions\_apply} implemented in the previous
+laboratory session. Return the result in a matrix.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{solveProblem\_apply }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(A, b, c)\{}
+  \CommentTok{\# Get the solutions matrix using solutios\_apply() method.}
+\NormalTok{  x }\OtherTok{\textless{}{-}} \FunctionTok{basic.feasible.solutions\_apply}\NormalTok{(A, b)}
+  
+  \CommentTok{\# Print a message with the number of feasible solutions}
+  \FunctionTok{message}\NormalTok{(}\StringTok{"Number of feasible solutions: "}\NormalTok{)}
+  \FunctionTok{message}\NormalTok{(}\FunctionTok{ncol}\NormalTok{(x))}
+  
+  \CommentTok{\# If the number of columns of x is 0, no feasible solutions, print alert }
+  \CommentTok{\# message and return NULL.}
+  \ControlFlowTok{if}\NormalTok{ (}\FunctionTok{ncol}\NormalTok{(x) }\SpecialCharTok{==} \DecValTok{0}\NormalTok{) \{}
+    \FunctionTok{message}\NormalTok{(}\StringTok{"There is no feasible solution!"}\NormalTok{)}
+    \FunctionTok{return}\NormalTok{(}\ConstantTok{NULL}\NormalTok{)}
+\NormalTok{  \}}
+  
+  \CommentTok{\# Get the values for each solution evaluating with the auxiliary function.}
+\NormalTok{  vals }\OtherTok{\textless{}{-}} \FunctionTok{apply}\NormalTok{(x, }\DecValTok{2}\NormalTok{, calculateObjectiveFun, }\AttributeTok{funCoeff=}\NormalTok{c)}
+  
+  \CommentTok{\# Get the maximal value of the list of Z values.}
+\NormalTok{  maxVal }\OtherTok{\textless{}{-}} \FunctionTok{max}\NormalTok{(vals)}
+  
+  \CommentTok{\# Vector/matrix with the optimal solutions, only add the solutions with Z }
+  \CommentTok{\# value equal to maxVal.}
+\NormalTok{  optimalM }\OtherTok{\textless{}{-}}\NormalTok{ x[, vals }\SpecialCharTok{==}\NormalTok{ maxVal]}
+  
+  \CommentTok{\# Set a list for returning the result.}
+\NormalTok{  resLst }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{()}
+  
+  \CommentTok{\# Add the vector/matrix of optimal solutions as a first element of the list.}
+\NormalTok{  resLst[[}\DecValTok{1}\NormalTok{]] }\OtherTok{\textless{}{-}}\NormalTok{ optimalM}
+  
+  \CommentTok{\# Add the optimal value as a second element of the list.}
+\NormalTok{  resLst[[}\DecValTok{2}\NormalTok{]] }\OtherTok{\textless{}{-}}\NormalTok{ maxVal}
+  
+  \CommentTok{\# Return the list with the optimal solutions and the optimal value.}
+  \FunctionTok{return}\NormalTok{(resLst)}
+\NormalTok{\}}
+
+\FunctionTok{solveProblem\_apply}\NormalTok{(A,b,c)}
+\CommentTok{\# The problem has only one optimal solution.}
+\CommentTok{\# $solutions}
+\CommentTok{\# [1] 0.0000000 3.7142857 0.0000000 0.2857143}
+\CommentTok{\# }
+\CommentTok{\# $optimal.val}
+\CommentTok{\# [1] 16.57143}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{linear-models}{%
+\section{Linear Models}\label{linear-models}}
+
+Use the implemented functions to solve the following problems, and check
+the correctness of the solutions.
+
+\textbf{Problem 1.}
+
+\vspace{-0.5cm}
+
+\begin{eqnarray*}
+\max\ z=-2x_{1}-4x_{2}-3x_3 \\
+     \mbox{subject to}\hspace{2.5cm}\\
+      2x_{1}+x_{2}+2x_3\geq 8\\
+      4x_{1}+2x_{2}+2x_3\geq 10\\
+      6x_{1}+x_{2}+4x_3\geq 12\\
+      x_{1},x_{2},x_3\geq 0\\
+\end{eqnarray*}
+
+\vspace{-0.5cm}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Implement here. }
+\NormalTok{A }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{0}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{), }\AttributeTok{nrow=}\DecValTok{3}\NormalTok{, }\AttributeTok{byrow=}\ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{b }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{8}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{12}\NormalTok{)}
+\NormalTok{c }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{2}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{4}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{3}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+
+\FunctionTok{solveProblem\_for}\NormalTok{(A, b, c)}
+\FunctionTok{solveProblem\_apply}\NormalTok{(A, b, c)}
+\end{Highlighting}
+\end{Shaded}
+
+There is a unique optimal basic feasible solution for the problem.
+
+\((x^*_1, x^*_2, x^*_3, x^*_4, x^*_5, x^*_6)=(4, 0, 0, 0, 6, 12)\),
+\(z^*=-8\)
+
+\textbf{Problem 2.}
+
+\vspace{-0.5cm}
+
+\begin{eqnarray*}
+\min\ z=2x_{1}+x_{2}+3x_3+2x_4\\
+\mbox{subject to}\hspace{3cm}\\
+2x_{1}+2x_{2}+2x_3+2x_4\geq 22\\
+4x_{1}+4x_{2}+x_3+4x_4\leq 20\\
+2x_{1}+8x_{2}+2x_3+x_4\geq 15 \\
+x_{1},x_{2},x_{3},x_4\geq 0\\
+\end{eqnarray*}
+
+\vspace{-0.5cm}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Implement here.}
+\NormalTok{A }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{), }\AttributeTok{nrow=}\DecValTok{3}\NormalTok{, }\AttributeTok{byrow=}\ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{b }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{22}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{15}\NormalTok{)}
+\NormalTok{c }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{2}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{3}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{2}\NormalTok{)}
+\CommentTok{\# Change the sign!!!}
+\FunctionTok{solveProblem\_for}\NormalTok{(A, b, c)}
+\FunctionTok{solveProblem\_apply}\NormalTok{(A, b, c)}
+\end{Highlighting}
+\end{Shaded}
+
+There is a unique optimal basic feasible solution for the problem
+
+\((x^*_1, x^*_2, x^*_3, x^*_4, x^*_5, x^*_6)=(0, 3, 8, 0, 0, 0, 25)\),
+\(z^*=27\)
+
+\textbf{Problem 3.}
+
+\vspace{-0.5cm}
+
+\begin{eqnarray*}
+\max\ z=x_{1}+2x_{2}\\
+\mbox{subject to}\hspace{1.5cm}\\
+x_{1}+2x_{2}\leq 5\\
+x_{1}+x_{2}\geq 2\\
+x_{1}-x_{2}\leq 4 \\
+x_{1},x_{2}\geq 0\\
+\end{eqnarray*}
+
+There are 2 optimal basic feasible solutions for the problem.
+
+\((x^*_1, x^*_2, x^*_3, x^*_4, x^*_5)=(4.3,\ 0.33,\ 0,\ 2.66,\ 0)\),
+\(z^*= 5\)
+
+\((x^*_1, x^*_2, x^*_3, x^*_4, x^*_5)=(0.0,\  2.5,\  0.0,\  0.5,\  6.5)\),
+\(z^*= 5\)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Implement here.}
+\NormalTok{A }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{), }\AttributeTok{nrow=}\DecValTok{3}\NormalTok{, }\AttributeTok{byrow=}\ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{b }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{4}\NormalTok{)}
+\NormalTok{c }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{)}
+
+\FunctionTok{solveProblem\_for}\NormalTok{(A, b, c)}
+\FunctionTok{solveProblem\_apply}\NormalTok{(A, b, c)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Problem 4.}
+
+\vspace{-0.5cm}
+
+\begin{eqnarray*}
+\max\ z=3x_{1}+4x_{2}\\
+\mbox{subject to}\hspace{1.5cm}\\
+x_{1}-2x_{2}\leq 4\\
+x_{1}+x_{2}\geq 6\\
+2x_{1}+3x_{2}\leq 2  \\
+x_{1},x_{2}\geq 0\\
+\end{eqnarray*}
+
+There is no feasible solution for the problem
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Implement here.}
+\NormalTok{A }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{), }\AttributeTok{nrow=}\DecValTok{3}\NormalTok{, }\AttributeTok{byrow=}\ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{b }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{2}\NormalTok{)}
+\NormalTok{c }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{)}
+
+\FunctionTok{solveProblem\_for}\NormalTok{(A, b, c)}
+\FunctionTok{solveProblem\_apply}\NormalTok{(A, b, c)}
+\end{Highlighting}
+\end{Shaded}
+
+\pagebreak
+
+\hypertarget{solving-the-linear-models-in-the-list-of-simplex-exercises}{%
+\section{Solving the linear models in the list of Simplex
+exercises}\label{solving-the-linear-models-in-the-list-of-simplex-exercises}}
+
+Solve the problems in the Simplex list of exercises using the functions
+\texttt{solveProblem\_for} and \texttt{solveProblem\_apply}, and verify
+the correctness of the obtained solutions.
+
+\textbf{6.1} There is a unique optimal basic feasible solution for the
+problem.
+
+\(x^*= (3.6 \ 0.8\  0.0\  0.0)\), \(z^*= 2.8\)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Implement here.}
+\NormalTok{A }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{4}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{3}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{), }\AttributeTok{nrow=}\DecValTok{2}\NormalTok{, }\AttributeTok{byrow=}\ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{b }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{12}\NormalTok{)}
+\NormalTok{c }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{)}
+
+\FunctionTok{solveProblem\_for}\NormalTok{(A, b, c)}
+\FunctionTok{solveProblem\_apply}\NormalTok{(A, b, c)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{6.2} There are three basic feasible solutions that correspond to
+the same extreme point (\(x^*_1=6, x^*_2=0\)).
+
+\(x^*= (6\  0\  0\ 18\  0)\) \(x^*= (6\  0\  0\ 18\  0)\)
+\(x^*= (6\  0\  0\ 18\  0)\), \(z^*= 6\)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Implement here.}
+\NormalTok{A }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{6}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{), }\AttributeTok{nrow=}\DecValTok{3}\NormalTok{, }\AttributeTok{byrow=}\ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{b }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{6}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{6}\NormalTok{)}
+\NormalTok{c }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+
+\FunctionTok{solveProblem\_for}\NormalTok{(A, b, c)}
+\FunctionTok{solveProblem\_apply}\NormalTok{(A, b, c)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{6.3} There is a unique optimal basic feasible solution for the
+problem
+
+\(x^*= (3.33\  0.33\ 10.00\  0.00\  0.00)\), \(z^*= 12\)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Implement here.}
+\NormalTok{A }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{2}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{4}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{), }\AttributeTok{nrow=}\DecValTok{3}\NormalTok{, }\AttributeTok{byrow=}\ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{b }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{2}\NormalTok{)}
+\NormalTok{c }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{4}\NormalTok{)}
+
+\FunctionTok{solveProblem\_for}\NormalTok{(A, b, c)}
+\FunctionTok{solveProblem\_apply}\NormalTok{(A, b, c)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{6.4} There are 2 optimal basic feasible solutions for the
+problem.
+
+\(x^*= (4.3\ 0.33\ 0\ 2.66\ 0)\), \(z^*= 5\)
+
+\(x^*= (0.0\  2.5\  0.0\  0.5\  6.5)\), \(z^*= 5\)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Implement here.}
+\NormalTok{A }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{), }\AttributeTok{nrow=}\DecValTok{3}\NormalTok{, }\AttributeTok{byrow=}\ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{b }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{4}\NormalTok{)}
+\NormalTok{c }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{)}
+
+\FunctionTok{solveProblem\_for}\NormalTok{(A, b, c)}
+\FunctionTok{solveProblem\_apply}\NormalTok{(A, b, c)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{6.5} There are 2 optimal basic feasible solutions for the
+problem.
+
+\(x^*= (1\ 2\ 3\ 0\ 0)\), \(z^*= 6\)
+
+\(x^*= (2.5\ 0.5\ 0.0\ 0.0\ 1.5)\), \(z^*= 6\)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Implement here.}
+\NormalTok{A }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{), }\AttributeTok{nrow=}\DecValTok{3}\NormalTok{, }\AttributeTok{byrow=}\ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{b }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{5}\NormalTok{)}
+\NormalTok{c }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{)}
+
+\FunctionTok{solveProblem\_for}\NormalTok{(A, b, c)}
+\FunctionTok{solveProblem\_apply}\NormalTok{(A, b, c)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{6.6} The problem is unbounded. Do not do.
+
+\textbf{6.7} The problem is unbounded. Do not do.
+
+\textbf{6.8} There is no feasible solution for the problem
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Implement here.}
+\NormalTok{A }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{), }\AttributeTok{nrow=}\DecValTok{3}\NormalTok{, }\AttributeTok{byrow=}\ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{b }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{2}\NormalTok{)}
+\NormalTok{c }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{)}
+
+\FunctionTok{solveProblem\_for}\NormalTok{(A, b, c)}
+\FunctionTok{solveProblem\_apply}\NormalTok{(A, b, c)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{7.1} There is a unique optimal basic feasible solution for the
+problem
+
+\(x^*= (0\  8\  0\ 12\  0)\), \(z^*= 16\)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Implement here.}
+\NormalTok{A }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{), }\AttributeTok{nrow=}\DecValTok{2}\NormalTok{, }\AttributeTok{byrow=}\ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{b }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{8}\NormalTok{)}
+\NormalTok{c }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+
+\FunctionTok{solveProblem\_for}\NormalTok{(A, b, c)}
+\FunctionTok{solveProblem\_apply}\NormalTok{(A, b, c)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{7.2} There is a unique optimal basic feasible solution for the
+problem
+
+\(x^*= (1\ 7\ 0\ 9\ 0)\), \(z^*= 12\). Sign change\ldots{}
+
+\(x^*= (-1\ 7\ 0\ 9\ 0)\), \(z^*= -12\).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Comprobado}
+\NormalTok{A }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{), }\AttributeTok{nrow=}\DecValTok{3}\NormalTok{, }\AttributeTok{byrow=}\ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{b }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{6}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{8}\NormalTok{)}
+\NormalTok{c }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{5}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{)}
+
+\FunctionTok{solveProblem\_for}\NormalTok{(A, b, c)}
+\FunctionTok{solveProblem\_apply}\NormalTok{(A, b, c)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{7.3} There is a unique optimal basic feasible solution for the
+problem
+
+\(x^*= (5\ 6\ 0\ 0\ 0\ 6)\), \(z^*= 13\). Sign change\ldots{}
+\(z^*= -13\)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Comprobado}
+\NormalTok{A }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{2}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{), }\AttributeTok{nrow=}\DecValTok{3}\NormalTok{, }\AttributeTok{byrow=}\ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{b }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{9}\NormalTok{, }\DecValTok{14}\NormalTok{, }\DecValTok{10}\NormalTok{)}
+\NormalTok{c }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{3}\NormalTok{, }\DecValTok{2}\NormalTok{)}
+
+\FunctionTok{solveProblem\_for}\NormalTok{(A, b, c)}
+\FunctionTok{solveProblem\_apply}\NormalTok{(A, b, c)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{7.4} There are 2 optimal basic feasible solutions for the
+problem
+
+\(x^*= (0\ 2\ 0\ 2\ 0\ 0)\), \(x^*= (0\ 3\ 0\ 0\ 2\ 0)\), \(z^*= -24\).
+
+Sign change\ldots{} \(z^*= 24\)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{A }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{0}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{), }\AttributeTok{nrow=}\DecValTok{2}\NormalTok{, }\AttributeTok{byrow=}\ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{b }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{12}\NormalTok{)}
+\NormalTok{c }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{4}\NormalTok{)}
+
+\FunctionTok{solveProblem\_for}\NormalTok{(A, b, c)}
+\FunctionTok{solveProblem\_apply}\NormalTok{(A, b, c)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{7.5} There are 2 optimal basic feasible solutions for the
+problem
+
+\(x^*= (4.5\ 0.0\ 0.0\ 0.5\ 0.0\ 0.0\ 0.0)\),
+
+\(x^*= (0\  0\  0\ 23\  9\  0\  0)\), \(z^*= 73\).
+
+Sign change\ldots{} \(z^*= -73\)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{A }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{4}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{2}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{), }\AttributeTok{nrow=}\DecValTok{3}\NormalTok{, }\AttributeTok{byrow=}\ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{b }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{4}\NormalTok{)}
+\NormalTok{c }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{9}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+
+\FunctionTok{solveProblem\_for}\NormalTok{(A, b, c)}
+\FunctionTok{solveProblem\_apply}\NormalTok{(A, b, c)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{7.6} There is no feasible solution for the problem.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Comprobado}
+\NormalTok{A }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{0}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{), }\AttributeTok{nrow=}\DecValTok{2}\NormalTok{, }\AttributeTok{byrow=}\ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{b }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{9}\NormalTok{, }\DecValTok{10}\NormalTok{)}
+\NormalTok{c }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{16}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{2}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{)}
+
+\FunctionTok{solveProblem\_for}\NormalTok{(A, b, c)}
+\FunctionTok{solveProblem\_apply}\NormalTok{(A, b, c)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{7.7} Unbounded problem. Do not do this exercise.
+
+\textbf{7.8} There is no feasible solution for the problem.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{A }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{0}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{), }\AttributeTok{nrow=}\DecValTok{2}\NormalTok{, }\AttributeTok{byrow=}\ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{b }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{12}\NormalTok{)}
+\NormalTok{c }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{3}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{)}
+
+\FunctionTok{solveProblem\_for}\NormalTok{(A, b, c)}
+\FunctionTok{solveProblem\_apply}\NormalTok{(A, b, c)}
+\end{Highlighting}
+\end{Shaded}
+
+
+\end{document}
