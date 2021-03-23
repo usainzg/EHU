@@ -274,7 +274,7 @@ x_{1},x_{2},x_{3},x_4\geq 0\\
 A <- matrix(c(2, 2, 2, 2, -1, 0, 0, 4, 4, 1, 4, 0, 1, 0, 2, 8, 2, 1, 0, 0, -1), nrow=3, byrow=TRUE)
 b <- c(22, 20, 15)
 c <- c(-2, -1, -3, -2)
-# Change the sign!!!
+# Change the sign of the Z optimal value.
 solveProblem_for(A, b, c)
 solveProblem_apply(A, b, c)
 ```
@@ -336,7 +336,6 @@ c <- c(3, 4)
 
 solveProblem_for(A, b, c)
 solveProblem_apply(A, b, c)
-
 ```
 
 \pagebreak
@@ -459,7 +458,6 @@ $x^*= (1\ 7\ 0\ 9\ 0)$, $z^*= 12$. Sign change...
 $x^*= (-1\ 7\ 0\ 9\ 0)$, $z^*= -12$.
 
 ```{r, eval=FALSE}
-# Comprobado
 A <- matrix(c(1, 1, -1, 0, 0, 1, 2, -1, -1, 0, -1, 1, 2, 0, 1), nrow=3, byrow=TRUE)
 b <- c(6, 4, 8)
 c <- c(-5, 1, 2)
@@ -474,7 +472,6 @@ solveProblem_apply(A, b, c)
 $x^*= (5\ 6\ 0\ 0\ 0\ 6)$, $z^*= 13$. Sign change... $z^*= -13$
   
 ```{r, eval=FALSE}
-# Comprobado
 A <- matrix(c(3, -1, 2, 1, 0, 0, -2, 4, 1, 0, 1, 0, -4, 4, 8, 0, 0, 1), nrow=3, byrow=TRUE)
 b <- c(9, 14, 10)
 c <- c(1, -3, 2)
@@ -518,7 +515,6 @@ solveProblem_apply(A, b, c)
 **7.6** There is no feasible solution for the problem.
 
 ```{r, eval=FALSE}
-# Comprobado
 A <- matrix(c(3, 2, 2, 1, 1, 1, 0, 2, 1, 3, 2, 2, 0, -1), nrow=2, byrow=TRUE)
 b <- c(9, 10)
 c <- c(16, -2, -1, 2, 3)
