@@ -1,0 +1,626 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+
+\hypertarget{operations-research}{%
+\section{Operations Research}\label{operations-research}}
+
+\hypertarget{laboratory-session-3-solving-linear-models-with-r}{%
+\section{Laboratory Session 3: Solving linear models with
+R}\label{laboratory-session-3-solving-linear-models-with-r}}
+
+\textbf{by Josu Ceberio and Ana Zelaia}
+
+The aim of this laboratory session is to implement some functions in R
+to solve linear models.
+
+\hypertarget{solving-linear-models}{%
+\section{Solving linear models}\label{solving-linear-models}}
+
+The graphical solution of linear models shows in a very intuitive way
+that the optimal solution of a linear model is an extreme point of the
+convex set of feasible solutions. If the problem has multiple optimal
+solutions, at least one of them is an extreme point of the set. However,
+the graphical solution cannot be used to solve linear models with more
+than three variables and linear models normally have a large number of
+variables.
+
+In the process of developing an algebraic method to solve linear models,
+we analyzed two theorems that demonstrate that, if a linear model is
+feasible, it is possible to solve it in an algebraic way. They both
+consider a linear model in maximization standard form
+(\({\bf b}\geq {\bf 0}\)):
+
+\vspace{-0.5cm}
+
+\begin{eqnarray*}
+\max\ \ z= \ \ {\bf c}^{T}{\bf x} \\
+\mbox{subject to}\hspace{1cm}\\
+{\bf A}{\bf x} = {\bf b} \\
+{\bf x} \geq {\bf 0}
+\end{eqnarray*}
+
+\vspace{-0.5cm}
+
+and state the following:
+
+\begin{itemize}
+\item An optimal solution to a linear model is an extreme point of the feasible region.
+\item Every extreme point corresponds to a basic feasible solution, and conversely, every basic feasible solution corresponds to an extreme point.
+\end{itemize}
+
+Linear models have a finite number of basic solutions at most and,
+therefore, it is possible to compute all of them, select only the
+feasible ones and check the objective function to see which is the
+optimal. However, it is clear that this is not an efficient method.
+Moreover, the analysis of all the basic feasible solutions does not
+allow to detect unbounded problems.
+
+In 1947 George Dantzig, the ``Father of Linear Programming'' developed
+the simplex algorithm to solve linear problems. It has been declared to
+be one of the Top 10 algorithms of the 20th century, because of its
+great influence on the development and practice of science and
+engineering. The simplex algorithm computes basic feasible solutions and
+finds the optimal in a very efficient way. Moreover, it handles
+unbounded problems appropriately.
+
+In this 3rd lab session, we will implement R functions to solve linear
+models as if the simplex algorithm did not exist: given a linear model
+written in maximization standard form, we will compute all the basic
+solutions. Checking their feasibility and choosing the optimal one will
+be the tasks to work in the 4th lab session. In both lab sessions, we
+will not consider unbounded problems.
+
+\hypertarget{some-interesting-r-built-in-functions}{%
+\section{Some interesting R built-in
+functions}\label{some-interesting-r-built-in-functions}}
+
+Given the \(Ax=b\) system of linear equations, the R functions below
+will be useful, during the implementation process, to verify whether a
+set of columns of the matrix form a basis, to calculate a basic solution
+or to find linear combinations of the columns in the matrix.
+
+\textbf{Function \texttt{det(B)}}. A system of linear equations may be
+inconsistent. To check if some columns in matrix \({\bf A}\) form a
+basis, function \texttt{det} can be used. If the system is consistent, a
+solution can be computed.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{det}\NormalTok{(A[,}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{)])}\SpecialCharTok{!=}\DecValTok{0}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Function \texttt{solve(B,b)}}. This function can be used to
+solve systems of linear equations that are consistent.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{solve}\NormalTok{(A[,}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{)], b)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Function \texttt{combn(x,m)}}. Given a system of linear
+equations, to compute all the basic solutions, we will have to analyze
+all the combinations of columns of matrix \({\bf A}\) that may form a
+basis. Function \texttt{combn(x,m)} generates all combinations of the
+elements of vector \(x\) taking \(m\) at a time and returns a matrix
+with a column for each combination generated.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{4}\NormalTok{)}
+\NormalTok{x}
+\CommentTok{\# [1] 1 2 3 4}
+\FunctionTok{combn}\NormalTok{(x, }\DecValTok{2}\NormalTok{)}
+\CommentTok{\#     [,1] [,2] [,3] [,4] [,5] [,6]}
+\CommentTok{\# [1,]  1    1    1    2    2    3}
+\CommentTok{\# [2,]  2    3    4    3    4    4}
+\FunctionTok{combn}\NormalTok{(x, }\DecValTok{2}\NormalTok{)[,}\DecValTok{1}\NormalTok{]}
+\CommentTok{\# [1] 1 2}
+\NormalTok{A[,}\FunctionTok{combn}\NormalTok{(x, }\DecValTok{2}\NormalTok{)[,}\DecValTok{1}\NormalTok{]]}
+\FunctionTok{solve}\NormalTok{(A[,}\FunctionTok{combn}\NormalTok{(x, }\DecValTok{2}\NormalTok{)[,}\DecValTok{1}\NormalTok{]], b)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{exercises}{%
+\section{Exercises}\label{exercises}}
+
+\textbf{Exercise 1.} The \texttt{basic.solution} function.
+
+Given a matrix \({\bf A}\), a vector
+\({\bf b}\)(\({\bf b}\geq {\bf 0}\)) and a vector of column-indices for
+\({\bf A}\), define a function that extracts those columns from
+\({\bf A}\) and checks if they form a basis. If they do, the function
+returns the corresponding basic solution: a vector with the values for
+all the variables of the system. If they don't, the function returns a
+vector with the values for all the variables of the system set to -1.
+
+To check the correctness of the functions implemented, let us consider
+the following linear model: \vspace{-0.5cm} \begin{eqnarray*}
+\max\ z=3x_{1}+4x_{2}+5x_3+6x_4 \\
+\mbox{subject to}\hspace{3.5cm}\\
+2x_{1}+x_{2}+x_3+8x_4 = 6    \\
+x_{1}+x_{2}+2x_3+x_{4}=4 \\
+x_{1},x_{2},x_{3},x_{4}\geq 0  \\
+\end{eqnarray*}
+
+\vspace{-0.5cm}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{A }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{), }\AttributeTok{nrow=}\DecValTok{2}\NormalTok{, }\AttributeTok{byrow=}\ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{b }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{6}\NormalTok{, }\DecValTok{4}\NormalTok{)}
+\NormalTok{c }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{6}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{basic.solution }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(A, b, column.ind.vector)\{}
+  \CommentTok{\# We initialize an array with zeros 1...ncol(A) positions}
+\NormalTok{  x }\OtherTok{\textless{}{-}} \FunctionTok{double}\NormalTok{(}\FunctionTok{ncol}\NormalTok{(A))}
+  
+  \CommentTok{\# Check if the system of linear equations is consistent}
+  \ControlFlowTok{if}\NormalTok{(}\FunctionTok{det}\NormalTok{(A[,column.ind.vector]) }\SpecialCharTok{!=} \DecValTok{0}\NormalTok{)\{}
+    \CommentTok{\# Solve the system using the solve() method}
+\NormalTok{    x[column.ind.vector] }\OtherTok{\textless{}{-}} \FunctionTok{solve}\NormalTok{(A[,column.ind.vector], b)}
+\NormalTok{  \} }\ControlFlowTok{else}\NormalTok{ \{}
+    \CommentTok{\# Not consistent =\textgreater{} return array with all "{-}1" elements}
+\NormalTok{    x }\OtherTok{\textless{}{-}} \FunctionTok{rep}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\AttributeTok{times =} \FunctionTok{ncol}\NormalTok{(A))}
+\NormalTok{  \}}
+  \FunctionTok{return}\NormalTok{(x)}
+\NormalTok{\}}
+
+\FunctionTok{basic.solution}\NormalTok{(A, b, }\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+\CommentTok{\# x1=0.0000000, x2=0.0000000, x3=1.7333333, x4=0.5333333}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Exercise 2.} The \texttt{all.basic\_solutions} functions: with
+\texttt{for} and \texttt{apply} loops (two versions).
+
+Given a matrix \({\bf A}\) and a vector \({\bf b}\)
+(\({\bf b}\geq {\bf 0}\)), compute all the basic feasible solutions.
+Propose two different implementations: using the \texttt{for} loop(s)
+and with the \texttt{apply} functions.
+
+\textbf{2.1.} Using \texttt{for} loops. Try returning the solutions in a
+list. To test your implementation, you can use the same linear model as
+in Exercise 1.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{all.basic\_solutions\_for }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(A, b)\{}
+  \CommentTok{\# Generate all combinations of the elements of c(1...ncol(A)) taking nrow(A) at a time,}
+  \CommentTok{\# this generates a matrix with columns for each combination.}
+\NormalTok{  comb }\OtherTok{\textless{}{-}} \FunctionTok{combn}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\FunctionTok{ncol}\NormalTok{(A)), }\FunctionTok{nrow}\NormalTok{(A))}
+  
+  \CommentTok{\# List for the result return}
+\NormalTok{  lst }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{()}
+  
+  \CommentTok{\# Iterate from 1...ncol(comb), for each iteration,}
+  \CommentTok{\# compute the solution using previously coded method and passing}
+  \CommentTok{\# the combination (column vector) at position c of the comb matrix.}
+  \CommentTok{\# Save the result in the created list.}
+  \ControlFlowTok{for}\NormalTok{ (c }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{ncol}\NormalTok{(comb)) \{}
+\NormalTok{    lst[[c]] }\OtherTok{\textless{}{-}} \FunctionTok{basic.solution}\NormalTok{(A, b, comb[, c])}
+\NormalTok{  \}}
+  \FunctionTok{return}\NormalTok{(lst)}
+\NormalTok{\}}
+\CommentTok{\# This function returns a list.}
+\FunctionTok{all.basic\_solutions\_for}\NormalTok{(A,b)}
+\DocumentationTok{\#\# [[1]]}
+\DocumentationTok{\#\# [1] 2 2 0 0}
+\DocumentationTok{\#\#}
+\DocumentationTok{\#\# [[2]]}
+\DocumentationTok{\#\# [1] 2.6666667 0.0000000 0.6666667 0.0000000}
+\DocumentationTok{\#\#}
+\DocumentationTok{\#\# [[3]]}
+\DocumentationTok{\#\# [1] 4.3333333  0.0000000  0.0000000 {-}0.3333333}
+\DocumentationTok{\#\#}
+\DocumentationTok{\#\# [[4]]}
+\DocumentationTok{\#\# [1] 0 8 {-}2 0}
+\DocumentationTok{\#\#}
+\DocumentationTok{\#\# [[5]]}
+\DocumentationTok{\#\# [1] 0.0000000 3.7142857 0.0000000 0.2857143}
+\DocumentationTok{\#\#}
+\DocumentationTok{\#\# [[6]]}
+\DocumentationTok{\#\# [1] 0.0000000 0.0000000 1.7333333 0.5333333}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{2.2.} Using \texttt{apply} loops. Try returning the solutions in
+a matrix. To test your implementation, you can use the same linear model
+as in Exercise 1.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{all.basic\_solutions\_apply }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(A,b)\{}
+  \CommentTok{\# As in the previous exercise, create a combinations matrix.}
+\NormalTok{  comb }\OtherTok{\textless{}{-}} \FunctionTok{combn}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\FunctionTok{ncol}\NormalTok{(A)), }\FunctionTok{nrow}\NormalTok{(A))}
+  
+  \CommentTok{\# This apply loop, iterates over the columns of the comb matrix,}
+  \CommentTok{\# and for each column vector, calls the basic.solution using that column to }
+  \CommentTok{\# calculate the solution.}
+  \CommentTok{\# Returns a matrix with the basic solutions as columns.}
+  \FunctionTok{return}\NormalTok{(}\FunctionTok{apply}\NormalTok{(comb, }\DecValTok{2}\NormalTok{, basic.solution, }\AttributeTok{A=}\NormalTok{A, }\AttributeTok{b=}\NormalTok{b))}
+\NormalTok{\} }
+
+\CommentTok{\# This function returns a matrix. Basic solutions are shown in columns}
+\FunctionTok{all.basic\_solutions\_apply}\NormalTok{(A,b) }
+
+\DocumentationTok{\#\#    [,1]      [,2]       [,3] [,4]      [,5]      [,6]}
+\DocumentationTok{\#\#[1,]    2 2.6666667  4.3333333    0 0.0000000 0.0000000}
+\DocumentationTok{\#\#[2,]    2 0.0000000  0.0000000    8 3.7142857 0.0000000}
+\DocumentationTok{\#\#[3,]    0 0.6666667  0.0000000   {-}2 0.0000000 1.7333333}
+\DocumentationTok{\#\#[4,]    0 0.0000000 {-}0.3333333    0 0.2857143 0.5333333}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Exercise 3.} The \texttt{basic.feasible.solutions} functions:
+with \texttt{for} and \texttt{apply} functions (two versions).
+
+Adapt the implementations in exercise 2 to return only the basic
+solutions that are feasible.
+
+\textbf{3.1.} Adaptation of the functions using \texttt{for} loops. Try
+returning the solutions in a list. To test your implementation, you can
+use the same linear model as in Exercise 1.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{basic.feasible.solutions\_for }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(A, b)\{}
+  \CommentTok{\# With the previous exercises we get the basic solutions, but}
+  \CommentTok{\# we dont know if all of them are feasible.}
+  \CommentTok{\# To check it, we iterate over the solution and if all element are }
+  \CommentTok{\# greater or equal to 0 =\textgreater{} add to result list.}
+\NormalTok{  lst }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{()}
+\NormalTok{  x }\OtherTok{\textless{}{-}} \FunctionTok{all.basic\_solutions\_for}\NormalTok{(A, b)}
+\NormalTok{  i }\OtherTok{\textless{}{-}} \DecValTok{1}
+  \ControlFlowTok{for}\NormalTok{ (t }\ControlFlowTok{in}\NormalTok{ x) \{}
+    \ControlFlowTok{if}\NormalTok{ (}\FunctionTok{all}\NormalTok{(t }\SpecialCharTok{\textgreater{}=} \DecValTok{0}\NormalTok{)) \{ }\CommentTok{\# Check if all elements in t are \textgreater{}= 0.}
+\NormalTok{      lst[[i]] }\OtherTok{\textless{}{-}}\NormalTok{ t}
+\NormalTok{      i }\OtherTok{\textless{}{-}}\NormalTok{ i }\SpecialCharTok{+} \DecValTok{1}
+\NormalTok{    \}}
+\NormalTok{  \}}
+  \FunctionTok{return}\NormalTok{(lst)}
+\NormalTok{\}}
+\CommentTok{\# This function returns a list.}
+\FunctionTok{basic.feasible.solutions\_for}\NormalTok{(A,b)}
+\DocumentationTok{\#\# [[1]]}
+\DocumentationTok{\#\# [1] 2 2 0 0}
+\DocumentationTok{\#\# }
+\DocumentationTok{\#\# [[2]]}
+\DocumentationTok{\#\# [1] 2.6666667 0.0000000 0.6666667 0.0000000}
+\DocumentationTok{\#\# }
+\DocumentationTok{\#\# [[3]]}
+\DocumentationTok{\#\# [1] 0.0000000 3.7142857 0.0000000 0.2857143}
+\DocumentationTok{\#\# }
+\DocumentationTok{\#\# [[4]]}
+\DocumentationTok{\#\# [1] 0.0000000 0.0000000 1.7333333 0.5333333}
+\CommentTok{\#}
+\CommentTok{\# Interpretation: There are four basic feasible solutions. }
+\CommentTok{\# x1=2, x2=2, x3=0, x4=0}
+\CommentTok{\# x1=2.6666667, x2=0.0000000, x3=0.6666667, x4=0.0000000}
+\CommentTok{\# x1=0.0000000, x2=3.7142857, x3=0.0000000, x4=0.2857143}
+\CommentTok{\# x1=0.0000000, x2=0.0000000, x3=1.7333333, x4=0.5333333}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{3.2.} Adaptation of the functions using \texttt{apply} loops.
+Try returning the solutions in a matrix. To test your implementation,
+you can use the same linear model as in Exercise 1.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{basic.feasible.solutions\_apply }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(A,b)\{}
+  \CommentTok{\# The same as the 3.1 exercise, but in this case we use apply loops.}
+  \CommentTok{\# {-} First of all, we take all the basic solutions with the method}
+  \CommentTok{\# implemented in the exercise 2.2.}
+\NormalTok{  x }\OtherTok{\textless{}{-}} \FunctionTok{all.basic\_solutions\_apply}\NormalTok{(A, b)}
+  
+  \CommentTok{\# {-} To filter this matrix and remove the columns (solutions) that are not }
+  \CommentTok{\# feasible (not all elements in the vector is \textgreater{}= 0), we do not select the }
+  \CommentTok{\# columns with a number of negative elements (x \textless{} 0) greater or equal to 1.}
+  \FunctionTok{return}\NormalTok{(x[, }\SpecialCharTok{!}\FunctionTok{apply}\NormalTok{(x, }\DecValTok{2}\NormalTok{, }\ControlFlowTok{function}\NormalTok{(x) }\FunctionTok{sum}\NormalTok{( x }\SpecialCharTok{\textless{}} \DecValTok{0}\NormalTok{ ) }\SpecialCharTok{\textgreater{}=} \DecValTok{1}\NormalTok{)])}
+\NormalTok{\} }
+\CommentTok{\# This function returns a matrix. Basic solutions are shown in columns}
+\FunctionTok{basic.feasible.solutions\_apply}\NormalTok{(A,b)  }
+\DocumentationTok{\#\#      [,1]      [,2]      [,3]      [,4]}
+\DocumentationTok{\#\# [1,]    2 2.6666667 0.0000000 0.0000000}
+\DocumentationTok{\#\# [2,]    2 0.0000000 3.7142857 0.0000000}
+\DocumentationTok{\#\# [3,]    0 0.6666667 0.0000000 1.7333333}
+\DocumentationTok{\#\# [4,]    0 0.0000000 0.2857143 0.5333333}
+
+\CommentTok{\# Interpretation: There are four basic feasible solutions. }
+\CommentTok{\# x1=2, x2=2, x3=0, x4=0}
+\CommentTok{\# x1=2.6666667, x2=0.0000000, x3=0.6666667, x4=0.0000000}
+\CommentTok{\# x1=0.0000000, x2=3.7142857, x3=0.0000000, x4=0.2857143}
+\CommentTok{\# x1=0.0000000, x2=0.0000000, x3=1.7333333, x4=0.5333333}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{linear-problems-for-testing}{%
+\section{Linear problems for
+testing}\label{linear-problems-for-testing}}
+
+Solve the following linear models using the functions defined, and check
+the solution.
+
+\textbf{System of linear equations from exercise 6 of the unit ``Linear
+Algebra''.}
+
+Let us consider the following system of linear equations:
+
+\[
+\begin{array}{l}
+      \ \ 2x_{1}+3x_{2}-x_3 \hspace{2cm}= 1    \\
+      \ \ \ x_{1}+\ \ x_{2} \hspace{1cm}+x_{4}\hspace{1cm}=3 \\
+      -x_{1}+2x_{2}\hspace{2cm}+x_{5}=5 \\
+      \end{array}
+\]
+
+Definition of matrix A and vector b:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{A }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{), }\AttributeTok{nrow=}\DecValTok{3}\NormalTok{, }\AttributeTok{byrow=}\ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{b }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{1.} Calculate the basic solutions one by one using the function
+\texttt{basic.solution}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Implement here (10 lines)}
+\FunctionTok{basic.solution}\NormalTok{(A, b, }\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{))}
+\FunctionTok{basic.solution}\NormalTok{(A, b, }\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{4}\NormalTok{))}
+\FunctionTok{basic.solution}\NormalTok{(A, b, }\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{5}\NormalTok{))}
+\FunctionTok{basic.solution}\NormalTok{(A, b, }\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{))}
+\FunctionTok{basic.solution}\NormalTok{(A, b, }\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{5}\NormalTok{))}
+\FunctionTok{basic.solution}\NormalTok{(A, b, }\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{))}
+\FunctionTok{basic.solution}\NormalTok{(A, b, }\FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{))}
+\FunctionTok{basic.solution}\NormalTok{(A, b, }\FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{5}\NormalTok{))}
+\FunctionTok{basic.solution}\NormalTok{(A, b, }\FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{))}
+\FunctionTok{basic.solution}\NormalTok{(A, b, }\FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{2.} Calculate all the basic solutions using the function
+\texttt{all.basic\_solutions}.
+
+\textbf{2.1.} Use the \texttt{for} version calling to the function
+\texttt{all.basic\_solutions\_for}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Implement here (1 line)}
+\FunctionTok{all.basic\_solutions\_for}\NormalTok{(A, b)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{2.2.} Use the \texttt{apply} version calling to the function
+\texttt{all.basic\_solutions\_apply}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Implement here (1 line)}
+\FunctionTok{all.basic\_solutions\_apply}\NormalTok{(A, b)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{3.} Return exclusively the basic solutions that are feasible. To
+that end, use the function \texttt{basic.feasible.solutions}.
+
+\textbf{3.1.} Use the \texttt{for} version calling to the function
+\texttt{basic.feasible.solutions\_for}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Implement here (1 line)}
+\FunctionTok{basic.feasible.solutions\_for}\NormalTok{(A, b)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{3.2.} Use the \texttt{apply} version calling to the function
+\texttt{basic.feasible.solutions\_applyr}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Implement here (1 line)}
+\FunctionTok{basic.feasible.solutions\_apply}\NormalTok{(A, b)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{System of linear equations from exercise 2 of the list of
+exercises of the unit ``The simplex method''.}
+
+Let us consider the following system of linear equations: \[
+\begin{array}{l}
+      -x_{1}+\ \ x_{2}+x_3 \hspace{2cm}= \ \ 4    \\
+      \ \ 2x_{1}+5x_{2} \hspace{1cm}+x_{4}\hspace{1cm}=20 \\
+      \ \ 2x_{1}-\ x_{2}\hspace{2cm}+x_{5}=\ \ 2 \\
+      \end{array}
+\] Definition of matrix A and vector b:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{A }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{), }\AttributeTok{nrow=}\DecValTok{3}\NormalTok{, }\AttributeTok{byrow=}\ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{b }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{1.} Calculate the basic solutions one by one using the function
+\texttt{basic.solution}..
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Implement here (10 lines)}
+\FunctionTok{basic.solution}\NormalTok{(A, b, }\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{))}
+\FunctionTok{basic.solution}\NormalTok{(A, b, }\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{4}\NormalTok{))}
+\FunctionTok{basic.solution}\NormalTok{(A, b, }\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{5}\NormalTok{))}
+\FunctionTok{basic.solution}\NormalTok{(A, b, }\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{))}
+\FunctionTok{basic.solution}\NormalTok{(A, b, }\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{5}\NormalTok{))}
+\FunctionTok{basic.solution}\NormalTok{(A, b, }\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{))}
+\FunctionTok{basic.solution}\NormalTok{(A, b, }\FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{))}
+\FunctionTok{basic.solution}\NormalTok{(A, b, }\FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{5}\NormalTok{))}
+\FunctionTok{basic.solution}\NormalTok{(A, b, }\FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{))}
+\FunctionTok{basic.solution}\NormalTok{(A, b, }\FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{2.} Calculate all the basic solutions using the function
+\texttt{all.basic\_solutions}.
+
+\textbf{2.1.} Use the \texttt{for} version calling to the function
+\texttt{all.basic\_solutions\_for}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Implement here (1 line)}
+\FunctionTok{all.basic\_solutions\_for}\NormalTok{(A, b)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{2.2.} Use the \texttt{apply} version calling to the function
+\texttt{all.basic\_solutions\_apply}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Implement here (1 line)}
+\FunctionTok{all.basic\_solutions\_apply}\NormalTok{(A, b)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{3.} Return exclusively the basic solutions that are feasible. To
+that end, use the function \texttt{basic.feasible.solutions}.
+
+\textbf{3.1.} Use the \texttt{for} version calling to the function
+\texttt{basic.feasible.solutions\_for}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Implement here (1 line)}
+\FunctionTok{basic.feasible.solutions\_for}\NormalTok{(A, b)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{3.2.} Use the \texttt{apply} version calling to the function
+\texttt{basic.feasible.solutions\_apply}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Implement here (1 line)}
+\FunctionTok{basic.feasible.solutions\_apply}\NormalTok{(A, b)}
+\end{Highlighting}
+\end{Shaded}
+
+
+\end{document}
