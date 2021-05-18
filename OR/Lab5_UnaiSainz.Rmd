@@ -52,9 +52,7 @@ First, the linear model has to be defined. Some very useful functions are the fo
 ```{r, eval=FALSE}
 rm(list=ls())
 model.example <- make.lp(nrow=4, ncol=3)
-model.example
 set.objfn(lprec=model.example, obj=c(-40, -92.5, -115), indices=1:3)
-model.example
 set.column(lprec=model.example, column=1, x=c(0.05, 0.1, 0.05, 1))
 set.column(lprec=model.example, column=2, x=c(0.05, 0.1, 0.1, 0))
 set.column(lprec=model.example, column=3, x=c(0.1, 0.1, 0.1, 0))
@@ -93,7 +91,7 @@ model.example
 Function `solve` can be used to solve a linear model, once the object has been created. For more information, type `?solve.lpExtPtr` on RStudio "help" window. An integer value that contains the status code is returned; if 0 is returned, this means that the optimal solution was found. Moreover, some more information is shown on the screen. To see the optimal solution and optimal objective value, functions `get.variables` and `get.objective` can be used. 
 
 ```{r, eval=FALSE}
-?solve.lpExtPtr
+# ?solve.lpExtPtr
 solve(model.example)
 get.variables(model.example)
 get.objective(model.example)
@@ -113,7 +111,7 @@ Some very useful functions are: `get.sensitivity.rhs` to obtain the values of th
 
 ```{r, eval=FALSE}
 rm(list=ls())
-model.example <- read.lp(file="model_exercise_12.lp", type="lp", verbose="full")
+model.example <- read.lp(file="model_exercise_12.lp", type="lp")
 model.example
 solve(model.example)
 get.variables(model.example) 
