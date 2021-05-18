@@ -81,32 +81,22 @@ In the following, you are asked to use the function `tspProblem` to create the o
 ```{r, eval=FALSE,echo=TRUE}
 # Create the TSP object
 # WRITE HERE (1 line of code)
-
-
-
+tsp <- metaheuR::tspProblem(m)
 
 # Generate two solutions at random 
 # WRITE HERE (2 lines of code)
-
-
-
-
+permR1 <- metaheuR::randomPermutation(n)
+permR2 <- metaheuR::randomPermutation(n)
 
 # Generate the permutation (1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20)
 # WRITE HERE (1 line of code)
-
-
-
-
+perm <- metaheuR::permutation(c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20))
 
 # Compute the objective value for the three solutions
 # WRITE HERE (3 lines of code)
-
-
-
-
-
-
+tsp$evaluate(permR1)
+tsp$evaluate(permR2)
+tsp$evaluate(perm)
 ```
 
 ## Questions:
