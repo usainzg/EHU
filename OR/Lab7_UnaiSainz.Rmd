@@ -1,0 +1,263 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+  
+# Operations Research. Laboratory Session
+# Heuristic Optimization with `metaheuR`. 
+# (Experimenting with different neighborhoods in Local Search)
+# (The LOP problem)
+
+The aim of this laboratory session is to continue learning how to implement heuristic algorithms for solving combinatorial optimization problems using the `metaheuR` package in R. Be careful, in R there exists a package called `metaheur`, but that's not the one we'll use. 
+
+# 1. Installing `metaheuR` 
+
+You can install it directly from RStudio. Download the file `metaheuR_0.3.tar.gz` from the eGela platform to a working directory in your computer. I saved it here:
+
+/Users/JosuC/Desktop
+
+To install the package, write the path that corresponds to the working directory where you saved the file `metaheuR_0.3.tar.gz` and execute the following commands:
+```{r, eval=FALSE,echo=TRUE}
+if (!require("ggplot2")) install.packages("ggplot2", dependencies=TRUE)
+library(ggplot2)
+library(metaheuR)
+```
+
+Once the package is installed and loaded, you can go to RStudio "Packages" and click on the name of the package to see the help pages of all the functions defined in it. 
+
+For more extensive documentation, the book "*Bilaketa Heuristikoak: Teoria eta Adibideak R lengoaian*" published by the UPV/EHU is suggested. It is written in Basque and freely accessible in:
+
+https://addi.ehu.es/handle/10810/25757
+
+# 2. The Linear Ordering Problem (LOP)
+With illustrative purposes, in the current session, the Linear Ordering Problem (LOP) will be considered.The LOP problem is stated as follows: given a matrix $B=[b_{i,j}]_{n\times n}$ of weights, find the simultaneous permutation $\sigma$ of the $n$ rows and columns that maximizes the sum of the weights $b_{i,j}$ localted in the upper triangle of the matrix (above the main diagonal). 
+
+For more information about this  NP-hard problem, have a look at these references or search for new ones at Google Scholar:
+\begin{itemize}
+\item "The Linear Ordering Problem Revisited". Josu Ceberio, Alexander Mendiburu, José Antonio Lozano (2014). http://hdl.handle.net/10810/11178
+\item "Linear Ordering Problem". Martí, Reinelt and Duarte (2009). Problem description, the LOP formulated as 0/1 linear integer programming problem, etc. http://grafo.etsii.urjc.es/optsicom/lolib/
+\end{itemize}
+
+A very small instance of a LOP problem is the matrix of weights shown in the first matrix below. In this LOP instance, there are $n=4$ rows and columns. The second matrix represents a different order for rows and columns: row 3 (and column 3) are placed in the first position (either row or column) in the matrix and row 1 (and column 1) in the third position.
+\begin{center}
+$\begin{array}{c|rrrr|r|rrrr|}
+
+\multicolumn{1}{c}{} & 1 & 2 & 3 & \multicolumn{1}{c}{4}& 
+       \multicolumn{1}{c}{\hspace{2cm} } & 3 & 2 & 1 & \multicolumn{1}{c}{4} \\
+\cline{2-5} \cline{7-10}
+1 & 0 & 2 & 1 & 3 &   3 & 0 & 3 & 2 & 5\\
+2 & 4 & 0 & 1 & 5 &   2 & 1 & 0 & 4 & 5\\
+3 & 2 & 3 & 0 & 5 &   1 & 1 & 2 & 0 & 3\\
+4 & 1 & 2 & 1 & 0 &   4 & 1 & 2 & 1 & 0\\
+\cline{2-5} \cline{7-10}
+\end{array}$
+\end{center}
+
+Note: The implementation in `metaheuR` does not maximize the sum of values in the upper triangle. Instead, it minimizes the sum of values under the diagonal. In fact, it is equivalent, but, be careful: when you compare two solutions, the optimum is the minimum for `metaheuR`.
+
+## Formulating the problem in RStudio
+First of all, we need to define the problem. If the problem is small, we can introduce the matrix of weights directly in RStudio. Let's introduce the very small $4 \times 4$ instance of a LOP problem shown previously.
+
+
+```{r, eval=FALSE}
+# LOP problem of the sheet of exercises (4x4 matrix of weights).
+# Introduce the data and create the matrix object with it.
+# WRITE HERE (2 lines of code)
+data_mini <- c(0, 2, 1, 3, 4, 0, 1, 5, 2, 3, 0, 5, 1, 2, 1, 0)
+mini_m <- matrix(data = data, nrow = 4, ncol = 4, byrow = TRUE)
+```
+
+In the lab we'll use the particular instance of a LOP problem downloaded from the eGela platform: *N-be75eec_30*. It is a text file, you can open it using any text editor. 
+
+Think about the necessary functions to read the file from RStudio, compute the number of rows (columns) and create the appropriate R object from the given set of values. 
+
+```{r, eval=FALSE}
+# Read the data from file N-be75eec and create the appropriate R object.
+# WRITE HERE (3-4 lines of code) 
+file <- "N-be75eec_30.txt"
+data <- scan(file)
+n <- sqrt(length(data))
+m <- matrix(data, nrow = n, ncol = n, byrow = TRUE)
+```
+
+
+## Questions:
+* What is the most appropriate codification to represent the solutions for the LOP problem?
+  
+* Does the "swap" operator guarantee integrity? And, connectivity? And, the "insert" operator?
+  
+* How many solutions are there in the search space for two LOP problems considered? The very small $4 \times 4$ problem and the instance read from file *N-be75eec_30*?
+
+* Are neighboring solutions computed by the "swap" and "insert" operators similar?
+
+# 3. Solving the problem with `metaheuR`
+Once the matrix of weights for the LOP problem has been defined, the function `lopProblem` implemented in `metaheuR` can be used. Have a look at the `lopProblem` function in the help pages in RStudio.
+
+In the following, you are asked to use it to create the object associated to the matrix of weights defined at the beginning of this lab session. After that, generate a solution (the one that considers rows and columns as they are in the matrix of weights) and compute its objective value. 
+
+For the very small example:
+
+```{r, eval=FALSE}
+# Create the LOP object 
+# WRITE HERE (1 line of code)
+mini_problem <- metaheuR::lopProblem(mini_m)
+
+# Generate the solutions that considers rows and columns as they are and compute its objective value
+# WRITE HERE (2 lines of code)
+perm <- metaheuR::permutation(c(1, 2, 3, 4))
+mini_problem$evaluate(perm)
+
+# Generate the solutions that corresponds to the second table.
+# WRITE HERE (2 lines of code)
+perm_second <- metaheuR::permutation(c(3, 2, 1, 4))
+mini_problem$evaluate(perm_second)
+```
+
+For the instance of a LOP problem downloaded from the eGela platform (*N-be75eec_30*):
+
+```{r, eval=FALSE}
+# Create the LOP object
+# WRITE HERE (1 line of code)
+problem <- metaheuR::lopProblem(m)
+
+# Generate the solutions that considers rows and columns as they are and compute its objective value
+# WRITE HERE (2 lines of code)
+perm_problem <- metaheuR::permutation(c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30))
+problem$evaluate(perm_problem)
+```
+
+# 4. Local search ("swap" and "insert" neighborhoods)
+Local search is a heuristic method that is based on the intuition about the searching process: given a solution, the idea is to find better solutions in its neighborhood. At each iteration, the algorithm keeps a current solution and substitutes it with another one in the neighborhood. We already worked with it in the previous laboratory session. 
+
+The efficiency of the algorithm is highly related to the shape of the neighborhood selected. In this lab session we are going to experiment with two different neighborhoods: the ones generated by the "swap" and the "insert" operators. The aim is to estimate the number of local optima in each of the neighborhoods, to select the most efficient one. You can use the functions `swapNeighborhood` and  `insertNeighborhood` implemented in `metaheuR`. 
+
+```{r, eval=FALSE}
+# For the solution that considers rows and columns in the same order as they are, 
+# create a "swap" neighborhood object
+# WRITE HERE (2 lines of code)
+swaped <- metaheuR::swapNeighborhood(perm_problem)
+# Now, create an "insert" neighborhood object for the same solution
+# WRITE HERE (1 line of code)
+inserted <- metaheuR::insertNeighborhood(perm_problem)
+```
+
+Having the initial solution and the neighborhoods defined, now we'll apply the `basicLocalSearch` function, as we did in the previous lab session. You can have a look at the help pages to see how to use it. It requires quite a lot of parameters. 
+
+As we have seen in the theory, there are different strategies to select a solution among the ones in the neighborhood during the searching process. In the previous lab we applied a greedy strategy to select a solution in the neighborhood with `greedySelector`. This time we can experiment with another option and select the first neighbor that improves the current solution, `firstImprovementSelector`. We will consider the two options and compare the results.
+
+According to the resources available for the searching process, this time we will limit them as follows: the execution time (10 seconds), the number of evaluations performed ($100n^2$) and the number of iterations to be carried out ($100n$), being $n$ the size of the problem.  
+
+According to the neighborhoods, we've got two to select and compare: the "insert neighborhood" and the "swap neighborhood" created previously. 
+
+Once all the parameters are ready, the searching process can start. Try with the different options for the parameters mentioned.
+
+```{r, eval=FALSE}
+# WRITE HERE (11-12 lines of code)
+sol_swaped <- metaheuR::basicLocalSearch(evaluate = problem$evaluate, 
+                                  initial.solution = perm_problem, 
+                                  neighborhood = swaped, 
+                                  selector = metaheuR::firstImprovementSelector, 
+                                  non.valid = 'discard', 
+                                  resources = metaheuR::cResource(time = 10, evaluations = 100 * n * n, iterations = 100 * n))
+
+sol_inserted <- metaheuR::basicLocalSearch(evaluate = problem$evaluate, 
+                                  initial.solution = perm_problem, 
+                                  neighborhood = inserted, 
+                                  selector = metaheuR::firstImprovementSelector, 
+                                  non.valid = 'discard', 
+                                  resources = metaheuR::cResource(time = 10, evaluations = 100 * n * n, iterations = 100 * n))
+
+# Extract the approximated solution found and the objective value
+# WRITE HERE (2 lines of code)
+getSolution(sol_swaped)
+getEvaluation(sol_swaped)
+
+getSolution(sol_inserted)
+getEvaluation(sol_inserted)
+
+sol_inserted_greedy <- metaheuR::basicLocalSearch(evaluate = problem$evaluate, 
+                                  initial.solution = perm_problem, 
+                                  neighborhood = inserted, 
+                                  selector = metaheuR::greedySelector, 
+                                  non.valid = 'discard', 
+                                  resources = metaheuR::cResource(time = 10, evaluations = 100 * n * n, iterations = 100 * n))
+getSolution(sol_inserted_greedy)
+getEvaluation(sol_inserted_greedy)
+```
+
+## Questions:
+* What are the approximate solutions obtained for the different neighborhoods and the different strategies to select a solution among the ones in the neighborhood? What's their objective value? Compare them and say which one is the best (do not forget that `metaheuR` minimizes the sum of values under the diagonal). 
+
+1) Apply a greedy strategy to select a solution in an "insert" neighborhood:
+
+
+2) Select the first neighbor that improves the current solution in an "insert" neighborhood:
+
+ 
+3) Apply a greedy strategy to select a solution in a "swap" neighborhood::
+
+ 
+4) Select the first neighbor that improves the current solution in a "swap" neighborhood:
+
+* Now, you can try to increment the resources for the searching process. Do you obtain better results? 
+
+# Estimating the number of local optima
+
+Our intuition suggests that if there is a small number of local optimum in the neighborhood, the algorithm has more chances to find the global optimum; its shape is said to be "smooth" or "flat". On the contrary, having a neighborhood with a lot of local optimum makes it more difficult to find the global optimum, since the algorithm will very easily get stack in a local optimum; its shape is said to be "wrinkled" or "rugged". 
+
+Having a "swap" and an "insert" neighborhood, for example, how can we know which of the two is better? We could compute all the solutions in the neighborhoods, evaluate them all and calculate the number of local optimum for each of them, but this strategy makes no sense, since it requires to analyze the complete search spaces: computationally too expensive. So, normally estimations are computed.
+
+There is a very easy way to estimate the number of local optimum in a neighborhood. It is possible to generate $k$ initial solutions at random and apply the local search algorithm to each of them to obtain $k$ local optima. They are not all necessarily different, of course, because of the "basins of attraction". Let's say that for a particular neighborhood and starting at $k$ initial solutions $LO_{diff}$ different local optimums are obtained. So, the percentage of different local optimums obtained can be computed like this:
+
+$$ 100*\frac{LO_{diff}}{k}.$$ 
+
+In the following you are asked to estimate the number of local optimum for the two neighborhoods we created at the beginning of the lab session: the "swap" neighborhood and the "insert" neighborhood. We will generate ($k=5$) initial solutions to start. Based on the results you obtained in the previous section, it is up to you to decide the strategy you'll use to select a solution among the ones in the neighborhood. According to the resources, we will limit the search to $1000n^2$ evaluations.
+
+
+```{r, eval=FALSE}
+# WRITE HERE (15-20 lines of code)
+
+
+
+
+
+
+
+
+```
+
+## Questions:
+
+* What is the number of local optimum estimated for the "swap" neighborhood? And, for the "insert" neighborhood? 
+
+* Which one would you say is more appropriate for the LOP problem?
+   
+* Repeat the experiment for different number of initial solutions, $k=10, 15, 20$. Do not consider very large values for $k$, because it takes time to do the estimations... Can you observe any difference?
+
+# 5. Advanced local search-based algorithms
+Local search-based algorithms stop their execution whenever local optima solution have been found (unless assigned resources run out before). This implies that no matter how much we increase the availability of execution resources, the algorithm will remain stucked in the same solution. In response to such weaknesses, the community of heuristic optimization proposed a number of strategies that permit the algorithm to scape being stucked, and enable to continue optimizing. An obvious strategy, is to run another local search algorithm, however, since the current solution is a local optimum, then, no improvement will take place. In this sense, an alternative is to perturbate the current solution (5% of the numbers that compound the solution), and then apply again the local search algorithm. This general procedure is known Iterated Local Search (ILS). The algorithm repeats until the available resources run out.
+
+`metaheuR` already includes an implementation of the ILS, but I do not want you to use it. Instead, I want you to implement your own design. You have almost every puzzle piece:
+
+* Local search algorithm (using the best neighborhood found so far).
+* The `getEvaluation` function to obtain the objective value of the best solution found by the local search algorithm.
+* The non-consumed evaluations can be known with the function `getConsumedEvaluations`.
+* Stop the ILS algorithm after $10^6$ function evaluations. If it takes too much time, test first with $10^5$ evaluations.
+
+The perturbation function is given below. The `ratio` parameter describes the percentage of the solution that will be shuffled.
+```{r}
+perturbShuffle<-function(solution,ratio,...){
+return (shuffle(permutation=solution,ratio=ratio))
+}
+```
+
+The implementation of the ILS:
+```{r, eval=FALSE}
+# BETE HEMEN (24-30 lerro)
+
+
+```
+
+## Questions
+* Return the solution and objective value of the solution found so far. Is this solution better than the one calculated by the local search algorithm in the previous sections?

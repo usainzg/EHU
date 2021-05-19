@@ -1,0 +1,557 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+
+\hypertarget{operations-research.-laboratory-session}{%
+\section{Operations Research. Laboratory
+Session}\label{operations-research.-laboratory-session}}
+
+\hypertarget{heuristic-optimization-with-metaheur.}{%
+\section{\texorpdfstring{Heuristic Optimization with
+\texttt{metaheuR}.}{Heuristic Optimization with metaheuR.}}\label{heuristic-optimization-with-metaheur.}}
+
+\hypertarget{experimenting-with-different-neighborhoods-in-local-search}{%
+\section{(Experimenting with different neighborhoods in Local
+Search)}\label{experimenting-with-different-neighborhoods-in-local-search}}
+
+\hypertarget{the-lop-problem}{%
+\section{(The LOP problem)}\label{the-lop-problem}}
+
+The aim of this laboratory session is to continue learning how to
+implement heuristic algorithms for solving combinatorial optimization
+problems using the \texttt{metaheuR} package in R. Be careful, in R
+there exists a package called \texttt{metaheur}, but that's not the one
+we'll use.
+
+\hypertarget{installing-metaheur}{%
+\section{\texorpdfstring{1. Installing
+\texttt{metaheuR}}{1. Installing metaheuR}}\label{installing-metaheur}}
+
+You can install it directly from RStudio. Download the file
+\texttt{metaheuR\_0.3.tar.gz} from the eGela platform to a working
+directory in your computer. I saved it here:
+
+/Users/JosuC/Desktop
+
+To install the package, write the path that corresponds to the working
+directory where you saved the file \texttt{metaheuR\_0.3.tar.gz} and
+execute the following commands:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{ (}\SpecialCharTok{!}\FunctionTok{require}\NormalTok{(}\StringTok{"ggplot2"}\NormalTok{)) }\FunctionTok{install.packages}\NormalTok{(}\StringTok{"ggplot2"}\NormalTok{, }\AttributeTok{dependencies=}\ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(metaheuR)}
+\end{Highlighting}
+\end{Shaded}
+
+Once the package is installed and loaded, you can go to RStudio
+``Packages'' and click on the name of the package to see the help pages
+of all the functions defined in it.
+
+For more extensive documentation, the book ``\emph{Bilaketa
+Heuristikoak: Teoria eta Adibideak R lengoaian}'' published by the
+UPV/EHU is suggested. It is written in Basque and freely accessible in:
+
+\url{https://addi.ehu.es/handle/10810/25757}
+
+\hypertarget{the-linear-ordering-problem-lop}{%
+\section{2. The Linear Ordering Problem
+(LOP)}\label{the-linear-ordering-problem-lop}}
+
+With illustrative purposes, in the current session, the Linear Ordering
+Problem (LOP) will be considered.The LOP problem is stated as follows:
+given a matrix \(B=[b_{i,j}]_{n\times n}\) of weights, find the
+simultaneous permutation \(\sigma\) of the \(n\) rows and columns that
+maximizes the sum of the weights \(b_{i,j}\) localted in the upper
+triangle of the matrix (above the main diagonal).
+
+For more information about this NP-hard problem, have a look at these
+references or search for new ones at Google Scholar:
+
+\begin{itemize}
+\item "The Linear Ordering Problem Revisited". Josu Ceberio, Alexander Mendiburu, José Antonio Lozano (2014). http://hdl.handle.net/10810/11178
+\item "Linear Ordering Problem". Martí, Reinelt and Duarte (2009). Problem description, the LOP formulated as 0/1 linear integer programming problem, etc. http://grafo.etsii.urjc.es/optsicom/lolib/
+\end{itemize}
+
+A very small instance of a LOP problem is the matrix of weights shown in
+the first matrix below. In this LOP instance, there are \(n=4\) rows and
+columns. The second matrix represents a different order for rows and
+columns: row 3 (and column 3) are placed in the first position (either
+row or column) in the matrix and row 1 (and column 1) in the third
+position.
+
+\begin{center}
+$\begin{array}{c|rrrr|r|rrrr|}
+
+\multicolumn{1}{c}{} & 1 & 2 & 3 & \multicolumn{1}{c}{4}& 
+       \multicolumn{1}{c}{\hspace{2cm} } & 3 & 2 & 1 & \multicolumn{1}{c}{4} \\
+\cline{2-5} \cline{7-10}
+1 & 0 & 2 & 1 & 3 &   3 & 0 & 3 & 2 & 5\\
+2 & 4 & 0 & 1 & 5 &   2 & 1 & 0 & 4 & 5\\
+3 & 2 & 3 & 0 & 5 &   1 & 1 & 2 & 0 & 3\\
+4 & 1 & 2 & 1 & 0 &   4 & 1 & 2 & 1 & 0\\
+\cline{2-5} \cline{7-10}
+\end{array}$
+\end{center}
+
+Note: The implementation in \texttt{metaheuR} does not maximize the sum
+of values in the upper triangle. Instead, it minimizes the sum of values
+under the diagonal. In fact, it is equivalent, but, be careful: when you
+compare two solutions, the optimum is the minimum for \texttt{metaheuR}.
+
+\hypertarget{formulating-the-problem-in-rstudio}{%
+\subsection{Formulating the problem in
+RStudio}\label{formulating-the-problem-in-rstudio}}
+
+First of all, we need to define the problem. If the problem is small, we
+can introduce the matrix of weights directly in RStudio. Let's introduce
+the very small \(4 \times 4\) instance of a LOP problem shown
+previously.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# LOP problem of the sheet of exercises (4x4 matrix of weights).}
+\CommentTok{\# Introduce the data and create the matrix object with it.}
+\CommentTok{\# WRITE HERE (2 lines of code)}
+\end{Highlighting}
+\end{Shaded}
+
+In the lab we'll use the particular instance of a LOP problem downloaded
+from the eGela platform: \emph{N-be75eec\_30}. It is a text file, you
+can open it using any text editor.
+
+Think about the necessary functions to read the file from RStudio,
+compute the number of rows (columns) and create the appropriate R object
+from the given set of values.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Read the data from file N{-}be75eec and create the appropriate R object.}
+\CommentTok{\# WRITE HERE (3{-}4 lines of code) }
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{questions}{%
+\subsection{Questions:}\label{questions}}
+
+\begin{itemize}
+\item
+  What is the most appropriate codification to represent the solutions
+  for the LOP problem?
+\item
+  Does the ``swap'' operator guarantee integrity? And, connectivity?
+  And, the ``insert'' operator?
+\item
+  How many solutions are there in the search space for two LOP problems
+  considered? The very small \(4 \times 4\) problem and the instance
+  read from file \emph{N-be75eec\_30}?
+\item
+  Are neighboring solutions computed by the ``swap'' and ``insert''
+  operators similar?
+\end{itemize}
+
+\hypertarget{solving-the-problem-with-metaheur}{%
+\section{\texorpdfstring{3. Solving the problem with
+\texttt{metaheuR}}{3. Solving the problem with metaheuR}}\label{solving-the-problem-with-metaheur}}
+
+Once the matrix of weights for the LOP problem has been defined, the
+function \texttt{lopProblem} implemented in \texttt{metaheuR} can be
+used. Have a look at the \texttt{lopProblem} function in the help pages
+in RStudio.
+
+In the following, you are asked to use it to create the object
+associated to the matrix of weights defined at the beginning of this lab
+session. After that, generate a solution (the one that considers rows
+and columns as they are in the matrix of weights) and compute its
+objective value.
+
+For the very small example:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Create the LOP object }
+\CommentTok{\# WRITE HERE (1 line of code)}
+
+
+
+
+\CommentTok{\# Generate the solutions that considers rows and columns as they are and compute its objective value}
+\CommentTok{\# WRITE HERE (2 lines of code)}
+
+
+
+
+
+
+
+
+\CommentTok{\# Generate the solutions that corresponds to the second table.}
+\CommentTok{\# WRITE HERE (2 lines of code)}
+\end{Highlighting}
+\end{Shaded}
+
+For the instance of a LOP problem downloaded from the eGela platform
+(\emph{N-be75eec\_30}):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Create the LOP object}
+\CommentTok{\# WRITE HERE (1 line of code)}
+
+
+
+
+
+\CommentTok{\# Generate the solutions that considers rows and columns as they are and compute its objective value}
+\CommentTok{\# WRITE HERE (2 lines of code)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{local-search-swap-and-insert-neighborhoods}{%
+\section{4. Local search (``swap'' and ``insert''
+neighborhoods)}\label{local-search-swap-and-insert-neighborhoods}}
+
+Local search is a heuristic method that is based on the intuition about
+the searching process: given a solution, the idea is to find better
+solutions in its neighborhood. At each iteration, the algorithm keeps a
+current solution and substitutes it with another one in the
+neighborhood. We already worked with it in the previous laboratory
+session.
+
+The efficiency of the algorithm is highly related to the shape of the
+neighborhood selected. In this lab session we are going to experiment
+with two different neighborhoods: the ones generated by the ``swap'' and
+the ``insert'' operators. The aim is to estimate the number of local
+optima in each of the neighborhoods, to select the most efficient one.
+You can use the functions \texttt{swapNeighborhood} and
+\texttt{insertNeighborhood} implemented in \texttt{metaheuR}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# For the solution that considers rows and columns in the same order as they are, }
+\CommentTok{\# create a "swap" neighborhood object}
+\CommentTok{\# WRITE HERE (2 lines of code)}
+
+
+
+
+
+
+\CommentTok{\# Now, create an "insert" neighborhood object for the same solution}
+\CommentTok{\# WRITE HERE (1 line of code)}
+\end{Highlighting}
+\end{Shaded}
+
+Having the initial solution and the neighborhoods defined, now we'll
+apply the \texttt{basicLocalSearch} function, as we did in the previous
+lab session. You can have a look at the help pages to see how to use it.
+It requires quite a lot of parameters.
+
+As we have seen in the theory, there are different strategies to select
+a solution among the ones in the neighborhood during the searching
+process. In the previous lab we applied a greedy strategy to select a
+solution in the neighborhood with \texttt{greedySelector}. This time we
+can experiment with another option and select the first neighbor that
+improves the current solution, \texttt{firstImprovementSelector}. We
+will consider the two options and compare the results.
+
+According to the resources available for the searching process, this
+time we will limit them as follows: the execution time (10 seconds), the
+number of evaluations performed (\(100n^2\)) and the number of
+iterations to be carried out (\(100n\)), being \(n\) the size of the
+problem.
+
+According to the neighborhoods, we've got two to select and compare: the
+``insert neighborhood'' and the ``swap neighborhood'' created
+previously.
+
+Once all the parameters are ready, the searching process can start. Try
+with the different options for the parameters mentioned.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# WRITE HERE (11{-}12 lines of code)}
+
+
+
+
+
+
+
+
+\CommentTok{\# Extract the approximated solution found and the objective value}
+\CommentTok{\# WRITE HERE (2 lines of code)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{questions-1}{%
+\subsection{Questions:}\label{questions-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  What are the approximate solutions obtained for the different
+  neighborhoods and the different strategies to select a solution among
+  the ones in the neighborhood? What's their objective value? Compare
+  them and say which one is the best (do not forget that
+  \texttt{metaheuR} minimizes the sum of values under the diagonal).
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\item
+  Apply a greedy strategy to select a solution in an ``insert''
+  neighborhood:
+\item
+  Select the first neighbor that improves the current solution in an
+  ``insert'' neighborhood:
+\item
+  Apply a greedy strategy to select a solution in a ``swap''
+  neighborhood::
+\item
+  Select the first neighbor that improves the current solution in a
+  ``swap'' neighborhood:
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Now, you can try to increment the resources for the searching process.
+  Do you obtain better results?
+\end{itemize}
+
+\hypertarget{estimating-the-number-of-local-optima}{%
+\section{Estimating the number of local
+optima}\label{estimating-the-number-of-local-optima}}
+
+Our intuition suggests that if there is a small number of local optimum
+in the neighborhood, the algorithm has more chances to find the global
+optimum; its shape is said to be ``smooth'' or ``flat''. On the
+contrary, having a neighborhood with a lot of local optimum makes it
+more difficult to find the global optimum, since the algorithm will very
+easily get stack in a local optimum; its shape is said to be
+``wrinkled'' or ``rugged''.
+
+Having a ``swap'' and an ``insert'' neighborhood, for example, how can
+we know which of the two is better? We could compute all the solutions
+in the neighborhoods, evaluate them all and calculate the number of
+local optimum for each of them, but this strategy makes no sense, since
+it requires to analyze the complete search spaces: computationally too
+expensive. So, normally estimations are computed.
+
+There is a very easy way to estimate the number of local optimum in a
+neighborhood. It is possible to generate \(k\) initial solutions at
+random and apply the local search algorithm to each of them to obtain
+\(k\) local optima. They are not all necessarily different, of course,
+because of the ``basins of attraction''. Let's say that for a particular
+neighborhood and starting at \(k\) initial solutions \(LO_{diff}\)
+different local optimums are obtained. So, the percentage of different
+local optimums obtained can be computed like this:
+
+\[ 100*\frac{LO_{diff}}{k}.\]
+
+In the following you are asked to estimate the number of local optimum
+for the two neighborhoods we created at the beginning of the lab
+session: the ``swap'' neighborhood and the ``insert'' neighborhood. We
+will generate (\(k=5\)) initial solutions to start. Based on the results
+you obtained in the previous section, it is up to you to decide the
+strategy you'll use to select a solution among the ones in the
+neighborhood. According to the resources, we will limit the search to
+\(1000n^2\) evaluations.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# WRITE HERE (15{-}20 lines of code)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{questions-2}{%
+\subsection{Questions:}\label{questions-2}}
+
+\begin{itemize}
+\item
+  What is the number of local optimum estimated for the ``swap''
+  neighborhood? And, for the ``insert'' neighborhood?
+\item
+  Which one would you say is more appropriate for the LOP problem?
+\item
+  Repeat the experiment for different number of initial solutions,
+  \(k=10, 15, 20\). Do not consider very large values for \(k\), because
+  it takes time to do the estimations\ldots{} Can you observe any
+  difference?
+\end{itemize}
+
+\hypertarget{advanced-local-search-based-algorithms}{%
+\section{5. Advanced local search-based
+algorithms}\label{advanced-local-search-based-algorithms}}
+
+Local search-based algorithms stop their execution whenever local optima
+solution have been found (unless assigned resources run out before).
+This implies that no matter how much we increase the availability of
+execution resources, the algorithm will remain stucked in the same
+solution. In response to such weaknesses, the community of heuristic
+optimization proposed a number of strategies that permit the algorithm
+to scape being stucked, and enable to continue optimizing. An obvious
+strategy, is to run another local search algorithm, however, since the
+current solution is a local optimum, then, no improvement will take
+place. In this sense, an alternative is to perturbate the current
+solution (5\% of the numbers that compound the solution), and then apply
+again the local search algorithm. This general procedure is known
+Iterated Local Search (ILS). The algorithm repeats until the available
+resources run out.
+
+\texttt{metaheuR} already includes an implementation of the ILS, but I
+do not want you to use it. Instead, I want you to implement your own
+design. You have almost every puzzle piece:
+
+\begin{itemize}
+\tightlist
+\item
+  Local search algorithm (using the best neighborhood found so far).
+\item
+  The \texttt{getEvaluation} function to obtain the objective value of
+  the best solution found by the local search algorithm.
+\item
+  The non-consumed evaluations can be known with the function
+  \texttt{getConsumedEvaluations}.
+\item
+  Stop the ILS algorithm after \(10^6\) function evaluations. If it
+  takes too much time, test first with \(10^5\) evaluations.
+\end{itemize}
+
+The perturbation function is given below. The \texttt{ratio} parameter
+describes the percentage of the solution that will be shuffled.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{perturbShuffle}\OtherTok{\textless{}{-}}\ControlFlowTok{function}\NormalTok{(solution,ratio,...)\{}
+\FunctionTok{return}\NormalTok{ (}\FunctionTok{shuffle}\NormalTok{(}\AttributeTok{permutation=}\NormalTok{solution,}\AttributeTok{ratio=}\NormalTok{ratio))}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+The implementation of the ILS:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# BETE HEMEN (24{-}30 lerro)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{questions-3}{%
+\subsection{Questions}\label{questions-3}}
+
+\begin{itemize}
+\tightlist
+\item
+  Return the solution and objective value of the solution found so far.
+  Is this solution better than the one calculated by the local search
+  algorithm in the previous sections?
+\end{itemize}
+
+\end{document}
