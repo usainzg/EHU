@@ -145,7 +145,8 @@ You can either create a list with all the parameters and use the function `do.ca
 
 ```{r,echo=TRUE, eval=FALSE}
 # WRITE HERE (11-12 lines of code)
-initS <- metaheuR::randomPermutation(n)
+initS<- metaheuR::tspGreedy(cmatrix = m, cl.size = 1)
+# initS <- metaheuR::randomPermutation(n)
 neigh <- metaheuR::swapNeighborhood(initS)
 
 sol <- metaheuR::basicLocalSearch(evaluate = tsp$evaluate, 
