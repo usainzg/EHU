@@ -217,13 +217,63 @@ In the following you are asked to estimate the number of local optimum for the t
 
 ```{r, eval=FALSE}
 # WRITE HERE (15-20 lines of code)
+k <- 5
+initials <- list()
 
+for (i in 1:k) {
+  perm_i <- metaheuR::randomPermutation(n)
+  swaped_i <- metaheuR::swapNeighborhood(perm_i)
+  sol_swaped_i <- metaheuR::basicLocalSearch(evaluate = problem$evaluate, 
+                                  initial.solution = perm_i, 
+                                  neighborhood = swaped_i, 
+                                  selector = metaheuR::firstImprovementSelector, 
+                                  non.valid = 'discard', 
+                                  resources = metaheuR::cResource(evaluations = 1000 * n * n))
+  initials[[i]] <- metaheuR::getSolution(sol_swaped_i)
+}
 
+diff <- 0
+for (i in 1:k) {
+  sol_i <- initials[[i]]
+  u <- TRUE
+  for (k in 1:k) {
+    sol_k <- initials[[k]]
+    if (i != k && identical(sol_i, sol_k)) {
+      u <- FALSE
+    }
+  }
+  if (u == TRUE) diff <- diff + 1
+}
 
+100 * (diff / k)
 
+k <- 5
+for (i in 1:k) {
+  perm_i <- metaheuR::randomPermutation(n)
+  inserted_i <- metaheuR::insertNeighborhood(perm_i)
+  sol_inserted_i <- metaheuR::basicLocalSearch(evaluate = problem$evaluate, 
+                                  initial.solution = perm_i, 
+                                  neighborhood = inserted_i, 
+                                  selector = metaheuR::firstImprovementSelector, 
+                                  non.valid = 'discard', 
+                                  resources = metaheuR::cResource(evaluations = 1000 * n * n))
+  initials[[i]] <- metaheuR::getSolution(sol_inserted_i)
+}
 
+diff <- 0
+for (i in 1:k) {
+  sol_i <- initials[[i]]
+  u <- TRUE
+  for (k in 1:k) {
+    sol_k <- initials[[k]]
+    if (i != k && identical(sol_i, sol_k)) {
+      u <- FALSE
+    }
+  }
+  if (u == TRUE) diff <- diff + 1
+}
 
-
+100 * (diff / k)
 
 ```
 
@@ -247,17 +297,67 @@ Local search-based algorithms stop their execution whenever local optima solutio
 
 The perturbation function is given below. The `ratio` parameter describes the percentage of the solution that will be shuffled.
 ```{r}
-perturbShuffle<-function(solution,ratio,...){
-return (shuffle(permutation=solution,ratio=ratio))
+perturbShuffle <- function(solution,ratio = 5,...) {
+  return (metaheuR::shuffle(permutation=solution, ratio=ratio))
 }
 ```
 
 The implementation of the ILS:
 ```{r, eval=FALSE}
 # BETE HEMEN (24-30 lerro)
+n_eval <- 100000 # 10^5
+perm_i <- metaheuR::randomPermutation(n)
+swaped_i <- metaheuR::swapNeighborhood(perm_i)
 
+best_sol <- perm_i
+best_fit <- problem$evaluate(perm_i)
+  
+while (n_eval > 0) {
+  sol_swaped_i <- metaheuR::basicLocalSearch(evaluate = problem$evaluate, 
+                                  initial.solution = perm_i, 
+                                  neighborhood = swaped_i, 
+                                  selector = metaheuR::firstImprovementSelector, 
+                                  non.valid = 'discard', 
+                                  resources = metaheuR::cResource(evaluations = n_eval),
+                                  verbose = FALSE)
+  
+  consumed <- metaheuR::getConsumedEvaluations(sol_swaped_i@resources)
+  n_eval <- n_eval - consumed
+  
+  solu <- metaheuR::getSolution(sol_swaped_i)
+  fitness <- metaheuR::getEvaluation(sol_swaped_i)
+  
+  if (best_fit > fitness) {
+    message("New best fit: ", best_fit, " -> ", fitness)
+    best_fit <- fitness
+    best_sol <- solu
+  }
+  
+  # message("Consumed: ", consumed, " Remaining: ", n_eval, " Eval: ", fitness)
+  
+  pert <- perturbShuffle(solution = solu, ratio = 5)
+  perm_i <- pert
+}
 
+message("Best fit: ", best_fit)
+best_sol
 ```
+```{r, eval=FALSE}
+perm_i <- metaheuR::randomPermutation(n)
+swaped_i <- metaheuR::swapNeighborhood(perm_i)
+
+solii <- metaheuR::iteratedLocalSearch(evaluate = problem$evaluate,
+                              initial.solution = perm_i,
+                              neighborhood = swaped_i,
+                              selector = metaheuR::firstImprovementSelector,
+                              perturb = perturbShuffle,
+                              non.valid = 'discard',
+                              resources = metaheuR::cResource(evaluations = 100000),
+                              verbose = FALSE)
+
+solii
+````
+
 
 ## Questions
 * Return the solution and objective value of the solution found so far. Is this solution better than the one calculated by the local search algorithm in the previous sections?
