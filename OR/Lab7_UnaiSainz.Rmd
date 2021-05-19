@@ -307,7 +307,9 @@ The implementation of the ILS:
 # BETE HEMEN (24-30 lerro)
 n_eval <- 100000 # 10^5
 perm_i <- metaheuR::randomPermutation(n)
+
 swaped_i <- metaheuR::swapNeighborhood(perm_i)
+inserted_i <- metaheuR::insertNeighborhood(perm_i)
 
 best_sol <- perm_i
 best_fit <- problem$evaluate(perm_i)
@@ -315,7 +317,7 @@ best_fit <- problem$evaluate(perm_i)
 while (n_eval > 0) {
   sol_swaped_i <- metaheuR::basicLocalSearch(evaluate = problem$evaluate, 
                                   initial.solution = perm_i, 
-                                  neighborhood = swaped_i, 
+                                  neighborhood = inserted_i, 
                                   selector = metaheuR::firstImprovementSelector, 
                                   non.valid = 'discard', 
                                   resources = metaheuR::cResource(evaluations = n_eval),
