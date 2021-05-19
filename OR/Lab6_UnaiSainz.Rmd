@@ -148,17 +148,18 @@ You can either create a list with all the parameters and use the function `do.ca
 initS <- metaheuR::randomPermutation(n)
 neigh <- metaheuR::swapNeighborhood(initS)
 
-sol <- metaheuR::basicLocalSearch(evaluate = tsp$evaluate, initial.solution = initS, neighborhood = neigh, selector = metaheuR::greedySelector, non.valid = 'discard')
-
+sol <- metaheuR::basicLocalSearch(evaluate = tsp$evaluate, 
+                                  initial.solution = initS, 
+                                  neighborhood = neigh, 
+                                  selector = metaheuR::greedySelector, 
+                                  non.valid = 'discard', 
+                                  resources = metaheuR::cResource(evaluations = 10000))
 
 # Extract the approximated solution found and the objective value
 # WRITE HERE (2-3 lines of code)
-
-
-
-
-
-
+metaheuR::getSolution(sol)
+metaheuR::getEvaluation(sol)
+# metaheuR::plotProgress(sol) + labs(y="Cost", x="Evaluations")
 ```
 
 ## Questions:
