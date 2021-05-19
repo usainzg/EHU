@@ -20,6 +20,7 @@ You can install it directly from RStudio. Download the file `metaheuR_0.3.tar.gz
 To install the package, write the path that corresponds to the working directory where you saved the file `metaheuR_0.3.tar.gz` and execute the following commands:
 ```{r, eval=FALSE,echo=TRUE}
 if (!require("ggplot2")) install.packages("ggplot2", dependencies=TRUE)
+if (!require("metaheuR")) install.packages("metaheuR_0.3.tar.gz", repos = NULL, type="source")
 library(ggplot2)
 library(metaheuR)
 ```
@@ -305,7 +306,7 @@ perturbShuffle <- function(solution,ratio = 5,...) {
 The implementation of the ILS:
 ```{r, eval=FALSE}
 # BETE HEMEN (24-30 lerro)
-n_eval <- 100000 # 10^5
+n_eval <- 1000000 # 10^5
 perm_i <- metaheuR::randomPermutation(n)
 
 swaped_i <- metaheuR::swapNeighborhood(perm_i)
